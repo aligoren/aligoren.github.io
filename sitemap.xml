@@ -17,11 +17,19 @@
   <lastmod>2015-04-04</lastmod>
  </url>
  <url>
+  <loc>http://aligoren.github.io/categories/cat_php.html</loc>
+  <lastmod>2015-04-04</lastmod>
+ </url>
+ <url>
   <loc>http://aligoren.github.io/categories/cat_python.html</loc>
   <lastmod>2015-04-04</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/index.html</loc>
+  <lastmod>2015-04-04</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/php.html</loc>
   <lastmod>2015-04-04</lastmod>
  </url>
  <url>
@@ -46,6 +54,10 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/merhaba-dunya.html</loc>
+  <lastmod>2015-04-04</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html</loc>
   <lastmod>2015-04-04</lastmod>
  </url>
 </urlset>

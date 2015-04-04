@@ -5,7 +5,15 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
+  <lastmod>2015-04-04</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
+  <lastmod>2015-04-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/php.xml</loc>
   <lastmod>2015-04-04</lastmod>
  </sitemap>
  <sitemap>

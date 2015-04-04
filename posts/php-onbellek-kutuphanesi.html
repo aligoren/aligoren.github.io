@@ -5,15 +5,15 @@ article: http://ogp.me/ns/article#
 " lang="tr">
     <head>
     <meta charset="utf-8">
-    <meta name="description" content="Nikola denemesi">
+    <meta name="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bu bir Python Kodu | Ali GÖREN</title>
+    <title>PHP Önbellek Kütüphanesi | Ali GÖREN</title>
 
                 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 
                 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://aligoren.github.io/posts/bir-python-kodu.html">
+      <link rel="canonical" href="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html">
 
 
 
@@ -24,16 +24,17 @@ article: http://ogp.me/ns/article#
     
 
     
-    <meta name="description" itemprop="description" content="Nikola denemesi">
+    <meta name="description" itemprop="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
     <meta name="author" content="Ali">
-        <link rel="prev" href="php-onbellek-kutuphanesi.html" title="php-onbellek-kutuphanesi" type="text/html">
+        <link rel="prev" href="merhaba-dunya.html" title="Git ve Github'a başlangıç" type="text/html">
+        <link rel="next" href="bir-python-kodu.html" title="Bu bir Python Kodu" type="text/html">
         <meta property="og:site_name" content="Ali GÖREN">
-    <meta property="og:title" content="Bu bir Python Kodu">
-    <meta property="og:url" content="http://aligoren.github.io/posts/bir-python-kodu.html">
-    <meta property="og:description" content="Nikola denemesi">
+    <meta property="og:title" content="PHP Önbellek Kütüphanesi">
+    <meta property="og:url" content="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html">
+    <meta property="og:description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2015-04-04T00:00:00+03:00">
-           <meta property="article:tag" content="python">
+           <meta property="article:tag" content="php">
 
     
     
@@ -94,15 +95,15 @@ article: http://ogp.me/ns/article#
             
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
         <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Bu bir Python Kodu</a></h1>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">PHP Önbellek Kütüphanesi</a></h1>
 
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-04T00:00:00+03:00" itemprop="datePublished" title="2015-04-04 00:00">2015-04-04 00:00</time></p>
-                <p class="commentline">            <a href="bir-python-kodu.html#disqus_thread" data-disqus-identifier="cache/posts/bir-python-kodu.html">Comments</a>
+                <p class="commentline">            <a href="php-onbellek-kutuphanesi.html#disqus_thread" data-disqus-identifier="cache/posts/php-onbellek-kutuphanesi.html">Comments</a>
 
 
             
-                <meta name="description" itemprop="description" content="Nikola denemesi">
+                <meta name="description" itemprop="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
         </p>
 </div>
         
@@ -110,30 +111,37 @@ article: http://ogp.me/ns/article#
 
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>Nikola gerçekten harika bir static site generator.</p>
-<h2>Markdown'un kendisinin desteklediği renklendirme</h2>
-<pre class="code literal-block"><span class="k">print</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
-<span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"3 küçük 4 sayısından"</span><span class="p">)</span>
-</pre>
+<h3>Önbellek Nedir? Neden Kullanılır?</h3>
+<p>PHP Önbellek mekanizması, gerek geliştiricilerin gerekse kullanıcıların sitelerinde performans sağlamak istemesi ile ihtiyaç duyulan bir araçtır.
+Cache mekanizmasını bir veritabanı olarak düşünebiliriz. Depolanan veriye ilişkisel ya da nesnel olarak erişebilir. Bu sayede ulaşılması zor bir bilgi,
+vakit kaybetmeden elimizde olabilir. Ancak tabii ki her durumda olduğu gibi bu durumda da bazı sorunlar olmakta.<!-- TEASER_END --></p>
+<h3>Kütüphaneye Dair Detaylar</h3>
+<p>(<a href="https://github.com/aligoren/PHPKutuphane/tree/master/cache">Kütüphane Kodları GitHub Üzerinde</a>)</p>
+<p>Kullanımı şöyle</p>
+<p>(<a href="https://github.com/aligoren/PHPKutuphane/blob/master/cache/test/OnBellekTest.php">OnBellekTest.php dosyası</a>)</p>
+<h2>OnBellekTest.php</h2>
+<pre class="code literal-block"><span class="cp">&lt;?php</span>
 
-
-<p>Sonuç olarak güzel.</p>
-<p>Ayrıca Ruby de böyle</p>
-<h2>Fenced Code ile Yazılan Ruby Kodu ...</h2>
-<pre class="code literal-block"><span class="nb">puts</span> <span class="s2">"hi"</span>
+<span class="k">include</span> <span class="p">(</span><span class="s2">"../OnBellek.php"</span><span class="p">);</span>
+<span class="nv">$onbellek</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OnBellek</span><span class="p">();</span>
+<span class="nv">$onbellek</span><span class="o">-&gt;</span><span class="na">baslat</span><span class="p">();</span>
+<span class="k">echo</span> <span class="s1">'Bu yeni onbellek dosyasi icin. 60 saniye sonra.'</span><span class="p">;</span>
+<span class="nv">$onbellek</span><span class="o">-&gt;</span><span class="na">bitir</span><span class="p">();</span>
 </pre>
 </div>
     </div>
     <aside class="postpromonav">
     <nav>
             <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+           <li><a class="tag p-category" href="../categories/php.html" rel="tag">php</a></li>
         </ul>
 
             <ul class="pager">
             <li class="previous">
-                <a href="php-onbellek-kutuphanesi.html" rel="prev" title="php-onbellek-kutuphanesi">Önceki yazı</a>
+                <a href="merhaba-dunya.html" rel="prev" title="Git ve Github'a başlangıç">Önceki yazı</a>
+            </li>
+            <li class="next">
+                <a href="bir-python-kodu.html" rel="next" title="Bu bir Python Kodu">Sonraki yazı</a>
             </li>
         </ul>
 
@@ -144,9 +152,9 @@ article: http://ogp.me/ns/article#
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="aligren",
-            disqus_url="http://aligoren.github.io/posts/bir-python-kodu.html",
-        disqus_title="Bu bir Python Kodu",
-        disqus_identifier="cache/posts/bir-python-kodu.html",
+            disqus_url="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html",
+        disqus_title="PHP \u00d6nbellek K\u00fct\u00fcphanesi",
+        disqus_identifier="cache/posts/php-onbellek-kutuphanesi.html",
         disqus_config = function () {
             this.language = "tr";
         };
