@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ali GÖREN</title><link>http://aligoren.github.io/</link><description>Programlama Açık Kaynak Python Ruby PHP</description><atom:link href="http://aligoren.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>tr</language><lastBuildDate>Sat, 04 Apr 2015 11:46:45 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Bu bir Python Kodu</title><link>http://aligoren.github.io/posts/bir-python-kodu.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Yazılabilecek en güzel kodlardan birisi de bu python kodu
-&lt;/p&gt;&lt;p&gt;&lt;a href="http://aligoren.github.io/posts/bir-python-kodu.html"&gt;Devamını oku…&lt;/a&gt; (1 dakikalık okuma)&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>http://aligoren.github.io/posts/bir-python-kodu.html</guid><pubDate>Sat, 04 Apr 2015 11:27:25 GMT</pubDate></item><item><title>Git ve Github'a başlangıç</title><link>http://aligoren.github.io/posts/merhaba-dunya.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Merhaba dünya ile başlamak idealdir.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Ali GÖREN</title><link>http://aligoren.github.io/</link><description>Programlama Açık Kaynak Python Ruby PHP</description><atom:link href="http://aligoren.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>tr</language><lastBuildDate>Sat, 04 Apr 2015 12:53:15 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Bu bir Python Kodu</title><link>http://aligoren.github.io/posts/bir-python-kodu.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola gerçekten harika bir static site generator.&lt;/p&gt;
+&lt;h2&gt;Markdown'un kendisinin desteklediği renklendirme&lt;/h2&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hi"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"3 küçük 4 sayısından"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Sonuç olarak güzel.&lt;/p&gt;
+&lt;p&gt;Ayrıca Ruby de böyle&lt;/p&gt;
+&lt;h2&gt;Fenced Code ile Yazılan Ruby Kodu ...&lt;/h2&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"hi"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>python</category><guid>http://aligoren.github.io/posts/bir-python-kodu.html</guid><pubDate>Fri, 03 Apr 2015 21:00:00 GMT</pubDate></item><item><title>Git ve Github'a başlangıç</title><link>http://aligoren.github.io/posts/merhaba-dunya.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Merhaba dünya ile başlamak idealdir.&lt;/p&gt;
 &lt;h3&gt;Neden Merhaba Dünya?&lt;/h3&gt;
 &lt;p&gt;Bilmem öyle istedim.&lt;/p&gt;
 &lt;h3&gt;Kısaca Bir Lipsum&lt;/h3&gt;
