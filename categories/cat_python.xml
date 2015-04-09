@@ -1,14 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Ali GÖREN (python)</title><link>http://aligoren.github.io/</link><description></description><atom:link href="http://aligoren.github.io/categories/cat_python.xml" type="application/rss+xml" rel="self"></atom:link><language>tr</language><lastBuildDate>Sat, 04 Apr 2015 12:53:15 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Bu bir Python Kodu</title><link>http://aligoren.github.io/posts/bir-python-kodu.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola gerçekten harika bir static site generator.&lt;/p&gt;
-&lt;h2&gt;Markdown'un kendisinin desteklediği renklendirme&lt;/h2&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hi"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"3 küçük 4 sayısından"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Sonuç olarak güzel.&lt;/p&gt;
-&lt;p&gt;Ayrıca Ruby de böyle&lt;/p&gt;
-&lt;h2&gt;Fenced Code ile Yazılan Ruby Kodu ...&lt;/h2&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"hi"&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>python</category><guid>http://aligoren.github.io/posts/bir-python-kodu.html</guid><pubDate>Fri, 03 Apr 2015 21:00:00 GMT</pubDate></item></channel></rss>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Ali GÖREN (python)</title><link>http://aligoren.github.io/</link><description></description><atom:link rel="self" href="http://aligoren.github.io/categories/cat_python.xml" type="application/rss+xml"></atom:link><language>tr</language><lastBuildDate>Thu, 09 Apr 2015 21:22:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Programming Quotes</title><link>http://aligoren.github.io/posts/programming-quotes.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Her yazılımcının ilham aldığı beğendiği sözler vardır. Bunlar felsefi olabilir ya da bir şarkı sözü olabilir. Kimi yazılımcıların da programcılar tarafından
+söylenen sözleri beğenmişliği vardır. Bu kişilerden birisi de ben olduğum için yaptım diyelim. &lt;/p&gt;&lt;p&gt;&lt;a href="http://aligoren.github.io/posts/programming-quotes.html"&gt;Devamını oku…&lt;/a&gt; (1 dakikalık okuma)&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>http://aligoren.github.io/posts/programming-quotes.html</guid><pubDate>Thu, 09 Apr 2015 21:14:52 GMT</pubDate></item></channel></rss>

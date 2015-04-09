@@ -5,15 +5,15 @@ article: http://ogp.me/ns/article#
 " lang="tr">
     <head>
     <meta charset="utf-8">
-    <meta name="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
+    <meta name="description" content="Random Programming Quotes with Python">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PHP Önbellek Kütüphanesi | Ali GÖREN</title>
+    <title>Programming Quotes | Ali GÖREN</title>
 
                 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 
                 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html">
+      <link rel="canonical" href="http://aligoren.github.io/posts/programming-quotes.html">
 
 
 
@@ -24,16 +24,16 @@ article: http://ogp.me/ns/article#
     
 
     
-    <meta name="description" itemprop="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
+    <meta name="description" itemprop="description" content="Random Programming Quotes with Python">
     <meta name="author" content="Ali">
-        <link rel="next" href="programming-quotes.html" title="Programming Quotes" type="text/html">
+        <link rel="prev" href="php-onbellek-kutuphanesi.html" title="PHP Önbellek Kütüphanesi" type="text/html">
         <meta property="og:site_name" content="Ali GÖREN">
-    <meta property="og:title" content="PHP Önbellek Kütüphanesi">
-    <meta property="og:url" content="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html">
-    <meta property="og:description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
+    <meta property="og:title" content="Programming Quotes">
+    <meta property="og:url" content="http://aligoren.github.io/posts/programming-quotes.html">
+    <meta property="og:description" content="Random Programming Quotes with Python">
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2015-04-04T16:25:56+03:00">
-           <meta property="article:tag" content="php">
+    <meta property="article:published_time" content="2015-04-10T00:14:52+03:00">
+           <meta property="article:tag" content="python">
 
     
     
@@ -99,15 +99,15 @@ article: http://ogp.me/ns/article#
             
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
         <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">PHP Önbellek Kütüphanesi</a></h1>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Programming Quotes</a></h1>
 
         <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-04T16:25:56+03:00" itemprop="datePublished" title="2015-04-04 16:25">2015-04-04 16:25</time></p>
-                <p class="commentline">            <a href="php-onbellek-kutuphanesi.html#disqus_thread" data-disqus-identifier="cache/posts/php-onbellek-kutuphanesi.html">Comments</a>
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-10T00:14:52+03:00" itemprop="datePublished" title="2015-04-10 00:14">2015-04-10 00:14</time></p>
+                <p class="commentline">            <a href="programming-quotes.html#disqus_thread" data-disqus-identifier="cache/posts/programming-quotes.html">Comments</a>
 
 
             
-                <meta name="description" itemprop="description" content="PHP Önbellek Kütüphanesi, PHP Önbellek Mekanizması, PHP Caching Class, PHP Caching System">
+                <meta name="description" itemprop="description" content="Random Programming Quotes with Python">
         </p>
 </div>
         
@@ -115,34 +115,51 @@ article: http://ogp.me/ns/article#
 
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3>Önbellek Nedir? Neden Kullanılır?</h3>
-<p>PHP Önbellek mekanizması, gerek geliştiricilerin gerekse kullanıcıların sitelerinde performans sağlamak istemesi ile ihtiyaç duyulan bir araçtır.
-Cache mekanizmasını bir veritabanı olarak düşünebiliriz. Depolanan veriye ilişkisel ya da nesnel olarak erişebilir. Bu sayede ulaşılması zor bir bilgi,
-vakit kaybetmeden elimizde olabilir. Ancak tabii ki her durumda olduğu gibi bu durumda da bazı sorunlar olmakta.<!-- TEASER_END --></p>
-<h3>Kütüphaneye Dair Detaylar</h3>
-<p>(<a href="https://github.com/aligoren/PHPKutuphane/tree/master/cache">Kütüphane Kodları GitHub Üzerinde</a>)</p>
-<p>Kullanımı şöyle</p>
-<p>(<a href="https://github.com/aligoren/PHPKutuphane/blob/master/cache/test/OnBellekTest.php">OnBellekTest.php dosyası</a>)</p>
-<h2>OnBellekTest.php</h2>
-<pre class="code literal-block"><span class="cp">&lt;?php</span>
-
-<span class="k">include</span> <span class="p">(</span><span class="s2">"../OnBellek.php"</span><span class="p">);</span>
-<span class="nv">$onbellek</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OnBellek</span><span class="p">();</span>
-<span class="nv">$onbellek</span><span class="o">-&gt;</span><span class="na">baslat</span><span class="p">();</span>
-<span class="k">echo</span> <span class="s1">'Bu yeni onbellek dosyasi icin. 60 saniye sonra.'</span><span class="p">;</span>
-<span class="nv">$onbellek</span><span class="o">-&gt;</span><span class="na">bitir</span><span class="p">();</span>
+<p>Her yazılımcının ilham aldığı beğendiği sözler vardır. Bunlar felsefi olabilir ya da bir şarkı sözü olabilir. Kimi yazılımcıların da programcılar tarafından
+söylenen sözleri beğenmişliği vardır. Bu kişilerden birisi de ben olduğum için yaptım diyelim. <!-- TEASER_END --></p>
+<h3>Programlama Alıntıları</h3>
+<p>Dosyadan satır satır okunan alıntılardan rastgele olarak bir değer döndürür. <strong>Alıntıları Türkçe diline çevirip bana yollamak isteyenler</strong> ya da farklı alıntı önerisi olanlar <strong>goren.ali@yandex.com</strong> adresine mail atabilirler.</p>
+<h3>Kullanımı şöyle</h3>
+<p>Eğer kütüphaneyi projenize dahil ederseniz</p>
+<pre class="code literal-block"><span class="c"># ProgrammingQuotes sınıfını quote değişkenine ata</span>
+<span class="n">quote</span> <span class="o">=</span> <span class="n">ProgrammingQuotes</span><span class="p">()</span>
+<span class="c"># Başlık çağırabilirsiniz. &gt;&gt;&gt; Programming Quotes şeklinde gelir</span>
+<span class="n">quote</span><span class="o">.</span><span class="n">print_title</span><span class="p">()</span>
+<span class="c"># Burada da rastgele şekilde bir söz çekiliyor.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">quote</span><span class="o">.</span><span class="n">print_quotes</span><span class="p">())</span>
 </pre>
+
+
+<h2>Örnek Kullanımı</h2>
+<pre class="code literal-block">python main.py
+
+&gt;&gt;&gt; Programming Quotes
+
+UNIX was not designed to stop its users from doing stupid things, as that would
+also stop them from doing clever things. - Doug Gwyn
+
+python main.py
+
+&gt;&gt;&gt; Programming Quotes
+
+And folks, <span class="nb">let</span><span class="err">'</span>s be honest. Sturgeon was an optimist. Way more than 90% of code
+is crap. - viro
+</pre>
+
+
+<p>Alıntılar <a href="http://quotes.cat-v.org/programming/">bu adresten</a> yapılıyor.</p>
+<p>İyi kullanımlar.</p>
 </div>
     </div>
     <aside class="postpromonav">
     <nav>
             <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/php.html" rel="tag">php</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
         </ul>
 
             <ul class="pager">
-            <li class="next">
-                <a href="programming-quotes.html" rel="next" title="Programming Quotes">Sonraki yazı</a>
+            <li class="previous">
+                <a href="php-onbellek-kutuphanesi.html" rel="prev" title="PHP Önbellek Kütüphanesi">Önceki yazı</a>
             </li>
         </ul>
 
@@ -153,9 +170,9 @@ vakit kaybetmeden elimizde olabilir. Ancak tabii ki her durumda olduğu gibi bu 
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="aligren",
-            disqus_url="http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html",
-        disqus_title="PHP \u00d6nbellek K\u00fct\u00fcphanesi",
-        disqus_identifier="cache/posts/php-onbellek-kutuphanesi.html",
+            disqus_url="http://aligoren.github.io/posts/programming-quotes.html",
+        disqus_title="Programming Quotes",
+        disqus_identifier="cache/posts/programming-quotes.html",
         disqus_config = function () {
             this.language = "tr";
         };
