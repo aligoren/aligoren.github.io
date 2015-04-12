@@ -14,7 +14,7 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/archive.html</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/algoritma.html</loc>
@@ -33,11 +33,19 @@
   <lastmod>2015-04-12</lastmod>
  </url>
  <url>
+  <loc>http://aligoren.github.io/categories/cat_python-algoritma-matematik.html</loc>
+  <lastmod>2015-04-12</lastmod>
+ </url>
+ <url>
   <loc>http://aligoren.github.io/categories/cat_python.html</loc>
   <lastmod>2015-04-12</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/index.html</loc>
+  <lastmod>2015-04-12</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/matematik.html</loc>
   <lastmod>2015-04-12</lastmod>
  </url>
  <url>
@@ -62,7 +70,7 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/listings/index.html</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/pages/hakkimda.html</loc>
@@ -71,6 +79,10 @@
  <url>
   <loc>http://aligoren.github.io/posts/bir-python-kodu.html</loc>
   <lastmod>2015-04-04</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/posts/euler-number-python.html</loc>
+  <lastmod>2015-04-12</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/fibonacci-numbers.html</loc>
@@ -82,7 +94,7 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/programming-quotes.html</loc>

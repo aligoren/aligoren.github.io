@@ -101,6 +101,14 @@ article: http://ogp.me/ns/article#
     <h1>galleries</h1>
 
 <div id="gallery_container"></div>
+<noscript>
+<ul class="thumbnails">
+        <li>
+<a href="e_graph.png" class="thumbnail image-reference" title="E graph">
+            <img src="e_graph.thumbnail.png" alt="E graph"></a>
+</li>
+</ul>
+</noscript>
         </div>
         <!--End of body content-->
 
@@ -145,7 +153,7 @@ article: http://ogp.me/ns/article#
     <!-- end fancy dates -->
 <script src="../assets/js/flowr.plugin.js"></script>
 <script>
-jsonContent = [];
+jsonContent = [{"url": "e_graph.png", "size": {"w": 180, "h": 109}, "title": "E graph", "url_thumb": "e_graph.thumbnail.png"}];
 $("#gallery_container").flowr({
         data : jsonContent,
         height : 180*.6,
