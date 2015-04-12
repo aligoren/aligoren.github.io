@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Python and C Fibonacci Profile Tests">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python ve C'de Fibonacci Sayıları | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/fibonacci-numbers.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Python and C Fibonacci Profile Tests">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="programming-quotes.html" title="Programming Quotes" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Python ve C'de Fibonacci Sayıları">
+    <meta property="og:url" content="http://aligoren.github.io/posts/fibonacci-numbers.html">
+    <meta property="og:description" content="Python and C Fibonacci Profile Tests">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-12T02:54:57+03:00">
+           <meta property="article:tag" content="algoritma">
+           <meta property="article:tag" content="c">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="python">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Python ve C'de Fibonacci Sayıları</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-12T02:54:57+03:00" itemprop="datePublished" title="2015-04-12 02:54">2015-04-12 02:54</time></p>
+                <p class="commentline">            <a href="fibonacci-numbers.html#disqus_thread" data-disqus-identifier="cache/posts/fibonacci-numbers.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Python and C Fibonacci Profile Tests">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Fibonacci sayıları demek yerine Fibonacci dizisi demek daha mantıklı olabilirdi belki de. Mantık olarak yaptığı şey her sayının kendinden öncesiyle
+toplanması sonucu ortaya çıkan toplamdır. Bu sayıları birbirleri ile oranladığımız zaman altın oran kavramı ortaya çıkar.</p>
+<p>Bu olayı test etmek açısından iki farklı dilde kod yazdım. Tabii birisinde sonuç öyle gecikti ki uğraşamadım ve bıraktım.
+Python gerçekten aşırı yavaş bir şekilde sonuçları vermekte. C ve Python'un çalışma sürelerini görünce fark edilecek kadar bariz bir fark.<!-- TEASER_END --></p>
+<p>Aşağıdaki python kodu 47 kere döngü işletiyor. Her defasında sonucu tekrar tekrar işliyor.</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">47</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre>
+
+
+<p>Python'da yazdığınız bir script'in profile işlemini <strong>-m cProfile</strong> bayrakları yardımı ile yapabilirsiniz.</p>
+<p><code>python -m cProfile fibo.py</code></p>
+<p>Neyse bu şekilde profile ile birlikte performans testi yapmaya kalktım. Bilgisayarımın güçsüzlüğünden olsa gerek ki çıkan sonuç yani çıkamayan sonuç
+hayret verici. Ben henüz 44. işlemdeyken <code>KeyboardInterrupt</code> verdirdim. Dayanamadım.</p>
+<pre class="code literal-block">         -1273940835 <span class="k">function</span> calls <span class="o">(</span><span class="m">275</span> primitive calls<span class="o">)</span> in 18966.707 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno<span class="o">(</span><span class="k">function</span><span class="o">)</span>
+       <span class="m">90</span>    0.000    0.000    0.001    0.000 cp857.py:18<span class="o">(</span>encode<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000 18966.707 18966.707 fibo.py:1<span class="o">(</span>&lt;module&gt;<span class="o">)</span>
+-1273941064/46 18966.697   -0.000 18966.697  412.319 fibo.py:1<span class="o">(</span>fibo<span class="o">)</span>
+        <span class="m">1</span>    0.001    0.001 18966.707 18966.707 fibo.py:4<span class="o">(</span>main<span class="o">)</span>
+       <span class="m">90</span>    0.000    0.000    0.000    0.000 <span class="o">{</span>built-in method charmap_encode<span class="o">}</span>
+        <span class="m">1</span>    0.000    0.000 18966.707 18966.707 <span class="o">{</span>built-in method <span class="nb">exec</span><span class="o">}</span>
+       <span class="m">45</span>    0.009    0.000    0.010    0.000 <span class="o">{</span>built-in method print<span class="o">}</span>
+        <span class="m">1</span>    0.000    0.000    0.000    0.000 <span class="o">{</span>method <span class="s1">'disable'</span> of <span class="s1">'_lsprof.Prof</span>
+<span class="s1">iler'</span> objects<span class="o">}</span>
+</pre>
+
+
+<p>Evet çıkan sonuçlar <code>18966.707 seconds</code> yani <strong>5.5 saat</strong> civarı sürdü. İnanılır gibi değil.</p>
+<p>Aynı işlemi C ile yapmayı denedim. Bu sefer hemen hemen 2 dakika gibi bir süreçte 47'ye kadar olan sayıların sonucunu verdi. Aşağıdaki C kodu
+Sayesinde algoritmaları sevdiğim Vasif Nabiyev'in <strong>Algoritmalar</strong> kitabından alıntıdır.</p>
+<pre class="code literal-block"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;time.h&gt;</span>
+
+<span class="kt">long</span> <span class="nf">Fibo</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">?</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">Fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">time_t</span> <span class="n">started</span><span class="p">,</span> <span class="n">ended</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="n">res</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">47</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">started</span><span class="p">);</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">Fibo</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ended</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%3i</span><span class="se">\t</span><span class="s">%9li</span><span class="se">\t</span><span class="s">%-20.3f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">difftime</span><span class="p">(</span><span class="n">ended</span><span class="p">,</span> <span class="n">started</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Çalışma süresi dediğim gibi en fazla 2 dakika kadar sürüyor</p>
+<p><code>Process returned 0 (0x0)   execution time : 116.116 s</code></p>
+<p>Bir dili seçmek için bu tarz sonuçlar karar mekanizması olmasa da büyük sayıların kullanılacağı ya da böyle büyük işlemlerin yapılacağı yerde
+yorumlanan bir dil yerine derlenen bir dil tercih etmeliyim sanırım.</p>
+<p>Aslında eğer büyük projelerde yorumlanan bir dil kullanılıyorsa ona göre optimizasyon düşünmüşlerdir. Ben düşündüğüme göre. Neyse en azından <code>resursive method</code>
+nedir onu iki dilde de görmüş oldum. Siz de öyle.</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/algoritma.html" rel="tag">algoritma</a></li>
+           <li><a class="tag p-category" href="../categories/c.html" rel="tag">c</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="programming-quotes.html" rel="prev" title="Programming Quotes">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/fibonacci-numbers.html",
+        disqus_title="Python ve C'de Fibonacci Say\u0131lar\u0131",
+        disqus_identifier="cache/posts/fibonacci-numbers.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>

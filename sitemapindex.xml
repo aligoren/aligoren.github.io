@@ -5,8 +5,20 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://aligoren.github.io/categories/algoritma.xml</loc>
+  <lastmod>2015-04-12</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/c.xml</loc>
+  <lastmod>2015-04-12</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
   <lastmod>2015-04-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.xml</loc>
+  <lastmod>2015-04-12</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
@@ -17,19 +29,23 @@
   <lastmod>2015-04-04</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/programlama.xml</loc>
+  <lastmod>2015-04-12</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-12</lastmod>
  </sitemap>
 </sitemapindex>
