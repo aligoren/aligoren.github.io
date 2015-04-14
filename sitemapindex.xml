@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://aligoren.github.io/categories/algoritma.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/c.xml</loc>
@@ -22,7 +22,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-algoritma-matematik.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
@@ -30,7 +30,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/matematik.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/php.xml</loc>
@@ -42,18 +42,18 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-12</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </sitemap>
 </sitemapindex>

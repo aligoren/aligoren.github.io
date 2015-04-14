@@ -10,7 +10,7 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/2015/index.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/archive.html</loc>
@@ -18,27 +18,27 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/algoritma.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/c.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/cat_php.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/cat_python-algoritma-matematik.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/cat_python.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/index.html</loc>
@@ -46,27 +46,31 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/matematik.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/php.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/programlama.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/python.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/galleries/index.html</loc>
-  <lastmod>2015-04-12</lastmod>
+  <lastmod>2015-04-14</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/index-1.html</loc>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/index.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/listings/index.html</loc>
@@ -90,7 +94,11 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/hamming-numbers.html</loc>
-  <lastmod>2015-04-13</lastmod>
+  <lastmod>2015-04-14</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/posts/hanoi-tower-algorithm.html</loc>
+  <lastmod>2015-04-14</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/merhaba-dunya.html</loc>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Towers of Hanoi Algorithm">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hanoi Kuleleri Algoritması | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/hanoi-tower-algorithm.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Towers of Hanoi Algorithm">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="hamming-numbers.html" title="Hamming Sayıları" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Hanoi Kuleleri Algoritması">
+    <meta property="og:url" content="http://aligoren.github.io/posts/hanoi-tower-algorithm.html">
+    <meta property="og:description" content="Towers of Hanoi Algorithm">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-14T11:40:26+03:00">
+           <meta property="article:tag" content="algoritma">
+           <meta property="article:tag" content="matematik">
+           <meta property="article:tag" content="python">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Hanoi Kuleleri Algoritması</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-14T11:40:26+03:00" itemprop="datePublished" title="2015-04-14 11:40">2015-04-14 11:40</time></p>
+                <p class="commentline">            <a href="hanoi-tower-algorithm.html#disqus_thread" data-disqus-identifier="cache/posts/towers-of-hanoi-algoritm.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Towers of Hanoi Algorithm">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><strong>Hanoi Kuleleri</strong></p>
+<p>Hanoi kuleleri, Fransız matematikçi, <a href="http://en.wikipedia.org/wiki/%C3%89douard_Lucas">Edouard Lucas</a> tarafından önerilen bir çözüm yöntemidir. A,B ve C gibi dik konumda yerleştirilmiş üç çubuk ve N kadar disk içermektedir. İşleyiş şöyledir:</p>
+<p>Başlangıçta diskler, üstteki her diskin çapı daha büyük olmak şartıyla A çubuğuna yerleştirilir. Her seferinde sadece bir diskin hareketine izin verildiğinde, büyük disk, küçük diskin üzerine yerleştirilmeden, disklerin C çubuğuna taşınması gerekmektedir.</p>
+<p><img alt="Towers of Hanoi" src="../galleries/towers_of_hanoi.png"></p>
+<p>Hanoi problemi, problem alt problemlere parçalanarak çözülebilir. Problemde N kadar disk olduğunu varsayarsak recursive şekilde bir çözüm şu şekilde olabilir: <!-- TEASER_END --></p>
+<pre class="code literal-block">Sadece bir disk direkt olarak 3. çubuğa konulur
+N kadar disk 3. adıma yerleştirilmeli
+</pre>
+
+
+<p>Bu da şöyle uygulanabilir.</p>
+<pre class="code literal-block">1-) (N-1) olan disk orta çubuğa taşınır.
+2-) En altta kalan disk direkt sağa konulur.
+3-) (N-1) olan disk sağa taşınır.
+</pre>
+
+
+<p>Örneğin 4 diskli bir çözüm uyguladığımızı varsayalım. Bunun çıktısı şöyle olur:</p>
+<pre class="code literal-block">Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski C çubuğundan A çubuğuna koy
+Diski C çubuğundan B çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski B çubuğundan A çubuğuna koy
+Diski C çubuğundan A çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+</pre>
+
+
+<p><strong>1-)</strong> 4 adet disk kullanılan bir durumda <code>n = 1</code> oluyorsa toplam 3 durum ve çözüm için <code>K1 = 1</code> olur.</p>
+<p><strong>2-)</strong> Yine disk sayısının <code>n = 2</code> olduğu durumda toplam 9 durum ve çözüm için <code>K2 = 3</code> olur.</p>
+<p><strong>3-)</strong> <code>n = 3</code> dik sayısında 27 durum ve çözüm için <code>K3 = 7</code> olmakta.</p>
+<p><strong>4-)</strong> Disk sayısı <code>n = 4</code> olduğunda toplam durum sayısı 81 ve çözüm ise <code>K4 = 15</code> olur.</p>
+<p>Çubuk sayısı 3 olduğunda N adet disk için en düşük geçişler, recursive biçinmde <code>Kn = (2 Kn-1 +1</code> ya da n'ye bağlı şekilde <code>Kn = 2^n - 1</code> şeklinde bulunmaktadır.</p>
+<p>Bu durumun Python ile çözümlenmiş hali ise şöyledir. Algoritmanın ana işlenilen işlevi <strong>hanoi_tower_algorithm</strong> ile tanımlanıp 4 parametre alır. Bu işlev, parametreleri recursive olarak işler.</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Diski </span><span class="si">%s</span><span class="s"> çubuğundan </span><span class="si">%s</span><span class="s"> çubuğuna koy"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre>
+
+
+<p>Disk sayısının belirlenmesi içinse ayrıca bir işlev oluşturulur. Tek parametre alır. Bu parametre çözümdeki N disk sayısını belirtir. N adet disk bu işlevde belirtilir. Buradan alınan parametre bir üstteki ana işlevine yollanılır. Ve diskler de A, B ve C şeklinde parametre olarak yollanılır.</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">hanoi_tower_algorithm_main</span><span class="p">(</span><span class="n">ndisc</span><span class="p">):</span>
+    <span class="c"># ndisc = Number of Disc</span>
+    <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">ndisc</span><span class="p">,</span> <span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span>
+</pre>
+
+
+<p>10 adet disk için çıkarılan profile sonucu ise şöyledir.</p>
+<pre class="code literal-block">python -m profile hanoi_tower_algorithm.py
+
+         <span class="m">6654</span> <span class="k">function</span> calls <span class="o">(</span><span class="m">5121</span> primitive calls<span class="o">)</span> in 0.078 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno<span class="o">(</span><span class="k">function</span><span class="o">)</span>
+     <span class="m">2046</span>    0.000    0.000    0.000    0.000 :0<span class="o">(</span>charmap_encode<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000    0.078    0.078 :0<span class="o">(</span><span class="nb">exec</span><span class="o">)</span>
+     <span class="m">1023</span>    0.062    0.000    0.078    0.000 :0<span class="o">(</span>print<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000    0.000    0.000 :0<span class="o">(</span>setprofile<span class="o">)</span>
+     <span class="m">2046</span>    0.016    0.000    0.016    0.000 cp857.py:18<span class="o">(</span>encode<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000    0.078    0.078 hanoi_tower_algorithm.py:1<span class="o">(</span>&lt;module
+&gt;<span class="o">)</span>
+   1534/1    0.000    0.000    0.078    0.078 hanoi_tower_algorithm.py:1<span class="o">(</span>hanoi_t
+ower_algorithm<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000    0.078    0.078 hanoi_tower_algorithm.py:44<span class="o">(</span>hanoi_
+tower_algorithm_main<span class="o">)</span>
+        <span class="m">1</span>    0.000    0.000    0.078    0.078 profile:0<span class="o">(</span>&lt;code object &lt;module&gt; at
+ 0x01DCC2A0, file <span class="s2">"hanoi_tower_algorithm.py"</span>, line 1&gt;<span class="o">)</span>
+        <span class="m">0</span>    0.000             0.000          profile:0<span class="o">(</span>profiler<span class="o">)</span>
+</pre>
+
+
+<h2>Kaynaklar:</h2>
+<p><strong>Wikipedia: </strong></p>
+<p><a href="http://en.wikipedia.org/wiki/Tower_of_Hanoi">Tower of Hanoi</a></p>
+<p><strong>Sadi Evren Şeker: </strong></p>
+<p><a href="http://bilgisayarkavramlari.sadievrenseker.com/2012/03/15/hanoi-kuleleri-towers-of-hanoi/">Hanoi Kuleleri (Towers of Hanoi)</a></p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/algoritma.html" rel="tag">algoritma</a></li>
+           <li><a class="tag p-category" href="../categories/matematik.html" rel="tag">matematik</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="hamming-numbers.html" rel="prev" title="Hamming Sayıları">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/hanoi-tower-algorithm.html",
+        disqus_title="Hanoi Kuleleri Algoritmas\u0131",
+        disqus_identifier="cache/posts/towers-of-hanoi-algoritm.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
