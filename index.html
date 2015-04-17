@@ -87,6 +87,41 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/ruby-bundle-install-error.html" class="u-url" rel="bookmark">Ruby Bundle Install Error</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-18T00:39:54+03:00" title="2015-04-18 00:39">2015-04-18 00:39</time></p>
+                <p class="commentline">            <a href="posts/ruby-bundle-install-error.html#disqus_thread" data-disqus-identifier="cache/posts/ruby-bundle-install-error.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Ruby'de eklenti kurmanın yolu aynı Python'da olduğu gibi bir paket yöneticisi kullanmaktır. 
+Ancak bunu yaparken dahi hatalar alırız. Örneğin şöyle bir hata</p>
+<p>Örneğin Ruby on Rails ile bir proje geliştiriyorsunuz. Bundle ile install diyerek gereksinimleri kurmak isteyeceksiniz. Ama o da ne bir hata aldınız:</p>
+<pre class="code literal-block">C:<span class="se">\R</span>ailsWork<span class="se">\&gt;</span> bundle install
+
+Gem::RemoteFetcher::FetchError: SSL_connect <span class="nv">returned</span><span class="o">=</span><span class="m">1</span> <span class="nv">errno</span><span class="o">=</span><span class="m">0</span> <span class="nv">state</span><span class="o">=</span>SSLv3 
+<span class="nb">read </span>server certificate B: certificate verify failed 
+<span class="o">(</span>https://rubygems.org/gems/FALANCA.gem<span class="o">)</span>
+An error occured <span class="k">while</span> installing FALANCA <span class="o">(</span>FALAN_VERSIYON<span class="o">)</span>, and Bundler cannot <span class="k">continue</span>.
+Make sure that <span class="sb">`</span>gem install FALANCA -v <span class="s1">'FALAN_VERSIYON'</span><span class="sb">`</span> succeeds before bundling.
+</pre>
+
+
+<p>Bu hatayı geçmenizin bir yolu verilen gem linkini direkt olarak kopyalayıp</p>
+<p><code>gem install FALANCA.gem</code></p>
+<p>komutu ile kurmak. Ancak Rails gibi büyük frameworkleri kullanırken bağımlılıklar da çok fazla oluyorlar. Bu duruma kalıcı ve kesin bir çözüm getirmek gerekir.</p>
+<p>Bunun içinse şöyle bir şey yapılabilir.</p>
+<p class="more"><a href="posts/ruby-bundle-install-error.html">Devamını oku…</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/hanoi-tower-algorithm.html" class="u-url" rel="bookmark">Hanoi Kuleleri Algoritması</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-14T11:40:26+03:00" title="2015-04-14 11:40">2015-04-14 11:40</time></p>
@@ -182,26 +217,6 @@ toplanması sonucu ortaya çıkan toplamdır. Bu sayıları birbirleri ile oranl
 <p>Bu olayı test etmek açısından iki farklı dilde kod yazdım. Tabii birisinde sonuç öyle gecikti ki uğraşamadım ve bıraktım.
 Python gerçekten aşırı yavaş bir şekilde sonuçları vermekte. C ve Python'un çalışma sürelerini görünce fark edilecek kadar bariz bir fark.</p>
 <p class="more"><a href="posts/fibonacci-numbers.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/programming-quotes.html" class="u-url" rel="bookmark">Programming Quotes</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-10T00:14:52+03:00" title="2015-04-10 00:14">2015-04-10 00:14</time></p>
-                <p class="commentline">            <a href="posts/programming-quotes.html#disqus_thread" data-disqus-identifier="cache/posts/programming-quotes.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Her yazılımcının ilham aldığı beğendiği sözler vardır. Bunlar felsefi olabilir ya da bir şarkı sözü olabilir. Kimi yazılımcıların da programcılar tarafından
-söylenen sözleri beğenmişliği vardır. Bu kişilerden birisi de ben olduğum için yaptım diyelim. </p>
-<p class="more"><a href="posts/programming-quotes.html">Devamını oku…</a></p>
 </div>
     </div>
     </article>
