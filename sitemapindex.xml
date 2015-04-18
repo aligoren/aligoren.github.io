@@ -33,6 +33,10 @@
   <lastmod>2015-04-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_ruby-ror-rails-windows-programlama.xml</loc>
+  <lastmod>2015-04-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
   <lastmod>2015-04-18</lastmod>
  </sitemap>
@@ -53,12 +57,24 @@
   <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/rails.xml</loc>
+  <lastmod>2015-04-18</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/ror.xml</loc>
+  <lastmod>2015-04-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/ruby.xml</loc>
   <lastmod>2015-04-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/windows.xml</loc>
+  <lastmod>2015-04-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-14</lastmod>
+  <lastmod>2015-04-18</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
