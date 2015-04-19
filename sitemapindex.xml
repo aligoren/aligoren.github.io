@@ -13,6 +13,10 @@
   <lastmod>2015-04-12</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_flask-framework-python-programlama.xml</loc>
+  <lastmod>2015-04-19</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
   <lastmod>2015-04-04</lastmod>
  </sitemap>
@@ -37,6 +41,14 @@
   <lastmod>2015-04-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/flask.xml</loc>
+  <lastmod>2015-04-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/framework.xml</loc>
+  <lastmod>2015-04-19</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
   <lastmod>2015-04-18</lastmod>
  </sitemap>
@@ -50,11 +62,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-14</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
@@ -74,14 +86,14 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
 </sitemapindex>

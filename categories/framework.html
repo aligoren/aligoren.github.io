@@ -6,13 +6,13 @@ article: http://ogp.me/ns/article#
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>galleries | Ali GÖREN</title>
+    <title>framework ile ilgili yazılar | Ali GÖREN</title>
 
                 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 
                 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://aligoren.github.io/galleries/index.html">
+      <link rel="canonical" href="http://aligoren.github.io/categories/framework.html">
 
 
 
@@ -22,16 +22,8 @@ article: http://ogp.me/ns/article#
 
     
 
-
-<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-<style type="text/css">
-    .image-block {
-        display: inline-block;
-    }
-    .flowr_row {
-        width: 100%;
-    }
-    </style>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS for tag framework" href="framework.xml">
 
 <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
 </head>
@@ -67,7 +59,7 @@ article: http://ogp.me/ns/article#
 <a href="../archive.html">Arşiv</a>
                 </li>
 <li>
-<a href="../categories/index.html">Etiketler</a>
+<a href="index.html">Etiketler</a>
                 </li>
 <li>
 <a href="../rss.xml">RSS feed</a>
@@ -92,31 +84,19 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
-    <nav class="breadcrumbs">
-<ul class="breadcrumb">
-        <li><a href="#">galleries</a></li>
-</ul>
-</nav>
-
-    <h1>galleries</h1>
-
-<div id="gallery_container"></div>
-<noscript>
-<ul class="thumbnails">
+<article class="tagpage">
+    <header>
+        <h1>framework ile ilgili yazılar</h1>
+        <div class="metadata">
+                <p class="feedlink"><a href="framework.xml" type="application/rss+xml">RSS kaynağı</a></p>
+        </div>
+    </header>
+    <ul class="postlist">
         <li>
-<a href="e_graph.png" class="thumbnail image-reference" title="E graph">
-            <img src="e_graph.thumbnail.png" alt="E graph"></a>
-        </li>
-<li>
-<a href="towers_of_hanoi.png" class="thumbnail image-reference" title="Towers of hanoi">
-            <img src="towers_of_hanoi.thumbnail.png" alt="Towers of hanoi"></a>
-        </li>
-<li>
-<a href="flask_tut.PNG" class="thumbnail image-reference" title="Flask tut">
-            <img src="flask_tut.thumbnail.PNG" alt="Flask tut"></a>
+<a href="../posts/kolay-yoldan-flask.html" class="listtitle">Kolay Yoldan Flask Framework</a> <time class="listdate" datetime="2015-04-19T13:22:36+03:00" title="2015-04-19 13:22">2015-04-19 13:22</time>
 </li>
-</ul>
-</noscript>
+    </ul>
+</article>
         </div>
         <!--End of body content-->
 
@@ -138,44 +118,6 @@ article: http://ogp.me/ns/article#
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script>
     <!-- end fancy dates -->
-<script src="../assets/js/flowr.plugin.js"></script>
-<script>
-jsonContent = [{"url": "e_graph.png", "url_thumb": "e_graph.thumbnail.png", "size": {"w": 180, "h": 109}, "title": "E graph"}, {"url": "towers_of_hanoi.png", "url_thumb": "towers_of_hanoi.thumbnail.png", "size": {"w": 300, "h": 132}, "title": "Towers of hanoi"}, {"url": "flask_tut.PNG", "url_thumb": "flask_tut.thumbnail.PNG", "size": {"w": 399, "h": 179}, "title": "Flask tut"}];
-$("#gallery_container").flowr({
-        data : jsonContent,
-        height : 180*.6,
-        padding: 5,
-        rows: -1,
-        render : function(params) {
-            // Just return a div, string or a dom object, anything works fine
-            img = $("<img />").attr({
-                'src': params.itemData.url_thumb,
-                'width' : params.width,
-                'height' : params.height
-            }).css('max-width', '100%');
-            link = $( "<a></a>").attr({
-                'href': params.itemData.url,
-                'class': 'image-reference'
-            });
-            div = $("<div />").addClass('image-block').attr({
-                'title': params.itemData.title,
-                'data-toggle': "tooltip",
-            });
-            link.append(img);
-            div.append(link);
-            div.hover(div.tooltip());
-            return div;
-        },
-        itemWidth : function(data) { return data.size.w; },
-        itemHeight : function(data) { return data.size.h; },
-        complete : function(params) {
-            if( jsonContent.length > params.renderedItems ) {
-                nextRenderList = jsonContent.slice( params.renderedItems );
-            }
-        }
-    });
-$("a.image-reference").colorbox({rel:"gal", maxWidth:"100%",maxHeight:"100%",scalePhotos:true});
-</script>
 
 
 </body>

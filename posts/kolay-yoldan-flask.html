@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Flask Framework for Beginners">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kolay Yoldan Flask Framework | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/kolay-yoldan-flask.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Flask Framework for Beginners">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="install-rails-on-windows.html" title="Windows'a Ruby on Rails Kurulumu" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Kolay Yoldan Flask Framework">
+    <meta property="og:url" content="http://aligoren.github.io/posts/kolay-yoldan-flask.html">
+    <meta property="og:description" content="Flask Framework for Beginners">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-19T13:22:36+03:00">
+           <meta property="article:tag" content="flask">
+           <meta property="article:tag" content="framework">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="python">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Kolay Yoldan Flask Framework</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-19T13:22:36+03:00" itemprop="datePublished" title="2015-04-19 13:22">2015-04-19 13:22</time></p>
+                <p class="commentline">            <a href="kolay-yoldan-flask.html#disqus_thread" data-disqus-identifier="cache/posts/kolay-yoldan-flask.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Flask Framework for Beginners">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Flask framework python ile yazılmış genişletilebilir br microframework olarak da tanımlanabilir. Ancak yaptıklarına baktığınızda pek de mikro olmadığını görebilirsiniz.</p>
+<p>Benim gibi django'yu, rails'i karmaşık bulanlar için Flask framework mükemmeldir.</p>
+<p><strong>Flask Framework Kurulumu</strong></p>
+<p>Flask framework'ü kurmak için konsoldan şu komutu vermeniz yeterlidir.</p>
+<p><code>pip install Flask</code></p>
+<p>Bu adımdan sonra artık Flask kurulmuş olmalı. Eğer burada bir sorun yaşıyorsanız hatalara bakıp o hataları gidermeye çalışın.</p>
+<p><strong>Olası Hatalar</strong></p>
+<p>Windows ile kurulum yapıyorsanız yönetici izni gerekebilir. Linux için bahsetme gereği duymadım pek çünkü zaten Linux ile kurarken sudo komutunu girmeniz gerektiğini bildiğinizi varsayıyorum. <!-- TEASER_END --></p>
+<p><strong>İlk Flask Uygulamamız</strong></p>
+<p>İlk uygulamamız diğer tüm uygulamalarda olduğu gibi burada da basit bir uygulama olacaktır. Bir Merhaba Dünya Uygulaması yapmak bizim için idealdir.</p>
+<p>Flask kütüphanemizi aktaralım.</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba_dunya</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">"Merhaba Dunya"</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre>
+
+
+<p>İlk uygulamamızı yaptık. Uygulamamız <code>http://127.0.0.1:5000</code> ya da <code>http://localhost:5000</code> üzerinde çalışmakta.</p>
+<p><img alt="Flask Tutorial" src="../galleries/flask_tut.png"></p>
+<p>Burada bilmemiz gereken şey <code>app = Flask(__name__)</code> kısmıdır. Flask sınıfını app değişkenine aktararak sınıfı türettik. Eğer routing işlemine aşina iseniz ya da ufaktan da duymuşluğunuz varsa ne olduğunu bilirsiniz. O yüzden <code>@app.routing('/')</code> işlemini fazlaca detaylandırmaya gerek duymuyorum. Ama belirtelim <code>http://site.com/burasi-route</code> linkte gördüğünüz <strong>burasi-route</strong> kısmı aslında <code>app.route('/burasi-route')</code> şeklinde tanımlanmıştır.</p>
+<p>Çalışmanızda yaptığınız hataları görmek isterseniz eğer <code>app.debug = True</code> demeniz yeterlidir. İlk giriş için fazlaca detaya gerek yok ama belirtmekte fayda var. Diğer frameworklerde olan bir özellik yani <strong>autoreload</strong> olayı burada da var. Nedir bu olay? Flask projenizde bir değişiklik yaptığınız anda otomatik olarak o değişikliği uyguluyor. Her defasında projenizi baştan başlatmanıza gerek olmuyor. Bunun için <code>app.run</code> işlevine bir parametre göndermek gerekiyor. <code>use_reloader</code> parametresine True değeri göndererek yani <code>use_reloader=True</code> şeklinde bir değer yaparak otomatik yenileme işlemini yapabiliriz. Yine run işlevine port ayarı da verebiliriz.</p>
+<pre class="code literal-block">app.run(port=80, use_reloader=True)
+</pre>
+
+
+<p>Artık uygulamamız 80. portta yani direkt olarak localhost üzerinde çalışacak ve değişiklikler anında uygulanacaktır.</p>
+<p>Bir giriş için hayli uzun olmuş olabilir. İyi çalışmalar.</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/flask.html" rel="tag">flask</a></li>
+           <li><a class="tag p-category" href="../categories/framework.html" rel="tag">framework</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="install-rails-on-windows.html" rel="prev" title="Windows'a Ruby on Rails Kurulumu">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/kolay-yoldan-flask.html",
+        disqus_title="Kolay Yoldan Flask Framework",
+        disqus_identifier="cache/posts/kolay-yoldan-flask.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
