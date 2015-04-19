@@ -143,7 +143,7 @@ article: http://ogp.me/ns/article#
 
 
 <p>İlk uygulamamızı yaptık. Uygulamamız <code>http://127.0.0.1:5000</code> ya da <code>http://localhost:5000</code> üzerinde çalışmakta.</p>
-<p><img alt="Flask Tutorial" src="../galleries/flask_tut.png"></p>
+<p><img alt="Flask Tutorial" src="../galleries/flask_tut.PNG"></p>
 <p>Burada bilmemiz gereken şey <code>app = Flask(__name__)</code> kısmıdır. Flask sınıfını app değişkenine aktararak sınıfı türettik. Eğer routing işlemine aşina iseniz ya da ufaktan da duymuşluğunuz varsa ne olduğunu bilirsiniz. O yüzden <code>@app.routing('/')</code> işlemini fazlaca detaylandırmaya gerek duymuyorum. Ama belirtelim <code>http://site.com/burasi-route</code> linkte gördüğünüz <strong>burasi-route</strong> kısmı aslında <code>app.route('/burasi-route')</code> şeklinde tanımlanmıştır.</p>
 <p>Çalışmanızda yaptığınız hataları görmek isterseniz eğer <code>app.debug = True</code> demeniz yeterlidir. İlk giriş için fazlaca detaya gerek yok ama belirtmekte fayda var. Diğer frameworklerde olan bir özellik yani <strong>autoreload</strong> olayı burada da var. Nedir bu olay? Flask projenizde bir değişiklik yaptığınız anda otomatik olarak o değişikliği uyguluyor. Her defasında projenizi baştan başlatmanıza gerek olmuyor. Bunun için <code>app.run</code> işlevine bir parametre göndermek gerekiyor. <code>use_reloader</code> parametresine True değeri göndererek yani <code>use_reloader=True</code> şeklinde bir değer yaparak otomatik yenileme işlemini yapabiliriz. Yine run işlevine port ayarı da verebiliriz.</p>
 <pre class="code literal-block">app.run(port=80, use_reloader=True)
