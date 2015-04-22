@@ -29,6 +29,10 @@
   <lastmod>2015-04-14</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-programlama-library-logging-logger.xml</loc>
+  <lastmod>2015-04-23</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
   <lastmod>2015-04-10</lastmod>
  </sitemap>
@@ -53,6 +57,18 @@
   <lastmod>2015-04-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/library.xml</loc>
+  <lastmod>2015-04-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/logger.xml</loc>
+  <lastmod>2015-04-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/logging.xml</loc>
+  <lastmod>2015-04-23</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/matematik.xml</loc>
   <lastmod>2015-04-14</lastmod>
  </sitemap>
@@ -62,11 +78,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
@@ -90,10 +106,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </sitemap>
 </sitemapindex>

@@ -87,6 +87,44 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/python-logging-library.html" class="u-url" rel="bookmark">Python Logging Library</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-23T02:12:09+03:00" title="2015-04-23 02:12">2015-04-23 02:12</time></p>
+                <p class="commentline">            <a href="posts/python-logging-library.html#disqus_thread" data-disqus-identifier="cache/posts/python-logging-library.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<h2>Installation:</h2>
+<p><code>python setup.py install</code></p>
+<h2>Usage:</h2>
+<p>Using is simple. There is a sample code below</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">LogSaver</span>
+<span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">logMachine</span>
+
+<span class="nd">@logMachine</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LogSaver</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">'This is tests the WARN logging call'</span><span class="p">))</span>
+</pre>
+
+
+<p>You can also look <strong>test.py</strong> file.</p>
+<p><strong>Github Repository Link:</strong> <a href="https://github.com/aligoren/handan">handan</a></p>
+<h2>What's Handan?</h2>
+<p>Handan is a <a href="http://www.idefix.com/kitap/handan-halide-edib-adivar/tanim.asp?sid=D6ANJ7OKH0208OYQGXWM">book</a>. Also my ex girlfriend's name.</p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/kolay-yoldan-flask.html" class="u-url" rel="bookmark">Kolay Yoldan Flask Framework</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-19T13:22:36+03:00" title="2015-04-19 13:22">2015-04-19 13:22</time></p>
@@ -198,36 +236,6 @@ Make sure that <span class="sb">`</span>gem install FALANCA -v <span class="s1">
 <p><img alt="Towers of Hanoi" src="galleries/towers_of_hanoi.png"></p>
 <p>Hanoi problemi, problem alt problemlere parçalanarak çözülebilir. Problemde N kadar disk olduğunu varsayarsak recursive şekilde bir çözüm şu şekilde olabilir: </p>
 <p class="more"><a href="posts/hanoi-tower-algorithm.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/hamming-numbers.html" class="u-url" rel="bookmark">Hamming Sayıları</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-13T16:16:59+03:00" title="2015-04-13 16:16">2015-04-13 16:16</time></p>
-                <p class="commentline">            <a href="posts/hamming-numbers.html#disqus_thread" data-disqus-identifier="cache/posts/hamming-numbers.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p><strong>Hamming Sayıları</strong></p>
-<p>Hamming sayıları, 2,3 ve 5'ten başka diğer asal bölene sahip olmaya dizilerdir. Örnek verecek olursak hamming dizisi şöyledir.</p>
-<p><strong>İlk 60 Hamming Sayısı:</strong> 2 3 4 5 6 8 9 10 12 15 16 18 20 24 25 27 30 32 36 40 45 48 50 54 60... şeklinde gider.</p>
-<p>Sıradaki sayının bulunması üç farklı durumdan oluşmakta. Sayı 2'ye bölünebiliyorsa bir sonraki aşamada 2,3 ve 5 dışında böleni olmayacak.</p>
-<p>Örneğin şöyle izah edilebilir.</p>
-<p><strong>hamming_numbers.py</strong></p>
-<pre class="code literal-block"><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-
-
-<p>Bu sayede artık var olan sayı elimizdeki dizideki sayılardan birisi durumunda. Örneğin <code>60/2</code> sonuç olarak 30 veriyor. Diziye baktığımızda 30'dan büyük ilk sayımız 32. Buna göre <code>2*32=64</code> olmakta. Yani 60'tan sonra sayı 2'ye bölünebiliyorsa bu da <code>2*32=64</code> olacaktır. Bu durum 3 ve 5 için de yine aynı şekilde anlaşılmaktadır.</p>
-<p class="more"><a href="posts/hamming-numbers.html">Devamını oku…</a></p>
 </div>
     </div>
     </article>

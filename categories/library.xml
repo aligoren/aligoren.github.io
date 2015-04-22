@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ali GÖREN (library)</title><link>http://aligoren.github.io/</link><description></description><atom:link href="http://aligoren.github.io/categories/library.xml" rel="self" type="application/rss+xml"></atom:link><language>tr</language><lastBuildDate>Wed, 22 Apr 2015 23:24:37 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python Logging Library</title><link>http://aligoren.github.io/posts/python-logging-library.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;h2&gt;Installation:&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;python setup.py install&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Usage:&lt;/h2&gt;
+&lt;p&gt;Using is simple. There is a sample code below&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;handan&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LogSaver&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;handan&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;logMachine&lt;/span&gt;
+
+&lt;span class="nd"&gt;@logMachine&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
+
+&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LogSaver&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'This is tests the WARN logging call'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;You can also look &lt;strong&gt;test.py&lt;/strong&gt; file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Github Repository Link:&lt;/strong&gt; &lt;a href="https://github.com/aligoren/handan"&gt;handan&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;What's Handan?&lt;/h2&gt;
+&lt;p&gt;Handan is a &lt;a href="http://www.idefix.com/kitap/handan-halide-edib-adivar/tanim.asp?sid=D6ANJ7OKH0208OYQGXWM"&gt;book&lt;/a&gt;. Also my ex girlfriend's name.&lt;/p&gt;&lt;/div&gt;</description><category>library</category><category>logger</category><category>logging</category><category>programlama</category><category>python</category><guid>http://aligoren.github.io/posts/python-logging-library.html</guid><pubDate>Wed, 22 Apr 2015 23:12:09 GMT</pubDate></item></channel></rss>
