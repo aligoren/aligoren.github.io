@@ -5,15 +5,15 @@ article: http://ogp.me/ns/article#
 " lang="tr">
     <head>
     <meta charset="utf-8">
-    <meta name="description" content="Simply Python Logging Library">
+    <meta name="description" content="Python Name Parser, Name Parser in Python">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python Logging Library | Ali GÖREN</title>
+    <title>Python Name Parser | Ali GÖREN</title>
 
                 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 
                 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://aligoren.github.io/posts/python-logging-library.html">
+      <link rel="canonical" href="http://aligoren.github.io/posts/name-parser.html">
 
 
 
@@ -24,19 +24,18 @@ article: http://ogp.me/ns/article#
     
 
     
-    <meta name="description" itemprop="description" content="Simply Python Logging Library">
+    <meta name="description" itemprop="description" content="Python Name Parser, Name Parser in Python">
     <meta name="author" content="Ali">
-        <link rel="prev" href="kolay-yoldan-flask.html" title="Kolay Yoldan Flask Framework" type="text/html">
-        <link rel="next" href="name-parser.html" title="Python Name Parser" type="text/html">
+        <link rel="prev" href="python-logging-library.html" title="Python Logging Library" type="text/html">
         <meta property="og:site_name" content="Ali GÖREN">
-    <meta property="og:title" content="Python Logging Library">
-    <meta property="og:url" content="http://aligoren.github.io/posts/python-logging-library.html">
-    <meta property="og:description" content="Simply Python Logging Library">
+    <meta property="og:title" content="Python Name Parser">
+    <meta property="og:url" content="http://aligoren.github.io/posts/name-parser.html">
+    <meta property="og:description" content="Python Name Parser, Name Parser in Python">
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2015-04-23T02:12:09+03:00">
-           <meta property="article:tag" content="library">
-           <meta property="article:tag" content="logger">
-           <meta property="article:tag" content="logging">
+    <meta property="article:published_time" content="2015-04-24T01:02:57+03:00">
+           <meta property="article:tag" content="name">
+           <meta property="article:tag" content="name parsing">
+           <meta property="article:tag" content="parser">
            <meta property="article:tag" content="programlama">
            <meta property="article:tag" content="python">
 
@@ -108,15 +107,15 @@ article: http://ogp.me/ns/article#
             
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
         <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Python Logging Library</a></h1>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Python Name Parser</a></h1>
 
         <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-23T02:12:09+03:00" itemprop="datePublished" title="2015-04-23 02:12">2015-04-23 02:12</time></p>
-                <p class="commentline">            <a href="python-logging-library.html#disqus_thread" data-disqus-identifier="cache/posts/python-logging-library.html">Comments</a>
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-24T01:02:57+03:00" itemprop="datePublished" title="2015-04-24 01:02">2015-04-24 01:02</time></p>
+                <p class="commentline">            <a href="name-parser.html#disqus_thread" data-disqus-identifier="cache/posts/name-parser.html">Comments</a>
 
 
             
-                <meta name="description" itemprop="description" content="Simply Python Logging Library">
+                <meta name="description" itemprop="description" content="Python Name Parser, Name Parser in Python">
         </p>
 </div>
         
@@ -124,45 +123,59 @@ article: http://ogp.me/ns/article#
 
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h2>Installation:</h2>
-<p><code>python setup.py install</code></p>
-<h2>Usage:</h2>
-<p>Using is simple. There is a sample code below</p>
-<pre class="code literal-block"><span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">LogSaver</span>
-<span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">logMachine</span>
+<p>Name Parser, basitleştirilmiş bir isim ayrıştırıcıdır. Girilen ad, soyad kombinasyonunu duruma göre ayıklar.</p>
+<p>Çıkt formatı şu örneğe göre iki türlüdür.</p>
+<table border="1" style="background-color:#FFFFFF;border-collapse:collapse;border:1px solid #000000;color:#000000;width:100%" cellpadding="3" cellspacing="4">
+    <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Surname</strong></td>
+    </tr>
+    <tr>
+        <td>Ali</td>
+        <td>Opcode</td>
+        <td>GOREN</td>
+    </tr>
+</table>
 
-<span class="nd">@logMachine</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<p><br></p>
+<p>Burada 2 adet Name ve 1 adet Surname çıktısı var. Soyadın tek olmadığı durumlar var. Örneğin evlilik gibi durumlar. Maalesef bunu algılayabilmek için bir soyadı ve isim listesi gerekmekte.</p>
+<h2>Kullanım:</h2>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">name</span> <span class="kn">import</span> <span class="n">NameParser</span>
 
-<span class="n">log</span> <span class="o">=</span> <span class="n">LogSaver</span><span class="p">()</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">NameParser</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">'This is tests the WARN logging call'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="s">'Ali Opcode GOREN'</span><span class="p">))</span>
 </pre>
 
 
-<p>You can also look <strong>test.py</strong> file.</p>
-<p><strong>Github Repository Link:</strong> <a href="https://github.com/aligoren/handan">handan</a></p>
-<h2>What's Handan?</h2>
-<p>Handan is a <a href="http://www.idefix.com/kitap/handan-halide-edib-adivar/tanim.asp?sid=D6ANJ7OKH0208OYQGXWM">book</a>. Also my ex girlfriend's name.</p>
+<p>Bu şekilde bir kullanım yukarıdaki tablonun çıktısını verecektir. Aslında çıktı formatı şöyle oluyor :)</p>
+<pre class="code literal-block"><span class="n">output</span><span class="o">:</span>
+
+<span class="n">Name</span><span class="o">:</span> <span class="n">Ali</span>
+<span class="n">Name</span><span class="o">:</span> <span class="n">Opcode</span>
+<span class="n">Surname</span><span class="o">:</span> <span class="n">GOREN</span>
+</pre>
+
+
+<p>Kullanımı görüldüğü gibi çok basittir.</p>
+<p><strong>Github Linki: </strong> <a href="https://github.com/aligoren/NameParser">Name Parser</a></p>
+<p><strong>PyPi Linki: </strong> <a href="https://pypi.python.org/pypi/ParseNames">Name Parser</a></p>
 </div>
     </div>
     <aside class="postpromonav">
     <nav>
             <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/library.html" rel="tag">library</a></li>
-           <li><a class="tag p-category" href="../categories/logger.html" rel="tag">logger</a></li>
-           <li><a class="tag p-category" href="../categories/logging.html" rel="tag">logging</a></li>
+           <li><a class="tag p-category" href="../categories/name.html" rel="tag">name</a></li>
+           <li><a class="tag p-category" href="../categories/name-parsing.html" rel="tag">name parsing</a></li>
+           <li><a class="tag p-category" href="../categories/parser.html" rel="tag">parser</a></li>
            <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
            <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
         </ul>
 
             <ul class="pager">
             <li class="previous">
-                <a href="kolay-yoldan-flask.html" rel="prev" title="Kolay Yoldan Flask Framework">Önceki yazı</a>
-            </li>
-            <li class="next">
-                <a href="name-parser.html" rel="next" title="Python Name Parser">Sonraki yazı</a>
+                <a href="python-logging-library.html" rel="prev" title="Python Logging Library">Önceki yazı</a>
             </li>
         </ul>
 
@@ -173,9 +186,9 @@ article: http://ogp.me/ns/article#
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="aligren",
-            disqus_url="http://aligoren.github.io/posts/python-logging-library.html",
-        disqus_title="Python Logging Library",
-        disqus_identifier="cache/posts/python-logging-library.html",
+            disqus_url="http://aligoren.github.io/posts/name-parser.html",
+        disqus_title="Python Name Parser",
+        disqus_identifier="cache/posts/name-parser.html",
         disqus_config = function () {
             this.language = "tr";
         };

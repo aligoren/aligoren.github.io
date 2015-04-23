@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://aligoren.github.io/categories/algoritma.xml</loc>
-  <lastmod>2015-04-14</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/c++.xml</loc>
@@ -14,19 +14,19 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/c.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_flask-framework-python-programlama.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
-  <lastmod>2015-04-04</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.xml</loc>
-  <lastmod>2015-04-12</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_proje-projects-open-source-python-ruby-c-c++-php-java.xml</loc>
@@ -34,35 +34,39 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-algoritma-matematik.xml</loc>
-  <lastmod>2015-04-14</lastmod>
+  <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-parser-name-name-parsing-programlama.xml</loc>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-programlama-library-logging-logger.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_ruby-programlama-hata.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_ruby-ror-rails-windows-programlama.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/flask.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/framework.xml</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/java.xml</loc>
@@ -70,31 +74,43 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/library.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/logger.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/logging.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/matematik.xml</loc>
-  <lastmod>2015-04-14</lastmod>
+  <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/name-parsing.xml</loc>
+  <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/name.xml</loc>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/open-source.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/parser.xml</loc>
+  <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/php.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -106,23 +122,23 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/ror.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/ruby.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/windows.xml</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
@@ -130,10 +146,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-24</lastmod>
  </sitemap>
 </sitemapindex>

@@ -17,7 +17,7 @@ article: http://ogp.me/ns/article#
 
 
 
-        <link rel="next" href="index-1.html" type="text/html">
+        <link rel="next" href="index-2.html" type="text/html">
 
     
         <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
@@ -89,6 +89,61 @@ article: http://ogp.me/ns/article#
         <div class="row">
             
 <div class="postindex">
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/name-parser.html" class="u-url" rel="bookmark">Python Name Parser</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-24T01:02:57+03:00" title="2015-04-24 01:02">2015-04-24 01:02</time></p>
+                <p class="commentline">            <a href="posts/name-parser.html#disqus_thread" data-disqus-identifier="cache/posts/name-parser.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Name Parser, basitleştirilmiş bir isim ayrıştırıcıdır. Girilen ad, soyad kombinasyonunu duruma göre ayıklar.</p>
+<p>Çıkt formatı şu örneğe göre iki türlüdür.</p>
+<table border="1" style="background-color:#FFFFFF;border-collapse:collapse;border:1px solid #000000;color:#000000;width:100%" cellpadding="3" cellspacing="4">
+    <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Surname</strong></td>
+    </tr>
+    <tr>
+        <td>Ali</td>
+        <td>Opcode</td>
+        <td>GOREN</td>
+    </tr>
+</table>
+
+<p><br></p>
+<p>Burada 2 adet Name ve 1 adet Surname çıktısı var. Soyadın tek olmadığı durumlar var. Örneğin evlilik gibi durumlar. Maalesef bunu algılayabilmek için bir soyadı ve isim listesi gerekmekte.</p>
+<h2>Kullanım:</h2>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">name</span> <span class="kn">import</span> <span class="n">NameParser</span>
+
+<span class="n">np</span> <span class="o">=</span> <span class="n">NameParser</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="s">'Ali Opcode GOREN'</span><span class="p">))</span>
+</pre>
+
+
+<p>Bu şekilde bir kullanım yukarıdaki tablonun çıktısını verecektir. Aslında çıktı formatı şöyle oluyor :)</p>
+<pre class="code literal-block"><span class="n">output</span><span class="o">:</span>
+
+<span class="n">Name</span><span class="o">:</span> <span class="n">Ali</span>
+<span class="n">Name</span><span class="o">:</span> <span class="n">Opcode</span>
+<span class="n">Surname</span><span class="o">:</span> <span class="n">GOREN</span>
+</pre>
+
+
+<p>Kullanımı görüldüğü gibi çok basittir.</p>
+<p><strong>Github Linki: </strong> <a href="https://github.com/aligoren/NameParser">Name Parser</a></p>
+<p><strong>PyPi Linki: </strong> <a href="https://pypi.python.org/pypi/ParseNames">Name Parser</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
     <article class="h-entry post-text">
     <header>
         <h1 class="p-name entry-title"><a href="posts/python-logging-library.html" class="u-url" rel="bookmark">Python Logging Library</a></h1>
@@ -221,34 +276,11 @@ Make sure that <span class="sb">`</span>gem install FALANCA -v <span class="s1">
     </div>
     </article>
     <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/hanoi-tower-algorithm.html" class="u-url" rel="bookmark">Hanoi Kuleleri Algoritması</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-14T11:40:26+03:00" title="2015-04-14 11:40">2015-04-14 11:40</time></p>
-                <p class="commentline">            <a href="posts/hanoi-tower-algorithm.html#disqus_thread" data-disqus-identifier="cache/posts/towers-of-hanoi-algoritm.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p><strong>Hanoi Kuleleri</strong></p>
-<p>Hanoi kuleleri, Fransız matematikçi, <a href="http://en.wikipedia.org/wiki/%C3%89douard_Lucas">Edouard Lucas</a> tarafından önerilen bir çözüm yöntemidir. A,B ve C gibi dik konumda yerleştirilmiş üç çubuk ve N kadar disk içermektedir. İşleyiş şöyledir:</p>
-<p>Başlangıçta diskler, üstteki her diskin çapı daha büyük olmak şartıyla A çubuğuna yerleştirilir. Her seferinde sadece bir diskin hareketine izin verildiğinde, büyük disk, küçük diskin üzerine yerleştirilmeden, disklerin C çubuğuna taşınması gerekmektedir.</p>
-<p><img alt="Towers of Hanoi" src="galleries/towers_of_hanoi.png"></p>
-<p>Hanoi problemi, problem alt problemlere parçalanarak çözülebilir. Problemde N kadar disk olduğunu varsayarsak recursive şekilde bir çözüm şu şekilde olabilir: </p>
-<p class="more"><a href="posts/hanoi-tower-algorithm.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
 </div>
         <nav class="postindexpager">
         <ul class="pager">
             <li class="next">
-                <a href="index-1.html" rel="next">Daha eski yazılar</a>
+                <a href="index-2.html" rel="next">Daha eski yazılar</a>
             </li>
         </ul>
         </nav>
