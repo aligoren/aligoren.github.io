@@ -14,10 +14,14 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/archive.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/algoritma.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/c++.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
@@ -34,6 +38,10 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/cat_proje-projects-open-source-python-ruby-c-c++-php-java.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
@@ -73,6 +81,10 @@
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
+  <loc>http://aligoren.github.io/categories/java.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
   <loc>http://aligoren.github.io/categories/library.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
@@ -89,11 +101,23 @@
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
+  <loc>http://aligoren.github.io/categories/open-source.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
   <loc>http://aligoren.github.io/categories/php.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/categories/programlama.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/proje.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/categories/projects.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
@@ -118,10 +142,14 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/galleries/index.html</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/index-1.html</loc>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/index-2.html</loc>
   <lastmod>2015-04-23</lastmod>
  </url>
  <url>
@@ -130,11 +158,15 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/listings/index.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/pages/hakkimda.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
+ </url>
+ <url>
+  <loc>http://aligoren.github.io/pages/projects.html</loc>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/bir-python-kodu.html</loc>
@@ -142,23 +174,23 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/euler-number-python.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/fibonacci-numbers.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/hamming-numbers.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/hanoi-tower-algorithm.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/install-rails-on-windows.html</loc>
-  <lastmod>2015-04-19</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/kolay-yoldan-flask.html</loc>
@@ -170,11 +202,11 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/php-onbellek-kutuphanesi.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/programming-quotes.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/python-logging-library.html</loc>
@@ -182,6 +214,6 @@
  </url>
  <url>
   <loc>http://aligoren.github.io/posts/ruby-bundle-install-error.html</loc>
-  <lastmod>2015-04-18</lastmod>
+  <lastmod>2015-04-23</lastmod>
  </url>
 </urlset>
