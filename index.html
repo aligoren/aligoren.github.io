@@ -91,6 +91,28 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/syspy-windows-python.html" class="u-url" rel="bookmark">syspy Windows Sistem Bilgi Kütüphanesi</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-27T00:08:20+03:00" title="2015-04-27 00:08">2015-04-27 00:08</time></p>
+                <p class="commentline">            <a href="posts/syspy-windows-python.html#disqus_thread" data-disqus-identifier="cache/posts/syspy-windows-python.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p><strong><em>Not: Yazı Sonunda Paylaşılan Python Hosted Linki Doxygen ile Hazırlanmıştır. Class Diagramları ve Açıklamaları Görebilirsiniz.</em></strong></p>
+<p>Python ile windows sistem bilgilerini görüntülemek için win32 ya da psutil kütüphanelerinin kurulmuş olması gerekmekte. Ancak bunlarla dahi tam görüntülenemez. Aslında görüntülenir ama sürekli bir uğraş vermek zorunda kalırsınız.</p>
+<p>Sürekli bir iterasyon işlemi şart olur. Can sıkıntısına biraz uğraşayım dedim ve sonunda <a href="https://pypi.python.org/pypi/syspy">PyPi</a> üzerinde paylaşabileceğim ekstra bir kütüphane ortaya çıktı.</p>
+<p>Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. </p>
+<p class="more"><a href="posts/syspy-windows-python.html">Devamını oku…</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/name-parser.html" class="u-url" rel="bookmark">Python Name Parser</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-24T01:02:57+03:00" title="2015-04-24 01:02">2015-04-24 01:02</time></p>
@@ -237,41 +259,6 @@ seçip, kurulum dökümanlarına ulaşabilirsiniz.</p>
 <p>Kurulum sonrasında bundle işleminde hata alanlar buraya bakabilirler: <a href="posts/ruby-bundle-install-error.html">Ruby Bundle Install Error</a></p>
 </blockquote>
 <p>İyi çalışmalar</p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/ruby-bundle-install-error.html" class="u-url" rel="bookmark">Ruby Bundle Install Error</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-18T00:39:54+03:00" title="2015-04-18 00:39">2015-04-18 00:39</time></p>
-                <p class="commentline">            <a href="posts/ruby-bundle-install-error.html#disqus_thread" data-disqus-identifier="cache/posts/ruby-bundle-install-error.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Ruby'de eklenti kurmanın yolu aynı Python'da olduğu gibi bir paket yöneticisi kullanmaktır. 
-Ancak bunu yaparken dahi hatalar alırız. Örneğin şöyle bir hata</p>
-<p>Örneğin Ruby on Rails ile bir proje geliştiriyorsunuz. Bundle ile install diyerek gereksinimleri kurmak isteyeceksiniz. Ama o da ne bir hata aldınız:</p>
-<pre class="code literal-block">C:<span class="se">\R</span>ailsWork<span class="se">\&gt;</span> bundle install
-
-Gem::RemoteFetcher::FetchError: SSL_connect <span class="nv">returned</span><span class="o">=</span><span class="m">1</span> <span class="nv">errno</span><span class="o">=</span><span class="m">0</span> <span class="nv">state</span><span class="o">=</span>SSLv3 
-<span class="nb">read </span>server certificate B: certificate verify failed 
-<span class="o">(</span>https://rubygems.org/gems/FALANCA.gem<span class="o">)</span>
-An error occured <span class="k">while</span> installing FALANCA <span class="o">(</span>FALAN_VERSIYON<span class="o">)</span>, and Bundler cannot <span class="k">continue</span>.
-Make sure that <span class="sb">`</span>gem install FALANCA -v <span class="s1">'FALAN_VERSIYON'</span><span class="sb">`</span> succeeds before bundling.
-</pre>
-
-
-<p>Bu hatayı geçmenizin bir yolu verilen gem linkini direkt olarak kopyalayıp</p>
-<p><code>gem install FALANCA.gem</code></p>
-<p>komutu ile kurmak. Ancak Rails gibi büyük frameworkleri kullanırken bağımlılıklar da çok fazla oluyorlar. Bu duruma kalıcı ve kesin bir çözüm getirmek gerekir.</p>
-<p>Bunun içinse şöyle bir şey yapılabilir.</p>
-<p class="more"><a href="posts/ruby-bundle-install-error.html">Devamını oku…</a></p>
 </div>
     </div>
     </article>

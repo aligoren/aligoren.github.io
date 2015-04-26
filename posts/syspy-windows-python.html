@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="win32 api python, windows system information with python, psutil example">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>syspy Windows Sistem Bilgi Kütüphanesi | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/syspy-windows-python.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="win32 api python, windows system information with python, psutil example">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="name-parser.html" title="Python Name Parser" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="syspy Windows Sistem Bilgi Kütüphanesi">
+    <meta property="og:url" content="http://aligoren.github.io/posts/syspy-windows-python.html">
+    <meta property="og:description" content="win32 api python, windows system information with python, psutil example">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-27T00:08:20+03:00">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="psutil">
+           <meta property="article:tag" content="python">
+           <meta property="article:tag" content="sys">
+           <meta property="article:tag" content="windows">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">syspy Windows Sistem Bilgi Kütüphanesi</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-27T00:08:20+03:00" itemprop="datePublished" title="2015-04-27 00:08">2015-04-27 00:08</time></p>
+                <p class="commentline">            <a href="syspy-windows-python.html#disqus_thread" data-disqus-identifier="cache/posts/syspy-windows-python.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="win32 api python, windows system information with python, psutil example">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><strong><em>Not: Yazı Sonunda Paylaşılan Python Hosted Linki Doxygen ile Hazırlanmıştır. Class Diagramları ve Açıklamaları Görebilirsiniz.</em></strong></p>
+<p>Python ile windows sistem bilgilerini görüntülemek için win32 ya da psutil kütüphanelerinin kurulmuş olması gerekmekte. Ancak bunlarla dahi tam görüntülenemez. Aslında görüntülenir ama sürekli bir uğraş vermek zorunda kalırsınız.</p>
+<p>Sürekli bir iterasyon işlemi şart olur. Can sıkıntısına biraz uğraşayım dedim ve sonunda <a href="https://pypi.python.org/pypi/syspy">PyPi</a> üzerinde paylaşabileceğim ekstra bir kütüphane ortaya çıktı.</p>
+<p>Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. <!-- TEASER_END --></p>
+<p><strong>Kurulum</strong></p>
+<p>Kurulum işlemi çok basit. Eğer PyPi kullanarak kurmak isterseniz</p>
+<p><code>pip install syspy</code></p>
+<p>komutunu vermeniz yeterlidir. Kendisi zaten gerekli kurulumu yapacaktır.</p>
+<p>Eğer yazı sonunda aşağıda vereceğim test dosyalarının da olduğu repoyu indirip kurulum yapmak isterseniz <strong>setup.py</strong> dosyasını çalıştırmanız gerekmekte.</p>
+<p><code>python setup.py install</code></p>
+<p>Gereksinimleri de unutmayalım</p>
+<p><code>pip install -r requirements.txt</code></p>
+<p>Bu şekilde gereksinimi yani psutil'i yüklersiniz.</p>
+<h2>syspy Neler Sunuyor?</h2>
+<p>CPU, Disk, Information, Memory, Network olmak üzere toplam 5 kategoride özellikler sunmakta. Bunların da alt özellikleri vardır.</p>
+<p><strong>CPU</strong>:</p>
+<pre class="code literal-block">CPU Times, CPU Percent, CPU Percent Per CPU,
+CPU Percent Times, CPU Count, CPU Affinity
+</pre>
+
+
+<p><strong>Disk</strong>:</p>
+<pre class="code literal-block">Disk Partitions, Disk Usage, Disk I/O Counters
+</pre>
+
+
+<p><strong>Information</strong>:</p>
+<pre class="code literal-block">Users, Boot Time, Process Iteration Tool
+</pre>
+
+
+<p><strong>Memory</strong>:</p>
+<pre class="code literal-block">Virtual Memory, Swap Memory, Memory Info,
+Memory Info(Extend), Memory Percent, Memory Map
+</pre>
+
+
+<p><strong>Network</strong>:</p>
+<pre class="code literal-block">Network I/O Counters, Net Connections
+</pre>
+
+
+<p>Sunduğu özellikler şimdilik bunlar. Bu zaten amatör bir çalışma idi. Sunulan özelliklerle ilgili test dosyaları şu hiyerarşiye göre dizilmiştir.</p>
+<p><strong>Test Dosyaları</strong>:</p>
+<pre class="code literal-block">cpu --
+    \test.py
+disk --
+    \test.py
+info --
+    \test.py
+memory --
+    \test.py
+network --
+    \test.py
+</pre>
+
+
+<p><strong>Örneklere bakalım</strong>:</p>
+<p>Bu kadar indirdik kurduk falan. Eğer test dosyalarına bakmadıysanız her kategori için birer örnek vermek gerekir diye düşünüyorum. Artık şöyle böyle import edin demeye gerek duymuyorum. <strong>PEP</strong> standartlarını okursanız ya da bu konu hakkında döküman bulursanız şöyle yazılıyor: "<em>Bir kütüphanenin aktarım işlemini wildcard ile yapmaktan kaçının. Kütüphane'nin hangi nesnesi ya da işlevi ile çalışmak istiyorsanız direkt olarak onu aktarın.</em>"</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">syspy</span> <span class="kn">import</span> <span class="n">CPU</span>
+<span class="kn">from</span> <span class="nn">syspy</span> <span class="kn">import</span> <span class="n">Disk</span>
+<span class="kn">from</span> <span class="nn">syspy</span> <span class="kn">import</span> <span class="n">Info</span>
+<span class="kn">from</span> <span class="nn">syspy</span> <span class="kn">import</span> <span class="n">Memory</span>
+<span class="kn">from</span> <span class="nn">syspy</span> <span class="kn">import</span> <span class="n">Network</span>
+
+<span class="n">cpu</span> <span class="o">=</span> <span class="n">CPU</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">cpu</span><span class="o">.</span><span class="n">getCpuTimes</span><span class="p">())</span>
+
+<span class="n">disk</span> <span class="o">=</span> <span class="n">Disk</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">g</span> <span class="o">=</span> <span class="n">disk</span><span class="o">.</span><span class="n">getDiskPartitions</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Part Device: {}</span><span class="se">\n</span><span class="s">Usage Total: {}</span><span class="se">\n</span><span class="s">Usage Used: {}</span><span class="se">\n</span><span class="s">Usage Free: {}"</span> \
+            <span class="s">"</span><span class="se">\n</span><span class="s">Usage Percent: {}</span><span class="se">\n</span><span class="s">Part Type: {}</span><span class="se">\n</span><span class="s">Part Mountpoint: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">))</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">Info</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">getBootTime</span><span class="p">())</span>
+
+<span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">getSwapMemory</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Total: {0} Used: {1} Free: {2} Percent: {3} Sin: {4} Sout: {5}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">))</span>
+
+<span class="n">network</span> <span class="o">=</span> <span class="n">Network</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">getNetConnections</span><span class="p">())</span>
+</pre>
+
+
+<p>Yazı sonuna gelmiş bulunduk o zaman bazı linkleri paylaşmanın zamanı gelmiştir :)</p>
+<p><strong>Github Üzerinde</strong>:</p>
+<p><a href="https://github.com/aligoren/syspy">syspy on GitHub</a></p>
+<p><strong>PyPi Üzerinde</strong>:</p>
+<p><a href="https://pypi.python.org/pypi/syspy">syspy on PyPi</a></p>
+<p><strong>Read the Docs Üzerinde</strong>:</p>
+<p><a href="http://syspy.readthedocs.org/en/latest/">syspy on RTD</a></p>
+<p><strong>Python Hosted Üzerinde</strong>:</p>
+<p><a href="https://pythonhosted.org/syspy/">syspy on Python Hosted</a></p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/psutil.html" rel="tag">psutil</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+           <li><a class="tag p-category" href="../categories/sys.html" rel="tag">sys</a></li>
+           <li><a class="tag p-category" href="../categories/windows.html" rel="tag">windows</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="name-parser.html" rel="prev" title="Python Name Parser">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/syspy-windows-python.html",
+        disqus_title="syspy Windows Sistem Bilgi K\u00fct\u00fcphanesi",
+        disqus_identifier="cache/posts/syspy-windows-python.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
