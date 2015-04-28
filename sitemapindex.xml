@@ -49,6 +49,10 @@
   <lastmod>2015-04-27</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-zip-map-liste-programlama.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -81,12 +85,20 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/liste.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/logger.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/logging.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/map.xml</loc>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/matematik.xml</loc>
@@ -114,7 +126,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -130,7 +142,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
@@ -153,15 +165,19 @@
   <lastmod>2015-04-27</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/zip.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
 </sitemapindex>

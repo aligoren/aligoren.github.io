@@ -5,25 +5,42 @@ article: http://ogp.me/ns/article#
 " lang="tr">
     <head>
     <meta charset="utf-8">
-    <meta name="description" content="Programlama Açık Kaynak Python Ruby PHP">
+    <meta name="description" content="Python zip vs. map">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ali GÖREN | Ali GÖREN</title>
+    <title>Python: zip yerine map kullanın | Ali GÖREN</title>
 
-                <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://aligoren.github.io/index.html">
+      <link rel="canonical" href="http://aligoren.github.io/posts/zip-yerine-map.html">
 
 
 
-        <link rel="next" href="index-2.html" type="text/html">
-
-    
-        <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
 
     
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 
+    
+
+    
+    <meta name="description" itemprop="description" content="Python zip vs. map">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="syspy-windows-python.html" title="syspy Windows Sistem Bilgi Kütüphanesi" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Python: zip yerine map kullanın">
+    <meta property="og:url" content="http://aligoren.github.io/posts/zip-yerine-map.html">
+    <meta property="og:description" content="Python zip vs. map">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-29T00:23:42+03:00">
+           <meta property="article:tag" content="liste">
+           <meta property="article:tag" content="map">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="python">
+           <meta property="article:tag" content="zip">
+
+    
+    
 
 <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
 </head>
@@ -60,13 +77,13 @@ article: http://ogp.me/ns/article#
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                                 <li>
-<a href="archive.html">Arşiv</a>
+<a href="../archive.html">Arşiv</a>
                 </li>
 <li>
-<a href="categories/index.html">Etiketler</a>
+<a href="../categories/index.html">Etiketler</a>
                 </li>
 <li>
-<a href="rss.xml">RSS feed</a>
+<a href="../rss.xml">RSS feed</a>
 
                 
             </li>
@@ -88,19 +105,23 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
-<div class="postindex">
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/zip-yerine-map.html" class="u-url" rel="bookmark">Python: zip yerine map kullanın</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Python: zip yerine map kullanın</a></h1>
+
         <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-29T00:23:42+03:00" title="2015-04-29 00:23">2015-04-29 00:23</time></p>
-                <p class="commentline">            <a href="posts/zip-yerine-map.html#disqus_thread" data-disqus-identifier="cache/posts/zip-yerine-map.html">Comments</a>
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-29T00:23:42+03:00" itemprop="datePublished" title="2015-04-29 00:23">2015-04-29 00:23</time></p>
+                <p class="commentline">            <a href="zip-yerine-map.html#disqus_thread" data-disqus-identifier="cache/posts/zip-yerine-map.html">Comments</a>
 
 
+            
+                <meta name="description" itemprop="description" content="Python zip vs. map">
         </p>
 </div>
+        
     </header>
-    <div class="p-summary entry-summary">
+
+    <div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Birbirine paralel listeler olduğunu düşünelim. Birbirine paralel olarak da çıktılarının olması gerekiyor. Bunu yapabilmek için <code>zip</code> kullanılabilir.</p>
 <pre class="code literal-block"><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">zaman</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.12</span><span class="p">,</span> <span class="mf">42.28</span><span class="p">,</span> <span class="mf">42.34</span><span class="p">,</span> <span class="mf">42.40</span><span class="p">,</span> <span class="mf">42.45</span><span class="p">]</span>
@@ -161,160 +182,50 @@ article: http://ogp.me/ns/article#
 </pre>
 </div>
     </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/syspy-windows-python.html" class="u-url" rel="bookmark">syspy Windows Sistem Bilgi Kütüphanesi</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-27T00:08:20+03:00" title="2015-04-27 00:08">2015-04-27 00:08</time></p>
-                <p class="commentline">            <a href="posts/syspy-windows-python.html#disqus_thread" data-disqus-identifier="cache/posts/syspy-windows-python.html">Comments</a>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/liste.html" rel="tag">liste</a></li>
+           <li><a class="tag p-category" href="../categories/map.html" rel="tag">map</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+           <li><a class="tag p-category" href="../categories/zip.html" rel="tag">zip</a></li>
+        </ul>
 
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p><strong><em>Not: Yazı Sonunda Paylaşılan Python Hosted Linki Doxygen ile Hazırlanmıştır. Class Diagramları ve Açıklamaları Görebilirsiniz.</em></strong></p>
-<p>Python ile windows sistem bilgilerini görüntülemek için win32 ya da psutil kütüphanelerinin kurulmuş olması gerekmekte. Ancak bunlarla dahi tam görüntülenemez. Aslında görüntülenir ama sürekli bir uğraş vermek zorunda kalırsınız.</p>
-<p>Sürekli bir iterasyon işlemi şart olur. Can sıkıntısına biraz uğraşayım dedim ve sonunda <a href="https://pypi.python.org/pypi/syspy">PyPi</a> üzerinde paylaşabileceğim ekstra bir kütüphane ortaya çıktı.</p>
-<p>Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. </p>
-<p class="more"><a href="posts/syspy-windows-python.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/name-parser.html" class="u-url" rel="bookmark">Python Name Parser</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-24T01:02:57+03:00" title="2015-04-24 01:02">2015-04-24 01:02</time></p>
-                <p class="commentline">            <a href="posts/name-parser.html#disqus_thread" data-disqus-identifier="cache/posts/name-parser.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Name Parser, basitleştirilmiş bir isim ayrıştırıcıdır. Girilen ad, soyad kombinasyonunu duruma göre ayıklar.</p>
-<p>Çıkt formatı şu örneğe göre iki türlüdür.</p>
-<table border="1" style="background-color:#FFFFFF;border-collapse:collapse;border:1px solid #000000;color:#000000;width:100%" cellpadding="3" cellspacing="4">
-    <tr>
-        <td><strong>Name</strong></td>
-        <td><strong>Name</strong></td>
-        <td><strong>Surname</strong></td>
-    </tr>
-    <tr>
-        <td>Ali</td>
-        <td>Opcode</td>
-        <td>GOREN</td>
-    </tr>
-</table>
-
-<p><br></p>
-<p>Burada 2 adet Name ve 1 adet Surname çıktısı var. Soyadın tek olmadığı durumlar var. Örneğin evlilik gibi durumlar. Maalesef bunu algılayabilmek için bir soyadı ve isim listesi gerekmekte.</p>
-<h2>Kullanım:</h2>
-<pre class="code literal-block"><span class="kn">from</span> <span class="nn">name</span> <span class="kn">import</span> <span class="n">NameParser</span>
-
-<span class="n">np</span> <span class="o">=</span> <span class="n">NameParser</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="s">'Ali Opcode GOREN'</span><span class="p">))</span>
-</pre>
-
-
-<p>Bu şekilde bir kullanım yukarıdaki tablonun çıktısını verecektir. Aslında çıktı formatı şöyle oluyor :)</p>
-<pre class="code literal-block"><span class="n">output</span><span class="o">:</span>
-
-<span class="n">Name</span><span class="o">:</span> <span class="n">Ali</span>
-<span class="n">Name</span><span class="o">:</span> <span class="n">Opcode</span>
-<span class="n">Surname</span><span class="o">:</span> <span class="n">GOREN</span>
-</pre>
-
-
-<p>Kullanımı görüldüğü gibi çok basittir.</p>
-<p><strong>Github Linki: </strong> <a href="https://github.com/aligoren/NameParser">Name Parser</a></p>
-<p><strong>PyPi Linki: </strong> <a href="https://pypi.python.org/pypi/ParseNames">Name Parser</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/python-logging-library.html" class="u-url" rel="bookmark">Python Logging Library</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-23T02:12:09+03:00" title="2015-04-23 02:12">2015-04-23 02:12</time></p>
-                <p class="commentline">            <a href="posts/python-logging-library.html#disqus_thread" data-disqus-identifier="cache/posts/python-logging-library.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<h2>Installation:</h2>
-<p><code>python setup.py install</code></p>
-<h2>Usage:</h2>
-<p>Using is simple. There is a sample code below</p>
-<pre class="code literal-block"><span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">LogSaver</span>
-<span class="kn">from</span> <span class="nn">handan</span> <span class="kn">import</span> <span class="n">logMachine</span>
-
-<span class="nd">@logMachine</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
-
-<span class="n">log</span> <span class="o">=</span> <span class="n">LogSaver</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">'This is tests the WARN logging call'</span><span class="p">))</span>
-</pre>
-
-
-<p>You can also look <strong>test.py</strong> file.</p>
-<p><strong>Github Repository Link:</strong> <a href="https://github.com/aligoren/handan">handan</a></p>
-<h2>What's Handan?</h2>
-<p>Handan is a <a href="http://www.idefix.com/kitap/handan-halide-edib-adivar/tanim.asp?sid=D6ANJ7OKH0208OYQGXWM">book</a>. Also my ex girlfriend's name.</p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/kolay-yoldan-flask.html" class="u-url" rel="bookmark">Kolay Yoldan Flask Framework</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-19T13:22:36+03:00" title="2015-04-19 13:22">2015-04-19 13:22</time></p>
-                <p class="commentline">            <a href="posts/kolay-yoldan-flask.html#disqus_thread" data-disqus-identifier="cache/posts/kolay-yoldan-flask.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Flask framework python ile yazılmış genişletilebilir br microframework olarak da tanımlanabilir. Ancak yaptıklarına baktığınızda pek de mikro olmadığını görebilirsiniz.</p>
-<p>Benim gibi django'yu, rails'i karmaşık bulanlar için Flask framework mükemmeldir.</p>
-<p><strong>Flask Framework Kurulumu</strong></p>
-<p>Flask framework'ü kurmak için konsoldan şu komutu vermeniz yeterlidir.</p>
-<p><code>pip install Flask</code></p>
-<p>Bu adımdan sonra artık Flask kurulmuş olmalı. Eğer burada bir sorun yaşıyorsanız hatalara bakıp o hataları gidermeye çalışın.</p>
-<p><strong>Olası Hatalar</strong></p>
-<p>Windows ile kurulum yapıyorsanız yönetici izni gerekebilir. Linux için bahsetme gereği duymadım pek çünkü zaten Linux ile kurarken sudo komutunu girmeniz gerektiğini bildiğinizi varsayıyorum. </p>
-<p class="more"><a href="posts/kolay-yoldan-flask.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-</div>
-        <nav class="postindexpager">
-        <ul class="pager">
-            <li class="next">
-                <a href="index-2.html" rel="next">Daha eski yazılar</a>
+            <ul class="pager">
+            <li class="previous">
+                <a href="syspy-windows-python.html" rel="prev" title="syspy Windows Sistem Bilgi Kütüphanesi">Önceki yazı</a>
             </li>
         </ul>
-        </nav>
 
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/zip-yerine-map.html",
+        disqus_title="Python: zip yerine map kullan\u0131n",
+        disqus_identifier="cache/posts/zip-yerine-map.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
                <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
 
 
         </div>
@@ -327,8 +238,8 @@ article: http://ogp.me/ns/article#
     </div>
 </div>
 
-            <script src="assets/js/all-nocdn.js"></script>
-        <script src="assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
     
 
     <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
