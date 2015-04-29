@@ -25,6 +25,14 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloj-yazilim.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloji-yazilim.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -85,6 +93,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/haber.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -95,6 +107,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/library.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/linux.xml</loc>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/liste.xml</loc>
@@ -138,7 +154,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -181,8 +197,20 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/teknoloj.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/teknoloji.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/windows.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/yazilim.xml</loc>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/zip.xml</loc>
@@ -190,14 +218,14 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-23</lastmod>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
 </sitemapindex>

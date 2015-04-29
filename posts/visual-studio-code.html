@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Visual Studio Code, Microsoft Open Source">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visual Studio Code | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/visual-studio-code.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Visual Studio Code, Microsoft Open Source">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="sys-argv-yerine-click.html" title="sys.argv Yerine Click" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Visual Studio Code">
+    <meta property="og:url" content="http://aligoren.github.io/posts/visual-studio-code.html">
+    <meta property="og:description" content="Visual Studio Code, Microsoft Open Source">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-30T00:19:12+03:00">
+           <meta property="article:tag" content="haber">
+           <meta property="article:tag" content="linux">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="teknoloji">
+           <meta property="article:tag" content="windows">
+           <meta property="article:tag" content="yazılım">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Visual Studio Code</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-30T00:19:12+03:00" itemprop="datePublished" title="2015-04-30 00:19">2015-04-30 00:19</time></p>
+                <p class="commentline">            <a href="visual-studio-code.html#disqus_thread" data-disqus-identifier="cache/posts/visual-studio-code.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Visual Studio Code, Microsoft Open Source">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Microsoft'un son dönemde açık kaynak dünyasına verdiği bir başka yazılım oluyor kendisi. 12 Kasım 2014'te .NET açık kaynak kodlu ve cross platform <a href="http://blogs.msdn.com/b/somasegar/archive/2014/11/12/opening-up-visual-studio-and-net-to-every-developer-any-application-net-server-core-open-source-and-cross-platform-visual-studio-community-2013-and-preview-of-visual-studio-2015-and-net-2015.aspx">olmuştu</a>. Linux ve Mac OS X kullanıcıları için güzel bir haberdi. Bugüne kadar dem vurduğumuz noktalardan birisi kapalı kaynak koddu. Tabii ki bu Microsoft'un pazar stratejisi vs. Bu konu yayılım, pazar payı gibi etkenleri yorumlayanlar için bir haber özelliği taşıyor.</p>
+<p>Bugün yani aslında dün Electron bir tweet attı.</p>
+<blockquote class="twitter-tweet" lang="tr">
+<p>Visual Studio Code is an Electron app <a href="https://t.co/RyzJjVyutG">https://t.co/RyzJjVyutG</a> <a href="https://twitter.com/hashtag/Build2015?src=hash">#Build2015</a></p>— Electron (@electronjs) <a href="https://twitter.com/electronjs/status/593464848228450304">29 Nisan 2015</a>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>O tweete göre, Visual Studio Code yayınlanmış ve yayınlanan VSC bir Electron uygulaması imiş. Bu uygulamanın cross platform olduğunu söylemek gerek. Hatta Somasegar bir tweetinde şöyle bir ekran görüntüsü atmıştı. (Tweet görünmüyorsa tıklayın bi zahmet :P)
+<!-- TEASER_END -->
+</p>
+<blockquote class="twitter-tweet" lang="tr">
+<p>Visual Studio Code is a new code editor for building modern web and cloud apps on OS X, Linux and Windows. <a href="https://twitter.com/hashtag/build2015?src=hash">#build2015</a> <a href="http://t.co/X85j3aBZ2Q">pic.twitter.com/X85j3aBZ2Q</a></p>— S. Somasegar (@SSomasegar) <a href="https://twitter.com/SSomasegar/status/593449557276499968">29 Nisan 2015</a>
+</blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Visual Studio Code aslında bir Electron uygulaması olsa da bildiğimiz Atom gibi bir görünüme sahip değil. Hatta bu yazıyı yazdığım ortamın ekran görüntüsünü paylaşayım.</p>
+<p><img alt="VC" src="../galleries/vsc.PNG"></p>
+<p>Bunun haricinde dil desteği hakkında konuşmak gerekirse desteklediği diller şunlar.</p>
+<h3>Kod Renklendirme Özelliğinin Olduğu Diller</h3>
+<p>Bunların tamamına dil demek doğru mu bilemiyorum. Ancak şunları destekliyor</p>
+<pre class="code literal-block">C++, jade, PHP, Python, XML, Batch, F#, DockerFile, Coffee Script,
+Java, HandleBars, R, Objective-C, PowerShell, Luna, Visual Basic, Markdown
+</pre>
+
+
+<p>Yukarıda belirttiğim dilleri sadece renklendiriyor ve eşleşmeleri belirtiyor.
+Zaten bu yazıyı da VSC ile hazırlıyorum. Markdown desteği var. Markdown ile yazarken önizleme yapmak için <code>CTRL+Shift+V</code> yapabililirsiniz.
+Tekrar geri dönüp düzenlemek için de aynı kısayolu kullanabilirsiniz.</p>
+<h3>IntelliSense, Linting, Outline Özelliğinin Olduğu Diller</h3>
+<p>Daha çok web geliştiricilerinin işine yarayacağını düşünüyorum. Keşke IntelliSense özelliğini falan Python için ya da Ruby için de verselerdi.</p>
+<pre class="code literal-block">JavaScript, JSON, HTML, CSS, LESS, SASS
+</pre>
+
+
+<h3>Refactoring ve Reference Arama Yapılabilen Diller</h3>
+<p>MS bu kendisini düşünmeden olur mu hiç?</p>
+<pre class="code literal-block">C#, TypeScript
+</pre>
+
+
+<p>Yine bu editörün güzel yanlarından birisi de <code>git</code> desteği de var.
+Yani version control işlemi de yapabiliyorsunuz. Ayrıca debugging işlemi de yapabiliyorsunuz.
+Tabii bunu Asp.NET 5 ve NodeJS ile kullandığınızda çok tatlı olduğu kesin.</p>
+<h3>İndirme Linki</h3>
+<p><strong>Viual Studio Code Download:</strong> <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p><strong>Customization:</strong> <a href="https://code.visualstudio.com/Docs/customization">https://code.visualstudio.com/Docs/customization</a></p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/haber.html" rel="tag">haber</a></li>
+           <li><a class="tag p-category" href="../categories/linux.html" rel="tag">linux</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/teknoloji.html" rel="tag">teknoloji</a></li>
+           <li><a class="tag p-category" href="../categories/windows.html" rel="tag">windows</a></li>
+           <li><a class="tag p-category" href="../categories/yazilim.html" rel="tag">yazılım</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="sys-argv-yerine-click.html" rel="prev" title="sys.argv Yerine Click">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/visual-studio-code.html",
+        disqus_title="Visual Studio Code",
+        disqus_identifier="cache/posts/visual-studio-code.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
