@@ -9,6 +9,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/argc.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/c++.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
@@ -37,6 +41,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-argc-argc-sysargv-python3-click.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-parser-name-name-parsing-programlama.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -63,6 +71,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_ruby-ror-rails-windows-programlama.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/click.xml</loc>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/flask.xml</loc>
@@ -145,6 +157,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/python3.xml</loc>
+  <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -159,6 +175,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/sys.xml</loc>
   <lastmod>2015-04-27</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/sysargv.xml</loc>
+  <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/windows.xml</loc>
