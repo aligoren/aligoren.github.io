@@ -91,6 +91,38 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/python-ve-asyncio.html" class="u-url" rel="bookmark">Python ve Asyncio</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-30T23:56:13+03:00" title="2015-04-30 23:56">2015-04-30 23:56</time></p>
+                <p class="commentline">            <a href="posts/python-ve-asyncio.html#disqus_thread" data-disqus-identifier="cache/posts/python-ve-asyncio.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Bu yazıda Python'ın bir kütüphanesini tanıtacağım. Aslında varlığından haberdar olsam da araştırmalarım kısa süre önce başladı. Kısa süre önce Guido ile
+twitter üzerinden şu sistem nasıl yapılır, bu sistem nasıl yazılır gibi sohbet soru-cevap <a href="https://twitter.com/gvanrossum/status/588112508042502144">yapıyorduk</a>.</p>
+<p>O da bana X benzeri bir sistemi yazmak istiyorsan, o konuda X kadar yıl tecrübe edip eksiğini gediğini görmen lazım dedi. Yani onu anlaman lazım dedi.
+Eğer onu anlarsam o konuda kendimi geliştirebilirmişim. Daha sonra ise kendisine kendisinin favori kütüphanesinin ne olduğunu sormaya çalıştım
+fakat <strong>our</strong> olarak yazmışım klavye azizliği neyse işte sordum.
+Kendisi bana <a href="https://github.com/python/asyncio">asyncio</a> kütüphanesini <a href="https://twitter.com/gvanrossum/status/588165930301132800">önerdi</a>.</p>
+<p>Daha sonra bu kütüphaneyi araştırmaya başladım. Anladığım kadarını aktarmaya çalışayım. Yanlış bilgilendirmelerim olursa düzeltme gelirse sevirim :)</p>
+<h3>Asenkron Programlama Nedir?</h3>
+<p>Bir uygulama olduğunu düşünün. Bu uygulama aynı anda birden fazla işlem yapmak zorunda. Eğer bu tarz bir uygulamaya sahipseniz asenkron(asynchronous) yani
+eşzamansız programlama tam ihtiyacınız olan konu.</p>
+<p>I/O işlemleri yapılırken, tek bir thread, o işlemin sonucunu beklemekle uğraşmaz. Bu esnada başka işler de yapılır.
+Paralel programlama ile karıştırılmaması gerekmekte. Çünkü paralel programlama I/O işlemi olup olmadığına bakmaksızın her şey paralel olarak çalıştırır.
+Bu durumdan dolayı da paralel yapılması gereken işlemler için fazladan thread gerekir. Eğer işlemci thread sayısına yetecek kadar çekirdeğe sahip değilse
+aynı çekirdek daha fazla thread arasında dolaşmak zorunda kalır bu da performansı olumsuz etkiler. </p>
+<p class="more"><a href="posts/python-ve-asyncio.html">Devamını oku…</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/instagram-forgot-to-renew-its-ssl-certificate.html" class="u-url" rel="bookmark">Instagram forgot to renew its SSL Certificate</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-30T16:28:37+03:00" title="2015-04-30 16:28">2015-04-30 16:28</time></p>
@@ -234,28 +266,6 @@ Evidently even the biggest companies forget to renew their certificates occasion
 <span class="n">Can</span>                  <span class="mf">42.54</span>
 <span class="n">Gurcan</span>               <span class="mf">42.60</span>
 </pre>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/syspy-windows-python.html" class="u-url" rel="bookmark">syspy Windows Sistem Bilgi Kütüphanesi</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-27T00:08:20+03:00" title="2015-04-27 00:08">2015-04-27 00:08</time></p>
-                <p class="commentline">            <a href="posts/syspy-windows-python.html#disqus_thread" data-disqus-identifier="cache/posts/syspy-windows-python.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p><strong><em>Not: Yazı Sonunda Paylaşılan Python Hosted Linki Doxygen ile Hazırlanmıştır. Class Diagramları ve Açıklamaları Görebilirsiniz.</em></strong></p>
-<p>Python ile windows sistem bilgilerini görüntülemek için win32 ya da psutil kütüphanelerinin kurulmuş olması gerekmekte. Ancak bunlarla dahi tam görüntülenemez. Aslında görüntülenir ama sürekli bir uğraş vermek zorunda kalırsınız.</p>
-<p>Sürekli bir iterasyon işlemi şart olur. Can sıkıntısına biraz uğraşayım dedim ve sonunda <a href="https://pypi.python.org/pypi/syspy">PyPi</a> üzerinde paylaşabileceğim ekstra bir kütüphane ortaya çıktı.</p>
-<p>Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. </p>
-<p class="more"><a href="posts/syspy-windows-python.html">Devamını oku…</a></p>
 </div>
     </div>
     </article>

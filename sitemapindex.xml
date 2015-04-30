@@ -13,6 +13,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/asyncio.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/bug.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
@@ -59,6 +63,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-parser-name-name-parsing-programlama.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-programlama-asyncio-network.xml</loc>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-programlama-library-logging-logger.xml</loc>
@@ -153,6 +161,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/network.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/news.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
@@ -170,7 +182,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -186,7 +198,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/python3.xml</loc>
@@ -250,10 +262,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
 </sitemapindex>
