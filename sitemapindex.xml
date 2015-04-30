@@ -13,6 +13,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/bug.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/c++.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
@@ -81,6 +85,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_technologies-news-bug-ssl-instagram-web.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/click.xml</loc>
   <lastmod>2015-04-29</lastmod>
  </sitemap>
@@ -99,6 +107,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/instagram.xml</loc>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/java.xml</loc>
@@ -139,6 +151,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/name.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/news.xml</loc>
+  <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/open-source.xml</loc>
@@ -189,6 +205,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/ssl.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/sys.xml</loc>
   <lastmod>2015-04-27</lastmod>
  </sitemap>
@@ -197,11 +217,19 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/technologies.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/teknoloj.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/teknoloji.xml</loc>
+  <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/web.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
