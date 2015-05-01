@@ -91,6 +91,31 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/python-gorsel-karsilastirma.html" class="u-url" rel="bookmark">Python ile Görsel Karşılaştırma</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-05-01T20:23:22+03:00" title="2015-05-01 20:23">2015-05-01 20:23</time></p>
+                <p class="commentline">            <a href="posts/python-gorsel-karsilastirma.html#disqus_thread" data-disqus-identifier="cache/posts/python-gorsel-karsilastirma.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Görseller ve benzerlikleri daima ilgimi çekmiştir. Nasıl karşılaştırılırlar diye.
+Benzerlik algoritmaları (örn: levenshtein) bu yüzden ilgimi çeker.
+Görselleri karşılaştırırken bu algoritmalardan yararlanmak nedense aklımın ucundan dahi geçmedi.
+Daha çok görselleri byte olarak okuyup bu byte'ları karşılaştırmayı düşündüm.
+Python bunun için çeşitli kolaylıklar sağlamakta. Örneğin kendisi hazır built-in fonksiyonlar dahi sunmakta.</p>
+<p>Bu fonksiyonlardan birisi <code>filecmp</code> modülü. Bu modülün <code>cmp</code> işlevi bulunmakta. Bu işlev file comparasion işlemi yapmakta.
+Yani dosya karşılaştırma işlevi. Örneği şöyle iki adet görsel var elimizde: </p>
+<p class="more"><a href="posts/python-gorsel-karsilastirma.html">Devamını oku…</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/python-ve-asyncio.html" class="u-url" rel="bookmark">Python ve Asyncio</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-30T23:56:13+03:00" title="2015-04-30 23:56">2015-04-30 23:56</time></p>
@@ -192,80 +217,6 @@ Evidently even the biggest companies forget to renew their certificates occasion
 <p>Bu sorunu aşmak için çeşitli kütüphaneler mevcuttur. Örneğin <strong>argparse, docopt</strong> gibi kütüphaneler de bu soruna kolaylık sağlıyorlar. Ancak bunların yapıları gerçekten çok karmaşık. Örneğin <strong>argparse</strong> interspersed dediğimiz argümanların devre dışı bırakılmasını desteklemiyor. Bu güvenlik açısından bir sorun oluşturabilir.</p>
 <p>Bu gibi bazı sorunlarla karşılaşmayı önlemek açısından <strong>Click</strong>, <a href="http://lucumr.pocoo.org/">Armin Ronacher</a> tarafından geliştirildi. </p>
 <p class="more"><a href="posts/sys-argv-yerine-click.html">Devamını oku…</a></p>
-</div>
-    </div>
-    </article>
-    <hr>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/zip-yerine-map.html" class="u-url" rel="bookmark">Python: zip yerine map kullanın</a></h1>
-        <div class="metadata">
-            <p class="dateline"><time class="published dt-published" datetime="2015-04-29T00:23:42+03:00" title="2015-04-29 00:23">2015-04-29 00:23</time></p>
-                <p class="commentline">            <a href="posts/zip-yerine-map.html#disqus_thread" data-disqus-identifier="cache/posts/zip-yerine-map.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Birbirine paralel listeler olduğunu düşünelim. Birbirine paralel olarak da çıktılarının olması gerekiyor. Bunu yapabilmek için <code>zip</code> kullanılabilir.</p>
-<pre class="code literal-block"><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">zaman</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.12</span><span class="p">,</span> <span class="mf">42.28</span><span class="p">,</span> <span class="mf">42.34</span><span class="p">,</span> <span class="mf">42.40</span><span class="p">,</span> <span class="mf">42.45</span><span class="p">]</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">kisiler</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Ali'</span><span class="p">,</span> <span class="s">'Hakan'</span><span class="p">,</span> <span class="s">'Can'</span><span class="p">,</span> <span class="s">'Gurcan'</span><span class="p">]</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">formatli</span> <span class="o">=</span> <span class="s">'{:20} {:.2f}'</span><span class="o">.</span><span class="n">format</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatli</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kisiler</span><span class="p">,</span> <span class="n">zaman</span><span class="p">)))</span>
-<span class="n">Ali</span>                  <span class="mf">42.12</span>
-<span class="n">Hakan</span>                <span class="mf">42.28</span>
-<span class="n">Can</span>                  <span class="mf">42.54</span>
-<span class="n">Gurcan</span>               <span class="mf">42.60</span>
-</pre>
-
-
-<p>Biraz daha basite indirirsek şöyle yazılabilir.</p>
-<pre class="code literal-block"><span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatli</span><span class="p">(</span><span class="o">*</span><span class="n">zk</span><span class="p">)</span> <span class="k">for</span> <span class="n">zk</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kisiler</span><span class="p">,</span> <span class="n">zaman</span><span class="p">)))</span>
-<span class="n">Ali</span>                  <span class="mf">42.12</span>
-<span class="n">Hakan</span>                <span class="mf">42.28</span>
-<span class="n">Can</span>                  <span class="mf">42.54</span>
-<span class="n">Gurcan</span>               <span class="mf">42.60</span>
-</pre>
-
-
-<p>Bunun yerine ayrıca itertools da kullanılabilir. itertool'sun starmap özelliği kullanılabilir.</p>
-<pre class="code literal-block"><span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">starmap</span><span class="p">(</span><span class="n">formatli</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kisiler</span><span class="p">,</span> <span class="n">zaman</span><span class="p">))))</span>
-<span class="n">Ali</span>                  <span class="mf">42.12</span>
-<span class="n">Hakan</span>                <span class="mf">42.28</span>
-<span class="n">Can</span>                  <span class="mf">42.54</span>
-<span class="n">Gurcan</span>               <span class="mf">42.60</span>
-</pre>
-
-
-<p>Bunu şu tarz bir hata alırsanız kullanmanız gerekebilir.</p>
-<pre class="code literal-block"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">formatli</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kisiler</span><span class="p">,</span> <span class="n">zaman</span><span class="p">))))</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<span class="o">...</span>
-<span class="ne">IndexError</span><span class="p">:</span> <span class="nb">tuple</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
-</pre>
-
-
-<p>Bu en son hali ise gayet düzgün ve temiz görünüyor. İkili dizileri açmada bunu kullanabiliriz.</p>
-<p>Unutmadan, <code>map</code> bir eşitlikten fazlasını alabilir. Bundan sonra <code>zip</code> kullanmanıza gerek yok.</p>
-<pre class="code literal-block"><span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">formatli</span><span class="p">,</span> <span class="n">kisiler</span><span class="p">,</span> <span class="n">zaman</span><span class="p">)))</span>
-<span class="n">Ali</span>                  <span class="mf">42.12</span>
-<span class="n">Hakan</span>                <span class="mf">42.28</span>
-<span class="n">Can</span>                  <span class="mf">42.54</span>
-<span class="n">Gurcan</span>               <span class="mf">42.60</span>
-</pre>
 </div>
     </div>
     </article>

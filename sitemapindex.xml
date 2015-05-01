@@ -65,6 +65,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_python-pil-pillow-image-compare-comparing-programlama.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_python-programlama-asyncio-network.xml</loc>
   <lastmod>2015-05-01</lastmod>
  </sitemap>
@@ -101,6 +105,14 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/compare.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/comparing.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/flask.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -115,6 +127,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/hata.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/image.xml</loc>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/instagram.xml</loc>
@@ -179,6 +195,14 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/php.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/pil.xml</loc>
+  <lastmod>2015-05-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/pillow.xml</loc>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
@@ -258,7 +282,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
