@@ -92,6 +92,29 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/sys-argv-yerine-click.html" class="u-url" rel="bookmark">sys.argv Yerine Click</a></h1>
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-04-29T17:52:27+03:00" title="2015-04-29 17:52">2015-04-29 17:52</time></p>
+                <p class="commentline">            <a href="posts/sys-argv-yerine-click.html#disqus_thread" data-disqus-identifier="cache/posts/sys-argv-yerine-click.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Python ile konsol uygulamaları geliştirirken, konsolda bazen programı direkt olarak çağırmadan parametre kontrolü yapmamız gerekebiliyor. Örneğin şöyle bir çağrı:</p>
+<p><code>program.py --falan=filan</code></p>
+<p>Bu program basit ilkel yöntemlerce <code>sys.argv</code> kontrolü şeklinde yapılmakta. Ancak bunun doğruluğu için dahi uzunca uğraşmak gerekiyor.</p>
+<p>Bu sorunu aşmak için çeşitli kütüphaneler mevcuttur. Örneğin <strong>argparse, docopt</strong> gibi kütüphaneler de bu soruna kolaylık sağlıyorlar. Ancak bunların yapıları gerçekten çok karmaşık. Örneğin <strong>argparse</strong> interspersed dediğimiz argümanların devre dışı bırakılmasını desteklemiyor. Bu güvenlik açısından bir sorun oluşturabilir.</p>
+<p>Bu gibi bazı sorunlarla karşılaşmayı önlemek açısından <strong>Click</strong>, <a href="http://lucumr.pocoo.org/">Armin Ronacher</a> tarafından geliştirildi. </p>
+<p class="more"><a href="posts/sys-argv-yerine-click.html">Devamını oku…</a></p>
+</div>
+    </div>
+    </article>
+    <hr>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/zip-yerine-map.html" class="u-url" rel="bookmark">Python: zip yerine map kullanın</a></h1>
         <div class="metadata">
             <p class="dateline"><time class="published dt-published" datetime="2015-04-29T00:23:42+03:00" title="2015-04-29 00:23">2015-04-29 00:23</time></p>

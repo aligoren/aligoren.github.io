@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Golang Sublime Text Plugin Tutorial, GoSublime, GoImports">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sublime Text'i Go IDE'sine Çevirin | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/sublime-text-golang-ide.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Golang Sublime Text Plugin Tutorial, GoSublime, GoImports">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="python-gorsel-karsilastirma.html" title="Python ile Görsel Karşılaştırma" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Sublime Text'i Go IDE'sine Çevirin">
+    <meta property="og:url" content="http://aligoren.github.io/posts/sublime-text-golang-ide.html">
+    <meta property="og:description" content="Golang Sublime Text Plugin Tutorial, GoSublime, GoImports">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-05-04T17:48:39+03:00">
+           <meta property="article:tag" content="go">
+           <meta property="article:tag" content="ide">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="sublime">
+           <meta property="article:tag" content="sublime text">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Sublime Text'i Go IDE'sine Çevirin</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-05-04T17:48:39+03:00" itemprop="datePublished" title="2015-05-04 17:48">2015-05-04 17:48</time></p>
+                <p class="commentline">            <a href="sublime-text-golang-ide.html#disqus_thread" data-disqus-identifier="cache/posts/sublime-text-golang-ide.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Golang Sublime Text Plugin Tutorial, GoSublime, GoImports">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
+<p>Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.</p>
+<p>Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bulmanız şans işi. Diğer firmaları da sıralayacak olursak JetBrains, Xamarin gibi firmalar da mevcut. Bu firmaların da kaliteli ürünleri olsa dahi aradığınız dil için özellikle sağladıkları bir destek yok. Yani buradan da arayış yapmanız pek bir kar sağlamıyor.</p>
+<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor.</p>
+<p>D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
+<p>Bu dillerden en az birisini duymuşsunuzdur. Örneğin CoffeeScript eğer CoffeeScript için WebStorm olmamış olsaydı gerçekten ciddi destek sağlayan bir IDE yok. Fakat WebStorm da ücretli bir IDE olduğu için yine işiniz kullanıcıya kalıyor.</p>
+<p>Haskell'a gelelim. Eğer Leksah gibi bir IDE desteği olmamış olsaydı ki bunu kendisi sağlamıyor yine bir kullanıcı ürünü eğer bu destek olmamış olsaydı yine işiniz pek iyi değildi. <!-- TEASER_END --></p>
+<p>Dart ve Scala Eclipse tabanlı ürünler kullanıyorlar. Ancak Eclipse'in sağladığı bug'lar kullanıcıları daha çok JetBrains ürünlerine çekmeye başladı.</p>
+<p>Son olarak Go diline gelelim. Başlamadan önce, eğer Sublime Text kullanmak gibi bir niyetiniz yoksa bunun yerine size iki önerim var:</p>
+<ol>
+<li><a href="https://github.com/visualfc/liteide">Lite IDE</a></li>
+<li><a href="http://limetext.org/">Lime Text</a></li>
+</ol>
+<p><strong>Lite IDE</strong> sağlam bir IDE. Gerçekten IDE kavramını hak ediyor. Auto-complete işleminden tutun debug etme, markdown destekleme gibi çoğu aranan ihtiyacı karşılamakta. Ve eklenti desteği de bulunmakta.</p>
+<p><strong>Lime Text Editor</strong> sublime temelleri üzerine inşaa edilmiş güzel bir editör. TextMate'in göze hoş gelen ColorScheme'i ile uyumlu. Sublime Text'in Python Plug-in API'ı ile uyumlu. Gelişim süreci hala devam etmekte.</p>
+<p>Yukarıdaki iki önerimin de gelişimleri devam etmekte. <strong>Lime Text</strong>'in Sublime'yi temel aldığını söylemiştim ancak yok ben Sublime Text kullanmaktan vazgeçemem diyenler için <strong>GoSublime</strong> ve <strong>GoImports</strong> eklentileri ile Sublime Text'inizi adeta bir Go IDE'sine çevirebilirsiniz.</p>
+<h3>Kurulum</h3>
+<p>Öncelikle Sublime Package Control kurulu olmalı. Eğer kurulu değilse <strong>CTRL+`</strong> kısayolunu kullanarak aşağıda açılmış olan konsola şu alttaki kodları yapıştırın:</p>
+<script src="https://gist.github.com/aligoren/7830411f7014d582d36c.js"></script>
+
+<p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir <a href="https://gist.github.com/aligoren/3ceecc6f37c39dfae9b5">şuradaki</a> kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
+<p><img alt="Package Control" src="../galleries/package_control.png"></p>
+<p>Pekala <strong>Package Control</strong> kurulumunu yaptık.</p>
+<h3>GoSublime</h3>
+<p>Bizim asıl ihtiyacımız olansa <strong>GoSublime</strong> eklentisi. Bu eklentiyi kurmak için Sublime açıkken <strong>Ctrl+Shift+P</strong> kısayolunu çalıştırıyoruz. Bu sayede üst kısımda bir kutucuk açılıyor. O kısma <strong>Install</strong> yazmamız yeterli. Eğer her şey doğru yaptıysak böyle bir ekran gelmeli.</p>
+<p><img alt="Sublime Text Install Package" src="../galleries/sublime_install_package.png"></p>
+<p>Bu işlemden sonra 1-2 saniye kadar beklemeniz gerekmekte. Yine aynı pencere açılıyor. Bu sefer kurulum yapılacak eklentinin adını yazmanız gerekiyor. Oraya <strong>GoSublime</strong> yazmalısınız. Aşağıdaki gibi yazsanız da göreceksiniz. Bende kurulu olduğu için listede görünmüyor. Sizde kurulu olmadığı için o listede görünecek.</p>
+<p><img alt="GoSublime" src="../galleries/gosublime.png"></p>
+<p>Bu işlemden sonra son olarak yine aynı yöntemle <strong>GoImports</strong> eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor.</p>
+<h3>Bazı Ayarlamalar</h3>
+<p>Eklentilerin kurulumları tamamlanmış durumda olsa dahi bazı ayarlamalar yapılmadığı için eklenti tam anlamıyla çalışmayacaktır. Bunun için indirilen eklentinin <strong>User Settings</strong> dosyasına bazı eklemeler yapmalıyız. Bu ayar dosyasının yolu şöyle</p>
+<p><strong>Preferences-&gt;Package Settings-&gt;GoSublime-&gt;Settings-User</strong></p>
+<p><img alt="GoSublime Config" src="../galleries/gosublime_config.png"></p>
+<p>Buraya tıklayınca karşımıza bir pencere açılacak. Bu pencere büyük ihtimalle boş. Boş kısma şu kodları yapıştırıp kaydedin.</p>
+<pre class="code literal-block"><span class="p">{</span>
+    <span class="nt">"fmt_cmd"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"goimports"</span><span class="p">],</span>
+    <span class="err">//C:\Go\</span> <span class="err">for</span> <span class="err">windows</span>
+    <span class="nt">"env"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"GOPATH"</span><span class="p">:</span> <span class="s2">"$HOME/go"</span><span class="p">}</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım <strong>Go</strong> dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak <strong>C:\</strong> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
+<p>Hızlı kodlama yapmak isteyenler olabilir. Otomatik build işlemi, Test ve diğer işlemler. Bunun için yine yukarıda belirttiğim ayar dosyasını açıp şu kodları <strong>goimports</strong> ayarının hemen altına yapıştırın:</p>
+<pre class="code literal-block"><span class="s2">"on_save"</span><span class="err">:</span> <span class="p">[{</span>
+    <span class="nt">"cmd"</span><span class="p">:</span> <span class="s2">"gs9o_open"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"run"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span> 
+        <span class="s2">"go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."</span><span class="p">],</span>
+    <span class="nt">"focus_view"</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}}]</span><span class="err">,</span>
+<span class="s2">"autocomplete_closures"</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
+<span class="s2">"complete_builtins"</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
+</pre>
+
+
+<p>Evet kurulum ve ayarlamalar bitti. İyi kodlamalar.</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/go.html" rel="tag">go</a></li>
+           <li><a class="tag p-category" href="../categories/ide.html" rel="tag">ide</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/sublime.html" rel="tag">sublime</a></li>
+           <li><a class="tag p-category" href="../categories/sublime-text.html" rel="tag">sublime text</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="python-gorsel-karsilastirma.html" rel="prev" title="Python ile Görsel Karşılaştırma">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/sublime-text-golang-ide.html",
+        disqus_title="Sublime Text'i Go IDE'sine \u00c7evirin",
+        disqus_identifier="cache/posts/sublime-text-golang-ide.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
