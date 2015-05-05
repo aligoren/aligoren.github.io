@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Golang Introduction. Go Dili">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merhaba Go | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/merhaba-go.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Golang Introduction. Go Dili">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="sublime-text-golang-ide.html" title="Sublime Text'i Go IDE'sine Çevirin" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Merhaba Go">
+    <meta property="og:url" content="http://aligoren.github.io/posts/merhaba-go.html">
+    <meta property="og:description" content="Golang Introduction. Go Dili">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-05-05T21:32:27+03:00">
+           <meta property="article:tag" content="go">
+           <meta property="article:tag" content="golang">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="programming">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Merhaba Go</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-05-05T21:32:27+03:00" itemprop="datePublished" title="2015-05-05 21:32">2015-05-05 21:32</time></p>
+                <p class="commentline">            <a href="merhaba-go.html#disqus_thread" data-disqus-identifier="cache/posts/merhaba-go.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Golang Introduction. Go Dili">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Bir süredir Go dili ile ilgili makaleler okuyorum. Aslında ben de yeni yeni bu dili tam anlamıyla öğrenmekteyim. Okula başlamadan önce çalıştığım yerdeki arkadaşlarım bütün dilleri araştırmamdan şikayetçi oluyorlardı.</p>
+<p>Bunları araştırmamda tabii ki sebep vardı. Nasıl işlerler ya da bu dilin tasarımcısı nasıl düşünür ne gibi yazılımcı ipuçları alabilirim diye merak ettim. Tek anlayamadığım dilse <strong>type system</strong> olayını hala daha anlayamadığım Go dili oldu. Düşünce yapım hoş olmayabilir ama bir şeyi bilmiyor ya da anlamıyorsan onu öğrenerek bu eksikliğini giderebilirsin diye düşündüm. Özellikle hala daha <strong>type system</strong> olayında karmaşık düşüncelere sahibim. Ekşi Sözlük'te dil hakkındaki bir entry'de <a href="http://nathany.com/good/">Go Object Oriented Design</a> makalesini gördüm. Kafamı karıştıran <strong>type system</strong> olayı hakkında açıklamaları var. Dil nasıl ortaya çıkmış yine bunu dil geliştiricisi <strong>Rob Pike</strong> amca <a href="http://commandcenter.blogspot.com.tr/2012/06/less-is-exponentially-more.html">Less is exponentially more</a> yazısında kaleme almış. <!-- TEASER_END --></p>
+<p>Go üzerinde hala anlamadığım olaylar var. Mesela paket yönetim olayı. Kendi bilgisayarınızda yazılan kütüphaneleri linkleme olayı sorun değil. Yani bir projede <strong>N</strong> kadar <strong>.go</strong> dosyası ile çalışın bunların hepsini çağırabilirsiniz. Fakat bu dil ayrıca github üzerinden direkt olarak yayınlanmış olan kütüphaneleri link olarak çağırma fırsatı da sunmakta. Burada nasıl çalıştığını ve neden böyle bir yönteme başvurduğunu anlamadım açıkcası.</p>
+<h2>Syntax'a Söylenerek Merhaba Dünya</h2>
+<p>Örnek bir merhaba olayını kontrol ederken dahi zorlandım aslında. Örneğin şu go kodunu yorumlayalım:</p>
+<pre class="code literal-block"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">"fmt"</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Bu go kodunda yukarıdaki package kısmını belirtmediyseniz yani bu bir main paketidir demediyseniz ne run ne de build edebilirsiniz. Yeri gelmişken ondan da bahsedelim.</p>
+<p>Go dilinde programları run ve build olmak üzere iki işleme tabi tutabilirsiniz. Run işlemi projeyi derleme yapmadan sadece çalıştırır. Örneğin;</p>
+<p><code>go run main.go</code></p>
+<p>Derleme yapmak içinse build komutunun olması gerekmekte. Yani;</p>
+<p><code>go build main.go</code></p>
+<p>Aslında dosyayı belirtmesek dahi main paketini arayacağı için yine derleme işlemi yapacaktır. Bu işlemleri Sublime ile daha basit hale getirebilirsiniz. Bu konu hakkında bir yazı <a href="http://aligoren.github.io/posts/sublime-text-golang-ide.html">yazmıştım</a>.</p>
+<h2>Paketleri Çağırma ve Kullanılmaları</h2>
+<p>Devam edecek olursak paketleri çağırma olayı iki şekilde işlemekte. Yani multiple ve single olarak çağırma işlemi var. Çoğu ve tekil olarak olduğunu belirteyim. Yukarıdaki Hello World kodunda tek bir paket <strong>import</strong> ile çağırılmış durumda. Örnek bir paket şöyle çağırılır;</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="s">"fmt"</span>
+</pre>
+
+
+<p>Bu fmt paketi, C'nin stdio paketi ile aynı işlevi görmekte. Bu paket üzerinden stdin/out işlemleri yapılmakta. Çoklu paket çağırımına gelecek olursak eğer;</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="p">(</span>
+    <span class="s">"fmt"</span>
+    <span class="s">"paket/kutuphanesi"</span>
+<span class="p">)</span>
+</pre>
+
+
+<h2>Syntax Hatalarını Görmek</h2>
+<p>Çoklu kütüphaneleri böyle import edebilirsiniz. Fakat burada dikkat etmenizi istiyorum. Yukarıdaki import işleminde parantezlerin nerede olduğunun pek bir önemi olmasa da işlevlerde çok önemli bir yere sahipler. Örneğin şu kullanım yanlıştır, derleme anında hata verir.</p>
+<pre class="code literal-block"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<p><strong>*Programın verdiği hata:</strong> syntax error: unexpected semicolon or newline before {*</p>
+<p>Buradan da anlıyoruz ki dil içinde bazı alanlarda syntax aşırı kısıtlayıcı özelliklere sahip. İlk süslü parantez asla yeni satırda başlayamaz. Mutlaka işlevin tanımlandığı alanla aynı satırda olmalı.</p>
+<h2>Küçük-Büyük Harf Bağımlılığına Dikkat Edin</h2>
+<p>Ayrıca küçük-büyük harf bağımlılığı var. Örneğin <code>math.pi</code> ile <code>math.Pi</code> arasında fark vardır. Go dilinin işlevlerini anladıysanız doğru yazımın <code>math.Pi</code> olduğunu da anlamışsınızdır. Diğer türlü derleme esnasında hata alınır.</p>
+<h2>Go Dilinin Basit Tipleri</h2>
+<p>Hazır math falan demişken tiplere de gelelim. Diğer dillerde olduğu gibi uint, int, float, string, bool gibi sayısal, metinsel ve karar tipleri var. Hatta karmaşık sayılar için complex dahi var. Bunlar da kendi aralarında <strong>uint8, uint16, uint32, uint64, int8..64, rune(int32), float32, float64, complex64, complex128</strong> şeklinde ayrılmaktalar. Burada <code>uint8 == byte</code> olarak söylenebilir. Ayrıca burada makina bağımlı üç sayı tipi de var. Bunlar da <strong>uint, int, uintptr</strong>.</p>
+<h2>Tipler Üzerine Basit Bir Matematiksel İşlem</h2>
+<p>Basit olarak bir matematiksel işlem, şöyle ifade edilebilir;</p>
+<pre class="code literal-block"><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"1 + 1 ="</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// integer sayılar</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"1.0 + 1.0 ="</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">+</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1">// float sayılar</span>
+</pre>
+
+
+<h2>Stringler, String Birleştirme ve Len</h2>
+<p>Tip belirtmeksizin bu şekilde basit bir işlemi gerçekleştirebilirsiniz. Stringler de yine aynı şekilde diğer dillerde yapılan birleştirme işlemleri gibi yapılmakta. Örneğin python'da var olan <code>len</code> burada da var.</p>
+<pre class="code literal-block"><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">"Merhaba Dunya"</span><span class="p">))</span> <span class="c1">// string boyutunu belirtiyor :)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Merhaba Dunya"</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">// 101</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Merhaba "</span> <span class="o">+</span> <span class="s">"Dunya"</span><span class="p">)</span> <span class="c1">// string birleştirme</span>
+</pre>
+
+
+<p>Stringlerin kullanımı bu şekilde basit olabilmekte. Yukarıdaki örnekte fark ettiğiniz bir şey vardır belki 101 olayı yani <code>[1]</code> bu o stringi bir dizi gibi görmekte. Dizinin ikinci elementini alıyor ve onu byte olarak tekrar tanımlıyor. Go dilinde, tekrardan <code>byte == integer</code> dememin bir sakıncası yok.</p>
+<h2>Boolean Karar Tipi</h2>
+<p>Tiplerle ilgili son olarak <code>boolean</code> karar tiplerinden bahsetmek gerekli.</p>
+<pre class="code literal-block"><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"True &amp;&amp; True ="</span><span class="p">,</span> <span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">true</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"True &amp;&amp; False ="</span><span class="p">,</span> <span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"True || True ="</span><span class="p">,</span> <span class="kc">true</span> <span class="o">||</span> <span class="kc">true</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"True || False ="</span><span class="p">,</span> <span class="kc">true</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"!true ="</span><span class="p">,</span> <span class="p">!</span><span class="kc">true</span><span class="p">)</span>
+</pre>
+
+
+<p>kullanımı bu şekildedir. Boolean adını <strong>George Boole</strong> amcadan almıştır. Bir boolean değeri 1 bit özel sayı türü, true ya da false durumlarını temsil etmek için kullanılır. Üç mantıksal operatör, boolean değerleri ile birlikte kullanılır.</p>
+<p><strong>Boolean Operatörleri:</strong> [&amp;&amp;: and], [||: or], [!: not]</p>
+<p>Yukarıdaki bool operatörleri diğer dillerle zaten aynı. Çok da yabancılık çekmeyeceğinizi düşünerek basit şekilde yazdım. Yukarıdaki kodu çalıştırarak sonucu görebilirsiniz. Eğer bilgisayarınızda Go kurulu değilse <a href="https://ideone.com/">ideone</a> bu iş için ideal online compiler ve IDE görevini görmekte.</p>
+<h2>Go Dilinde Değişkenler ve Scala</h2>
+<p>Değişkenleri tanımlarken aklıma scala gelmiyor değil. Çünkü scala'da değişken tanımlamaları go ile aynı şekilde. Örnek bir scala programında değişkenleri şöyle tanımlarsınız:</p>
+<pre class="code literal-block"><span class="k">var</span> <span class="n">degisken</span> <span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Degistirilebilir"</span>
+<span class="k">val</span> <span class="n">iDegisken</span> <span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Degistirilemez"</span>
+</pre>
+
+
+<p>Yukarıdaki kod parçacığı scala'da şöyle çalışır <code>degisken</code> isimli değişken tanımlanmıştır. Daha sonra değiştirilebilir şekilde. <code>iDegisken</code> ise immutable değişken olarak tanımlanır. Yani değiştirilemez değişken. Yukarıdaki kod satırına neden değindim diye soracak olursanız söyleyeyim go dilinde de aynı kullanım var. Yani <strong>var</strong> ve <strong>val</strong> mantığı ile çalışan değişkenler var. Fakat tamamen aynı değiller. Şu kodlar üzerinden yorumlayalım:</p>
+<pre class="code literal-block"><span class="kd">var</span> <span class="nx">x</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">"Hello"</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+
+<span class="nx">x</span> <span class="p">=</span> <span class="s">"World"</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+
+<span class="nx">y</span> <span class="o">:=</span> <span class="s">"Hi"</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+
+<span class="nx">y</span> <span class="p">=</span> <span class="s">"Are you okey?"</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+
+<span class="nx">n</span> <span class="o">:=</span>  <span class="mi">1</span> <span class="c1">// n := x mean =&gt; as x value(string, float, int vs.)</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="c1">// 1</span>
+</pre>
+
+
+<p>Yukarıdaki koda bakarsak eğer <strong>x</strong> adında bir değişkenin türünün string olarak belirtildiğini ve bu şekilde tanımlandığını görüyoruz. Bir alttaki değişkende ise yani <strong>y</strong> değişkeninde ise bir tip belirtilmemiş olmasına rağmen bu değişkenin de aynı işlemleri yaptığını görüyoruz. Eğer y değişkenine tekrar atama işlemini <code>y := "falan"</code> şeklinde yapmış olsaydık bir derleme hatası alacaktık. Değişken tanımlamaları şöyle yapılır <strong>var DEĞİŞKEN_ADI değişken_veri_tipi = DEĞİŞKEN_İÇERİĞİ</strong></p>
+<h2>İşlev Değişkenleri ve Global Özelliği Olan Değişkenler</h2>
+<p>Peki <code>:=</code> ve <code>var</code> arasındaki fark nedir. Neden böyle bir kullanım gerekir? Eğer işlev alanlarının yani bildiğiniz <code>func</code> dışında bir tanımlama yapacaksa <code>var</code> kullanmalıyız. Eğer işlev alanı dışında bir değişkni <code>:=</code> şeklinde tanımlamak istersek hata alırız.</p>
+<p>Ayrıca dışarıdan erişimli değişkenler oluşturabiliriz. Bunu ana işlev dışında tanımlayıp, diğer işlevler için kullanıma açabiliriz. Örneğin</p>
+<pre class="code literal-block"><span class="kd">var</span> <span class="nx">islevDisi</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">"Bu islev disinda herkese acik"</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">islevDisi</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">baskeIslev</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">islevDisi</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Eğer <strong>islevDisi</strong> değişkeni main içerisinde olsaydı <strong>baskaIslev</strong> fonksiyonunda kullanılamayacaktı. Kapsamı genel olması itibariyle bu tip kullanımlar <strong>scope</strong> olarak da adlandırılırlar.</p>
+<h2>Sabitler ve Değiştirilemez Oluşları</h2>
+<p>Sabitler yani const kullanımı ise diğer dillerdeki mantıkla hareket eder. Bu tipler daha sonradan değiştirilme şansı olmayan tiplerdir.</p>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">degisken</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">"Ben degistirilemem"</span>
+
+<span class="nx">degisken</span> <span class="p">=</span> <span class="s">"Degistirmeyi denerim"</span> <span class="c1">// derleme zamanı hatası!</span>
+</pre>
+
+
+<p>Görüldüğü gibi değer bu değişkenlere tekrar atamalar yapmaya kalkarsak derleme zamanında hata alırız. Burada yapılan şey <code>var</code> anahtar kelimesini yerini <code>const</code> anahtar kelimesine bırakmıştır.</p>
+<h2>Çoklu Değişken ve Çoklu Sabit Tanımlama</h2>
+<p>Diğer dillerde olduğu gibi burada da çoklu değişken tanımlama yapılabilir. Diğer dillerde bu özellik var mı bilmiyorum ama Go şöyle bir tanımlama işlemini destekler:</p>
+<pre class="code literal-block"><span class="kd">var</span> <span class="p">(</span>
+    <span class="nx">a</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="mi">2</span>
+    <span class="nx">text</span> <span class="p">=</span> <span class="s">"ben metinsel bir degiskenim bunlarsa sayisal arkadaslarim: "</span>
+<span class="p">)</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+</pre>
+
+
+<p>Çoklu değişken tanımlayıp tek seferde hepsini yazdırabilirsiniz. Yine sabitleri de çoklu olarak bu şekilde tanımlayabilirsiniz.</p>
+<h2>Kontrol Yapıları: For Döngüsü</h2>
+<p>Kontrol yapıları dil açısından şu anlık söylemek istediğim son şey. Zaten yazı da epey bir uzadı. Diğer dillerde kullanılan kontrol yapıları burada da aynı şekilde kullanılmakta. Örneğin 1'den 10'a kadar giden sayıları for döngüsü kullanarak yazdıralım:</p>
+<pre class="code literal-block"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Yukarıdaki kodda <code>i = i + 1</code> kullanımı olmasaydı ne olurdu programı kendiniz derlemeye çalışarak sonucu görün. Yukarıdaki for döngüsü bir kullanım çeşididir. Ayrıca normal en bilindik yöntemi ile de şöyle kullanılmakta:</p>
+<pre class="code literal-block"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<h2>Kontrol Yapıları: if-else ve switch-case</h2>
+<p>Çok tanıdık değil mi diğer dillerden bildiğiniz şekli. Hangisi size daha basit gelirse. Kontrol yapılarında son olarak belirtmek istediğim <strong>if-else</strong> ve <strong>switch-case</strong></p>
+<h2>Kontrol Yapıları: if-else</h2>
+<p>Diğer dillerde olduğu gibi bu dilde de bu yapıların mantıkları aynıdır. Yukarıdaki for döngüsünü tekrar kurmayacağım ama aşağıdaki kodların o döngü içerisinde olduğunu varsayalım:</p>
+<pre class="code literal-block"><span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Sifir"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Bir"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Böylece artık for döngüsünden gelen sayıları metinsel hale getirebilirsiniz. Çok uzadığı için yapıları kısa tuttum.</p>
+<h2>Kontrol Yapıları: switch-case</h2>
+<p>Yine <strong>switch-case</strong> için de kullanım aynı şekilde. Yine bu kullanılan kodların da for döngüsü içerisinde olduğunu varsayalım:</p>
+<pre class="code literal-block"><span class="k">switch</span> <span class="nx">i</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="p">:</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Sifir"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Bir"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Bu sayiyi bilmiyorum"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Kullanımı bu şekildedir. Yine diğer dillerde olduğu gibi <code>default</code> aranan koşulların sağlanmaması durumunda kendisini gösterir.</p>
+<p>Anlatım bu kadardır.</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/go.html" rel="tag">go</a></li>
+           <li><a class="tag p-category" href="../categories/golang.html" rel="tag">golang</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/programming.html" rel="tag">programming</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="sublime-text-golang-ide.html" rel="prev" title="Sublime Text'i Go IDE'sine Çevirin">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/merhaba-go.html",
+        disqus_title="Merhaba Go",
+        disqus_identifier="cache/posts/merhaba-go.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>
