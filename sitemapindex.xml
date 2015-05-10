@@ -13,6 +13,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/arrays.xml</loc>
+  <lastmod>2015-05-10</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/asyncio.xml</loc>
   <lastmod>2015-05-01</lastmod>
  </sitemap>
@@ -31,6 +35,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_flask-framework-python-programlama.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_go-golang-arrays-slices-maps-programlama-programming.xml</loc>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_go-golang-programlama-programming.xml</loc>
@@ -130,11 +138,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/go.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/golang.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/haber.xml</loc>
@@ -185,6 +193,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/maps.xml</loc>
+  <lastmod>2015-05-10</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/matematik.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -226,11 +238,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programming.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -263,6 +275,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/ruby.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/slices.xml</loc>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/ssl.xml</loc>
@@ -318,10 +334,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-10</lastmod>
  </sitemap>
 </sitemapindex>
