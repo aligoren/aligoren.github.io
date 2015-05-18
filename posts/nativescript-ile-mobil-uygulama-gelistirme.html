@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Native Application Development with NativeScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NativeScript ile Mobil Uygulama Geliştirme | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/nativescript-ile-mobil-uygulama-gelistirme.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Native Application Development with NativeScript">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="gotime-golang-time-library.html" title="GoTime Golang Time Library" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="NativeScript ile Mobil Uygulama Geliştirme">
+    <meta property="og:url" content="http://aligoren.github.io/posts/nativescript-ile-mobil-uygulama-gelistirme.html">
+    <meta property="og:description" content="Native Application Development with NativeScript">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-05-18T19:45:47+03:00">
+           <meta property="article:tag" content="android">
+           <meta property="article:tag" content="css">
+           <meta property="article:tag" content="ios">
+           <meta property="article:tag" content="javascript">
+           <meta property="article:tag" content="native application">
+           <meta property="article:tag" content="windows phone">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">NativeScript ile Mobil Uygulama Geliştirme</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-05-18T19:45:47+03:00" itemprop="datePublished" title="2015-05-18 19:45">2015-05-18 19:45</time></p>
+                <p class="commentline">            <a href="nativescript-ile-mobil-uygulama-gelistirme.html#disqus_thread" data-disqus-identifier="cache/posts/nativescript-ile-mobil-uygulama-gelistirme.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Native Application Development with NativeScript">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Javascript ve CSS artık günümüzün vazgeçilmezleri arasında. Özellikle HTML5, CSS3 ve JavaScript ve V8 engine ile birlikte aşırı popüler olan bu diller tahmin edildiği gibi mobil dünyanın da vazgeçilmezleri.</p>
+<p>Özellikle büyük şirketler masaüstü platformlarını mobile de taşımakta kararlı durumdalar. Bunun için de mevcut platformlar yani iOS, Android ve Windows Phone için ayrı ayrı yazılımcılar aramaktalar. Eğer şansları varsa tek yazılımcı her platformda aynı nitelikte geliştirme yapabilir. Günümüzün en büyük ihtiyacı cross-platform geliştirme yapılabilmesi.</p>
+<p>NativeScript ise tam bu işi yapmak için var. Kendo UI'ın yapımcısı Telerik tarafından ortaya çıkarılmıştır.</p>
+<p>Benzerlerinin aksine NativeScript'i farklı kılan ise direkt donanım ile konuşabilmesi. Yani tarayıcının render mekanizması yerine cihazın donanımı ile direkt konuşmakta. NativeScript ile tek bir code base üzerinde cross-platform mobil uygulamalar geliştirebilirsiniz. <!-- TEASER_END --></p>
+<h2>Neden NativeScript?</h2>
+<p>NativeScript açık kaynak kodlu ücretsiz bir projedir. GitHub üzerinde herkes tarafından kullanılabilir yani katkı yapılabilir demektir.</p>
+<p>NativeScript kolaydır. Kodları JavaScript, tasarımı CSS ile yapabilirsiniz. NativeScript ile gerçek bir kullanıcı deneyimi oluşturabilirsiniz.</p>
+<p>NativeScript güçlüdür. Cross-Platform arayüzü kullanılabilir. Ortak iş mantığı ve veri modellerini destekler. Üçüncü parti native kütüphaneleri destekler.</p>
+<p>NativeScript, Native Platform API'ının tamamına erişimi destekler. Tüm platform işlevselliği JavaScript katmanında mevcuttur.</p>
+<p><img alt="button-ios.png" src="../galleries/button-ios.png"></p>
+<p>Standartlara dayalı ECMAScript5 + JavaScript ve CSS</p>
+<p><img alt="cssjs-logo.png" src="../galleries/cssjs-logo.png"></p>
+<p>Roket bilimcisi olmanıza gerek yok. Var olan becerilerinizi kullanarak da uygulamalar geliştirebilirsiniz.</p>
+<p><strong>%100 Paylaşılan Kod</strong></p>
+<p>Tekrar söylemek gerekirse tek bir code base üzerinden cross-platform mobil uygulamalar geliştirebilirsiniz.</p>
+<p><img alt="main-xml.png" src="../galleries/main-xml.png"></p>
+<h2>Yakın Zamanda Başlayın</h2>
+<p>NativeScript cli kurulumunu npm üzerinden yapabilirsiniz. Kurulum için:</p>
+<p><code>npm install -g nativescript</code></p>
+<p>Komutunu girerek nativescript'i bilgisayarınıza kurun. Yeni bir proje oluşturmak için</p>
+<p><code>tns create MyApp</code></p>
+<p>komutunu girerek <strong>MyApp</strong> adında bir uygulama gelişirmeye başlayabilirsiniz. Projenizi bir platforma göre ayarlamak çok basit. Bunun için şu komutu girebilirsiniz:</p>
+<p><code>tns platform add android</code> ya da <code>tns platform add ios</code></p>
+<p>Projenizi favori IDE ya da editörünüzde istediğiniz donanıma bağlı olarak geliştirin. Projenizi platform üzerinde çalıştırmak için şu komutu girin:</p>
+<p><code>tns run android</code> ya da <code>tns run ios</code> ayrıca projenizi emulator üzerinde çalıştırabilirsiniz. Bunun için şu komutu girin:</p>
+<p><code>tns run android --emulator</code> ya da <code>tns run ios --emulator</code></p>
+<p>Daha fazlasını yapmanızı ne engelleyebilir ki? Eğer aklınızda mobil proje varsa hemen şimdi NativeScript'e göz atabilir ve belki de hayalinizdeki projeyi NativeScript ile geliştirebilirsiniz.</p>
+<p><strong>NativeScript</strong>: <a href="https://www.nativescript.org/">https://www.nativescript.org/</a></p>
+<p><strong>NativeScript ile Yapılmış Bazı Örnekler:</strong> <a href="https://www.nativescript.org/showcases">https://www.nativescript.org/showcases</a></p>
+<p><strong>NativeScript'e Başlarken:</strong> <a href="http://docs.nativescript.org/getting-started">http://docs.nativescript.org/getting-started</a></p>
+<p><strong>NativeScript Dökümantasyonu:</strong> <a href="http://docs.nativescript.org/">http://docs.nativescript.org/</a></p>
+<p><strong>NativeScript GitHub Sayfası:</strong> <a href="https://github.com/NativeScript/NativeScript">https://github.com/NativeScript/NativeScript</a></p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/android.html" rel="tag">android</a></li>
+           <li><a class="tag p-category" href="../categories/css.html" rel="tag">css</a></li>
+           <li><a class="tag p-category" href="../categories/ios.html" rel="tag">ios</a></li>
+           <li><a class="tag p-category" href="../categories/javascript.html" rel="tag">javascript</a></li>
+           <li><a class="tag p-category" href="../categories/native-application.html" rel="tag">native application</a></li>
+           <li><a class="tag p-category" href="../categories/windows-phone.html" rel="tag">windows phone</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="gotime-golang-time-library.html" rel="prev" title="GoTime Golang Time Library">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/nativescript-ile-mobil-uygulama-gelistirme.html",
+        disqus_title="NativeScript ile Mobil Uygulama Geli\u015ftirme",
+        disqus_identifier="cache/posts/nativescript-ile-mobil-uygulama-gelistirme.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>

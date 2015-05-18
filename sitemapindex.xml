@@ -9,6 +9,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/android.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/argc.xml</loc>
   <lastmod>2015-04-29</lastmod>
  </sitemap>
@@ -45,8 +49,16 @@
   <lastmod>2015-05-05</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_go-golang-programming-programlama-kutuphane.xml</loc>
+  <lastmod>2015-05-14</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_go-sublime-text-sublime-ide-programlama.xml</loc>
   <lastmod>2015-05-04</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_javascript-css-android-ios-windows-phone-native-application.xml</loc>
+  <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloj-yazilim.xml</loc>
@@ -129,6 +141,10 @@
   <lastmod>2015-05-01</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/css.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/flask.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -138,11 +154,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/go.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/golang.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/haber.xml</loc>
@@ -165,8 +181,20 @@
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/ios.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/java.xml</loc>
   <lastmod>2015-04-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/javascript.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/kutuphane.xml</loc>
+  <lastmod>2015-05-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/library.xml</loc>
@@ -209,6 +237,10 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/native-application.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/network.xml</loc>
   <lastmod>2015-05-01</lastmod>
  </sitemap>
@@ -238,11 +270,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programming.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -317,6 +349,10 @@
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/windows-phone.xml</loc>
+  <lastmod>2015-05-18</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/windows.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
@@ -330,14 +366,14 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-05-04</lastmod>
+  <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <lastmod>2015-05-18</lastmod>
  </sitemap>
 </sitemapindex>
