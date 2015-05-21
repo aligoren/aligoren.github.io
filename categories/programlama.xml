@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ali GÖREN (programlama)</title><link>http://aligoren.github.io/</link><description></description><atom:link href="http://aligoren.github.io/categories/programlama.xml" type="application/rss+xml" rel="self"></atom:link><language>tr</language><lastBuildDate>Thu, 14 May 2015 10:33:04 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>GoTime Golang Time Library</title><link>http://aligoren.github.io/posts/gotime-golang-time-library.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Go dilinde yeni olduğumu biliyorsunuz. Dili öğrenirken dilin imkanları ile daha önce istediğim ama fırsatımın bir şeyi yapmayı düşündüm. Bir zaman kütüphanesi.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ali GÖREN (programlama)</title><link>http://aligoren.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="http://aligoren.github.io/categories/programlama.xml"></atom:link><language>tr</language><lastBuildDate>Thu, 21 May 2015 13:48:50 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>x+=y Gibi Kullanım Neden İyi Bir Kullanımdır?</title><link>http://aligoren.github.io/posts/x-arti-esittir-y-neden-iyidir.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Birçok programlama dilinde şöyle bir gösterime denk gelmişsiniz. Örneğin bir Python uygulamasında şöyle bir tanımlama vardır.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Bu gösterim aslında şu gösterim gibidir.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Bu bir steno gösterim olarak bilinir. Yani shorthand ya da kısa gösterim olarak bilinir. Peki bu neden iyi bir gösterim olarak kabul edilir? Yani neden bunu kullanmak iyidir?&lt;/p&gt;
+&lt;p&gt;Öncelikle bunun bir kısaltma olmadığını yani shorthand olmadığını bilelim.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;+=&lt;/code&gt;, 70'li yıllarda C ile birlikte, C'nin makine kodlarına hitap eden akıllı bir assembler olması düşüncesi ile ortaya çıkmıştır. &lt;/p&gt;&lt;p&gt;&lt;a href="http://aligoren.github.io/posts/x-arti-esittir-y-neden-iyidir.html"&gt;Devamını oku…&lt;/a&gt; (2 dakikalık okuma)&lt;/p&gt;&lt;/div&gt;</description><category>assembly</category><category>c</category><category>programlama</category><category>programming</category><category>shorthand notation</category><category>steno</category><guid>http://aligoren.github.io/posts/x-arti-esittir-y-neden-iyidir.html</guid><pubDate>Thu, 21 May 2015 11:39:42 GMT</pubDate></item><item><title>GoTime Golang Time Library</title><link>http://aligoren.github.io/posts/gotime-golang-time-library.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Go dilinde yeni olduğumu biliyorsunuz. Dili öğrenirken dilin imkanları ile daha önce istediğim ama fırsatımın bir şeyi yapmayı düşündüm. Bir zaman kütüphanesi.&lt;/p&gt;
 &lt;p&gt;Tam bir kütüphane sayılmaz aslında. Çünkü bir kütüphanenin sağladığı tüm özellikleri sağlıyor mu derseniz hayır sağlamıyor. Tanıtıma başlamadan önce kütüphaneye şuradan bakabilirsiniz:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Kütüphane Linki:&lt;/strong&gt; &lt;a href="https://github.com/aligoren/gotime"&gt;https://github.com/aligoren/gotime&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Gotime GoDoc Linki:&lt;/strong&gt; &lt;a href="https://godoc.org/github.com/aligoren/gotime"&gt;https://godoc.org/github.com/aligoren/gotime&lt;/a&gt;&lt;/p&gt;
@@ -96,41 +110,4 @@ aynı çekirdek daha fazla thread arasında dolaşmak zorunda kalır bu da perfo
 &lt;/pre&gt;&lt;/div&gt;</description><category>liste</category><category>map</category><category>programlama</category><category>python</category><category>zip</category><guid>http://aligoren.github.io/posts/zip-yerine-map.html</guid><pubDate>Tue, 28 Apr 2015 21:23:42 GMT</pubDate></item><item><title>syspy Windows Sistem Bilgi Kütüphanesi</title><link>http://aligoren.github.io/posts/syspy-windows-python.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Not: Yazı Sonunda Paylaşılan Python Hosted Linki Doxygen ile Hazırlanmıştır. Class Diagramları ve Açıklamaları Görebilirsiniz.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Python ile windows sistem bilgilerini görüntülemek için win32 ya da psutil kütüphanelerinin kurulmuş olması gerekmekte. Ancak bunlarla dahi tam görüntülenemez. Aslında görüntülenir ama sürekli bir uğraş vermek zorunda kalırsınız.&lt;/p&gt;
 &lt;p&gt;Sürekli bir iterasyon işlemi şart olur. Can sıkıntısına biraz uğraşayım dedim ve sonunda &lt;a href="https://pypi.python.org/pypi/syspy"&gt;PyPi&lt;/a&gt; üzerinde paylaşabileceğim ekstra bir kütüphane ortaya çıktı.&lt;/p&gt;
-&lt;p&gt;Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. &lt;/p&gt;&lt;p&gt;&lt;a href="http://aligoren.github.io/posts/syspy-windows-python.html"&gt;Devamını oku…&lt;/a&gt; (1 dakikalık okuma)&lt;/p&gt;&lt;/div&gt;</description><category>programlama</category><category>psutil</category><category>python</category><category>sys</category><category>windows</category><guid>http://aligoren.github.io/posts/syspy-windows-python.html</guid><pubDate>Sun, 26 Apr 2015 21:08:20 GMT</pubDate></item><item><title>Python Name Parser</title><link>http://aligoren.github.io/posts/name-parser.html</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Name Parser, basitleştirilmiş bir isim ayrıştırıcıdır. Girilen ad, soyad kombinasyonunu duruma göre ayıklar.&lt;/p&gt;
-&lt;p&gt;Çıkt formatı şu örneğe göre iki türlüdür.&lt;/p&gt;
-&lt;table border="1" style="background-color:#FFFFFF;border-collapse:collapse;border:1px solid #000000;color:#000000;width:100%" cellpadding="3" cellspacing="4"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;strong&gt;Surname&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Ali&lt;/td&gt;
-        &lt;td&gt;Opcode&lt;/td&gt;
-        &lt;td&gt;GOREN&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Burada 2 adet Name ve 1 adet Surname çıktısı var. Soyadın tek olmadığı durumlar var. Örneğin evlilik gibi durumlar. Maalesef bunu algılayabilmek için bir soyadı ve isim listesi gerekmekte.&lt;/p&gt;
-&lt;h2&gt;Kullanım:&lt;/h2&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NameParser&lt;/span&gt;
-
-&lt;span class="n"&gt;np&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;NameParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Ali Opcode GOREN'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Bu şekilde bir kullanım yukarıdaki tablonun çıktısını verecektir. Aslında çıktı formatı şöyle oluyor :)&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-
-&lt;span class="n"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Ali&lt;/span&gt;
-&lt;span class="n"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Opcode&lt;/span&gt;
-&lt;span class="n"&gt;Surname&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;GOREN&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Kullanımı görüldüğü gibi çok basittir.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Github Linki: &lt;/strong&gt; &lt;a href="https://github.com/aligoren/NameParser"&gt;Name Parser&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PyPi Linki: &lt;/strong&gt; &lt;a href="https://pypi.python.org/pypi/ParseNames"&gt;Name Parser&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>name</category><category>name parsing</category><category>parser</category><category>programlama</category><category>python</category><guid>http://aligoren.github.io/posts/name-parser.html</guid><pubDate>Thu, 23 Apr 2015 22:02:57 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Aslında benim işimi görüyor. Windows kullandığım vakitlerde lazım olan bilgileri almamı sağlıyor. &lt;/p&gt;&lt;p&gt;&lt;a href="http://aligoren.github.io/posts/syspy-windows-python.html"&gt;Devamını oku…&lt;/a&gt; (1 dakikalık okuma)&lt;/p&gt;&lt;/div&gt;</description><category>programlama</category><category>psutil</category><category>python</category><category>sys</category><category>windows</category><guid>http://aligoren.github.io/posts/syspy-windows-python.html</guid><pubDate>Sun, 26 Apr 2015 21:08:20 GMT</pubDate></item></channel></rss>

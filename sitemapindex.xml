@@ -21,6 +21,10 @@
   <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/assembly.xml</loc>
+  <lastmod>2015-05-21</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/asyncio.xml</loc>
   <lastmod>2015-05-01</lastmod>
  </sitemap>
@@ -34,7 +38,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/c.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_flask-framework-python-programlama.xml</loc>
@@ -75,6 +79,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_programming-programlama-steno-shorthand-notation-c-assembly.xml</loc>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_proje-projects-open-source-python-ruby-c-c++-php-java.xml</loc>
@@ -270,11 +278,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programming.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -309,12 +317,20 @@
   <lastmod>2015-04-24</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/shorthand-notation.xml</loc>
+  <lastmod>2015-05-21</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/slices.xml</loc>
   <lastmod>2015-05-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/ssl.xml</loc>
   <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/steno.xml</loc>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/sublime-text.xml</loc>
@@ -370,10 +386,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <lastmod>2015-05-21</lastmod>
  </sitemap>
 </sitemapindex>
