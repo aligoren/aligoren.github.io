@@ -65,6 +65,10 @@
   <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/cat_json-nodejs-json-server-npm-faker-lodash-rest-rest-api-restful.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloj-yazilim.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
@@ -153,6 +157,10 @@
   <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/faker.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/flask.xml</loc>
   <lastmod>2015-04-24</lastmod>
  </sitemap>
@@ -201,6 +209,14 @@
   <lastmod>2015-05-18</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/json-server.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/json.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/kutuphane.xml</loc>
   <lastmod>2015-05-14</lastmod>
  </sitemap>
@@ -215,6 +231,10 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/liste.xml</loc>
   <lastmod>2015-04-29</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/lodash.xml</loc>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/logger.xml</loc>
@@ -255,6 +275,14 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/news.xml</loc>
   <lastmod>2015-04-30</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/nodejs.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/npm.xml</loc>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/open-source.xml</loc>
@@ -307,6 +335,18 @@
  <sitemap>
   <loc>http://aligoren.github.io/categories/rails.xml</loc>
   <lastmod>2015-04-24</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/rest-api.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/rest.xml</loc>
+  <lastmod>2015-05-23</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.github.io/categories/restful.xml</loc>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/ror.xml</loc>
@@ -382,14 +422,14 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <lastmod>2015-05-23</lastmod>
  </sitemap>
 </sitemapindex>
