@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="tr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Validation of Turkish Identification Number in golang">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Go ile TC Kimlik No Doğrulama | Ali GÖREN</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://aligoren.github.io/posts/golang-tc-kimlik-no-dogrulama.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="description" itemprop="description" content="Validation of Turkish Identification Number in golang">
+    <meta name="author" content="Ali">
+        <link rel="prev" href="json-server-ile-sahte-rest-api-gelistirme.html" title="json-server ile Sahte REST API Geliştirme" type="text/html">
+        <meta property="og:site_name" content="Ali GÖREN">
+    <meta property="og:title" content="Go ile TC Kimlik No Doğrulama">
+    <meta property="og:url" content="http://aligoren.github.io/posts/golang-tc-kimlik-no-dogrulama.html">
+    <meta property="og:description" content="Validation of Turkish Identification Number in golang">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-05-28T22:14:03+03:00">
+           <meta property="article:tag" content="go">
+           <meta property="article:tag" content="golang">
+           <meta property="article:tag" content="programlama">
+           <meta property="article:tag" content="programming">
+           <meta property="article:tag" content="tc kimlik no">
+
+    
+    
+
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CMerriweather:400,500%7CRaleway:400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ana içeriğe geç</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://aligoren.github.io/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+			
+			<a class="navbar-brand" href="http://aligoren.github.io/pages/hakkimda.html">
+
+                <span id="blog-title">Hakkımda</span>
+			
+			</a><a class="navbar-brand" href="http://aligoren.github.io/pages/projects.html">
+
+                <span id="blog-title">Projects</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Etiketler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url" rel="bookmark">Go ile TC Kimlik No Doğrulama</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><time class="published dt-published" datetime="2015-05-28T22:14:03+03:00" itemprop="datePublished" title="2015-05-28 22:14">2015-05-28 22:14</time></p>
+                <p class="commentline">            <a href="golang-tc-kimlik-no-dogrulama.html#disqus_thread" data-disqus-identifier="cache/posts/golang-tc-kimlik-no-dogrulama.html">Comments</a>
+
+
+            
+                <meta name="description" itemprop="description" content="Validation of Turkish Identification Number in golang">
+        </p>
+</div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Türkiyedeki yazılımcıların elbet ilgilendiği algoritmalardan birisi de TC Kimlik No Algoritmasıdır. Ben de bu algoritma ile ilgiliydim aslında. Esasen merak ettiğim bu algoritma kimin ürünü ve ne kadar sürede düşünmüş.</p>
+<p>Bu konulara dair tam bir detay bulamasam da algoritmasına dair detayları bulmak zor olmuyor. Kısaca algoritmasından bahsetmek gerekirse <!-- TEASER_END --></p>
+<ul>
+<li>
+<p>TC Kimlik Numarası 11 Hanelidir</p>
+</li>
+<li>
+<p>İlk 9 basamak bize 10. basamağı, ilk 10 basamak ise 11. basamağı verir.</p>
+</li>
+<li>
+<p>Her hane rakamsal bir değer olmak zorundadır.</p>
+</li>
+<li>
+<p>İlk rakamı 0 olamaz</p>
+</li>
+<li>
+<p>1, 3, 5, 7, ve 9. hanelerin toplamının 7 katından, 2. 4. 6. ve 8. hanelerin toplamı çıkartıldığında elde edilen sonucun 10'a bolumunden kalan, yani Mod10'u bize 10. haneyi verir.</p>
+</li>
+<li>
+<p>İlk 9 hane ve 10. haneyi toplayıp çıkan sonucun Mod10'u bize 11. haneyi verir</p>
+</li>
+</ul>
+<p>Algoritması bu şekilde. Bu doğrulama algoritmasını go için bir kütüphane haline getirip github üzerinde paylaştım.</p>
+<p><a href="https://github.com/aligoren/gotcvalidate">https://github.com/aligoren/gotcvalidate</a></p>
+<p>Test dosyasına ve kaynak dosyasına da bu linkten bakabilirsiniz.</p>
+<p>Kullanımı</p>
+<pre class="code literal-block">go get github.com/aligoren/gotcvalidate
+</pre>
+
+
+<p>ve projenize dahil etmek içinse</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="s">"github.com/aligoren/gotcvalidate"</span>
+</pre>
+
+
+<p>Örnek bir uygulama:</p>
+<pre class="code literal-block"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">"fmt"</span>
+    <span class="s">"github.com/aligoren/gotcvalidate"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cm">/* doğrulayıcıyı ilkledik */</span>
+    <span class="nx">ti</span> <span class="o">:=</span> <span class="nx">gotcvalidate</span><span class="p">.</span><span class="nx">TCValidate</span><span class="p">{}</span>
+    <span class="cm">/* 10000000146 bu numara Atatürk'ün TC Kimlik Numarasıdır. */</span>
+    <span class="k">if</span> <span class="nx">ti</span><span class="p">.</span><span class="nx">TiValidate</span><span class="p">(</span><span class="s">"10000000146"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Doğru"</span><span class="p">)</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Yanlış"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Ve daha sonra bu örnek kodu çalıştırıp test edelim:</p>
+<pre class="code literal-block">go run main.go
+
+Doğru
+</pre>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/go.html" rel="tag">go</a></li>
+           <li><a class="tag p-category" href="../categories/golang.html" rel="tag">golang</a></li>
+           <li><a class="tag p-category" href="../categories/programlama.html" rel="tag">programlama</a></li>
+           <li><a class="tag p-category" href="../categories/programming.html" rel="tag">programming</a></li>
+           <li><a class="tag p-category" href="../categories/tc-kimlik-no.html" rel="tag">tc kimlik no</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="json-server-ile-sahte-rest-api-gelistirme.html" rel="prev" title="json-server ile Sahte REST API Geliştirme">Önceki yazı</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Yorumlar</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="http://aligoren.github.io/posts/golang-tc-kimlik-no-dogrulama.html",
+        disqus_title="Go ile TC Kimlik No Do\u011frulama",
+        disqus_identifier="cache/posts/golang-tc-kimlik-no-dogrulama.html",
+        disqus_config = function () {
+            this.language = "tr";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+</article>
+               <script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+        <script src="../assets/js/colorbox-i18n/jquery.colorbox-tr.js"></script>
+    
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("tr");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>

@@ -50,7 +50,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_go-golang-programlama-programming.xml</loc>
-  <lastmod>2015-05-05</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/cat_go-golang-programming-programlama-kutuphane.xml</loc>
@@ -170,11 +170,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/go.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/golang.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/haber.xml</loc>
@@ -306,11 +306,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/programming.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/categories/proje.xml</loc>
@@ -389,6 +389,10 @@
   <lastmod>2015-04-29</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.github.io/categories/tc-kimlik-no.xml</loc>
+  <lastmod>2015-05-28</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.github.io/categories/technologies.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
@@ -426,10 +430,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <lastmod>2015-05-28</lastmod>
  </sitemap>
 </sitemapindex>
