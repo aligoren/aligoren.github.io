@@ -1,2 +1,2 @@
-Sitemap: http://aligoren.github.io/sitemapindex.xml
+Sitemap: http://aligoren.com/sitemapindex.xml
 

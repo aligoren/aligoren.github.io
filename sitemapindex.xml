@@ -5,443 +5,459 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>http://aligoren.github.io/categories/algoritma.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/algoritma.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/android.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/android.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/argc.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/argc.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/arrays.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <loc>http://aligoren.com/categories/arrays.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/assembly.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <loc>http://aligoren.com/categories/assembly.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/asyncio.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/asyncio.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/bug.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/bug.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/c++.xml</loc>
+  <loc>http://aligoren.com/categories/c++.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/c.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <loc>http://aligoren.com/categories/c.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_flask-framework-python-programlama.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_flask-framework-python-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_go-golang-arrays-slices-maps-programlama-programming.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <loc>http://aligoren.com/categories/cat_go-golang-arrays-slices-maps-programlama-programming.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_go-golang-programlama-programming-project-proje.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/cat_go-golang-programlama-programming-project-proje.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_go-golang-programlama-programming.xml</loc>
-  <lastmod>2015-05-28</lastmod>
+  <loc>http://aligoren.com/categories/cat_go-golang-programlama-programming.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_go-golang-programming-programlama-kutuphane.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <loc>http://aligoren.com/categories/cat_go-golang-programming-programlama-kutuphane.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_go-sublime-text-sublime-ide-programlama.xml</loc>
-  <lastmod>2015-05-04</lastmod>
+  <loc>http://aligoren.com/categories/cat_go-sublime-text-sublime-ide-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_javascript-css-android-ios-windows-phone-native-application.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/cat_javascript-css-android-ios-windows-phone-native-application.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_json-nodejs-json-server-npm-faker-lodash-rest-rest-api-restful.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/cat_json-nodejs-json-server-npm-faker-lodash-rest-rest-api-restful.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloj-yazilim.xml</loc>
+  <loc>http://aligoren.com/categories/cat_linux-windows-programlama-haber-teknoloj-yazilim.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_linux-windows-programlama-haber-teknoloji-yazilim.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/cat_linux-windows-programlama-haber-teknoloji-yazilim.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_php.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_php.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_programlama-python-c-algoritma.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_programlama-python-c-algoritma.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_programming-programlama-steno-shorthand-notation-c-assembly.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <loc>http://aligoren.com/categories/cat_programming-programlama-steno-shorthand-notation-c-assembly.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_proje-projects-open-source-python-ruby-c-c++-php-java.xml</loc>
+  <loc>http://aligoren.com/categories/cat_proje-projects-open-source-python-ruby-c-c++-php-java.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-algoritma-matematik.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-algoritma-matematik.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-argc-argc-sysargv-python3-click.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-argc-argc-sysargv-python3-click.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-parser-name-name-parsing-programlama.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-parser-name-name-parsing-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-pil-pillow-image-compare-comparing-programlama.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-pil-pillow-image-compare-comparing-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-programlama-asyncio-network.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-programlama-asyncio-network.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-programlama-library-logging-logger.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-programlama-library-logging-logger.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-programlama-sys-psutil-windows.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-programlama-sys-psutil-windows.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python-zip-map-liste-programlama.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-programming-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_python.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_python-zip-map-liste-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_ruby-programlama-hata.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_python.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_ruby-ror-rails-windows-programlama.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cat_ruby-programlama-hata.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/cat_technologies-news-bug-ssl-instagram-web.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/cat_ruby-ror-rails-windows-programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/click.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/cat_technologies-news-bug-ssl-instagram-web.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/compare.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/click.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/comparing.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/compare.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/css.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/comparing.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/faker.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/css.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/flask.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/cwm.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/framework.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/faker.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/go.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/flask.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/golang.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/framework.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/haber.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/go.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/hata.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/golang.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/ide.xml</loc>
-  <lastmod>2015-05-04</lastmod>
+  <loc>http://aligoren.com/categories/haber.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/image.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/hata.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/instagram.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/ide.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/ios.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/image.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/java.xml</loc>
+  <loc>http://aligoren.com/categories/instagram.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/ios.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/java.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/javascript.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/javascript.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/json-server.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/json-server.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/json.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/json.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/kutuphane.xml</loc>
-  <lastmod>2015-05-14</lastmod>
+  <loc>http://aligoren.com/categories/kutuphane.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/library.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/library.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/linux.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/linux.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/liste.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/liste.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/lodash.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/lodash.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/logger.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/logger.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/logging.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/logging.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/map.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/map.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/maps.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <loc>http://aligoren.com/categories/maps.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/matematik.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/matematik.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/name-parsing.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/name-parsing.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/name.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/name.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/native-application.xml</loc>
-  <lastmod>2015-05-18</lastmod>
+  <loc>http://aligoren.com/categories/native-application.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/network.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/network.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/news.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/news.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/nodejs.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/nodejs.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/npm.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/npm.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/open-source.xml</loc>
+  <loc>http://aligoren.com/categories/open-source.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/parser.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/parser.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/php.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/php.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/pil.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/pil.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/pillow.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/pillow.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/programlama.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/programlama.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/programming.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/programming.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/proje.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/proje.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/project.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/categories/project.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/projects.xml</loc>
+  <loc>http://aligoren.com/categories/projects.xml</loc>
   <lastmod>2015-04-23</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/psutil.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <loc>http://aligoren.com/categories/psutil.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/python.xml</loc>
-  <lastmod>2015-05-01</lastmod>
+  <loc>http://aligoren.com/categories/python.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/python3.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/python3.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/rails.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/rails.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/rest-api.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/rest-api.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/rest.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/rest.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/restful.xml</loc>
-  <lastmod>2015-05-23</lastmod>
+  <loc>http://aligoren.com/categories/restful.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/ror.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/ror.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/ruby.xml</loc>
-  <lastmod>2015-04-24</lastmod>
+  <loc>http://aligoren.com/categories/ruby.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/shorthand-notation.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <loc>http://aligoren.com/categories/shorthand-notation.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/slices.xml</loc>
-  <lastmod>2015-05-10</lastmod>
+  <loc>http://aligoren.com/categories/slices.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/ssl.xml</loc>
+  <loc>http://aligoren.com/categories/ssl.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/steno.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/sublime-text.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/sublime.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/sys.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/sysargv.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/tc-kimlik-no.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/technologies.xml</loc>
+  <lastmod>2015-06-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://aligoren.com/categories/teknoloj.xml</loc>
   <lastmod>2015-04-30</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/steno.xml</loc>
-  <lastmod>2015-05-21</lastmod>
+  <loc>http://aligoren.com/categories/teknoloji.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/sublime-text.xml</loc>
-  <lastmod>2015-05-04</lastmod>
+  <loc>http://aligoren.com/categories/web.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/sublime.xml</loc>
-  <lastmod>2015-05-04</lastmod>
+  <loc>http://aligoren.com/categories/windows-phone.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/sys.xml</loc>
-  <lastmod>2015-04-27</lastmod>
+  <loc>http://aligoren.com/categories/windows.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/sysargv.xml</loc>
-  <lastmod>2015-04-29</lastmod>
+  <loc>http://aligoren.com/categories/words-per-minute.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/tc-kimlik-no.xml</loc>
-  <lastmod>2015-05-28</lastmod>
+  <loc>http://aligoren.com/categories/wpm.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/technologies.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/yazilim.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/teknoloj.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/categories/zip.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/teknoloji.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/galleries/rss.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/web.xml</loc>
-  <lastmod>2015-04-30</lastmod>
+  <loc>http://aligoren.com/rss.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://aligoren.github.io/categories/windows-phone.xml</loc>
-  <lastmod>2015-05-18</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/categories/windows.xml</loc>
-  <lastmod>2015-04-30</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/categories/yazilim.xml</loc>
-  <lastmod>2015-04-30</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/categories/zip.xml</loc>
-  <lastmod>2015-04-29</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-05-29</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/rss.xml</loc>
-  <lastmod>2015-05-29</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://aligoren.github.io/sitemap.xml</loc>
-  <lastmod>2015-05-29</lastmod>
+  <loc>http://aligoren.com/sitemap.xml</loc>
+  <lastmod>2015-06-08</lastmod>
  </sitemap>
 </sitemapindex>
