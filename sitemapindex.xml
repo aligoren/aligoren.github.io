@@ -121,6 +121,10 @@
   <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.com/categories/cat_python-programlama-programming-logaritma-hesaplama.xml</loc>
+  <lastmod>2015-06-10</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.com/categories/cat_python-programlama-sys-psutil-windows.xml</loc>
   <lastmod>2015-06-08</lastmod>
  </sitemap>
@@ -249,6 +253,10 @@
   <lastmod>2015-06-08</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://aligoren.com/categories/logaritma-hesaplama.xml</loc>
+  <lastmod>2015-06-10</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://aligoren.com/categories/logger.xml</loc>
   <lastmod>2015-06-08</lastmod>
  </sitemap>
@@ -318,11 +326,11 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/categories/programlama.xml</loc>
-  <lastmod>2015-06-08</lastmod>
+  <lastmod>2015-06-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/categories/programming.xml</loc>
-  <lastmod>2015-06-08</lastmod>
+  <lastmod>2015-06-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/categories/proje.xml</loc>
@@ -342,7 +350,7 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/categories/python.xml</loc>
-  <lastmod>2015-06-08</lastmod>
+  <lastmod>2015-06-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/categories/python3.xml</loc>
@@ -454,10 +462,10 @@
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/rss.xml</loc>
-  <lastmod>2015-06-08</lastmod>
+  <lastmod>2015-06-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://aligoren.com/sitemap.xml</loc>
-  <lastmod>2015-06-08</lastmod>
+  <lastmod>2015-06-10</lastmod>
  </sitemap>
 </sitemapindex>
