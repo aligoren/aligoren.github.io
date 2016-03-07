@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      sys.argv Yerine Click Kullanın &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">sys.argv Yerine Click Kullanın</h1>
+  <span class="post-date">18 Oct 2015</span>
+  <p>Python ile konsol uygulamaları geliştirirken, konsolda bazen programı direkt olarak çağırmadan parametre kontrolü yapmamız gerekebiliyor. Örneğin şöyle bir çağrı:</p>
+
+<p><code>program.py --falan=filan</code></p>
+
+<p>Bu program basit ilkel yöntemlerce <code>sys.argv</code> kontrolü şeklinde yapılmakta. Ancak bunun doğruluğu için dahi uzunca uğraşmak gerekiyor.</p>
+
+<p>Bu sorunu aşmak için çeşitli kütüphaneler mevcuttur. Örneğin <strong>argparse, docopt</strong> gibi kütüphaneler de bu soruna kolaylık sağlıyorlar. Ancak bunların yapıları gerçekten çok karmaşık. Örneğin <strong>argparse</strong> interspersed dediğimiz argümanların devre dışı bırakılmasını desteklemiyor. Bu güvenlik açısından bir sorun oluşturabilir.
+&lt;!--more--&gt;
+Bu gibi bazı sorunlarla karşılaşmayı önlemek açısından Click, <strong>Armin Ronacher</strong> tarafından geliştirildi. Click kurulumu pip üzerinden yapılmakta.</p>
+
+<p><code>pip install Click</code></p>
+
+<p>komutu ile kurulumu yapabilirsiniz. Python 2.x ve 3.x sürümlerini desteklediğini de söylemek iyi olacaktır.</p>
+
+<p>Kurulumdan sonra ilk olarak basit bir Merhaba uygulaması yapabiliriz.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">():</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Merhaba&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">merhaba</span><span class="p">()</span>
+</code></pre></div>
+<p>Click’i import ettikten sonra <code>command</code> decoratörünü çağırarak artık bunun click ile kontrol edileceğini söyleyebiliriz.</p>
+
+<p>Ayrıca click <code>print()</code> harici kendisi <code>click.echo()</code> işlevi ile printer görevini sağlayabiliyor. İlk uygulamamız bu oldu ve çalıştırma işlemini yapalım. Sonuçlara bakalım. Örneğin bu yukarıdaki kodları <code>hello.py</code> adında bir dosyanın içerisine yazdığımızı varsayalım.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ali@linux <span class="nv">$ </span>hello
+Merhaba
+
+ali@linux <span class="nv">$ </span>hello -h
+Error: no such option: -h
+
+ali@linux <span class="nv">$ </span>hello --h
+Error: no such option: --h  Did you mean --help?
+
+ali@linux <span class="nv">$ </span>hello --help
+Usage: hello.py <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+  --help  Show this message and exit.
+</code></pre></div>
+<p>Merhaba kısmından daha çok otomatik oluşturulan help sayfalarının dikkatinizi çektiğini umuyorum. Evet click otomatik olarak help sayfası oluşturabiliyor. Bunu siz yapmadan yapabiliyor.</p>
+
+<p>Örnek olarak ilk parametrelerimi tanımlayalım ve bununla ilgili bir program yapalım. Programın işlevi girilen adı, girilen sayı kadar yazdırmak olsun. Bunun normalde for döngüsü ile basitçe yapılacağını biliyoruz.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sayaç =&gt; girilen sayı:
+    yazdır: girilen isim
+</code></pre></div>
+<p>Evet sahte kodu bu şekilde. Normalde Python ile yapmak isteseydik de bu format üzerinden gidecektik. Şimdi tekrar Click ile geliştirmeye dönelim. Öncelikle <code>option()</code> ve <code>argument()</code> decoratörlerini ekleyelim ve bunlara alması gereken değerleri bildirelim. Bu eklenen değerleri de yani decoratörler içerisinde tanımlanan option ve argument değerlerini de kendimize ait olan işleve işlev değişken olarak atayalım.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--count&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;Kac defa yazdiracagiz?&#39;</span><span class="p">)</span>
+<span class="nd">@click.argument</span><span class="p">(</span><span class="s">&#39;isim&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;Ali&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">isim</span><span class="p">):</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Merhaba&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">merhaba</span><span class="p">()</span>
+</code></pre></div>
+<p>Burada iki decorator ve bu decoratorlerin argümanları var. Option decoratorunun aldığı <code>--count</code> argümanı programa şu özelliği katar:</p>
+
+<p><code>program.py --count</code></p>
+
+<p>Daha sonra gelen ve 1 değerini almış olan <code>default</code> ise varsayılan değeri belirler. Burada varsayılan değerin belirli bir veri tipi yoktur. Ancak belirlenen veri tipini help metninde tür olarak gösterir. Biz sayaç işlemini yapacağımız için 1 dedik. Sonradan gelen <code>help</code> ise bu özelliğe dair yardım metnini gösterir. Yani <code>program.py --help</code> çağırıldığı zaman bu yardım metni de ayrıca gösterilir.</p>
+
+<p>Argument decoratörü ise bir argüman alır. Bu argüman da ayrıca bir default değer alabilir.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ali@linux <span class="nv">$ </span>hello
+Merhaba Ali
+
+ali@linux <span class="nv">$ </span>hello --help
+
+Usage: hello.py <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>ISIM<span class="o">]</span>
+
+Options:
+  --count INTEGER  Kac defa yazdiracagiz?
+  --help           Show this message and exit.
+</code></pre></div>
+<p>Son olarak programı tamamlayalım ve belirtilen miktar adedince yazdırma işlemini yaptıralım.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--count&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;Kac defa yazdiracagiz?&#39;</span><span class="p">)</span>
+<span class="nd">@click.argument</span><span class="p">(</span><span class="s">&#39;isim&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;Ali&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">isim</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Merhaba </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">isim</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">merhaba</span><span class="p">()</span>
+</code></pre></div>
+<p>Kodlarımız bunlar. Konsolda şöyle çağırıyoruz.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ali@linux <span class="nv">$ </span>hello --count<span class="o">=</span><span class="m">5</span> Arkadaş?
+Merhaba Arkadaş?
+Merhaba Arkadaş?
+Merhaba Arkadaş?
+Merhaba Arkadaş?
+Merhaba Arkadaş?
+</code></pre></div>
+<p>Evet şimdilik bu kadar.</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

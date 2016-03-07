@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      NodeJS’de json-server ile REST API Geliştirme &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">NodeJS’de json-server ile REST API Geliştirme</h1>
+  <span class="post-date">21 Oct 2015</span>
+  <p>Rest API artık yazılım dünyasının vazgeçilmezleri arasında. Öyle ki iş ilanlarında sadece REST API yazacak kişiler aranıyor yazmakta.</p>
+
+<p>Bu kadar popüler olan bir konunun da elbet ki işleri kolaylaştıran araçları olmalıdır. Siz bir kolaylık arıyorsanız elbette bu kolaylığı sizin için sağlayacak kişiler de oluyor.</p>
+
+<p>Bu kolaylıklardan birisi de NodeJS çatısı altında çalışan <a href="https://github.com/typicode/json-server">json-server</a>. json-server size basit sahte fake rest api geliştirme imkanı sağlıyor. Bunu hemen hemen hiç kod yazmadan yapmanıza imkan tanıyor. Sahte bir api dedik ancak eğer sağlanacak değerler belirli yani statik ise bu sahte olmaktan çıkıp sizin gerçek dünya uygulamanızda da yer alabilir. İsterseniz json-server kurulumunu gerçekleştirip bir örnek uygulama yapalım. Böylece daha iyi anlaşılır.</p>
+
+<!--more-->
+
+<h1>Kurulum</h1>
+
+<p>Kurulum npm üzerinden gerçekleşiyor.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install -g json-server
+</code></pre></div>
+<p>Burada -g flag’i indirilen kütüphanenin executable yani çalıştırılabilir olmasına imkan sağlıyor.</p>
+
+<p>Kurulum işleminden sonra ilk basit uygulamamızı yapalım:</p>
+
+<p>Uygulamamız basit olarak kitaplar hakkında bilgi sağlayan bir uygulama olacak. Kitap Adı ve Yazarını ayrıca yorumlarını da sunacak. Bu bilgileri de bir json dosyasında tutacak. Dosya adı <code>db.json</code> olsun.</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;kitaplar&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Suç ve Ceza&quot;</span><span class="p">,</span> <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Savaş ve Barış&quot;</span><span class="p">,</span> <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Lev Tolstoy&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Yevgeni Onegin&quot;</span><span class="p">,</span> <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Aleksandr Puşkin&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;yorumlar&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;yorum&quot;</span><span class="p">:</span> <span class="s2">&quot;Çok güzel bir kitap&quot;</span><span class="p">,</span> <span class="nt">&quot;kitapID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;yorum&quot;</span><span class="p">:</span> <span class="s2">&quot;Okurken zevk aldım&quot;</span><span class="p">,</span> <span class="nt">&quot;kitapID&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">&quot;yorum&quot;</span><span class="p">:</span> <span class="s2">&quot;Okumadan ölmeyin derim&quot;</span><span class="p">,</span> <span class="nt">&quot;kitapID&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Bu basit örnekte 3 adet kitap ve her kitap için de birer yorum var. Bu işlemden sonra şu komutu db.json dosyasının olduğu dizine girerek verelim.</p>
+
+<p><code>json-server db.json</code></p>
+
+<p><img src="/assets/other/json_rest.png" alt="img"></p>
+
+<p>Fark ettiyseniz bize iki adet link gösteriyor. Ben bu yazıyı yazarken görselin altında gördüğünüz URL’yi açtım. Ancak kitaplar URL’si de açılabilir. Kitaplar URL’si</p>
+
+<p><code>http://localhost:3000</code> adresinde yayın yapıyor. Bunu sunucunuzda nasıl kullanacağınız sizin işiniz.</p>
+
+<p>Biz kitaplar sayfasını açtık ve şöyle bir çıktı ile karşılaştık:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Suç ve Ceza&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Savaş ve Barış&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Lev Tolstoy&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Yevgeni Onegin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Aleksandr Puşkin&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Bunlar bizim yazdıklarımız yani senaryoya göre veritabanında var olan veriler. Bu verileri direkt bu URL’i açtığımız gibi görebiliriz. Ancak bizim için bu verileri özellikle çekmek yani bir bakıma query ile çekmek daha önemli. Evet buna da imkan sağlıyor. Örneğin ID’ye göre çekecek olsaydık</p>
+
+<p><code>http://localhost:3000/kitaplar/1</code></p>
+
+<p>Bu bize 1 numaralı ID’ye sahip olan kitabı getirecekti. Eğer ID’ye göre değil de kitap adına göre veri çekecek olsaydık da şöyle yapacaktık:</p>
+
+<p><code>http://localhost:3000/kitaplar?kitap=Yevgeni Onegin</code></p>
+
+<p>O zaman gelin uygulamamızı biraz daha genişletelim. Bir yazar için birden fazla kitap girişi yapalım. Yeni bir kitap ekledik. Yine bir Dostoyevski kitabı olan <strong>Karamazov Kardeşler</strong> kitabını ekledik. Artık data dosyamız şöyle:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Suç ve Ceza&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Savaş ve Barış&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Lev Tolstoy&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Yevgeni Onegin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Aleksandr Puşkin&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Karamazov Kardeşler&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Şimdi artık bir yazarın iki adet kitabı var. O zaman yazar adına göre aratalım. Arama URL’si bildiğiniz üzere şöyle olacak:</p>
+
+<p><code>http://localhost:3000/kitaplar?yazar=Fyodor Dostoyevski</code></p>
+
+<p>Sanırım tam da istediğimiz bu. Bize sadece seçili olan yazara ait kitapları sıraladı.</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Suç ve Ceza&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;kitap&quot;</span><span class="p">:</span> <span class="s2">&quot;Karamazov Kardeşler&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;yazar&quot;</span><span class="p">:</span> <span class="s2">&quot;Fyodor Dostoyevski&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Konsol ekranında klavyeden <code>s</code> tuşuna basarak db’nizin bir snapshot’ını alabilirsiniz. Daha da farklı olarak yine npm kütüphanelerinden <code>faker</code> ve <code>lodash</code> kullanılarak internet üzerindeki kullanıcıların bilgileri alınarak sahte bir veritabanı oluşturabiliriz. Bunun için faker ve lodash kurulumunu yapmamız gerekmekte.</p>
+
+<p><code>npm install faker lodash</code></p>
+
+<p>Kurulumdan sonra bir adet JS dosyası oluşturalım. Bu dosyanın adı <code>sahte.js</code> olsun. Bu andan sonrası NodeJS bilenler için daha kolay olacak. Modülleri js dosyamıza aktaralım.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">sahte</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;faker&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;lodash&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Bu aktarım işleminden sonra Faker api’larını kullanalım. Faker size hangi API’ları sağlıyor öğrenmek istiyorsanız Faker dökümanına bakın</p>
+
+<p>lodash kütüphanesinin times fonksiyonunu kullanarak şu işi şu kadar defa yap diyoruz. Burada biz 20 kişilik bir veritabanı oluşturacağız. Bu veritabanı aslında gerçekte internette var olan ama veritabanına kendileri tarafından eklenmemiş sahte hesapların verilerini sunuyor bize.</p>
+
+<p>Bunu yaparken faker kütüphanesinin 4 adet özelliğinden faydalanacağız. Bunlar</p>
+
+<p><strong>userName()</strong> =&gt; internette kullanıcı adı arar.</p>
+
+<p><strong>findName()</strong> =&gt; internette isim arar.</p>
+
+<p><strong>lastName()</strong> =&gt; internette soyad arar.</p>
+
+<p><strong>avatar()</strong> =&gt; internette profil resmi arar.</p>
+
+<p>Bu kısa bilgilerden sonra javascript dosyamız şöyle oldu.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">sahte</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;faker&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;lodash&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">kisiler</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">times</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">id</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span>
+                <span class="nx">kullanici</span><span class="o">:</span> <span class="nx">sahte</span><span class="p">.</span><span class="nx">internet</span><span class="p">.</span><span class="nx">userName</span><span class="p">(),</span>
+                <span class="nx">isim</span><span class="o">:</span> <span class="nx">sahte</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">findName</span><span class="p">(),</span>
+                <span class="nx">soyad</span><span class="o">:</span> <span class="nx">sahte</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">lastName</span><span class="p">(),</span>
+                <span class="nx">resim</span><span class="o">:</span> <span class="nx">sahte</span><span class="p">.</span><span class="nx">internet</span><span class="p">.</span><span class="nx">avatar</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Şimdi tekrar json-server’ı çalıştıralım ve bakalım:</p>
+
+<p><code>json-server sahte.js</code></p>
+
+<p><img src="/assets/other/json_rest2.png" alt="img"></p>
+
+<p>Gördüğümüz üzere artık yeni bir veritabanı oluştu. Bunu yine</p>
+
+<p><code>http://localhost:3000</code> adresine giderek anlayabiliriz. Bu arada bu adresteki varsayılan anasayfayı boş index.html dosyası ile değiştirebilirsiniz. Eğer ki o bölge hoşunuza gitmiyorsa.</p>
+
+<p>Yeni REST API sayfamız artık bu adreste <code>http://localhost:3000/kisiler</code></p>
+
+<p>Ayrıca database yapınıza da bakabilirsiniz. Bunun için <code>http://localhost:3000/db</code> adresine girmeniz yeterli. Örneğin şu anki uygulamamız şöyle bir çıktı veriyor bize:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;kullanici&quot;</span><span class="p">:</span> <span class="s2">&quot;Leonie_Padberg76&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isim&quot;</span><span class="p">:</span> <span class="s2">&quot;Liza Will&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;soyad&quot;</span><span class="p">:</span> <span class="s2">&quot;Satterfield&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resim&quot;</span><span class="p">:</span> <span class="s2">&quot;https://s3.amazonaws.com/uifaces/faces/twitter/robturlinckx/128.jpg&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;kullanici&quot;</span><span class="p">:</span> <span class="s2">&quot;Harmon.DuBuque&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isim&quot;</span><span class="p">:</span> <span class="s2">&quot;Sincere Nicolas&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;soyad&quot;</span><span class="p">:</span> <span class="s2">&quot;Gottlieb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resim&quot;</span><span class="p">:</span> <span class="s2">&quot;https://s3.amazonaws.com/uifaces/faces/twitter/magugzbrand2d/128.jpg&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;kullanici&quot;</span><span class="p">:</span> <span class="s2">&quot;Sylvester29&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isim&quot;</span><span class="p">:</span> <span class="s2">&quot;Alexzander Harris&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;soyad&quot;</span><span class="p">:</span> <span class="s2">&quot;Hegmann&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resim&quot;</span><span class="p">:</span> <span class="s2">&quot;https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg&quot;</span>
+  <span class="p">},</span>
+</code></pre></div>
+<p>Burada bir isim yapalım. Yine URL şöyle olacak:</p>
+
+<p><code>http://localhost:3000/kisiler?isim=Alexzander Harris</code></p>
+
+<p>Bu adres bize Alexzander Harris ismindeki kişinin bilgilerini veriyor. Bilgiler ise şunlar:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;kullanici&quot;</span><span class="p">:</span> <span class="s2">&quot;Sylvester29&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isim&quot;</span><span class="p">:</span> <span class="s2">&quot;Alexzander Harris&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;soyad&quot;</span><span class="p">:</span> <span class="s2">&quot;Hegmann&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resim&quot;</span><span class="p">:</span> <span class="s2">&quot;https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Faker kullanarak daha bir sürü bilgi çekebilirsiniz. Unutmadan söylemek gerekiyor. Faker kullanarak yazılan uygulamalar için de snapshot alabilirsiniz. Ancak bu uygulamalarda veritabanı internetin ta kendisi yani local bir veritabanı yok.</p>
+
+<p>Ayrıca json-server size tüm HTTP imkanlarını sağlıyor. (<strong>GET, POST, PUT, PATCH ve DELETE</strong>)</p>
+
+<p>Daha fazla bilgi için ve json-server’a katkı yapmak için GitHub sayfasına bakabilirsiniz:</p>
+
+<p><strong>json-server</strong>: <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a></p>
+
+<p>Anlatım bu kadardır. Bu kısa makalede kendimiz için bir REST API yazdık. Hem de hiç zorlanmadan.</p>
+
+<p>İyi çalışmalar.</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

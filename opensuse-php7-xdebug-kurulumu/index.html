@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      OpenSuSe PHP7 XDebug Kurulumu &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">OpenSuSe PHP7 XDebug Kurulumu</h1>
+  <span class="post-date">18 Feb 2016</span>
+  <p>PHP7 çıkalı baya oluyor. XDebug geliştiriciler için hata ayıklama aracı. Gerçekten çok faydalı bir araç. Bu aracı PHP7 için OpenSuSe’a kurmaya çalışırsanız depolarında bulamıyorsunuz. Depolarda php5-xdebug bulunmakta. Fazla uzatmadan konuya gireyim can sıkıcı bir makale olmasın.</p>
+
+<p>XDebug kurmak için öncelikle PHP7 Devel gerekiyor. PHP7 Devel kurulumunu uçbirimden zypper yardımı ile kuralım.
+&lt;!--more--&gt;</p>
+
+<p><code>sudo zypper install php7-devel</code></p>
+
+<p>Daha sonra ise xdebug sitesinden son sürümü indirelim (Bu yazıyı yazarken en son 2.4.0 RC4 Sürümü Vardı):</p>
+
+<p><code>wget http://xdebug.org/files/xdebug-2.4.0rc4.tgz</code></p>
+
+<p>Evet wget yardımı ile indirme işlemini yaptıktan sonra arşivi açalım:</p>
+
+<p><code>tar -xzf xdebug-2.4.0rc4.tgz</code></p>
+
+<p>Arşivi açtıktan sonra klasörün içerisine gidelim:</p>
+
+<p><code>cd xdebug-2.4.0RC4/</code></p>
+
+<p>Klasöre girdikten sonra aşağıdaki komutları sırasıyla veriyoruz:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">phpize
+./configure --enable-xdebug
+make
+sudo cp modules/xdebug.so /usr/lib/.
+</code></pre></div>
+<p>Burada <strong>phpize</strong> derleme aracıdır. Geri kalanı ise derleme işlemi. En son olarak da cp ile oluşturulan kütüphane dosyasını lib klasörüne taşıyoruz. Tüm bu işlemler bittikten sonra php7 içerisindeki <strong>conf.d</strong> klasörüne gidiyoruz. Ve orada <strong>20-xdebug.ini</strong> adında bir dosya oluşturuyoruz.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /etc/php7/conf.d
+sudo nano 20-xdebug.ini
+</code></pre></div>
+<p>Evet xdebug ini dosyasını oluşturduk. Şimdi sıra içerisine ekleyeceğimiz ayar stringlerinde. Yukarıda nano ile dosyayı açtığımızı varsayıyorum kapatmayın yani henüz oluşmadı aslında ama kaydedince oluşacak :) Sonra şu aşağıdaki stringleri ekliyoruz.</p>
+<div class="highlight"><pre><code class="language-apache" data-lang="apache"><span class="err">zend_extension=/usr/lib/xdebug</span>.<span class="nb">so</span>
+xdebug.remote_enable=1
+</code></pre></div>
+<p>Sonunda işlemler tamamlandı artık apache ya da nginx ne kullanıyorsanız onu yeniden başlatabilirsiniz. Nginx kullananlar aynı işlemi fpm klasöründeki conf.d için de yapabilirler. Yükleme işleminin kontrol için konsoldan php -v komutunu verin.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">PHP 7.0.3 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span> NTS <span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2016 The PHP Group
+Zend Engine v3.0.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2016 Zend Technologies
+   with Xdebug v2.4.0RC4, Copyright <span class="o">(</span>c<span class="o">)</span> 2002-2016, by Derick Rethans
+</code></pre></div>
+<p>Eğer çıktı yukarıdaki gibi ise yani with Xdebug yazısını görüyorsanız kurulum başarılı olmuştur. Bu kadar </p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-42-1-lamp-kurulumu/">
+            OpenSUSE 42.1 LAMP Kurulumu
+            <small>16 Dec 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ali &middot; Programlama, Linux, Açık Kaynak, Python, C#
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/e-sayisinin-hesaplanmasi/">
+        E Sayısının Hesaplanması
+      </a></h1>
+
+    <span class="post-date">01 Oct 2015 - <a href="/e-sayisinin-hesaplanmasi/#disqus_thread">Yorum</a></span>
+    <p>E Sayısını Tanıyalım</p>
+
+<p>E sayısı ünlü bir irrasyonel sayıdır ve matematiğin en önemli sayılarındandır. E sayısı, ilk olarak İskoç Matematikçi John Napier tarafından ortaya atılmıştır. Napier, E sayısını 1618 yılında yayınladığı logaritmalar kitabının ekinde yayınlamıştır. Esasen dolaylı olarak bir değinme olmuş. E sayısının keşfi ise kitabın yayınlandığı tarihten çok daha sonraları gerçekleşmiş. Jakob Bernoulli 1683 yılında birleşik faiz problemini incelerken e sayıını keşfetmiş. Bu öyle bir sayı ki bir sürü kişi uğraşmış ama bu sayıya adını Leonhard Euler vermiştir. E sayısı adını 1731 yılında almıştır. Euler sayısı, “Oiler” olarak telafuz ediliyormuş.</p>
+
+    <a href="/e-sayisinin-hesaplanmasi/">Devamını Oku</a>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/c-dangling-pointer-sorunu/">
+        C Dangling Pointer Sorunu
+      </a></h1>
+
+    <span class="post-date">21 Jul 2014 - <a href="/c-dangling-pointer-sorunu/#disqus_thread">Yorum</a></span>
+    <p>Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum (segmentation fault)[http://en.wikipedia.org/wiki/Segmentation<em>fault] hatasina sebep olmaktadir ve (buffer overflow)[http://en.wikipedia.org/wiki/Buffer</em>overflow] yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.</p>
+
+<p>İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.</p>
+
+<p>Çözüm için bazı yöntemler var. Bunlardan birisi akıllı pointer kullanımıdır. C++11 ile kullanımı biten <code>auto_ptr</code> ve onun yerine gelen <code>unique_ptr</code> kullanılabilir ilk yöntemlerdir.</p>
+
+    <a href="/c-dangling-pointer-sorunu/">Devamını Oku</a>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/virtualboxa-crunchbang-linux-kurulumu/">
+        VirtualBox’a CrunchBang Linux Kurulumu
+      </a></h1>
+
+    <span class="post-date">18 Jul 2014 - <a href="/virtualboxa-crunchbang-linux-kurulumu/#disqus_thread">Yorum</a></span>
+    <p>Selam</p>
+
+<p>CrunchBang Linux, <a href="http://openbox.org/">OpenBox</a> pencere yöneticisi kullanan başlarda Ubuntu sonradan Debian tabanını kullanan bir GNU/Linux dağıtımıdır.</p>
+
+<p>128 mb ram ile çalışabilen çok ama çok hafif bir Linux dağıtımıdır. OpenBox ile birlikte gayet hızlı bir şekilde çalışmakta. Kurulum ekranıda Debian kaynaklı olduğu için Debian kullananlara yabancılık çektirmeyecek kadar kolaylık var.</p>
+
+<p>Bilgisayarıma doğrudan bir Linux dağıtımı kuramadığım için ben de VirtualBox üzerinde denedim. Kurulumu başarılı oldu.</p>
+
+<p>CrunchBang dağıtımını bu linkten indirebilirsiniz: <a href="http://crunchbang.org/download/">http://crunchbang.org/download/</a></p>
+
+<p>Platformunuzu seçtikten sonra 2 adet indirme link gelmekte. Üstteki link i686 bilgisayarlar için. Alttaki link daha eski olan i486 bilgisayarlar için. Bunları tabii 32 bit için söylüyorum. 64 bitlerde amd64 olarak mevcut zaten. Şu an dağıtımın son sürümü olan Waldorf 11. sürümdür. 12. sürüm Janice adı ile çıkacaktır.</p>
+
+<p>Forumlarına şu linkten ulaşabilirsiniz: <a href="http://crunchbang.org/forums/">http://crunchbang.org/forums/</a></p>
+
+    <a href="/virtualboxa-crunchbang-linux-kurulumu/">Devamını Oku</a>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/nullin-esdegeri-pythonda-nonedir/">
+        Null’ın eşdeğeri Pythonda None’dır.
+      </a></h1>
+
+    <span class="post-date">14 Jul 2014 - <a href="/nullin-esdegeri-pythonda-nonedir/#disqus_thread">Yorum</a></span>
+    <p>Null bir çok programlama dilinde kullanılır. Aslında null görevinde farklı keywordler de vardır. Delphide ve Ruby’de nil gibi. Aslında birkaç örnek vermek iyi olur.</p>
+
+<p>nil: Pascal, LISP, Smalltalk, Ruby, Objective-C, Lua, Scala, Go Lang</p>
+
+<p>Nothing: Visual Basic</p>
+
+<p>IEEE 754 için NaN</p>
+
+<p>ve tabii ki</p>
+
+<p>Python: None</p>
+
+<p>C#, PHP, Javascript, D, C, C++: null</p>
+
+<p>Peki biraz daha açalım bu konuyu. Eğer referanslar hiçbir nesneye erişim sağlamıyorsa türü null’dır. Referans türü değişkenlerin erişim sağladığı nesne belirli olmadığı için yine null özelliğine sahiptirler. Yani boş bir değerdir. Bir sınıf eğer null ise henüz bir örneği oluşturulmamıştır.</p>
+
+    <a href="/nullin-esdegeri-pythonda-nonedir/">Devamını Oku</a>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/iso-dosyalarini-cdye-yazmak/">
+        ISO Dosyalarını CD’ye Yazmak
+      </a></h1>
+
+    <span class="post-date">09 Jul 2014 - <a href="/iso-dosyalarini-cdye-yazmak/#disqus_thread">Yorum</a></span>
+    <p>CD-DVD araçları benim için kritik özellikte araçlardır. Birçok sebebi var ama sanırım en önemlisi iso dosyalarini cd’ye yazma konusu. Özellikle linux dağıtımları indirip dvd’ye yazdırmak istiyorsanız hemen program aramaya başlarsınız.</p>
+
+<p>Ben de öyle yapmıştım. Baya bi program aradım aslında buldum ama hepsi karmaşıktı. Bana daha basit çözümler lazımdı. Ve hızlı, kasmayan bir program arıyordum. Tüm bu anlattıklarım Windows için geçerli tabii. Neyse işte sonunda bir program buldum ImgBurn gerçekten güzel. Hiç karışık değil. Benim kafama uygun insanlar kodlamış sanırım :)</p>
+
+<p>İndirdim kurdum dün gece Fedora 20’yi indirdim. Bilgisayarıma kuracaktım aslında kuramadım. İlginçtir hiçbir linux dağıtımını kuramıyorum şu sıralar. PC öyle ısınıyor ki iftardan 2 dakika önce yumurtayı kır iftarını yaparsın omlet olur. Kısacası deli gibi ısınıyordu neyse konu o değil. ImgBurn bozmadan, sağlam bir şekilde yazdırıyor.</p>
+
+    <a href="/iso-dosyalarini-cdye-yazmak/">Devamını Oku</a>
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page4">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page2">Newer</a>
+    
+  
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

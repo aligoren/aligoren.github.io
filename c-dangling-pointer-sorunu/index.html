@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      C Dangling Pointer Sorunu &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">C Dangling Pointer Sorunu</h1>
+  <span class="post-date">21 Jul 2014</span>
+  <p>Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum (segmentation fault)[http://en.wikipedia.org/wiki/Segmentation<em>fault] hatasina sebep olmaktadir ve (buffer overflow)[http://en.wikipedia.org/wiki/Buffer</em>overflow] yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.</p>
+
+<p>İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.</p>
+
+<p>Çözüm için bazı yöntemler var. Bunlardan birisi akıllı pointer kullanımıdır. C++11 ile kullanımı biten <code>auto_ptr</code> ve onun yerine gelen <code>unique_ptr</code> kullanılabilir ilk yöntemlerdir.
+&lt;!--more--&gt;
+Bir de bunun başka bir alternatifi olarak tombstone metodu var. Burada da yapılan şey pointer değişkenin başına başka bir değer ekliyoruz.</p>
+
+<p>Öncelikle bahsettiğimiz konuya dair bir örnek kod verelim.</p>
+
+<p>Bu hataya yakalanmış bir kodun çıktısı şöyle olacaktır. Tabii bu sistemden sisteme göre değişir. Aslında bu çıktı çöp bir değerdir.</p>
+
+<p><strong>Örneğin koding.com sanal makinesinde yaptığım denemenin sonucu:</strong></p>
+
+<p><img src="/assets/dgp/1.png" alt="img"></p>
+
+<p><strong>Bu da kendi makinemde yaptığım işlemin sonucu:</strong></p>
+
+<p><img src="/assets/dgp/2.png" alt="img"></p>
+
+<p>Bu hatanın bize verdiği çıktılar compile time’da şöyle olacaktır:</p>
+
+<p><strong>warning: function returns address of local variable [-Wreturn-local-addr]</strong></p>
+
+<p>ya da</p>
+
+<p><strong>warning: function returns address of local variable</strong></p>
+
+<p>Bu hataları alıyorsak derleme zamanında demek ki bir yerlerde dangling pointer oluşmuştur. Bunu çözmemiz aslında basit. Verdiğimiz kodda oluşturduğumuz x değişkenini static variable’a çevirmemiz yetecektir.</p>
+
+<p>Yani bu durumda şöyle bir değişiklik olacak:</p>
+
+<p>Şimdi artık bu kodumuz dangling pointerdan arındırılmış vaziyette. Buradaki x değişkeni yerel bir değişkendir. <strong>x</strong> değişkeninin adresi <strong>cagri</strong> işlevi içerisinde döndürüldükten sonra sıfırlandı. Ancak pointer hala bu adresi işaret ediyordu. Dangling <strong>pointer</strong> hatasının açıklaması buydu. Biz bu değişiklik ile bu hatayı çözüme kavuşturmuş olduk.</p>
+
+<p><strong>Koding sanal makinesindeki çıktı:</strong></p>
+
+<p><img src="/assets/dgp/3.png" alt="img"></p>
+
+<p><strong>Kendi makinemdeki çıktı:</strong></p>
+
+<p><img src="/assets/dgp/4.png" alt="img"></p>
+
+<p><strong>Referanslar:</strong></p>
+
+<p><a href="https://software.intel.com/en-us/articles/pointer-checker-to-detect-buffer-problems-and-dangling-pointers-part-2">https://software.intel.com/en-us/articles/pointer-checker-to-detect-buffer-problems-and-dangling-pointers-part-2</a></p>
+
+<p><a href="https://www.owasp.org/images/f/fa/OWASP_IL_8_Dangling_Pointer.pdf">https://www.owasp.org/images/f/fa/OWASP<em>IL</em>8<em>Dangling</em>Pointer.pdf</a></p>
+
+<p><a href="https://www.blackhat.com/presentations/bh-usa-07/Afek/Whitepaper/bh-usa-07-afek-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Afek/Whitepaper/bh-usa-07-afek-WP.pdf</a></p>
+
+<p><a href="http://www.ccs.neu.edu/home/will/CPP/dangling.html">http://www.ccs.neu.edu/home/will/CPP/dangling.html</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/378335/Dangling-Pointers-Pathology-Prevention-and-Cure">http://www.codeproject.com/Articles/378335/Dangling-Pointers-Pathology-Prevention-and-Cure</a></p>
+
+<p><a href="http://www.democraticprogrammers.com/dangling-pointer-problem-cpp-example/">http://www.democraticprogrammers.com/dangling-pointer-problem-cpp-example/</a></p>
+
+<p><a href="http://www.c4learn.com/c-programming/c-dangling-pointer-causes/">http://www.c4learn.com/c-programming/c-dangling-pointer-causes/</a></p>
+
+<p><a href="http://www.geekinterview.com/question_details/66703">http://www.geekinterview.com/question_details/66703</a></p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

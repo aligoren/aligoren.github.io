@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      OpenSUSE 42.1 LAMP Kurulumu &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">OpenSUSE 42.1 LAMP Kurulumu</h1>
+  <span class="post-date">16 Dec 2015</span>
+  <p>Bilmiyorsanız söyleyeyim <strong>LAMP</strong>, <strong>L</strong>inux, <strong>A</strong>pache, <strong>M</strong>ySQL ve <strong>P</strong>HP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım.
+Sırasıyla Adımlar:</p>
+
+<p><strong>1-)</strong> Apache Kurulumu</p>
+
+<p><strong>2-)</strong> MariaDB Kurulumu</p>
+
+<p><strong>3-)</strong> PHP Kurulumu</p>
+
+<p>İlk sıraya Linux koymaya gerek yok biliyorsunuz :). Başlayalım o zaman.</p>
+
+<h1>Apache Kurulumu</h1>
+
+<p>Apache, çoklu platformda çalışabilen web server’dır. İçerisinde CGI, SSL ve sanal alan adlarının da desteklendiği çoğu özellik bulunmaktadır.
+&lt;!--more--&gt;
+Öncelikle Apache kurmak için Uçbirim’i açarak şu komutları girin:</p>
+
+<p><code>sudo zypper in apache2</code></p>
+
+<p>Bu komut apache2 kurulumunu yapacaktır. Daha sonra apache2’nin her başlangıçta otomatik olarak başlaması için şu iki komutu gireceğiz:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo systemctl start apache2
+
+sudo systemctl <span class="nb">enable </span>apache2
+</code></pre></div>
+<p>Artık <code>apache2</code> başlamış durumda ve aktif durumda. Varsayılan sunucu erişimi <code>localhost</code> tarafından sağlanmakta. Eğer uzak bir makineden erişime açık olmasını istiyorsanız güvenlik duvarınız ya da yönlendiricinize varsayılan port 80 olarak belirtebilirsiniz. Bunu OpenSUSE ile şöyle yaparız:</p>
+
+<p><code>sudo nano /etc/sysconfig/SuSEfirewall2</code></p>
+
+<p>Eğer nano yoksa komut satırına <code>cnf nano</code> yazarak nasıl kurulacağını görebilirsiniz.</p>
+
+<p>Açılan kısımda CTRL+W yaparak arama yapacaksınız. Arama kısmında <code>FW_CONFIGURATIONS_EXT</code> yazarak arayın. İlk çıkan sonuç yorum satırı içerisindedir. Tekrar CTRL+W yapın ve enter’a basın. Karşınıza şöyle bir sonuç çıkacaktır:</p>
+
+<p><code>FW_CONFIGURATIONS_EXT = &quot;&quot;</code></p>
+
+<p>Bu kısımdaki tırnaklar arasına apache2 yazın yani:</p>
+
+<p><code>FW_CONFIGURATIONS_EXT = &quot;apache2&quot;</code></p>
+
+<p>olarak ayarlamanız gerekmekte. Daha sonra CTRL+X yaparak kaydedin. Karşınıza öncelikle dosya adı geliyordu sanıyorum burada direkt enter diyin. Sonraki adımda kaydetmek isteyip istemediğinizi soruyor. Türkçe ise E olarak isteyebilir. İngilizce ise Y olarak cevaplayın. Daha sonra firewall yeniden başlatılmalı:</p>
+
+<p><code>sudo systemctl restart SuSEfirewall2</code></p>
+
+<h1>Apache Test İşlemi:</h1>
+
+<p>Apache’yi test etmek için bir dosya oluşturalım. Bu dosyayı oluşturacağınız yol <code>/srv/www/htdocs/</code> şeklinde olacaktır. Biz henüz PHP kurmadık basit olarak bir HTML dosyası oluşturalım:</p>
+
+<p><code>sudo nano /srv/www/htdocs/index.html</code></p>
+
+<p>İçerisine herhangi bir şey yazabilirsiniz ve kaydedip çıkın. Daha sonra tarayıcıdan <code>http://localhost</code> adresini açın. Eğer her şeyi doğru yaptıysanız oluşturduğunuz HTML dosyasının içeriğini göreceksiniz.</p>
+
+<h1>MariaDB Kurulumu</h1>
+
+<p>MariaDB, MySQL’in forklanmış bir sürümüdür. Dinamik kolon gibi özelliklere sahiptir. O zaman kurulum için uçbirim’e şu komutu girelim:</p>
+
+<p><code>sudo zypper in mariadb</code></p>
+
+<p>Artık kurulum yapıldı. Şimdi MariaDB yani MySQL her başlangıçta başlasın istiyoruz. Aynı apache2 için yaptığımız gibi MySQL için de systemctl kullanacağız.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo systemctl start mysql
+
+sudo systemctl <span class="nb">enable </span>mysql
+</code></pre></div>
+<h1>MySQL root Parolasını Ayarlama</h1>
+
+<p>MySQL root parolası varsayılan olarak boş gelir. Ancak bazı durumlarda yetkisiz erişimi engellemek isteyebilirsiniz. Bu durumda MySQL’i root parolası ile korursunuz. Bunun için konsol’a</p>
+
+<p><code>mysql_secure_installation</code></p>
+
+<p>komutunu verelim. Karşımıza dolusuna yazı gelecek. Burada size bir soru soracak.</p>
+
+<p><code>“Set root password? [Y/n]”</code></p>
+
+<p>Bu kısım root parolası ayarlamak ister misiniz diyor. <strong>Y</strong> tuşuna basın. Parolanızı iki defa gireceksiniz. Her iki defasında da girmiyor gibi görünebilirsiniz. Parola gizli olarak giriliyor.</p>
+
+<p><code>“Remove anonymous users? [Y/n]”</code></p>
+
+<p>Anonim kullanıcıları silmek ister misiniz diyor. Eğer silmek isterseniz Y tuşuna basın.</p>
+
+<p><code>“Disallow root login remotely [Y/n]”</code></p>
+
+<p>Bu kısımda uzak root erişimini kısıtlayın diyor. Buna Y diyoruz.</p>
+
+<p><code>“Reload privilege tables now [Y/n]”</code></p>
+
+<p>Tabloları baştan oluşturmak isteyip istemediğinizi soruyor. Bu kısımda da Y diyoruz. MySQL ayarlarımızı tamamladık.</p>
+
+<h1>PHP Kurulumu</h1>
+
+<p>Her şeyi kurduk. Artık PHP kurulumunu yapmamız gerekiyor. Komut satırına şu komutları girelim:</p>
+
+<p><code>sudo zypper in php5 php5-mysql apache2-mod_php5</code></p>
+
+<p>Çok fazla uzun sürmeyecek bir kurulumla bir sonraki adıma geçelim. Yani mod-php aktif olmalı. Bunun için şu komutları çalıştırıyoruz:</p>
+
+<p><code>sudo a2enmod php5</code></p>
+
+<h1>PHP’yi Test Edelim:</h1>
+
+<p>Basit olarak php bilgilerini veren bir PHP dosyası oluşturalım:</p>
+
+<p><code>sudo nano /srv/www/htdocs/info.php</code></p>
+
+<p>Bu dosyanın içine</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nb">phpinfo</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>kodlarını ekleyelim, kaydedip çıkalım. Daha sonra apache2’yi yeniden başlatalım:</p>
+
+<p><code>sudo systemctl restart apache2</code></p>
+
+<p>Daha sonra PHP bilgilerinin olduğu dosyayı çalıştıralım:</p>
+
+<p><code>http://localhost/info.php</code></p>
+
+<p>adresinde düzgünce görüntüleme işlemini yaptıysanız sıkıntı yok. Eğer tüm php modüllerini kurmak istiyorsanız konsoldan şu komutu giriniz:</p>
+
+<p><code>sudo zypper in php*</code></p>
+
+<p>Daha sonra eğer geliştirme amaçlı çalışıyorsanız, çalışırken hataları görmek amacıyla bunları aktif etmelisiniz. Bu hataların yönetimini display_errors’da saklı. Varsayılan değer Off olarak geliyor. Aktif etmek için konsoldan şu komutu çalıştıralım:</p>
+
+<p><code>sudo nano /etc/php5/apache2/php.ini</code></p>
+
+<p>Daha sonra <code>display_errors = Off</code> şeklinde aratıp bu kısmı <code>display_errors = On</code> olarak değiştiriyoruz. Kaydedip çıkalım.</p>
+
+<p>Tüm bunlardan sonra “permission denied” hatası almamak için chmod 777 yapmalıyız. Bu sayede <code>“/srv/www/htdocs”</code> ve altındaki dizinlere 777 iznini vermiş olacağız. Komut satırından şu komutu çalıştıralım:</p>
+
+<p><code>chmod 777 /srv/www/htdocs</code></p>
+
+<h1>phpMyAdmin Kurulumu</h1>
+
+<p>MySQL’i komut satırından kontrol etmek istemiyorsanız phpMyAdmin sizin için harika bir araç. Web arayüzü ile MySQL veritabanlarınızı yönetebilirsiniz. Kurulum için komut satırına şu komutu girelim:</p>
+
+<p><code>sudo zypper in phpmyadmin</code></p>
+
+<p>Eğer parola oluşturmanızı falan isterse MySQL için oluşturduğunuz parolayı tekrarlayın. Daha sonra “php.ini” düzenlemek için komut satırına şu komutu yazın:</p>
+
+<p><code>sudo nano /etc/php5/apache2/php.ini</code></p>
+
+<p>php.ini dosyası açıldıktan sonra şunu aratın:</p>
+
+<p><code>extension=php_mbstring.dll</code></p>
+
+<p>Burası yorum satırı olarak görünüyor. Bu kısmı yorum satırı olmaktan kurtarın. Daha sonra apache2’yi yeniden başlatın:</p>
+
+<p><code>sudo systemctl restart apache2</code></p>
+
+<p>Artık phpMyAdmin’e erişim sağlayabilirsiniz:</p>
+
+<p><code>http://localhost/phpMyAdmin</code></p>
+
+<p>Evet kurulum bu kadar ve basit. İyi çalışmalar</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

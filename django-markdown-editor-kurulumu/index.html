@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Django Markdown Editör Kurulumu &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Django Markdown Editör Kurulumu</h1>
+  <span class="post-date">24 Feb 2016</span>
+  <p>Okuldaki işler harici evde de kişisel olarak python ve arkadaşlarının icatları ile ilgileniyorum. Bu süreçte django ile kendi blog sistemimi yazmaya karar verdim. Ancak editör öyle kötüydü ki (hiç yok klasik textarea :D) markdown editör aramaya koyuldum. Daha önce Laravel ile <a href="https://github.com/aligoren/larablog">yazdığım</a> blog sisteminde de kullandığım editör geldi aklıma.</p>
+
+<p>Taufan Aditya tarafından yazılan <a href="https://github.com/toopay/bootstrap-markdown">bootstrap-markdown</a> kullanmıştım. Neyse bu işin görsel yüzü. Ancak arkada hala çözümlenmeyi bekleyen markdown kuralları vardı. Bunun için bulabildiğim en uygun markdown eklentisi Kirill Klenov tarafından yazılan <a href="https://github.com/klen/django_markdown">django_markdown</a> eklentisiydi. Neyse bulduk ettik bir şekilde. Sıra kuruluma geliyor.Öncelikle editör entegrasyonunu yapalım. Şu linkten editör dosyalarını indirelim. İlgili klasöre çıkaralım. Statik dosyaların static altında olduğunu varsayarak yaptığınızı düşünelim. Ben şöyle yaptım:
+&lt;!--more--&gt;</p>
+<div class="highlight"><pre><code class="language-django" data-lang="django"><span class="x">{ % static &quot;markdown/bootstrap_markdown.css&quot; % }</span>
+</code></pre></div>
+<p>Bu şu anlama geliyor: static klasörü altındaki markdown klasörünün içinde ilgili css dosyasını çek. Bu kodu şöyle kullanıyoruz:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&#39;{ % static &quot;markdown/bootstrap_markdown.css&quot; % }&#39;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="na">title=</span><span class="s">&quot;no title&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<p>Şimdi artık JavaScript dosyalarını ekleyebiliriz. Bu sefer yine markdown klasörü altında JS klasörü olduğunu düşünerek şöyle çağıralım:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//code.jquery.com/jquery-1.12.0.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&#39;{ % static &quot;markdown/js/bootstrap-markdown.js&quot; % }&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&#39;{ % static &quot;markdown/js/bootstrap-markdown.tr.js&quot; % }&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&#39;{ % static &quot;markdown/js/bootstrap.min.js&quot; % }&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&#39;{ % static &quot;markdown/js/markdown.js&quot; % }&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&#39;{ % static &quot;markdown/js/to-markdown.js&quot; % }&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>İlk kısımda jquery çağırımını yaptık. Sonra bootstrap-markdown ve türkçe dil eklentisini çağırdık. Kısacası gerekli dosyaları çağırdık. TextArea’mıza bakarsak şöyle bir MD editör göreceğiz:</p>
+
+<p><img src="/assets/other/django_md.png" alt="img"></p>
+
+<p>Okey artık gerekli stil vs. dosyalarını ekledik. Şimdi django’da bir adet textareamız var. Bunu uygulamanın forms.py dosyasında oluşturdunuz zaten. Eğer yok ise örnek şöyle olacak:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+
+<span class="k">class</span> <span class="nc">PostForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
+
+            <span class="s">&quot;content&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+</code></pre></div>
+<p>Burada gördüğümüz model olayını vs. anlatmıyorum ancak fields content adında bir değer almış. Bu benim formum için bir değer. Bunu template dosyasına şöyle ekliyoruz:</p>
+<div class="highlight"><pre><code class="language-django" data-lang="django"><span class="x">{ { form.content } }</span>
+</code></pre></div>
+<p>Bu bilgileri zaten biliyorsunuz diye varsayıyorum üzerinde fazla durmuyorum. Şimdi bu content için widgets ile markdown attribute eklememiz lazım.Şöyle yapalım onu da:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;content&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;cols&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s">&#39;data-provide&#39;</span><span class="p">:</span> <span class="s">&#39;markdown&#39;</span><span class="p">}),</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Bu aslında klasik olarak şöyle oluyor. Herhangi bir html elementinin özellikleri gibi düşünün. Burada kolayca sözlük olarak ekliyoruz. row ve cols bize html’den yabancı gelmiyor. Burası textarea boyutu ile alakalı. Sonra gelen kısım <strong>data-provide</strong> ve <strong>markdown</strong> kısmı önemli. Bu kısımda data-provide özelliğine markdown ataması yapıyor. Yani yukarıdaki kısımlar şöyle bir şey oluşturuyor:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;textarea</span> <span class="na">cols=</span><span class="s">&quot;120&quot;</span> <span class="na">data-provide=</span><span class="s">&quot;markdown&quot;</span> <span class="na">id=</span><span class="s">&quot;id_content&quot;</span> <span class="na">name=</span><span class="s">&quot;content&quot;</span> <span class="na">rows=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/textarea&gt;</span>
+</code></pre></div>
+<p>Buradaki id_content kısmı django tarafından otomatik oluşturulmuş durumda. Siz yukarıdaki gibi widgets’a ekstra değer ekleyerek özelleştirebilirsiniz. cols ve rows gördüğümüz gibi zaten. Dikkatimizi çeken sanırım data-provide kısmıydı. Onun da nasıl işlendiğini gördük. Son olarak da name kısmı fields’a belirttiğimiz alandan geliyor. Görsel arayüz bu kadar sanırım.</p>
+
+<p>Şimdi gelelim önemli kısma. Öncelikle <strong>django_markdown</strong> kurulumunu yapalım:</p>
+
+<p><code>pip install django-markdown</code></p>
+
+<p>Artık kurulum yapılı vaziyette. Ancak bunu kurulu uygulamalara eklememiz gerekiyor. Bunun için settings.py dosyamızın içindeki <strong>INSTALLED_APPS</strong> listesinin sonuna bir ekleme yapıyoruz. Kısacası şöyle:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+    <span class="s">&#39;posts&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django_markdown&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>İşlemler bitti. Ancak son olarak kullanıcıya markdown ile yazılan yazının çözümlenmiş halini göstermeliyiz. Senaryomuza göre diyelim ki <strong>post_view.html</strong> adında bir dosya ile karşınızdaki kişiye içeriği sunuyorsunuz. Bunu yaparken de şöyle sunuyorsunuz: `` diyelim. O zaman bunun sonuna bir template tag eklememiz gerekiyor.</p>
+
+<p>Öncelikle <strong>post_view.html</strong> dosyasının en üstüne, extendsin bir altına şunu eklemelisiniz <code>{ % load django_markdown % }</code> bu sayede artık django-markdown template tag&#39;ini de çağırdık. Şimdi kullanıcıya sunduğumuz içeriğe django_markdown tagini de ekleyelim. <code>{ { post.content|markdown } }</code> evet bu kadar. Yazınızı yayınlayıp sonucu görebilirsiniz.</p>
+
+<p>Hatalı ve eksik anlatımım var ise özür dilerim şimdiden. Eksik olan noktaları bildirebilirsiniz. İyi çalışmalar.</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-42-1-lamp-kurulumu/">
+            OpenSUSE 42.1 LAMP Kurulumu
+            <small>16 Dec 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

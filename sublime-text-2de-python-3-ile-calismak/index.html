@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Sublime Text 2’de Python 3 ile Çalışmak &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Sublime Text 2’de Python 3 ile Çalışmak</h1>
+  <span class="post-date">15 Aug 2013</span>
+  <p>Selam. Sublime Text 2 kullanan arkadaşlar default olarak “python” tanımlı olarak geliyor. Ancak Python3 gerektiren yerlerde maalesef kullanamıyoruz.</p>
+
+<p>Bunu şöyle çözmek mümkün öncelikle konsola şu görseldeki komutu veriyoruz
+&lt;!--more--&gt;
+<img src="https://3.bp.blogspot.com/-HXL4T5rEYMk/Ug0DMOsr3BI/AAAAAAAAA0I/5nkLDfmJEsI/s1600/st21.png?w=780" alt="img"></p>
+
+<p>Şimdi bu dizine gelip istersek ls -li ile dosyaları dizinleri listeletmeye çalışabiliriz fakat şu komutu seçelim.</p>
+
+<p>Daha sonra şu komutu ekrana girelim:</p>
+
+<p><code>gedit Python.sublime-build</code></p>
+
+<p><img src="https://2.bp.blogspot.com/-0b_ZkLQpz9c/Ug0DsJGOkHI/AAAAAAAAA0Q/jp67tE_ozLU/s1600/st22.png" alt="img"></p>
+
+<p>Daha sonra açılan metin belgesindeki şu görünen kısmı</p>
+
+<p><img src="https://1.bp.blogspot.com/-pz358n8UFYA/Ug0EGcSiyhI/AAAAAAAAA0c/NFdkmIJNOr0/s1600/st23.png" alt="img"></p>
+
+<p>Yani</p>
+
+<p>Kod olarak:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+ <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^[ ]*File &quot;</span><span class="err">(...*?)</span><span class="s2">&quot;, line ([0-9]*)&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Olan kısmı şununla değiştirelim:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+ <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python3&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^[ ]*File &quot;</span><span class="err">(...*?)</span><span class="s2">&quot;, line ([0-9]*)&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ve farklı kaydet ile Python3.sublime-build olarak kaydedelim. Zaten farklı kaydet işlemini açınca çalıştığımız dizine kaydedecektir gedit onu.</p>
+
+<p>Artık sublime text 2 ile python3 kullanabiliyoruz. Bir örnek şu anki çalışmadan</p>
+
+<p><img src="https://1.bp.blogspot.com/-8hOI2NkG26g/Ug0FYDW2IhI/AAAAAAAAA0s/m7VoLfZLjic/s1600/st4.png" alt="img"></p>
+
+<p>Eğer python2.x sürümleri ile çalışıyor olsaydım çıktıları (‘blog.aligoren.net, 15.08.2013’) olarak verecekti. Bu şekilde daha güzel değil mi?</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

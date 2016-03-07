@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Django RSS Feed Ekleme &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Django RSS Feed Ekleme</h1>
+  <span class="post-date">28 Feb 2016</span>
+  <p>Django’da RSS Feed ekleme işlemi çok basittir. Uzun uzun anlatabilir miyim diye düşündüm ancak yine de başaramam herhalde. Öncelikle yapılması gerekenleri söylemek gerekiyor sanırım.</p>
+
+<p>Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahmut.py deyin ) Oluşturma işlemini başarıyla yaptıysanız şimdi bu dosyanın içine sınıf oluşturmalıyız. Bunun için Django’nun <a href="https://docs.djangoproject.com/en/1.9/ref/contrib/syndication/">Feed Framework</a>‘ünü çağırmak gerekiyor. Bir de slug yani url için de core kütüphanesinde bulunan reverse() işlevini çağıralım.
+&lt;!--more--&gt;</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.contrib.syndication.views</span> <span class="kn">import</span> <span class="n">Feed</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+</code></pre></div>
+<p>Bu işlemden sonra da RSS beslemesi olarak alacağımız modeli çağıralım. Benim çalışmamda RSS beslemesi yazdığım blogum için vardı. Blogdaki son yazıları gösterecekti. Post isimli modelimi de yine dahil ediyorum:</p>
+
+<p><code>from .models import Post</code></p>
+
+<p>Dahil etme işlemi başladıktan sonra <strong>PostFeed</strong> adında bir sınıf oluşturup, bu sınıfa daha önce import ettiğim <strong>Feed</strong> sınıfından miras almasını söylüyorum. Böylece Feed sınıfının özelliklerini kendi <strong>PostFeed</strong> sınıfımda kullanabileceğim. Kısacası şöyle bir giriş olacak:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+   <span class="o">...</span>
+</code></pre></div>
+<p>Eh madem sınıfa bir giriş yaptık o zaman bu sınıfa dair bazı özellikleri, işlevleri kullanalım. Belirtmem gereken bazı şeyler var.</p>
+
+<p><code>title</code> değişkeni RSS feed sayfanızda başlığı gösteriyor. Hem h1 tagleri arasında hem de tarayıcı başlığında görünen kısımdır. O zaman sınıfımızı şöyle değerlendirelim:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Ali GÖREN&quot;</span>
+</code></pre></div>
+<p>Tüm işlemler bitince buradaki adımları kaynak kodlara bakıp görebilirsiniz. Neyse devam edelim:</p>
+
+<p>link değişkeni site linkini gösteriyor. Bu link tagleri arasında görünen link. Örneğin <strong>http://localhost/link-degiskeni</strong> gibi düşünebiliriz. O zaman sınıfımızı biraz daha ilerletelim:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Ali GÖREN&quot;</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span>
+</code></pre></div>
+<p>Şimdi geldik en önemli noktaya. Açıklama kısmına. RSS belgelerine göre, RSS sayfaları için bir de açıklama kısmı olması gerekiyor. O zaman biz de bu doğrultuda description değişkenini kullanarak sınıfımızı geliştirelim:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Bu Feed ya da Site Açıklaması Olabilir&quot;</span>
+</code></pre></div>
+<p>Üst kısımları tekrar tekrar vermemek için üç nokta koyuyorum oralara. Şimdilik gördüğümüz üç element gerekli olan elementlerdi. İsterseniz <strong>feed_type</strong> ya da <strong>feed_copyright</strong> gibi özellikleri de kullanabilirsiniz. Her şey iyi hoş ama bu işlemler bize içerikleri getirmiyor. Evet şimdi artık Feed sınıfının işlevlerini yani fonksiyonlarını kullanabiliriz. Öncelikle tüm içerikleri çekelim. Bu içerikleri <strong>views.py</strong> dosyasındaki gibi çekiyoruz.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</code></pre></div>
+<p>Buradaki <strong>items()</strong> işlevi Feed classını miras almamızdan dolayı geliyor. Daha sonra return ettiği bilgi ise <strong>Post</strong> modelimizde de belirttiğimiz içeriklerdir. Tıpkı bir <strong>views.py</strong> içinde oluşturulan işlevdeki çalışma gibi düşünelim. Buraya kadar güzel ancak henüz herhangi bir şekilde yine başlık, içerik vs. görüntüleyemiyoruz. Bunun için diğer işlevleri de kullanmalıyız. Öncelikle <strong>item_title()</strong> işlevini kullanarak çekilen içeriğin başlığını gösterelim.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">item_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">title</span>
+</code></pre></div>
+<p>Görmüş olduğumuz gibi item<em>title işlevi de aldığı argümanın title özelliğini döndürüyor. Buradaki <strong>item.title</strong>’da title kısmı bizim modelimizde bulunan title’dır. Artık içeriklerin başlıklarını görebiliriz. Şimdi de **item</em>description()** işlevi ile içeriğin ( yazı olduğunu düşünüyoruz ) bir kısmını gösterelim:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">item_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">content</span>
+</code></pre></div>
+<p>Yukarıdaki title kısmı için olan açıklamaların aynısını burası için de yapabilirim. Sadece bilmemiz gereken title ve content Post modelinden gelen değerler. Ayrıca eklemem gereken bir şey item<em>* işlevler için return edilen değerlere HTML eklemesi yapabilirsiniz. Örneğin <code>return item.content + &quot;&lt;hr /&gt;&quot;</code> gibi. Şimdi son olarak da içeriğin URL’sini vermeliyiz. Bunun için `item</em>link()` işlevini kullanacağız:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">item_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s">&quot;posts:detail&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;slug&quot;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">slug</span><span class="p">})</span>
+</code></pre></div>
+<p>Bu kısmı nasıl açıklayayım bilmiyorum ancak bunu yaparken Post gibi modelleriniz içerisinde <strong>get<em>absolute</em>url()</strong> bulunması gerekebilir. kwars içerisindeki slug özelliğine denk gelen item.slug ise yine Post modelimizde belirtilen <strong>slug</strong> alanıdır. Son haliyle sınıfımıza bakalım:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Ali GÖREN&quot;</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Açıklama&quot;</span>
+
+    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">item_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">title</span>
+
+    <span class="k">def</span> <span class="nf">item_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">content</span>
+
+    <span class="k">def</span> <span class="nf">item_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s">&quot;posts:detail&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;slug&quot;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">slug</span><span class="p">})</span>
+</code></pre></div>
+<p>Sınıfımız hazır ancak bunu bir de URL olarak belirtmeliyiz ki feed adresine de erişebilelim. Bunun için uygulamamızın <strong>urls.py</strong> dosyasını açalım ve oluşturduğumuz feeds dosyasındaki <strong>PostsFeed</strong> ( sizinki nedir bilemem ) classını dahil edelim:</p>
+
+<p><code>from .feeds import PostsFeed</code></p>
+
+<p>Bu işlemi başarıyla yaptıysak bir URL eklemesi yapabiliriz:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^feed/$&#39;</span><span class="p">,</span> <span class="n">PostsFeed</span><span class="p">()),</span>
+
+<span class="p">]</span>
+</code></pre></div>
+<p>Artık feed çağrısı yapıldığında <strong>PostsFeed</strong> class’ı çalışacak ve içerikleri döndürecektir. Örneğin <strong>http://localhost/feed</strong> gibi düşünelim. Hatalı olduğum nokta var ise bildirmenizden memnuniyet duyarım. Kendimce aktarmaya çalıştım.</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-42-1-lamp-kurulumu/">
+            OpenSUSE 42.1 LAMP Kurulumu
+            <small>16 Dec 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>

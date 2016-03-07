@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Hanoi Kuleleri Algoritması &middot; Ali
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/ali.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Ali
+        </a>
+      </h1>
+      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+	<hr class="small">
+	<h1 class="lead" style="color:white;">Son Yazılar</h1>
+	
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
+        Django RSS Feed Ekleme
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
+        Django Markdown Editör Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
+        OpenSuSe PHP7 XDebug Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
+        OpenSUSE 42.1 LAMP Kurulumu
+      </a>
+	
+	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
+        OpenSUSE Güncellemesini Zypper İle Yapma
+      </a>
+	
+    </nav>
+
+    <p>&copy; 2016. Haklarını Sakladım.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Hanoi Kuleleri Algoritması</h1>
+  <span class="post-date">19 Oct 2015</span>
+  <p>Hanoi kuleleri, Fransız matematikçi, Edouard Lucas tarafından önerilen bir çözüm yöntemidir. A,B ve C gibi dik konumda yerleştirilmiş üç çubuk ve N kadar disk içermektedir. İşleyiş şöyledir:</p>
+
+<p>Başlangıçta diskler, üstteki her diskin çapı daha büyük olmak şartıyla A çubuğuna yerleştirilir. Her seferinde sadece bir diskin hareketine izin verildiğinde, büyük disk, küçük diskin üzerine yerleştirilmeden, disklerin C çubuğuna taşınması gerekmektedir.</p>
+
+<p>Hanoi problemi, problem alt problemlere parçalanarak çözülebilir. Problemde N kadar disk olduğunu varsayarsak recursive şekilde bir çözüm şu şekilde olabilir:</p>
+
+<p>Sadece bir disk direkt olarak 3. çubuğa konulur
+N kadar disk 3. adıma yerleştirilmeli
+&lt;!--more--&gt;
+Bu da şöyle uygulanabilir.</p>
+
+<p>1-) (N-1) olan disk orta çubuğa taşınır.
+2-) En altta kalan disk direkt sağa konulur.
+3-) (N-1) olan disk sağa taşınır.</p>
+
+<p>Örneğin 4 diskli bir çözüm uyguladığımızı varsayalım. Bunun çıktısı şöyle olur:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski C çubuğundan A çubuğuna koy
+Diski C çubuğundan B çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski B çubuğundan A çubuğuna koy
+Diski C çubuğundan A çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+Diski A çubuğundan B çubuğuna koy
+Diski A çubuğundan C çubuğuna koy
+Diski B çubuğundan C çubuğuna koy
+</code></pre></div>
+<p>1-) 4 adet disk kullanılan bir durumda <code>n = 1</code> oluyorsa toplam 3 durum ve çözüm için <code>K1 = 1</code> olur.</p>
+
+<p>2-) Yine disk sayısının <code>n = 2</code> olduğu durumda toplam 9 durum ve çözüm için <code>K2 = 3</code> olur.</p>
+
+<p>3-) <code>n = 3</code> disk sayısında 27 durum ve çözüm için <code>K3 = 7</code> olmakta.</p>
+
+<p>4-) Disk sayısı <code>n = 4</code> olduğunda toplam durum sayısı 81 ve çözüm ise <code>K4 = 15</code> olur.</p>
+
+<p>Çubuk sayısı 3 olduğunda N adet disk için en düşük geçişler, recursive biçinmde <code>Kn = (2 Kn-1 +1)</code> ya da n’ye bağlı şekilde <code>Kn = 2^n – 1</code> şeklinde bulunmaktadır.</p>
+
+<p>Bu durumun Python ile çözümlenmiş hali ise şöyledir. Algoritmanın ana işlenilen işlevi hanoi<em>tower</em>algorithm ile tanımlanıp 4 parametre alır. Bu işlev, parametreleri recursive olarak işler.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Diski </span><span class="si">%s</span><span class="s"> çubuğundan </span><span class="si">%s</span><span class="s"> çubuğuna koy&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</code></pre></div>
+<p>Disk sayısının belirlenmesi içinse ayrıca bir işlev oluşturulur. Tek parametre alır. Bu parametre çözümdeki N disk sayısını belirtir. N adet disk bu işlevde belirtilir. Buradan alınan parametre bir üstteki ana işlevine yollanılır. Ve diskler de A, B ve C şeklinde parametre olarak yollanılır.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">hanoi_tower_algorithm_main</span><span class="p">(</span><span class="n">ndisc</span><span class="p">):</span>
+    <span class="c"># ndisc = Number of Disc</span>
+    <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">ndisc</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>10 adet disk için çıkarılan profile sonucu ise şöyledir:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">profile</span> <span class="n">hanoi_tower_algorithm</span><span class="o">.</span><span class="n">py</span>
+
+         <span class="mi">6654</span> <span class="n">function</span> <span class="n">calls</span> <span class="p">(</span><span class="mi">5121</span> <span class="n">primitive</span> <span class="n">calls</span><span class="p">)</span> <span class="ow">in</span> <span class="mf">0.078</span> <span class="n">seconds</span>
+
+   <span class="n">Ordered</span> <span class="n">by</span><span class="p">:</span> <span class="n">standard</span> <span class="n">name</span>
+
+   <span class="n">ncalls</span>  <span class="n">tottime</span>  <span class="n">percall</span>  <span class="n">cumtime</span>  <span class="n">percall</span> <span class="n">filename</span><span class="p">:</span><span class="n">lineno</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+     <span class="mi">2046</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span> <span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="n">charmap_encode</span><span class="p">)</span>
+        <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.078</span> <span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="k">exec</span><span class="p">)</span>
+     <span class="mi">1023</span>    <span class="mf">0.062</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.000</span> <span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+        <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span> <span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="n">setprofile</span><span class="p">)</span>
+     <span class="mi">2046</span>    <span class="mf">0.016</span>    <span class="mf">0.000</span>    <span class="mf">0.016</span>    <span class="mf">0.000</span> <span class="n">cp857</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">18</span><span class="p">(</span><span class="n">encode</span><span class="p">)</span>
+        <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.078</span> <span class="n">hanoi_tower_algorithm</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">(</span><span class="o">&lt;</span><span class="n">module</span>
+<span class="o">&gt;</span><span class="p">)</span>
+   <span class="mi">1534</span><span class="o">/</span><span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.078</span> <span class="n">hanoi_tower_algorithm</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">(</span><span class="n">hanoi_t</span>
+<span class="n">ower_algorithm</span><span class="p">)</span>
+        <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.078</span> <span class="n">hanoi_tower_algorithm</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">44</span><span class="p">(</span><span class="n">hanoi_</span>
+<span class="n">tower_algorithm_main</span><span class="p">)</span>
+        <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.078</span>    <span class="mf">0.078</span> <span class="n">profile</span><span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="o">&lt;</span><span class="n">code</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span> <span class="n">at</span>
+ <span class="mh">0x01DCC2A0</span><span class="p">,</span> <span class="nb">file</span> <span class="s">&quot;hanoi_tower_algorithm.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">)</span>
+        <span class="mi">0</span>    <span class="mf">0.000</span>             <span class="mf">0.000</span>          <span class="n">profile</span><span class="p">:</span><span class="mi">0</span><span class="p">(</span><span class="n">profiler</span><span class="p">)</span>
+</code></pre></div>
+<h1>Kaynaklar:</h1>
+
+<p><a href="http://bilgisayarkavramlari.sadievrenseker.com/2012/03/15/hanoi-kuleleri-towers-of-hanoi/">Sadri Evren Şeker</a></p>
+
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aligren.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="related">
+  <h2>Öneriyo Jekyll Bey</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/django-rss-feed-ekleme/">
+            Django RSS Feed Ekleme
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/django-markdown-editor-kurulumu/">
+            Django Markdown Editör Kurulumu
+            <small>24 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/opensuse-php7-xdebug-kurulumu/">
+            OpenSuSe PHP7 XDebug Kurulumu
+            <small>18 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
+  </body>
+</html>
