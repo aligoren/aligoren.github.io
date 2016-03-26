@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ali GÖREN (Linux, OpenSUSE)</title><link>https://aligoren.com/</link><description></description><atom:link href="https://aligoren.com/categories/cat_linux-opensuse.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 26 Mar 2016 19:16:02 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>OpenSuSe PHP7 XDebug Kurulumu</title><link>https://aligoren.com/opensuse-php7-xdebug-kurulumu/</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;PHP7 çıkalı baya oluyor. XDebug geliştiriciler için hata ayıklama aracı. Gerçekten çok faydalı bir araç. Bu aracı PHP7 için OpenSuSe’a kurmaya çalışırsanız depolarında bulamıyorsunuz. Depolarda php5-xdebug bulunmakta. Fazla uzatmadan konuya gireyim can sıkıcı bir makale olmasın.&lt;/p&gt;
+&lt;p&gt;XDebug kurmak için öncelikle PHP7 Devel gerekiyor. PHP7 Devel kurulumunu uçbirimden zypper yardımı ile kuralım. &lt;/p&gt;&lt;p&gt;&lt;a href="https://aligoren.com/opensuse-php7-xdebug-kurulumu/"&gt;Devamını Oku…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>linux</category><category>opensuse</category><category>php</category><category>xdebug</category><guid>https://aligoren.com/opensuse-php7-xdebug-kurulumu/</guid><pubDate>Wed, 17 Feb 2016 22:00:00 GMT</pubDate></item><item><title>OpenSUSE 42.1 LAMP Kurulumu</title><link>https://aligoren.com/opensuse-421-lamp-kurulumu/</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Bilmiyorsanız söyleyeyim LAMP, Linux, Apache, MySQL ve PHP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım. Sırasıyla Adımlar:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;1- Apache Kurulumu
+
+2- MariaDB Kurulumu
+
+3- PHP Kurulumu
+&lt;/pre&gt;
+
+
+&lt;p&gt;İlk sıraya Linux koymaya gerek yok biliyorsunuz :). Başlayalım o zaman.&lt;/p&gt;
+&lt;h2&gt;Apache Kurulumu&lt;/h2&gt;
+&lt;p&gt;Apache, çoklu platformda çalışabilen web server’dır. İçerisinde CGI, SSL ve sanal alan adlarının da desteklendiği çoğu özellik bulunmaktadır. &lt;/p&gt;&lt;p&gt;&lt;a href="https://aligoren.com/opensuse-421-lamp-kurulumu/"&gt;Devamını Oku…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>lamp</category><category>linux</category><category>opensuse</category><guid>https://aligoren.com/opensuse-421-lamp-kurulumu/</guid><pubDate>Sat, 28 Nov 2015 22:00:00 GMT</pubDate></item><item><title>OpenSUSE Güncellemesini Zypper İle Yapma</title><link>https://aligoren.com/opensuse-guncellemesini-zypper-ile-yapma/</link><dc:creator>Ali</dc:creator><description>&lt;div&gt;&lt;p&gt;Öncelikle güncelleme depolarını tanımlayalım ve aktif edelim:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo zypper repos --uri&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Daha sonra zypper ile depoları yenileyelim. Ve sonrasında update edelim:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;sudo zypper refresh
+
+sudo zypper update
+&lt;/pre&gt;
+
+
+&lt;p&gt;Güncelleme işlemi artık başlamıştır.&lt;/p&gt;
+&lt;p&gt;Repoların tanımlı olduğu yol ise burada:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/zypp/repos.d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Kolay gelsin.&lt;/p&gt;&lt;/div&gt;</description><category>linux</category><category>opensuse</category><guid>https://aligoren.com/opensuse-guncellemesini-zypper-ile-yapma/</guid><pubDate>Fri, 27 Nov 2015 22:00:00 GMT</pubDate></item></channel></rss>

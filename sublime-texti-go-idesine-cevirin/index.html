@@ -1,278 +1,205 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <title>
-    
-      Sublime Text’i Go IDE’sine Çevirin &middot; Ali
-    
-  </title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/public/ali.png">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Sublime Text’i Go IDE’sine Çevirin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sublime Text’i Go IDE’sine Çevirin | Ali GÖREN</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://aligoren.com/sublime-texti-go-idesine-cevirin/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="Sublime Text’i Go IDE’sine Çevirin">
+<meta name="author" content="Ali">
+<link rel="prev" href="../nodejsde-json-server-ile-rest-api-gelistirme/" title="NodeJS’de json-server ile REST API Geliştirme" type="text/html">
+<link rel="next" href="../opensuse-guncellemesini-zypper-ile-yapma/" title="OpenSUSE Güncellemesini Zypper İle Yapma" type="text/html">
+<meta property="og:site_name" content="Ali GÖREN">
+<meta property="og:title" content="Sublime Text’i Go IDE’sine Çevirin">
+<meta property="og:url" content="https://aligoren.com/sublime-texti-go-idesine-cevirin/">
+<meta property="og:description" content="Sublime Text’i Go IDE’sine Çevirin">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-11-27T00:00:00+02:00">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="programlama">
 </head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
+<!-- Menubar -->
 
-  <body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://aligoren.com/">
 
-    <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <a href="/">
-          Ali
-        </a>
-      </h1>
-      <p class="lead">Programlama, Linux, Açık Kaynak, Python, C#</p>
-    </div>
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../hakkimda">Arşiv</a>
+                </li>
+<li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Kategoriler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
 
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="/">Anasayfa</a>
-
-      
-
-      
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/hakkimda/">Hakkımda</a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-	<hr class="small">
-	<h1 class="lead" style="color:white;">Son Yazılar</h1>
-	
-	
-	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-rss-feed-ekleme/">
-        Django RSS Feed Ekleme
-      </a>
-	
-	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/django-markdown-editor-kurulumu/">
-        Django Markdown Editör Kurulumu
-      </a>
-	
-	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-php7-xdebug-kurulumu/">
-        OpenSuSe PHP7 XDebug Kurulumu
-      </a>
-	
-	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-42-1-lamp-kurulumu/">
-        OpenSUSE 42.1 LAMP Kurulumu
-      </a>
-	
-	<a class="sidebar-nav-item lead" style="font-size:18px;" href="/opensuse-guncellemesini-zypper-ile-yapma/">
-        OpenSUSE Güncellemesini Zypper İle Yapma
-      </a>
-	
-    </nav>
-
-    <p>&copy; 2016. Haklarını Sakladım.</p>
-  </div>
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Sublime Text’i Go IDE’sine Çevirin</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2015-11-27T00:00:00+02:00" itemprop="datePublished" title="2015-11-27">2015-11-27</time></a></p>
+                <p class="commentline">
+        
+    <a href=".#disqus_thread" data-disqus-identifier="cache/posts/sublime-texti-go-idesine-cevirin.html">Comments</a>
 
 
-    <div class="content container">
-      <div class="post">
-  <h1 class="post-title">Sublime Text’i Go IDE’sine Çevirin</h1>
-  <span class="post-date">07 Dec 2015</span>
-  <p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
+            
 
+                <meta name="description" itemprop="description" content="Sublime Text’i Go IDE’sine Çevirin"></p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
 <p>Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.</p>
-
 <p>Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bulmanız şans işi. Diğer firmaları da sıralayacak olursak JetBrains, Xamarin gibi firmalar da mevcut. Bu firmaların da kaliteli ürünleri olsa dahi aradığınız dil için özellikle sağladıkları bir destek yok. Yani buradan da arayış yapmanız pek bir kar sağlamıyor.</p>
-
-<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor.
-&lt;!--more--&gt;
-D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
-
+<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor. <!--TEASER_END--> D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
 <p>Bu dillerden en az birisini duymuşsunuzdur. Örneğin CoffeeScript eğer CoffeeScript için WebStorm olmamış olsaydı gerçekten ciddi destek sağlayan bir IDE yok. Fakat WebStorm da ücretli bir IDE olduğu için yine işiniz kullanıcıya kalıyor.</p>
-
 <p>Haskell’a gelelim. Eğer Leksah gibi bir IDE desteği olmamış olsaydı ki bunu kendisi sağlamıyor yine bir kullanıcı ürünü eğer bu destek olmamış olsaydı yine işiniz pek iyi değildi.</p>
-
 <p>Dart ve Scala Eclipse tabanlı ürünler kullanıyorlar. Ancak Eclipse’in sağladığı bug’lar kullanıcıları daha çok JetBrains ürünlerine çekmeye başladı.</p>
-
 <p>Son olarak Go diline gelelim. Başlamadan önce, eğer Sublime Text kullanmak gibi bir niyetiniz yoksa bunun yerine size iki önerim var:</p>
-
 <p><a href="https://github.com/visualfc/liteide">Lite IDE</a></p>
-
 <p><a href="http://limetext.org/">Lime Text</a></p>
-
 <p><strong>Lite IDE</strong> sağlam bir IDE. Gerçekten IDE kavramını hak ediyor. Auto-complete işleminden tutun debug etme, markdown destekleme gibi çoğu aranan ihtiyacı karşılamakta. Ve eklenti desteği de bulunmakta.</p>
-
 <p><strong>Lime Text Editor</strong> sublime temelleri üzerine inşaa edilmiş güzel bir editör. TextMate’in göze hoş gelen ColorScheme’i ile uyumlu. Sublime Text’in Python Plug-in API’ı ile uyumlu. Gelişim süreci hala devam etmekte.</p>
-
-<p>Yukarıdaki iki önerimin de gelişimleri devam etmekte. Lime Text’in Sublime’yi temel aldığını söylemiştim ancak yok ben Sublime Text kullanmaktan vazgeçemem diyenler için GoSublime ve GoImports eklentileri ile Sublime Text’inizi adeta bir Go IDE’sine çevirebilirsiniz.
-Kurulum</p>
-
+<p>Yukarıdaki iki önerimin de gelişimleri devam etmekte. Lime Text’in Sublime’yi temel aldığını söylemiştim ancak yok ben Sublime Text kullanmaktan vazgeçemem diyenler için GoSublime ve GoImports eklentileri ile Sublime Text’inizi adeta bir Go IDE’sine çevirebilirsiniz. Kurulum</p>
 <p>Öncelikle Sublime Package Control kurulu olmalı. Eğer kurulu değilse CTRL+` kısayolunu kullanarak aşağıda açılmış olan konsola şu alttaki kodları yapıştırın:</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span>
-<span class="s">&#39;7183a2d3e96f11eeadd761d777e62404&#39;</span> <span class="o">+</span> <span class="s">&#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;</span><span class="p">;</span>
-<span class="n">pf</span> <span class="o">=</span> <span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span>
+<pre class="code literal-block"><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span>
+<span class="s">'7183a2d3e96f11eeadd761d777e62404'</span> <span class="o">+</span> <span class="s">'e330c659d4bb41d3bdf022e94cab3cd0'</span><span class="p">;</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="s">'Package Control.sublime-package'</span><span class="p">;</span>
 <span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span>
 <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">())</span> <span class="p">);</span>
-<span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">&#39;http://sublime.wbond.net/&#39;</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
+<span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">'http://sublime.wbond.net/'</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">'%20'</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
 <span class="n">dh</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">by</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">();</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;Error validating download (got </span><span class="si">%s</span><span class="s"> instead of </span><span class="si">%s</span><span class="s">), please try manual install&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">&#39;wb&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s">'Error validating download (got </span><span class="si">%s</span><span class="s"> instead of </span><span class="si">%s</span><span class="s">), please try manual install'</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">'wb'</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
+</pre>
+
+
 <p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir <a href="https://gist.github.com/aligoren/3ceecc6f37c39dfae9b5">şuradaki</a> kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
-
-<p><img src="/assets/other/package_control.png" alt="img"></p>
-
+<p><img alt="/galleries/sblgo/1.png" src="../galleries/sblgo/1.png"></p>
 <p>Pekala Package Control kurulumunu yaptık.</p>
-
 <p><strong>GoSublime</strong></p>
-
-<p>Bizim asıl ihtiyacımız olansa <strong>GoSublime</strong> eklentisi. Bu eklentiyi kurmak için Sublime açıkken <strong>Ctrl+Shift+P</strong> kısayolunu çalıştırıyoruz. Bu sayede üst kısımda bir kutucuk açılıyor. O kısma <strong>Install</strong> yazmamız yeterli. Eğer her şeyi doğru yaptıysak böyle bir ekran gelmeli.</p>
-
-<p><img src="/assets/other/sublime_install_package.png" alt="img"></p>
-
-<p>Bu işlemden sonra 1-2 saniye kadar beklemeniz gerekmekte. Yine aynı pencere açılıyor. Bu sefer kurulum yapılacak eklentinin adını yazmanız gerekiyor. Oraya <strong>GoSublime</strong> yazmalısınız. Aşağıdaki gibi yazsanız da göreceksiniz. Bende kurulu olduğu için listede görünmüyor. Sizde kurulu olmadığı için o listede görünecek.</p>
-
-<p><img src="/assets/other/gosublime.png" alt="img"></p>
-
-<p>Bu işlemden sonra son olarak yine aynı yöntemle <strong>GoImports</strong> eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor.</p>
-
-<h1>Bazı Ayarlamalar</h1>
-
-<p>Eklentilerin kurulumları tamamlanmış durumda olsa dahi bazı ayarlamalar yapılmadığı için eklenti tam anlamıyla çalışmayacaktır. Bunun için indirilen eklentinin <strong>User Settings</strong> dosyasına bazı eklemeler yapmalıyız. Bu ayar dosyasının yolu şöyle</p>
-
+<p>Bizim asıl ihtiyacımız olansa GoSublime eklentisi. Bu eklentiyi kurmak için Sublime açıkken Ctrl+Shift+P kısayolunu çalıştırıyoruz. Bu sayede üst kısımda bir kutucuk açılıyor. O kısma Install yazmamız yeterli. Eğer her şeyi doğru yaptıysak böyle bir ekran gelmeli.</p>
+<p><img alt="/galleries/sblgo/2.png" src="../galleries/sblgo/2.png"></p>
+<p>Bu işlemden sonra 1-2 saniye kadar beklemeniz gerekmekte. Yine aynı pencere açılıyor. Bu sefer kurulum yapılacak eklentinin adını yazmanız gerekiyor. Oraya GoSublime yazmalısınız. Aşağıdaki gibi yazsanız da göreceksiniz. Bende kurulu olduğu için listede görünmüyor. Sizde kurulu olmadığı için o listede görünecek.</p>
+<p><img alt="/galleries/sblgo/3.png" src="../galleries/sblgo/3.png"></p>
+<p>Bu işlemden sonra son olarak yine aynı yöntemle GoImports eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor.
+Bazı Ayarlamalar</p>
+<p>Eklentilerin kurulumları tamamlanmış durumda olsa dahi bazı ayarlamalar yapılmadığı için eklenti tam anlamıyla çalışmayacaktır. Bunun için indirilen eklentinin User Settings dosyasına bazı eklemeler yapmalıyız. Bu ayar dosyasının yolu şöyle</p>
 <p><strong>Preferences-&gt;Package Settings-&gt;GoSublime-&gt;Settings-User</strong></p>
-
-<p><img src="/assets/other/gosublime_config.png" alt="img"></p>
-
+<p><img alt="/galleries/sblgo/4.png" src="../galleries/sblgo/4.png"></p>
 <p>Buraya tıklayınca karşımıza bir pencere açılacak. Bu pencere büyük ihtimalle boş. Boş kısma şu kodları yapıştırıp kaydedin.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&quot;fmt_cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;goimports&quot;</span><span class="p">],</span>
+<pre class="code literal-block"><span class="p">{</span>
+    <span class="nt">"fmt_cmd"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"goimports"</span><span class="p">],</span>
     <span class="err">//C:\Go\</span> <span class="err">for</span> <span class="err">windows</span>
-    <span class="nt">&quot;env&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;GOPATH&quot;</span><span class="p">:</span> <span class="s2">&quot;$HOME/go&quot;</span><span class="p">}</span>
+    <span class="nt">"env"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"GOPATH"</span><span class="p">:</span> <span class="s2">"$HOME/go"</span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak *<em>C:*</em> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
+</pre>
 
+
+<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak <em>C:</em> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
 <p>Hızlı kodlama yapmak isteyenler olabilir. Otomatik build işlemi, Test ve diğer işlemler. Bunun için yine yukarıda belirttiğim ayar dosyasını açıp şu kodları goimports ayarının hemen altına yapıştırın:</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;on_save&quot;</span><span class="err">:</span> <span class="p">[{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;gs9o_open&quot;</span><span class="p">,</span> <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;run&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;sh&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint .&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;focus_view&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<pre class="code literal-block"><span class="s2">"on_save"</span><span class="err">:</span> <span class="p">[{</span>
+    <span class="nt">"cmd"</span><span class="p">:</span> <span class="s2">"gs9o_open"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"run"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span>
+        <span class="s2">"go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."</span><span class="p">],</span>
+    <span class="nt">"focus_view"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}}]</span><span class="err">,</span>
-<span class="s2">&quot;autocomplete_closures&quot;</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
-<span class="s2">&quot;complete_builtins&quot;</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
-</code></pre></div>
+<span class="s2">"autocomplete_closures"</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
+<span class="s2">"complete_builtins"</span><span class="err">:</span> <span class="kc">true</span><span class="err">,</span>
+</pre>
+
+
 <p>Evet kurulum ve ayarlamalar bitti. İyi kodlamalar.</p>
-
 </div>
-<div id="disqus_thread"></div>
-<script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        
-        s.src = '//aligren.disqus.com/embed.js';
-        
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<div class="related">
-  <h2>Öneriyo Jekyll Bey</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/django-rss-feed-ekleme/">
-            Django RSS Feed Ekleme
-            <small>28 Feb 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/django-markdown-editor-kurulumu/">
-            Django Markdown Editör Kurulumu
-            <small>24 Feb 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/opensuse-php7-xdebug-kurulumu/">
-            OpenSuSe PHP7 XDebug Kurulumu
-            <small>18 Feb 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
-
     </div>
-    <script id="dsq-count-scr" src="//aligren.disqus.com/count.js" async></script>
-  </body>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/go/" rel="tag">go</a></li>
+            <li><a class="tag p-category" href="../categories/programlama/" rel="tag">programlama</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../nodejsde-json-server-ile-rest-api-gelistirme/" rel="prev" title="NodeJS’de json-server ile REST API Geliştirme">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../opensuse-guncellemesini-zypper-ile-yapma/" rel="next" title="OpenSUSE Güncellemesini Zypper İle Yapma">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="https://aligoren.com/sublime-texti-go-idesine-cevirin/",
+        disqus_title="Sublime Text\u2019i Go IDE\u2019sine \u00c7evirin",
+        disqus_identifier="cache/posts/sublime-texti-go-idesine-cevirin.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
 </html>
