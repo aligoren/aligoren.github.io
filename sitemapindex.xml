@@ -37,6 +37,10 @@
   <lastmod>2016-03-26</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://aligoren.com/categories/cat_linux-nginx.xml</loc>
+  <lastmod>2016-03-27</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://aligoren.com/categories/cat_linux-opensuse.xml</loc>
   <lastmod>2016-03-26</lastmod>
  </sitemap>
@@ -90,11 +94,15 @@
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/categories/linux.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/categories/markdown.xml</loc>
   <lastmod>2016-03-26</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://aligoren.com/categories/nginx.xml</loc>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/categories/nodejs.xml</loc>
@@ -122,34 +130,34 @@
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/cdp/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/djmd/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/enm/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/jss/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/galleries/sblgo/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/rss.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://aligoren.com/sitemap.xml</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </sitemap>
 </sitemapindex>

@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://aligoren.com/</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/2012/</loc>
@@ -34,7 +34,7 @@
  </url>
  <url>
   <loc>https://aligoren.com/archive.html</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/c-dangling-pointer-sorunu/</loc>
@@ -50,7 +50,7 @@
  </url>
  <url>
   <loc>https://aligoren.com/categories/</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/categories/android/</loc>
@@ -83,6 +83,10 @@
  <url>
   <loc>https://aligoren.com/categories/cat_kisisel/</loc>
   <lastmod>2016-03-26</lastmod>
+ </url>
+ <url>
+  <loc>https://aligoren.com/categories/cat_linux-nginx/</loc>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/categories/cat_linux-opensuse/</loc>
@@ -143,6 +147,10 @@
  <url>
   <loc>https://aligoren.com/categories/markdown/</loc>
   <lastmod>2016-03-26</lastmod>
+ </url>
+ <url>
+  <loc>https://aligoren.com/categories/nginx/</loc>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/categories/nodejs/</loc>
@@ -222,19 +230,19 @@
  </url>
  <url>
   <loc>https://aligoren.com/index-1.html</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/index-2.html</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/index-3.html</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/index-4.html</loc>
-  <lastmod>2016-03-26</lastmod>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/isimtescilnetin-domain-rezaleti/</loc>
@@ -251,6 +259,10 @@
  <url>
   <loc>https://aligoren.com/listings/</loc>
   <lastmod>2016-03-26</lastmod>
+ </url>
+ <url>
+  <loc>https://aligoren.com/nginx-413-request-entity-too-large-hatasi-ve-cozumu/</loc>
+  <lastmod>2016-03-27</lastmod>
  </url>
  <url>
   <loc>https://aligoren.com/nodejsde-json-server-ile-rest-api-gelistirme/</loc>
