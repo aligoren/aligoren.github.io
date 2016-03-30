@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Python'da Struct Kullanımı">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python'da Struct Kullanımı | Ali GÖREN</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://aligoren.com/pythonda-struct-kullanimi/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="Python'da Struct Kullanımı">
+<meta name="author" content="Ali">
+<link rel="prev" href="../the-flash/" title="The Flash" type="text/html">
+<meta property="og:site_name" content="Ali GÖREN">
+<meta property="og:title" content="Python'da Struct Kullanımı">
+<meta property="og:url" content="https://aligoren.com/pythonda-struct-kullanimi/">
+<meta property="og:description" content="Python'da Struct Kullanımı">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-03-30T00:00:00+03:00">
+<meta property="article:tag" content="programlama">
+<meta property="article:tag" content="python">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://aligoren.com/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../hakkimda">Hakkımda</a>
+                </li>
+<li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Kategoriler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python'da Struct Kullanımı</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-03-30T00:00:00+03:00" itemprop="datePublished" title="2016-03-30">2016-03-30</time></a></p>
+                <p class="commentline">
+        
+    <a href=".#disqus_thread" data-disqus-identifier="cache/posts/pythonda-struct-kullanimi.html">Comments</a>
+
+
+            
+
+                <meta name="description" itemprop="description" content="Python'da Struct Kullanımı"></p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Evet var olmaz demeyin lütfen. Kısacası struct bir şablon olarak gelir önümüze. Bildiğimiz manada struct, farklı verileri bir araya getiriyoruz yani aslında grupluyor. Peki kullanımı nasıldı ki <strong>"Python'da"</strong> ile başlayan bir başlık attım ki?</p>
+<p>Örneğin D dilinden örnek verecek olursak Ali Çehreli hocam çok güzel <a href="http://ddili.org/ders/d/yapilar.html">açıklamış</a>:
+<!-- TEASER_END --></p>
+<pre class="code literal-block"><span class="k">struct</span> <span class="n">GununSaati</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">saat</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">dakika</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Bu D dili ile yazılan bir örnek. Ve oradan bir alıntı yapmak istiyorum:</p>
+<pre class="code literal-block">struct birbirleriyle ilişkili değişkenleri bir araya getirerek yeni bir tür olarak kullanma olanağı verir:
+</pre>
+
+
+<p>Benim de yukarıda söylediğimle aynı aslında. Ve sonrasında alt kısımda bir açıklama daha getirilmiş.</p>
+<pre class="code literal-block">Yukarıdaki tanım, saat ve dakika isimli iki int değişkeni bir araya getiren ve ismi GününSaati olan yeni bir tür tanımlar.
+Yukarıdaki tanımdan sonra artık başka türler gibi kullanabileceğimiz GününSaati isminde yeni bir türümüz olur.
+Örnek olarak int türüne benzer kullanımını şöyle gösterebiliriz:
+</pre>
+
+
+<p>Evet buraya kadar biraz anlam çıkarılmış olmalı sanıyorum ki. Peki bunu Python'da nasıl yaparız?</p>
+<p><img alt="/galleries/inte/cat.png" src="../galleries/inte/cat.png"></p>
+<p>Bunun için öncelikle collections kullanmamız gerekiyor. Ve buradan dahil edeceğimiz namedtuple da struct'ımızı oluşturmamızda bize yardımcı olacak. Basit bir anlatım yapmaya çalışayım. Bir <code>namedtuple</code> için.</p>
+<p>namedtuple ilk argüman olarak Tip Adı olarak kabul edilen bir argüman <a href="https://docs.python.org/dev/library/collections.html#collections.namedtuple">alır</a>. Diğer işe yarar argüman ise bu bize özgü tipe ait alanlardır. Yukarıdaki D dili örneğine tekrar bakarsak saat ve bakika, yazacağımız python kodunda bizim alanlarımız olacaktır. Temelde kod yapısı şöyle olacaktır:</p>
+<pre class="code literal-block"><span class="n">namedtuple</span><span class="p">(</span><span class="s">"TipAdı"</span><span class="p">,</span> <span class="s">"tip_alanı ikinci_alan üçüncü_alan"</span><span class="p">)</span>
+</pre>
+
+
+<p>O zaman bir örnek kod görelim bu anlamamız açısından daha iyi olacaktır.</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'GununSaati'</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+</pre>
+
+
+<p>Öncelikle namedtuple'ı çağırdık bunu söylemiştim. namedtuple'ı bir değişkene atadım aslında artık namedtuple'ın işlerini <code>YeniTip</code> yönetecek. Burada namedtuple <code>GununSaati</code> adında yeni bir tür oluşturdu. Bu türün alanları ise saat ve dakika oluyor. Tür dediğim kısım aslında tip kısmı. Zaten verdiğim açıklama linkine de bakarsanız oranın alacağı parameter <strong>TypeName</strong> olarak belirtilmiş. Peki yeni türümüzü hazırladık nasıl kullanacağız?</p>
+<p>Öncelikle bu yeni tipimizi bir değişkene ilkleyelim. Bu ilkleme sırasında YeniTip argüman alan bir işlev gibi davranacak. Bunu bir kod ile görelim:</p>
+<pre class="code literal-block"><span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre>
+
+
+<p>Oluşturduğumuz zaman değişkeni, YeniTip olarak ilklediğimiz veri tipine ilklendi. Artık <strong>zaman</strong> değişkeni ile istediğim alanlara erişebilirim. Bu örnekte alanlarımız saat ve dakika idi. Örnekte 15 saat, 30 ise dakika oluyor. Şu an yazdığımız kodların tam haline bakalım:</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'GununSaati'</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+
+<span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">zaman</span><span class="o">.</span><span class="n">saat</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">zaman</span><span class="o">.</span><span class="n">dakika</span><span class="p">)</span>
+</pre>
+
+
+<p>Bu kodun verdiği çıktı 15 ve 30 olacaktır. Eğer özel bir tür var ise yani <strong>GununSaati</strong> gibi bir tür var ise bu türe ait alanları öğrenmek yine çok basit. Yukarıdaki zaman değişkeni üzerinden gidecek olursak şöyle açıklayayım:</p>
+<pre class="code literal-block"><span class="k">print</span><span class="p">(</span><span class="n">zaman</span><span class="o">.</span><span class="n">_fields</span><span class="p">)</span> <span class="c"># print(zaman._fields)</span>
+</pre>
+
+
+<p>ya da henüz herhangi bir değer almamış hali ile yani saf hali ile tip üzerinden kontrolü şöyle sağlarız:</p>
+<pre class="code literal-block"><span class="k">print</span><span class="p">(</span><span class="n">YeniTip</span><span class="o">.</span><span class="n">_fields</span><span class="p">)</span>
+</pre>
+
+
+<p>Bu sayede değer girmek zorunda kalmamış oluruz. Ayrıca dikkat etmemiz gereken bir diğer husus ise değeri bir kere verilmiş namedtuple'a daha sonra tekrar değer veremiyorsunuz. Yani şunu yapamazsınız</p>
+<pre class="code literal-block"><span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">zaman</span><span class="o">.</span><span class="n">saat</span> <span class="o">=</span> <span class="mi">20</span>
+</pre>
+
+
+<p>Eğer bunu yaparsanız şöyle bir hata alırsınız:</p>
+<pre class="code literal-block">Traceback (most recent call last):
+  File "test.py", line 6, in &lt;module&gt;
+    zaman.saat = 20
+AttributeError: can't set attribute
+</pre>
+
+
+<p>Hmm diyor ki bir değer set edemezsiniz. O yüzden eğer yapılara bir değer vereceksek ilklediğimiz anda bu değerleri vermemiz gerekiyor. Ancak bu dinamik değerler alamaz demek değildir. Örnek verecek olursak:</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">saat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'GununSaati'</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">sa</span> <span class="ow">in</span> <span class="n">saat</span><span class="p">:</span>
+    <span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">zaman</span><span class="o">.</span><span class="n">saat</span><span class="p">,</span> <span class="s">":"</span><span class="p">,</span> <span class="n">zaman</span><span class="o">.</span><span class="n">dakika</span><span class="p">)</span>
+
+<span class="sd">"""</span>
+<span class="sd">10 : 30</span>
+<span class="sd">11 : 30</span>
+<span class="sd">12 : 30</span>
+<span class="sd">13 : 30</span>
+<span class="sd">14 : 30</span>
+<span class="sd">15 : 30</span>
+<span class="sd">"""</span>
+</pre>
+
+
+<p>Yukarıdaki örneği verdim. Aslında bunu iterable hale getirmemizi sağlayan <code>_make</code> işlevi var. Örneğin;</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="n">saat_dakika</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">"GununSaati"</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+<span class="n">YeniTip</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">saat_dakika</span><span class="p">)</span>
+<span class="c"># GununSaati(saat=15, dakika=30)</span>
+</pre>
+
+
+<p>Makaleyi yanlışa götürmemek adına yukarıdaki set edilemez hatasına farklı bir açıdan yaklaşalım. Evet direkt olarak bir set etme işlemi yapamıyoruz ancak <code>_replace</code> işlevi ile değeri değiştirebiliriz. Fakat bunu tanımlamadan hemen sonra yapmalıyız. Örnek şöyle olmalı:</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'GununSaati'</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+
+<span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">zaman</span> <span class="o">=</span> <span class="n">zaman</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">saat</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">zaman</span><span class="o">.</span><span class="n">saat</span><span class="p">)</span> <span class="c"># 19</span>
+</pre>
+
+
+<p>Son olarak da zaman değişkenine type kontrolü yapalım.</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">YeniTip</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'GununSaati'</span><span class="p">,</span> <span class="s">"saat dakika"</span><span class="p">)</span>
+
+<span class="n">zaman</span> <span class="o">=</span> <span class="n">YeniTip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">zaman</span> <span class="o">=</span> <span class="n">zaman</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">saat</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">zaman</span><span class="p">))</span>
+
+<span class="c"># &lt;class '__main__.GununSaati'&gt;</span>
+</pre>
+
+
+<p>Artık bu nesnenin türünün GununSaati olduğunu görebiliyoruz. Hatalı bir nokta var ise şimdiden özür dilerim.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/programlama/" rel="tag">programlama</a></li>
+            <li><a class="tag p-category" href="../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../the-flash/" rel="prev" title="The Flash">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="https://aligoren.com/pythonda-struct-kullanimi/",
+        disqus_title="Python'da Struct Kullan\u0131m\u0131",
+        disqus_identifier="cache/posts/pythonda-struct-kullanimi.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
