@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Python'da Zincirleme Metodlar">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python'da Zincirleme Metodlar | Ali GÖREN</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://aligoren.com/pythonda-zincirleme-metodlar/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="Python'da Zincirleme Metodlar">
+<meta name="author" content="Ali">
+<link rel="prev" href="../pythonda-struct-kullanimi/" title="Python'da Struct Kullanımı" type="text/html">
+<meta property="og:site_name" content="Ali GÖREN">
+<meta property="og:title" content="Python'da Zincirleme Metodlar">
+<meta property="og:url" content="https://aligoren.com/pythonda-zincirleme-metodlar/">
+<meta property="og:description" content="Python'da Zincirleme Metodlar">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-03-31T00:00:00+03:00">
+<meta property="article:tag" content="programlama">
+<meta property="article:tag" content="python">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://aligoren.com/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../hakkimda">Hakkımda</a>
+                </li>
+<li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Kategoriler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python'da Zincirleme Metodlar</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-03-31T00:00:00+03:00" itemprop="datePublished" title="2016-03-31">2016-03-31</time></a></p>
+                <p class="commentline">
+        
+    <a href=".#disqus_thread" data-disqus-identifier="cache/posts/pythonda-zincirleme-metodlar.html">Comments</a>
+
+
+            
+
+                <meta name="description" itemprop="description" content="Python'da Zincirleme Metodlar"></p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani <code>Chaining Methods</code> deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir <code>Cars</code> sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:</p>
+<pre class="code literal-block">A Sınıfı =&gt;
+    A1_Metodu =&gt;
+        ... işlemler
+    A2_Metodu =&gt;
+        ... işlemler
+    A3_Metodu =&gt;
+        ... işlemler
+</pre>
+
+
+<p>Böyle bir yapıda sınıfımızı <strong>b</strong> değişkenine ilklediğimizi ve metodları çağırdığımızı düşünelim. O zaman durum şu olurdu</p>
+<pre class="code literal-block">b = A Sınıfı
+b.A1_Metodu
+b.A2_Metodu
+b.A3_Metodu
+</pre>
+
+
+<p>gibi tam da burada yardımcı olarak zincirleme metod deseni geliyor önümüze. Eğer bir chaining metod olsaydı yukarıdaki gibi alt alta bir tekrar yerine şöyle olacaktı:
+<!-- TEASER_END --></p>
+<pre class="code literal-block">b.A1_Metodu.A2_Metodu.A3_Metodu
+</pre>
+
+
+<p>Evet anlatmak istediğim tam da bu oluyor. Peki bu Python'da nasıl çalışıyor? Öncelikle kısaca Cars sınıfımızı oluşturalım. Bu sınıf ise <code>maker, model, year, price, miles, show_detail</code> metodlarına sahip olsun. Eldeki veriler üzerinden sınıfımızın iskeletini oluşturalım.</p>
+<pre class="code literal-block"><span class="k">class</span> <span class="nc">Cars</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
+        <span class="c"># işlemler</span>
+
+    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
+        <span class="c"># işlemler</span>
+
+    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
+        <span class="c"># işlemler</span>
+
+    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
+        <span class="c"># işlemler</span>
+
+    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
+        <span class="c"># işlemler</span>
+
+    <span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># detay işlemleri</span>
+</pre>
+
+
+<p>Evet iskeletimiz böyle. Şimdi maker yani üreticinin değer döndürmesini sağlamalıyız. Yukarıda <em>metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir</em> demiştim. O zaman bu maker metodu son olarak kendisini döndürmeli. Ve yine kendisine değer almalı. Kendi değerini ise aldığı argümana eşitlemeliyiz. Bakalım hemen:</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
+    <span class="k">return</span> <span class="bp">self</span>
+</pre>
+
+
+<p><code>return self</code> ile metoda kendisini döndürme imkanı verdik. Bu işlemi <strong>show_detail</strong> hariç diğer metodlara da uygulayalım:</p>
+<pre class="code literal-block"><span class="k">class</span> <span class="nc">Cars</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mdl</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">yr</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">prc</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="n">mile</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</pre>
+
+
+<p>Son olarak da bu değerleri göstereceğimiz <strong>show_detail</strong> metodunu yazalım. O konu aslında basit olarak bildiğimiz bir konu zaten.</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Maker:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maker</span><span class="p">,</span> <span class="s">"Model:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s">"Year:"</span><span class="p">,</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s">"Price:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s">"Miles:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">miles</span><span class="p">)</span>
+</pre>
+
+
+<p>Artık marka model ne var ne yok yazdıracağız hem de ekstra bir uğraş vermeden. Kullanımına bakarsak anlayacağız:</p>
+<pre class="code literal-block"><span class="n">c</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">maker</span><span class="p">(</span><span class="s">"Aston Martin"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s">"DB9"</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">(</span><span class="mi">2004</span><span class="p">)</span><span class="o">.</span><span class="n">price</span><span class="p">(</span><span class="mf">149.000</span><span class="p">)</span><span class="o">.</span><span class="n">miles</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">show_detail</span><span class="p">()</span>
+<span class="c"># Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30</span>
+</pre>
+
+
+<p>Üreticisi Aston Martin olan 2004 üretimli DB9 Model 30 Mildeki aracın fiyatının 149 bin euro olduğunu söylettik diyelim. Evet bu işlem bu kadar çıktıyı da yukarıda gördük. Kodların tamamı:</p>
+<pre class="code literal-block"><span class="k">class</span> <span class="nc">Cars</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mdl</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">yr</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">prc</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="n">mile</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Maker:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maker</span><span class="p">,</span> <span class="s">"Model:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s">"Year:"</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s">"Price:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s">"Miles:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">miles</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">maker</span><span class="p">(</span><span class="s">"Aston Martin"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s">"DB9"</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">(</span>
+    <span class="mi">2004</span><span class="p">)</span><span class="o">.</span><span class="n">price</span><span class="p">(</span><span class="mf">149.000</span><span class="p">)</span><span class="o">.</span><span class="n">miles</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">show_detail</span><span class="p">()</span>
+<span class="c"># Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30</span>
+</pre>
+
+
+<p>Kodları denediğim <a href="https://ideone.com/1blLKY">ideone</a>. Çalıştırılmış hali mevcut.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/programlama/" rel="tag">programlama</a></li>
+            <li><a class="tag p-category" href="../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../pythonda-struct-kullanimi/" rel="prev" title="Python'da Struct Kullanımı">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="https://aligoren.com/pythonda-zincirleme-metodlar/",
+        disqus_title="Python'da Zincirleme Metodlar",
+        disqus_identifier="cache/posts/pythonda-zincirleme-metodlar.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

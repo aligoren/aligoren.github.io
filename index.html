@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://aligoren.com/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="pythonda-struct-kullanimi/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="pythonda-zincirleme-metodlar/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -61,7 +61,44 @@
             
 
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="pythonda-struct-kullanimi/" class="u-url">Python'da Struct Kullanımı</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="pythonda-zincirleme-metodlar/" class="u-url">Python'da Zincirleme Metodlar</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="pythonda-zincirleme-metodlar/" rel="bookmark"><time class="published dt-published" datetime="2016-03-31T00:00:00+03:00" title="2016-03-31">2016-03-31</time></a></p>
+                <p class="commentline">
+        
+    <a href="pythonda-zincirleme-metodlar/#disqus_thread" data-disqus-identifier="cache/posts/pythonda-zincirleme-metodlar.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani <code>Chaining Methods</code> deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir <code>Cars</code> sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:</p>
+<pre class="code literal-block">A Sınıfı =&gt;
+    A1_Metodu =&gt;
+        ... işlemler
+    A2_Metodu =&gt;
+        ... işlemler
+    A3_Metodu =&gt;
+        ... işlemler
+</pre>
+
+
+<p>Böyle bir yapıda sınıfımızı <strong>b</strong> değişkenine ilklediğimizi ve metodları çağırdığımızı düşünelim. O zaman durum şu olurdu</p>
+<pre class="code literal-block">b = A Sınıfı
+b.A1_Metodu
+b.A2_Metodu
+b.A3_Metodu
+</pre>
+
+
+<p>gibi tam da burada yardımcı olarak zincirleme metod deseni geliyor önümüze. Eğer bir chaining metod olsaydı yukarıdaki gibi alt alta bir tekrar yerine şöyle olacaktı:
+</p>
+<p class="more"><a href="pythonda-zincirleme-metodlar/">Devamını Oku…</a></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="pythonda-struct-kullanimi/" class="u-url">Python'da Struct Kullanımı</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
             <p class="dateline"><a href="pythonda-struct-kullanimi/" rel="bookmark"><time class="published dt-published" datetime="2016-03-30T00:00:00+03:00" title="2016-03-30">2016-03-30</time></a></p>
@@ -136,24 +173,6 @@
 <p>Django’da RSS Feed ekleme işlemi çok basittir. Uzun uzun anlatabilir miyim diye düşündüm ancak yine de başaramam herhalde. Öncelikle yapılması gerekenleri söylemek gerekiyor sanırım.</p>
 <p>Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahmut.py deyin ) Oluşturma işlemini başarıyla yaptıysanız şimdi bu dosyanın içine sınıf oluşturmalıyız. Bunun için Django’nun <a href="https://docs.djangoproject.com/en/1.9/ref/contrib/syndication/">Feed Framework</a>‘ünü çağırmak gerekiyor. Bir de slug yani url için de core kütüphanesinde bulunan reverse() işlevini çağıralım. </p>
 <p class="more"><a href="django-rss-feed-ekleme/">Devamını Oku…</a></p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="django-markdown-editor-kurulumu/" class="u-url">Django Markdown Editör Kurulumu</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
-            <p class="dateline"><a href="django-markdown-editor-kurulumu/" rel="bookmark"><time class="published dt-published" datetime="2016-02-24T00:00:00+02:00" title="2016-02-24">2016-02-24</time></a></p>
-                <p class="commentline">
-        
-    <a href="django-markdown-editor-kurulumu/#disqus_thread" data-disqus-identifier="cache/posts/django-markdown-editor-kurulumu.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>Okuldaki işler harici evde de kişisel olarak python ve arkadaşlarının icatları ile ilgileniyorum. Bu süreçte django ile kendi blog sistemimi yazmaya karar verdim. Ancak editör öyle kötüydü ki (hiç yok klasik textarea :D) markdown editör aramaya koyuldum. Daha önce Laravel ile <a href="https://github.com/aligoren/larablog">yazdığım</a> blog sisteminde de kullandığım editör geldi aklıma.</p>
-<p>Taufan Aditya tarafından yazılan <a href="https://github.com/toopay/bootstrap-markdown">bootstrap-markdown</a> kullanmıştım. Neyse bu işin görsel yüzü. Ancak arkada hala çözümlenmeyi bekleyen markdown kuralları vardı. Bunun için bulabildiğim en uygun markdown eklentisi Kirill Klenov tarafından yazılan <a href="https://github.com/klen/django_markdown">django_markdown</a> eklentisiydi. Neyse bulduk ettik bir şekilde. Sıra kuruluma geliyor.Öncelikle editör entegrasyonunu yapalım. Şu linkten editör dosyalarını indirelim. İlgili klasöre çıkaralım. Statik dosyaların static altında olduğunu varsayarak yaptığınızı düşünelim. Ben şöyle yaptım: </p>
-<p class="more"><a href="django-markdown-editor-kurulumu/">Devamını Oku…</a></p>
 </div>
     </div>
     </article>
