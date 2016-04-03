@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Flask ile JSON Çıktı Almak">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flask ile JSON Çıktı Almak | Ali GÖREN</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://aligoren.com/flask-ile-json-cikti-almak/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="Flask ile JSON Çıktı Almak">
+<meta name="author" content="Ali">
+<link rel="prev" href="../pythonda-zincirleme-metodlar/" title="Python'da Zincirleme Metodlar" type="text/html">
+<meta property="og:site_name" content="Ali GÖREN">
+<meta property="og:title" content="Flask ile JSON Çıktı Almak">
+<meta property="og:url" content="https://aligoren.com/flask-ile-json-cikti-almak/">
+<meta property="og:description" content="Flask ile JSON Çıktı Almak">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-04-03T00:00:00+03:00">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="programlama">
+<meta property="article:tag" content="python">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://aligoren.com/">
+
+                <span id="blog-title">Ali GÖREN</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../hakkimda">Hakkımda</a>
+                </li>
+<li>
+<a href="../archive.html">Arşiv</a>
+                </li>
+<li>
+<a href="../categories/index.html">Kategoriler</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Flask ile JSON Çıktı Almak</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-04-03T00:00:00+03:00" itemprop="datePublished" title="2016-04-03">2016-04-03</time></a></p>
+                <p class="commentline">
+        
+    <a href=".#disqus_thread" data-disqus-identifier="cache/posts/flask-ile-json-cikti-almak.html">Comments</a>
+
+
+            
+
+                <meta name="description" itemprop="description" content="Flask ile JSON Çıktı Almak"></p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Flask framework'ü bilmeyen yoktur. Bu yazı hiç kullanmamış arkadaşlar için değil baştan belirteyim. Bu yazıda Flask framework ile nasıl json çıktı alırız onu anlatmaya çalışacağım.</p>
+<p>Öncelikle flask kurulu olmalı onu biliyoruz. json çıktı alma işlemi için ben flask ile gelen jsonify metodunu tercih ediyorum. Siz isterseniz klasik json da kullanabilirsiniz. İki türlü de aynı çalışıyor. Sadece jsonify çıktıları biraz daha güzel gösteriyor. Ben bu yazı için hazırladığım uygulamada işi biraz farklı bir noktaya taşıdım ve sanki bir api varmış gibi çalışsın istedim.
+<!-- TEASER_END --></p>
+<p>Bunun için bir API_KEY oluşturulmalı. Ben api key için uuid kullandım. Vereceğim kod parçasını sakın referans olarak almayın. Değişik bir api oluşturma kafasına sahiptim o sıra. Neyse api key oluşturma işlevi şöyle:</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="k">def</span> <span class="nf">generate_key</span><span class="p">(</span><span class="n">user_name</span><span class="p">):</span>
+    <span class="n">uname_comp</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">user_name</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">g_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s">'api_gen'</span><span class="p">))</span>
+    <span class="n">gt_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">g_key</span><span class="p">)</span>
+    <span class="n">gt_key</span> <span class="o">=</span> <span class="n">gt_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">i_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span> <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="s">'127.0.0.1'</span><span class="p">))</span>
+    <span class="n">ip_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i_key</span><span class="p">)</span>
+    <span class="n">ip_key</span> <span class="o">=</span> <span class="n">ip_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">p_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_X500</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="s">'python'</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">py_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_key</span><span class="p">)</span>
+    <span class="n">py_key</span> <span class="o">=</span> <span class="n">py_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">flsk_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="p">(</span><span class="s">'flask'</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">flk_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">flsk_key</span><span class="p">)</span>
+    <span class="n">flk_key</span> <span class="o">=</span> <span class="n">flk_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">now_key</span> <span class="o">=</span> <span class="n">ip_key</span> <span class="o">+</span> <span class="n">gt_key</span> <span class="o">+</span> <span class="n">py_key</span> <span class="o">+</span> <span class="n">flk_key</span>
+
+    <span class="n">rt_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span>
+                        <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="n">now_key</span> <span class="o">+</span> <span class="n">uname_comp</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">rtn_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rt_key</span><span class="p">)</span>
+    <span class="n">rtn_key</span> <span class="o">=</span> <span class="n">rtn_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rtn_key</span>
+</pre>
+
+
+<p>Kod kötü bi pratik olduğu için değişken isimlerini vs. değiştirmedim önemli gelmedi bana sonuçta bu yazıya hazırlıyorum. Muhtemelen api key oluşturmanın daha mükemmel yolları var. Efendim gelelim Bu <code>generate_key</code> işlevi ile oluşturacağımız key'lere. Kullanımı basit tek bi argüman alıyor o da user_name. Bu argüman kullanıcı kayıt olduğu anda gelen argüman olarak oluştu diyelim. Şöyle kullanalım</p>
+<pre class="code literal-block"><span class="k">print</span><span class="p">(</span><span class="n">generate_key</span><span class="p">(</span><span class="s">"admin"</span><span class="p">))</span>
+<span class="c"># "a21aacf74f79519b85581b87b8583f13"</span>
+</pre>
+
+
+<p>Çıktı olarak buna benzer 32 karakterden oluşan bi string üretilmiş oldu. Şimdi bu api_key işlemi tamam. Bu yazı için rastgele sözler uygulaması hazırladım. Sözleri author'a göre çekecek. Herhangi bir veritabanı kullanmadım. Basit bi dictionary'den oluşuyor. O zaman author'a göre çekecekse ve api key ile olacaksa URL yapısını şöyle düşündüm:</p>
+<p><strong>http://site.dev:5000/quote/author=<author>&amp;api_key=<api_key></api_key></author></strong></p>
+<p>URL'den de anlaşılacağı gibi route, quote olarak ayarlanmış durumda.</p>
+<pre class="code literal-block"><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/quote/author=&lt;author&gt;&amp;api_key=&lt;api_key&gt;'</span><span class="p">)</span>
+</pre>
+
+
+<p>Artık bu route için oluşturacağımız metod iki argüman alacak. Birisi author diğeri ise api_key argümanı olacak.</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">quoteing</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">author</span><span class="p">):</span>
+    <span class="n">key_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">"2bd137ea90b45b8b8902a39b6b192936"</span><span class="p">,</span>
+                <span class="s">"3b2b6e8152475891a39297e331e8ad52"</span><span class="p">,</span>
+                <span class="s">"26fec42ede2057ae84ed6514be7823c6"</span><span class="p">,</span>
+                <span class="s">"a21aacf74f79519b85581b87b8583f13"</span><span class="p">,</span>
+                <span class="s">"6968a8489e495d12976eaf25ba860423"</span><span class="p">]</span>
+</pre>
+
+
+<p>Route için oluşturduğum işlev burada. Adına bakmayın :p. Burada key_list kısmını ben yukarıdaki generate_key işlevi ile oluşturdum. Bunlar statik keyler. Daha sonra ise işlevin aldığı argüman bu liste içinde var mı yok mu şeklinde kontrol edeceğiz:</p>
+<pre class="code literal-block"><span class="n">harfler</span> <span class="o">=</span> <span class="p">{</span><span class="s">'İ'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span> <span class="s">'Ö'</span><span class="p">:</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'I'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span> <span class="s">'ı'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span>
+           <span class="s">'Ç'</span><span class="p">:</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'Ğ'</span><span class="p">:</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'Ş'</span><span class="p">:</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'Ü'</span><span class="p">:</span> <span class="s">'u'</span><span class="p">,</span>
+           <span class="s">'ü'</span><span class="p">:</span> <span class="s">'u'</span><span class="p">,</span> <span class="s">'ö'</span><span class="p">:</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'ş'</span><span class="p">:</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'ç'</span><span class="p">:</span> <span class="s">'c'</span><span class="p">,</span>
+           <span class="s">'ğ'</span><span class="p">:</span> <span class="s">'g'</span>
+           <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">karakter</span><span class="p">(</span><span class="n">metin</span><span class="p">,</span> <span class="n">sozluk</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sozluk</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">metin</span> <span class="o">=</span> <span class="n">metin</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">metin</span>
+
+<span class="k">if</span> <span class="n">api_key</span> <span class="ow">in</span> <span class="n">key_list</span><span class="p">:</span>
+    <span class="n">quotes</span> <span class="o">=</span> <span class="p">{</span><span class="s">'ataturk'</span><span class="p">:</span>
+              <span class="p">[</span><span class="s">'Hayatta En Hakiki Mursit Ilimdir Fendir'</span><span class="p">,</span>
+               <span class="s">'Bagimsizlik, ugruna olmesini bilen toplumlarin hakkidir.'</span><span class="p">],</span>
+              <span class="s">'mahatma gandhi'</span><span class="p">:</span>
+              <span class="p">[</span><span class="s">'Happiness is when what you think, what you'</span>
+               <span class="s">'say,and what you do are in harmony.'</span><span class="p">,</span>
+               <span class="s">'Guc fiziki kapasiteden degil,'</span>
+               <span class="s">'boyun egmeyen iradeden gelir.'</span><span class="p">]}</span>
+
+    <span class="n">get_quote</span> <span class="o">=</span> <span class="n">quotes</span><span class="p">[</span><span class="n">karakter</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">harfler</span><span class="p">)]</span>
+</pre>
+
+
+<p>Buradaki quotes bir sözlük yani dict olduğu için key-value şeklinde çalışıyor. Biz key değerini girerek value çekebiliriz. İçeride yer alan bir karakter işlevi. Türkçe karakter sorunu yaşanıyorsa kullanılabilir. Benim url yapımda örneğin <strong>/quote/author=Atatürk&amp;api_key=<api_key></api_key></strong> şeklinde bir author çağrısında yani aslında key çağrısında karakterden dolayı sorun yaşıyordum. Onu hallettim denilebilir.</p>
+<p>Daha sonra ise artık bu değerleri döndürmemiz gerekiyor. api key var mı yok mu kontrolü ile birlikte olacak şekilde. Burada jsonify işlevi direkt olarak dict alabiliyor. Yani herhangi bir değişkene ilklemenize gerek yok aslında. Sol değer key, sağ değer ise value gibi bir çıktı verecektir.</p>
+<pre class="code literal-block">    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">quotes</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">get_quote</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="s">"API Key Not Found"</span><span class="p">)</span>
+</pre>
+
+
+<p>Son olarak da parametrelerden birisi girilmezse 404 hatası yerine yine json çıktısı üretelim:</p>
+<pre class="code literal-block"><span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">exception_handler</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="s">"404 Not Found"</span><span class="p">)</span>
+</pre>
+
+
+<p>Bu sayede 404 olacak hatalarda json haliyle çıkmış olacak. Şimdi hazırladığımız uygulamayı bi çalıştıralım ve bakalım. Öncelikle konsolda <code>a21aacf74f79519b85581b87b8583f13</code> şeklinde bir çıktı var. O generate_key işlevi ile ürettiğimiz bir çıktı bunu biliyoruz. <code>http://127.0.0.1:5000/</code> adresini açarsak eğer error anahtarlı bir uyarı göreceğiz yine çıktısı json:</p>
+<pre class="code literal-block"><span class="p">{</span>
+  <span class="nt">"error"</span><span class="p">:</span> <span class="s2">"404 Not Found"</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>O zaman quote url'sine yönlenelim. URL şöyle olacak <code>http://127.0.0.1:5000/quote/</code>. Bu kısma gelince ufak bi manual tarzı şey hazırlamıştım. Onu göreceğiz:</p>
+<pre class="code literal-block"><span class="p">{</span>
+  <span class="nt">"USER_API_KEY"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">"2bd137ea90b45b8b8902a39b6b192936"</span><span class="p">,</span>
+    <span class="s2">"3b2b6e8152475891a39297e331e8ad52"</span><span class="p">,</span>
+    <span class="s2">"26fec42ede2057ae84ed6514be7823c6"</span><span class="p">,</span>
+    <span class="s2">"a21aacf74f79519b85581b87b8583f13"</span><span class="p">,</span>
+    <span class="s2">"6968a8489e495d12976eaf25ba860423"</span>
+  <span class="p">],</span>
+  <span class="nt">"error"</span><span class="p">:</span> <span class="s2">"API Key Required"</span><span class="p">,</span>
+  <span class="nt">"url_example"</span><span class="p">:</span> <span class="s2">"/quote/author=ATATURK&amp;api_key=API_KEY_HERE"</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Biz de url_example üzerinden listedeki örnek api keyleri kullanarak gidelim. Adres yapısını şöyle seçtim <code>http://127.0.0.1:5000/quote/author=atatürk&amp;api_key=a21aacf74f79519b85581b87b8583f13</code>. Bu haliyle şu çıktıyı veriyor:</p>
+<pre class="code literal-block"><span class="p">{</span>
+  <span class="nt">"quotes"</span><span class="p">:</span> <span class="s2">"Hayatta En Hakiki Mursit Ilimdir Fendir"</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Sayfayı yeniledikçe hangi sözler var ise rastgele onu çekecek. Bizim örnekte iki tane vardı. Peki hatalı bir API girseydik? Örneğin şöyle <code>http://127.0.0.1:5000/quote/author=atatürk&amp;api_key=interesting_api</code>. Çıktısı şöyle olacaktı:</p>
+<pre class="code literal-block"><span class="p">{</span>
+  <span class="nt">"error"</span><span class="p">:</span> <span class="s2">"API Key Not Found"</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>Son olarak değer girilmezse şöyle olacak. URL örneğin <code>http://127.0.0.1:5000/quote/author=atatürk&amp;api_key=</code></p>
+<pre class="code literal-block"><span class="p">{</span>
+  <span class="nt">"error"</span><span class="p">:</span> <span class="s2">"404 Not Found"</span>
+<span class="p">}</span>
+</pre>
+
+
+<h2>Kodların Tamamı</h2>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">generate_key</span><span class="p">(</span><span class="n">user_name</span><span class="p">):</span>
+    <span class="n">uname_comp</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">user_name</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">g_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s">'api_gen'</span><span class="p">))</span>
+    <span class="n">gt_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">g_key</span><span class="p">)</span>
+    <span class="n">gt_key</span> <span class="o">=</span> <span class="n">gt_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">i_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span> <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="s">'127.0.0.1'</span><span class="p">))</span>
+    <span class="n">ip_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i_key</span><span class="p">)</span>
+    <span class="n">ip_key</span> <span class="o">=</span> <span class="n">ip_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">p_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_X500</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="s">'python'</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">py_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_key</span><span class="p">)</span>
+    <span class="n">py_key</span> <span class="o">=</span> <span class="n">py_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">flsk_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="p">(</span><span class="s">'flask'</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">flk_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">flsk_key</span><span class="p">)</span>
+    <span class="n">flk_key</span> <span class="o">=</span> <span class="n">flk_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+    <span class="n">now_key</span> <span class="o">=</span> <span class="n">ip_key</span> <span class="o">+</span> <span class="n">gt_key</span> <span class="o">+</span> <span class="n">py_key</span> <span class="o">+</span> <span class="n">flk_key</span>
+
+    <span class="n">rt_key</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid5</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">NAMESPACE_DNS</span><span class="p">,</span>
+                        <span class="p">(</span><span class="n">uname_comp</span> <span class="o">+</span> <span class="n">now_key</span> <span class="o">+</span> <span class="n">uname_comp</span> <span class="o">+</span> <span class="n">uname_comp</span><span class="p">))</span>
+    <span class="n">rtn_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rt_key</span><span class="p">)</span>
+    <span class="n">rtn_key</span> <span class="o">=</span> <span class="n">rtn_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rtn_key</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">generate_key</span><span class="p">(</span><span class="s">"admin"</span><span class="p">))</span>
+
+<span class="n">harfler</span> <span class="o">=</span> <span class="p">{</span><span class="s">'İ'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span> <span class="s">'Ö'</span><span class="p">:</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'I'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span> <span class="s">'ı'</span><span class="p">:</span> <span class="s">'i'</span><span class="p">,</span>
+           <span class="s">'Ç'</span><span class="p">:</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'Ğ'</span><span class="p">:</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'Ş'</span><span class="p">:</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'Ü'</span><span class="p">:</span> <span class="s">'u'</span><span class="p">,</span>
+           <span class="s">'ü'</span><span class="p">:</span> <span class="s">'u'</span><span class="p">,</span> <span class="s">'ö'</span><span class="p">:</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'ş'</span><span class="p">:</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'ç'</span><span class="p">:</span> <span class="s">'c'</span><span class="p">,</span>
+           <span class="s">'ğ'</span><span class="p">:</span> <span class="s">'g'</span>
+           <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">karakter</span><span class="p">(</span><span class="n">metin</span><span class="p">,</span> <span class="n">sozluk</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sozluk</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">metin</span> <span class="o">=</span> <span class="n">metin</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">metin</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/quote/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">quote_index</span><span class="p">():</span>
+    <span class="n">url_type</span> <span class="o">=</span> <span class="s">'/quote/author=ATATURK&amp;api_key=API_KEY_HERE'</span>
+
+    <span class="n">key_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">"2bd137ea90b45b8b8902a39b6b192936"</span><span class="p">,</span>
+                <span class="s">"3b2b6e8152475891a39297e331e8ad52"</span><span class="p">,</span>
+                <span class="s">"26fec42ede2057ae84ed6514be7823c6"</span><span class="p">,</span>
+                <span class="s">"a21aacf74f79519b85581b87b8583f13"</span><span class="p">,</span>
+                <span class="s">"6968a8489e495d12976eaf25ba860423"</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="s">"API Key Required"</span><span class="p">,</span> <span class="n">url_example</span><span class="o">=</span><span class="n">url_type</span><span class="p">,</span>
+                   <span class="n">USER_API_KEY</span><span class="o">=</span><span class="n">key_list</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/quote/author=&lt;author&gt;&amp;api_key=&lt;api_key&gt;"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">quoteing</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">author</span><span class="p">):</span>
+    <span class="n">key_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">"2bd137ea90b45b8b8902a39b6b192936"</span><span class="p">,</span>
+                <span class="s">"3b2b6e8152475891a39297e331e8ad52"</span><span class="p">,</span>
+                <span class="s">"26fec42ede2057ae84ed6514be7823c6"</span><span class="p">,</span>
+                <span class="s">"a21aacf74f79519b85581b87b8583f13"</span><span class="p">,</span>
+                <span class="s">"6968a8489e495d12976eaf25ba860423"</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">in</span> <span class="n">key_list</span><span class="p">:</span>
+        <span class="n">quotes</span> <span class="o">=</span> <span class="p">{</span><span class="s">'ataturk'</span><span class="p">:</span>
+                  <span class="p">[</span><span class="s">'Hayatta En Hakiki Mursit Ilimdir Fendir'</span><span class="p">,</span>
+                   <span class="s">'Bagimsizlik, ugruna olmesini bilen toplumlarin hakkidir.'</span><span class="p">],</span>
+                  <span class="s">'mahatma gandhi'</span><span class="p">:</span>
+                  <span class="p">[</span><span class="s">'Happiness is when what you think, what you'</span>
+                   <span class="s">'say,and what you do are in harmony.'</span><span class="p">,</span>
+                   <span class="s">'Guc fiziki kapasiteden degil,'</span>
+                   <span class="s">'boyun egmeyen iradeden gelir.'</span><span class="p">]}</span>
+
+        <span class="n">get_quote</span> <span class="o">=</span> <span class="n">quotes</span><span class="p">[</span><span class="n">karakter</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">harfler</span><span class="p">)]</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">quotes</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">get_quote</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="s">"API Key Not Found"</span><span class="p">)</span>
+
+
+<span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">exception_handler</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="s">"404 Not Found"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="c"># app.debug = True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre>
+
+
+<p>Eğer <code>app.debug = True</code> yaparsanız live olarak çalışırsınız. Yenileme yaptığınız zaman değişiklikler anında uygulanır tekrardan başlatmanıza gerek kalmaz. Evet bu kadar. Hatalı noktalarım varsa şimdiden özür dilerim.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/flask/" rel="tag">flask</a></li>
+            <li><a class="tag p-category" href="../categories/programlama/" rel="tag">programlama</a></li>
+            <li><a class="tag p-category" href="../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../pythonda-zincirleme-metodlar/" rel="prev" title="Python'da Zincirleme Metodlar">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="aligren",
+            disqus_url="https://aligoren.com/flask-ile-json-cikti-almak/",
+        disqus_title="Flask ile JSON \u00c7\u0131kt\u0131 Almak",
+        disqus_identifier="cache/posts/flask-ile-json-cikti-almak.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="aligren";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:goren.ali@yandex.com">Ali</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
