@@ -62,7 +62,28 @@
             
 
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="django-rss-feed-ekleme/" class="u-url">Django RSS Feed Ekleme</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/" class="u-url">Nginx: 413 Request Entity Too Large Hatası ve Çözümü</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/" rel="bookmark"><time class="published dt-published" datetime="2016-03-27T00:00:00+02:00" title="2016-03-27">2016-03-27</time></a></p>
+                <p class="commentline">
+        
+    <a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/#disqus_thread" data-disqus-identifier="cache/posts/nginx-413-request-entity-too-large-hatasi-ve-cozumu.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Muhtemelen bu hatayı nginx'de siz de aldınız. Bugün localde çalışırken başıma gelen bir uyarı. Bu hatanın sebebi ya <code>client_max_body_size</code> tanımlı değildir ya da tanımlı ama boyut değeri çok düşüktür.</p>
+<p>Bende bu alan tanımlı değildi onun için bu alanı tanımlatmam gerekiyordu. Ubuntu için konuşacak olursak (Diğerlerinde de aynıdır yol. Denemedim):</p>
+<p><code>sudo nano /etc/nginx/nginx.conf</code></p>
+<p>komutunu verdim öncelikle. Daha sonra ise nginx'de http bloğu en üstte olduğundan oraya ekleyeceğiz:
+</p>
+<p class="more"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/">Devamını Oku…</a></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="django-rss-feed-ekleme/" class="u-url">Django RSS Feed Ekleme</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
             <p class="dateline"><a href="django-rss-feed-ekleme/" rel="bookmark"><time class="published dt-published" datetime="2016-02-28T00:00:00+02:00" title="2016-02-28">2016-02-28</time></a></p>

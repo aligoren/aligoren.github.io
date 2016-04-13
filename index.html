@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://aligoren.com/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="flask-ile-json-cikti-almak/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="python-ve-ngram-algoritmasi/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -61,7 +61,26 @@
             
 
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="flask-ile-json-cikti-almak/" class="u-url">Flask ile JSON Çıktı Almak</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="python-ve-ngram-algoritmasi/" class="u-url">Python ve NGram Algoritması</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
+            <p class="dateline"><a href="python-ve-ngram-algoritmasi/" rel="bookmark"><time class="published dt-published" datetime="2016-04-13T22:33:15+03:00" title="2016-04-13">2016-04-13</time></a></p>
+                <p class="commentline">
+        
+    <a href="python-ve-ngram-algoritmasi/#disqus_thread" data-disqus-identifier="cache/posts/python-ve-ngram-algoritmasi.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Bu yazıyı yazmadan önce google'da sayısızca arama yapıyordum. Beni çıldırtan bir olay oldu. Şimdi aradığım şey örneğin <strong>ahmet</strong> tamam iyi hoş arıyorsun da. Gelip bana neden "Bunu mu denemek istediniz?" şeklinde soru soruyorsun. Neyse önerdiği şeye tıklıyorum. Hobaa. Eski yazdığımı öneriyor bu sefer.</p>
+<p>Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki google? Pek de bildiği söylenemez :P. Bu yazıda anlatmaya çalışacağım NGram tarzı bir algoritma kullandıkları kesin. Bakarsınız onlar tam da bunu kullanıyorlardır.
+</p>
+<p class="more"><a href="python-ve-ngram-algoritmasi/">Devamını Oku…</a></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="flask-ile-json-cikti-almak/" class="u-url">Flask ile JSON Çıktı Almak</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
             <p class="dateline"><a href="flask-ile-json-cikti-almak/" rel="bookmark"><time class="published dt-published" datetime="2016-04-03T00:00:00+03:00" title="2016-04-03">2016-04-03</time></a></p>
@@ -153,27 +172,6 @@ b.A3_Metodu
 <p>Son zamanlarda kendime aşırı vakit ayırıyorum öyle ki yazdığım kod sayısını satırla anlatacak olsaydım sanırım izlediğim dizi bölümünden daha az olurdu. Bir süredir daha önceleri izlemediğim Fringe dizisi ile uğraştaydım. Tabi o diziyi izleyenler biliyordu nasıl bağımlılık yaratacağını. Bu sırada ayrıca Dr. Walter Bishop gibi bir dehayı arayacağımızı da biliyordu diziyi izleyenler.</p>
 <p>Fringe dizisini bitirdim pişmanım aslında kısa sürede bitirdiğim için örneğin Olivia Dunham'ın FBI diye o kalın ses bağırışını özledim, Walter'ın kafası güzel ve çıplak dolaşmalarını da. Neyse efenim bu özlem giderilsin diye <strong>walternatif</strong> diziler arıyordum. Daha önceleri yani okula gelmeden önce Gebze'de sadece 15 dakika kadar gördüğüm The Flash dizisini izleme kararı aldım. Başlangıcında beni etkileyen dizileri daima izlemişimdir. Bunda da öyle oldu :)</p>
 <p class="more"><a href="the-flash/">Devamını Oku…</a></p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/" class="u-url">Nginx: 413 Request Entity Too Large Hatası ve Çözümü</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Ali</span></p>
-            <p class="dateline"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/" rel="bookmark"><time class="published dt-published" datetime="2016-03-27T00:00:00+02:00" title="2016-03-27">2016-03-27</time></a></p>
-                <p class="commentline">
-        
-    <a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/#disqus_thread" data-disqus-identifier="cache/posts/nginx-413-request-entity-too-large-hatasi-ve-cozumu.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>Muhtemelen bu hatayı nginx'de siz de aldınız. Bugün localde çalışırken başıma gelen bir uyarı. Bu hatanın sebebi ya <code>client_max_body_size</code> tanımlı değildir ya da tanımlı ama boyut değeri çok düşüktür.</p>
-<p>Bende bu alan tanımlı değildi onun için bu alanı tanımlatmam gerekiyordu. Ubuntu için konuşacak olursak (Diğerlerinde de aynıdır yol. Denemedim):</p>
-<p><code>sudo nano /etc/nginx/nginx.conf</code></p>
-<p>komutunu verdim öncelikle. Daha sonra ise nginx'de http bloğu en üstte olduğundan oraya ekleyeceğiz:
-</p>
-<p class="more"><a href="nginx-413-request-entity-too-large-hatasi-ve-cozumu/">Devamını Oku…</a></p>
 </div>
     </div>
     </article>
