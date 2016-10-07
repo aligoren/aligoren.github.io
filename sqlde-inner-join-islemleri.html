@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SQL'de Inner Join İşlemleri &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, SQL">
+    <link rel="canonical" href="https://aligoren.com/sqlde-inner-join-islemleri">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SQL'de Inner Join İşlemleri">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/sqlde-inner-join-islemleri">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="SQL'de Inner Join İşlemleri" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/sqlde-inner-join-islemleri" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>SQL'de Inner Join İşlemleri</h1>
+  <span class="post-meta">Oct 7, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    3 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>SQL’de normalizasyon işlemlerini gerçekleştirdiğimiz zaman tabloları da bölme işlemini gerçekleştirmiş oluruz. Bu sayede hem normal formlarda bir database tasarımı gerçekleştirmiş oluruz hem de performans kazanabiliriz.</p>
+
+<p>Bu yazıda bölünmüş tabloların birleştirilmesinde faydalanabileceğimiz INNER JOIN kullanımına değineceğim. Yukarıda değinmiş olduğum performans konusu sadece yukarısı için geçerlidir. Her INNER JOIN performanslı olacak diye bir şey yoktur.</p>
+
+<p>İki tablo düşünelim. Bu tablolardan birisi kullanıcıların sadece adlarını tutuyor. Bir diğeri ise kullanıcıların sadece açıklamalarını tutuyor. Bu iki tablonun tek sorguda ortak sonuçlar üretmesi gerekiyor. Aslında sanal bir tablo oluştuğunu düşünün. Tıpkı string birleştirme işlemlerinde olduğu gibi. Hemen bunu tanımlayan iki tablo oluşturalım.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">UserDetail</span><span class="p">]</span> <span class="p">(</span>
+<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">[</span><span class="n">UserID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span>
+<span class="p">[</span><span class="n">UserDesc</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">Users</span><span class="p">]</span> <span class="p">(</span>
+<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">[</span><span class="n">Name</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Bu tabloları oluşturduktan sonra veri ekleme işlemlerini yapmalıyız. Bu işlemlerden ilkinde sadece kullanıcının adı yer alacakken, ikinci tabloda yani UserDetail tablosunda ise ilgili kullanıcının hem ID’si hem de açıklaması yer alacak. Eklemeleri ona göre gerçekleştirelim.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali2'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali3'</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Açıklama'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'2. Açıklama'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'3. Açıklama'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Şimdi normalde veri çekme işlemini yapıyor gibi SELECT sorgumuzu yazalım. Burada farklı olan şey ise veriyi seçeceğimiz asıl tablonun hemen yanına INNER JOIN yazmamız. JOIN işleminden sonra asıl tabloya bağlamak istediğimiz tabloyu belirtiyoruz. WHERE işleminin JOIN işlemlerinden sonra kullanıldığına da dikkat edin.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">UserDetail</span> <span class="n">ud</span> <span class="k">ON</span>  <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span> <span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>Yukarıdaki kodda Users tablosunda bulunan Name kolonunu, UserDetail tablosunda bulunan UserDesc kolonunu, her iki tabloda da eşleşen kayda göre getir dedik.</p>
+
+<p>Buradan sahte bir kod yapısıyla şunu anlayabiliriz:</p>
+
+<pre><code class="language-pseudo">if UsersTablosundakiUserID eşittir UserDetaildekiUserID ise
+	getir(UsersTablosundakiUserID)
+
+# Yani UserID2=UserDetailID2 ise WHERE ID=2 olanı getir
+</code></pre>
+
+<p>İşlemin nasıl çalıştığını yukarıdaki kodla basitçe anlatmaya çalıştım. Anlayacağımız bir diğer şey ise görüyoruz ki sadece birbirine eşit olan kayıtları getiriyor. Burada bu işlemden sonra çıktının şöyle olduğunu görmekteyiz:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UserDesc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ali2</td>
+      <td>2. Açiklama</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Dilersek bir WHERE sorgusunu kullanmadan tablodaki eşleşen tüm kayıtları getirebiliriz. Bunun için UserDetail tablosunu düzenleyip UserID bölümünü NULLABLE olarak ayarlayalım ve bu tabloya bir veri eklemesi gerçekleştirelim.</p>
+
+<p>UserDetail tablosuna eklenen 4. verinin UserID kolonuna eklenecek değer NULL olarak gönderilsin.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">UserDetail</span><span class="p">]</span> <span class="p">(</span>
+<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">[</span><span class="n">UserID</span><span class="p">]</span> <span class="n">int</span><span class="p">,</span>
+<span class="p">[</span><span class="n">UserDesc</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">Users</span><span class="p">]</span> <span class="p">(</span>
+<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">[</span><span class="n">Name</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali2'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali3'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali4'</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Açıklama'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'2. Açıklama'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'3. Açıklama'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">'4. Açıklama'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Daha sonra JOIN işlemini WHERE kullanmadan çalıştıralım:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">UserDetail</span> <span class="n">ud</span> <span class="k">ON</span>  <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UserDesc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ali</td>
+      <td>Açiklama</td>
+    </tr>
+    <tr>
+      <td>Ali2</td>
+      <td>2. Açiklama</td>
+    </tr>
+    <tr>
+      <td>Ali3</td>
+      <td>3. Açiklama</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Fark ettiyseniz çıktıda eklediğimiz 4. veri yok. Çünkü iki tablodaki ortak kabul edilen alanlardan birisi diğerinden farklı. Eşleşme sağlanamıyor. Buradan INNER JOIN için NULL olmayan, eşleşen kayıtları getiren SQL ifadeleridir çıkarımını da gerçekleştirebiliriz.</p>
+
+<ol>
+  <li>Yöntem WHERE Sorgusu Kullanmak</li>
+</ol>
+
+<p>Evet eğer aklınızda WHERE sorgusu belirmiş olabilir. İkinci yöntem olarak WHERE sorgusu da kullanabilirsiniz</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span>
+<span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span><span class="p">,</span> <span class="n">UserDetail</span> <span class="n">ud</span>
+<span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span>
+
+<span class="c1">-- ya da</span>
+
+<span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span>
+<span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span><span class="p">,</span> <span class="n">UserDetail</span> <span class="n">ud</span>
+<span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span> <span class="k">and</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="mi">2</span>
+</code></pre>
+</div>
+
+<p>Yine aynı çıktıyı verecektir. İkisi arasındaki farkları araştırmanız, neyin nerede kullanılacağını bilmeniz sizin için iyi olur.</p>
+
+<p>Örnek SQL Fiddle <a href="http://sqlfiddle.com/#!6/1e87c/2">Linki</a></p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/sqlde-inner-join-islemleri';
+    var disqus_title      = "SQL'de Inner Join İşlemleri";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

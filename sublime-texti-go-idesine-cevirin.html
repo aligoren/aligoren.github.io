@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sublime Text'i Go IDE'sine Çevirin &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, Golang">
+    <link rel="canonical" href="https://aligoren.com/sublime-texti-go-idesine-cevirin">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Sublime Text'i Go IDE'sine Çevirin">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/sublime-texti-go-idesine-cevirin">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="Sublime Text'i Go IDE'sine Çevirin" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/sublime-texti-go-idesine-cevirin" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Sublime Text'i Go IDE'sine Çevirin</h1>
+  <span class="post-meta">Nov 27, 2015</span><br>
+  
+  <span class="post-meta small">
+  
+    3 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
+
+<p>Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.</p>
+
+<p>Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bulmanız şans işi. Diğer firmaları da sıralayacak olursak JetBrains, Xamarin gibi firmalar da mevcut. Bu firmaların da kaliteli ürünleri olsa dahi aradığınız dil için özellikle sağladıkları bir destek yok. Yani buradan da arayış yapmanız pek bir kar sağlamıyor.</p>
+
+<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor. <!--TEASER_END--> D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
+
+<p>Bu dillerden en az birisini duymuşsunuzdur. Örneğin CoffeeScript eğer CoffeeScript için WebStorm olmamış olsaydı gerçekten ciddi destek sağlayan bir IDE yok. Fakat WebStorm da ücretli bir IDE olduğu için yine işiniz kullanıcıya kalıyor.</p>
+
+<p>Haskell’a gelelim. Eğer Leksah gibi bir IDE desteği olmamış olsaydı ki bunu kendisi sağlamıyor yine bir kullanıcı ürünü eğer bu destek olmamış olsaydı yine işiniz pek iyi değildi.</p>
+
+<p>Dart ve Scala Eclipse tabanlı ürünler kullanıyorlar. Ancak Eclipse’in sağladığı bug’lar kullanıcıları daha çok JetBrains ürünlerine çekmeye başladı.</p>
+
+<p>Son olarak Go diline gelelim. Başlamadan önce, eğer Sublime Text kullanmak gibi bir niyetiniz yoksa bunun yerine size iki önerim var:</p>
+
+<p><a href="https://github.com/visualfc/liteide">Lite IDE</a></p>
+
+<p><a href="http://limetext.org/">Lime Text</a></p>
+
+<p><strong>Lite IDE</strong> sağlam bir IDE. Gerçekten IDE kavramını hak ediyor. Auto-complete işleminden tutun debug etme, markdown destekleme gibi çoğu aranan ihtiyacı karşılamakta. Ve eklenti desteği de bulunmakta.</p>
+
+<p><strong>Lime Text Editor</strong> sublime temelleri üzerine inşaa edilmiş güzel bir editör. TextMate’in göze hoş gelen ColorScheme’i ile uyumlu. Sublime Text’in Python Plug-in API’ı ile uyumlu. Gelişim süreci hala devam etmekte.</p>
+
+<p>Yukarıdaki iki önerimin de gelişimleri devam etmekte. Lime Text’in Sublime’yi temel aldığını söylemiştim ancak yok ben Sublime Text kullanmaktan vazgeçemem diyenler için GoSublime ve GoImports eklentileri ile Sublime Text’inizi adeta bir Go IDE’sine çevirebilirsiniz. Kurulum</p>
+
+<p>Öncelikle Sublime Package Control kurulu olmalı. Eğer kurulu değilse CTRL+` kısayolunu kullanarak aşağıda açılmış olan konsola şu alttaki kodları yapıştırın:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span>
+<span class="s">'7183a2d3e96f11eeadd761d777e62404'</span> <span class="o">+</span> <span class="s">'e330c659d4bb41d3bdf022e94cab3cd0'</span><span class="p">;</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="s">'Package Control.sublime-package'</span><span class="p">;</span>
+<span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">())</span> <span class="p">);</span>
+<span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">'http://sublime.wbond.net/'</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">'</span><span class="si">%20</span><span class="s">'</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
+<span class="n">dh</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">by</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">();</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Error validating download (got </span><span class="si">%</span><span class="s">s instead of </span><span class="si">%</span><span class="s">s), please try manual install'</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">'wb'</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir <a href="https://gist.github.com/aligoren/3ceecc6f37c39dfae9b5">şuradaki</a> kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
+
+<p><img src="/images/posts/14.png" alt="/images/posts/14.png" /></p>
+
+<p>Pekala Package Control kurulumunu yaptık.</p>
+
+<p><strong>GoSublime</strong></p>
+
+<p>Bizim asıl ihtiyacımız olansa GoSublime eklentisi. Bu eklentiyi kurmak için Sublime açıkken Ctrl+Shift+P kısayolunu çalıştırıyoruz. Bu sayede üst kısımda bir kutucuk açılıyor. O kısma Install yazmamız yeterli. Eğer her şeyi doğru yaptıysak böyle bir ekran gelmeli.</p>
+
+<p><img src="/images/posts/15.png" alt="/images/posts/15.png" /></p>
+
+<p>Bu işlemden sonra 1-2 saniye kadar beklemeniz gerekmekte. Yine aynı pencere açılıyor. Bu sefer kurulum yapılacak eklentinin adını yazmanız gerekiyor. Oraya GoSublime yazmalısınız. Aşağıdaki gibi yazsanız da göreceksiniz. Bende kurulu olduğu için listede görünmüyor. Sizde kurulu olmadığı için o listede görünecek.</p>
+
+<p><img src="/images/posts/16.png" alt="/images/posts/16.png" /></p>
+
+<p>Bu işlemden sonra son olarak yine aynı yöntemle GoImports eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor.
+Bazı Ayarlamalar</p>
+
+<p>Eklentilerin kurulumları tamamlanmış durumda olsa dahi bazı ayarlamalar yapılmadığı için eklenti tam anlamıyla çalışmayacaktır. Bunun için indirilen eklentinin User Settings dosyasına bazı eklemeler yapmalıyız. Bu ayar dosyasının yolu şöyle</p>
+
+<p><strong>Preferences-&gt;Package Settings-&gt;GoSublime-&gt;Settings-User</strong></p>
+
+<p><img src="/images/posts/17.png" alt="/images/posts/17.png" /></p>
+
+<p>Buraya tıklayınca karşımıza bir pencere açılacak. Bu pencere büyük ihtimalle boş. Boş kısma şu kodları yapıştırıp kaydedin.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"fmt_cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"goimports"</span><span class="p">],</span><span class="w">
+    </span><span class="err">//C</span><span class="p">:</span><span class="err">\Go\</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">windows</span><span class="w">
+    </span><span class="s2">"env"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"GOPATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$HOME/go"</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak <em>C:</em> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
+
+<p>Hızlı kodlama yapmak isteyenler olabilir. Otomatik build işlemi, Test ve diğer işlemler. Bunun için yine yukarıda belirttiğim ayar dosyasını açıp şu kodları goimports ayarının hemen altına yapıştırın:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"on_save"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gs9o_open"</span><span class="p">,</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"run"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"focus_view"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}}]</span><span class="err">,</span><span class="w">
+</span><span class="s2">"autocomplete_closures"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+</span><span class="s2">"complete_builtins"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Evet kurulum ve ayarlamalar bitti. Iyi kodlamalar.</p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/sublime-texti-go-idesine-cevirin';
+    var disqus_title      = "Sublime Text'i Go IDE'sine Çevirin";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

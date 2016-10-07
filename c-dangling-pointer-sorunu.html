@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>C Dangling Pointer Sorunu &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, C">
+    <link rel="canonical" href="https://aligoren.com/c-dangling-pointer-sorunu">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="C Dangling Pointer Sorunu">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/c-dangling-pointer-sorunu">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="C Dangling Pointer Sorunu" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/c-dangling-pointer-sorunu" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>C Dangling Pointer Sorunu</h1>
+  <span class="post-meta">Jul 21, 2014</span><br>
+  
+  <span class="post-meta small">
+  
+    1 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum <a href="http://en.wikipedia.org/wiki/Segmentationfault">segmentation fault</a> hatasina sebep olmaktadir ve <a href="http://en.wikipedia.org/wiki/Bufferoverflow">Buffer Overflow</a> yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.</p>
+
+<p>İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.</p>
+
+<p>Çözüm için bazı yöntemler var. Bunlardan birisi akıllı pointer kullanımıdır. C++11 ile kullanımı biten <code class="highlighter-rouge">auto_ptr</code> ve onun yerine gelen <code class="highlighter-rouge">unique_ptr</code> kullanılabilir ilk yöntemlerdir.
+<!-- TEASER_END -->
+Bir de bunun başka bir alternatifi olarak tombstone metodu var. Burada da yapılan şey pointer değişkenin başına başka bir değer ekliyoruz.</p>
+
+<p>Öncelikle bahsettiğimiz konuya dair bir örnek kod verelim.</p>
+
+<p><img src="/images/posts/3.png" alt="/images/posts/3.png" /></p>
+
+<p>Bu hataya yakalanmış bir kodun çıktısı şöyle olacaktır. Tabii bu sistemden sisteme göre değişir. Aslında bu çıktı çöp bir değerdir.</p>
+
+<p><strong>Örneğin koding.com sanal makinesinde yaptığım denemenin sonucu:</strong></p>
+
+<p><img src="/images/posts/4.png" alt="/images/posts/4.png" /></p>
+
+<p>Bu da kendi makinemde yaptığım işlemin sonucu:</p>
+
+<p><img src="/images/posts/5.png" alt="/images/posts/5.png" /></p>
+
+<p>Bu hatanın bize verdiği çıktılar compile time’da şöyle olacaktır:</p>
+
+<p><strong>warning: function returns address of local variable [-Wreturn-local-addr]</strong></p>
+
+<p>ya da</p>
+
+<p><strong>warning: function returns address of local variable</strong></p>
+
+<p>Bu hataları alıyorsak derleme zamanında demek ki bir yerlerde dangling pointer oluşmuştur. Bunu çözmemiz aslında basit. Verdiğimiz kodda oluşturduğumuz x değişkenini static variable’a çevirmemiz yetecektir.</p>
+
+<p>Yani bu durumda şöyle bir değişiklik olacak:</p>
+
+<p><img src="/images/posts/6.png" alt="/images/posts/6.png" /></p>
+
+<p>Şimdi artık bu kodumuz dangling pointerdan arındırılmış vaziyette. Buradaki x değişkeni yerel bir değişkendir. x değişkeninin adresi cagri işlevi içerisinde döndürüldükten sonra sıfırlandı. Ancak pointer hala bu adresi işaret ediyordu. Dangling pointer hatasının açıklaması buydu. Biz bu değişiklik ile bu hatayı çözüme kavuşturmuş olduk.</p>
+
+<p>Koding sanal makinesindeki çıktı:</p>
+
+<p><img src="/images/posts/7.png" alt="/images/posts/7.png" /></p>
+
+<p>Kendi makinemdeki çıktı:</p>
+
+<p><img src="/images/posts/8.png" alt="/images/posts/8.png" /></p>
+
+<h1 id="referanslar">Referanslar:</h1>
+
+<p><a href="https://software.intel.com/en-us/articles/pointer-checker-to-detect-buffer-problems-and-dangling-pointers-part-2">https://software.intel.com/en-us/articles/pointer-checker-to-detect-buffer-problems-and-dangling-pointers-part-2</a></p>
+
+<p><a href="https://www.owasp.org/images/f/fa/OWASPIL8DanglingPointer.pdf">https://www.owasp.org/images/f/fa/OWASPIL8DanglingPointer.pdf</a></p>
+
+<p><a href="https://www.blackhat.com/presentations/bh-usa-07/Afek/Whitepaper/bh-usa-07-afek-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Afek/Whitepaper/bh-usa-07-afek-WP.pdf</a></p>
+
+<p><a href="http://www.ccs.neu.edu/home/will/CPP/dangling.html">http://www.ccs.neu.edu/home/will/CPP/dangling.html</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/378335/Dangling-Pointers-Pathology-Prevention-and-Cure">http://www.codeproject.com/Articles/378335/Dangling-Pointers-Pathology-Prevention-and-Cure</a></p>
+
+<p><a href="http://www.democraticprogrammers.com/dangling-pointer-problem-cpp-example/">http://www.democraticprogrammers.com/dangling-pointer-problem-cpp-example/</a></p>
+
+<p><a href="http://www.c4learn.com/c-programming/c-dangling-pointer-causes/">http://www.c4learn.com/c-programming/c-dangling-pointer-causes/</a></p>
+
+<p><a href="http://www.geekinterview.com/question_details/66703">http://www.geekinterview.com/question_details/66703</a></p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/c-dangling-pointer-sorunu';
+    var disqus_title      = "C Dangling Pointer Sorunu";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

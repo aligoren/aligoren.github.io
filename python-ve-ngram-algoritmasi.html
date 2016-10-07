@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Python ve NGram Algoritması &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, Python">
+    <link rel="canonical" href="https://aligoren.com/python-ve-ngram-algoritmasi">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Python ve NGram Algoritması">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/python-ve-ngram-algoritmasi">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="Python ve NGram Algoritması" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/python-ve-ngram-algoritmasi" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Python ve NGram Algoritması</h1>
+  <span class="post-meta">Apr 13, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    1 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Bu yazıyı yazmadan önce google’da sayısızca arama yapıyordum. Beni çıldırtan bir olay oldu. Şimdi aradığım şey örneğin <strong>ahmet</strong> tamam iyi hoş arıyorsun da. Gelip bana neden “Bunu mu denemek istediniz?” şeklinde soru soruyorsun. Neyse önerdiği şeye tıklıyorum. Hobaa. Eski yazdığımı öneriyor bu sefer.</p>
+
+<p>Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki google? Pek de bildiği söylenemez :P. Bu yazıda anlatmaya çalışacağım NGram tarzı bir algoritma kullandıkları kesin. Bakarsınız onlar tam da bunu kullanıyorlardır.</p>
+
+<p>Bu işlem temelde “ali yanlış söyler, ahmet düzeltir” mantığına dayalı. Bunu gündelik hayatta yapmak, programlamada yapmaya göre daha basit. O yüzden bizim için bunu basitleştirecek olan <a href="https://pypi.python.org/pypi/ngram">ngram</a> kütüphanesini kullanabiliriz.</p>
+
+<p>#NGram Kütüphanesi Kurulumu</p>
+
+<p>Kurulum basit şekilde</p>
+
+<p><code class="highlighter-rouge">pip install ngram</code></p>
+
+<p>komutu ile yapılıyor. İlk basit örneğimize geçelim:</p>
+
+<p>Öncelikle ngram’ı import edelim:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">ngram</span> <span class="kn">import</span> <span class="n">NGram</span>
+</code></pre>
+</div>
+
+<p>Bu işlemi yaptıktan sonra ngram içerisine bir dizi değeri atamamız lazım. Örneğin programlama dillerinin kontrolünün yapılmasını istiyoruz:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">prog_dilleri</span> <span class="o">=</span> <span class="p">[</span><span class="s">"php"</span><span class="p">,</span> <span class="s">"python"</span><span class="p">,</span> <span class="s">"csharp"</span><span class="p">,</span> <span class="s">"cpp"</span><span class="p">,</span>
+                <span class="s">"ruby"</span><span class="p">,</span> <span class="s">"java"</span><span class="p">,</span> <span class="s">"haskell"</span><span class="p">,</span> <span class="s">"erlang"</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>Bu dillerin girili olması lazım. Burada yaptığımız şey <strong>harf bigramı</strong> oluyor. Pekala öyleyse o zaman bu dilleri NGram ağacına ekleyelim. Yani aslında NGram nesnesine gönderiyoruz:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="n">NGram</span><span class="p">(</span><span class="n">prog_dilleri</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Çok basit şekilde ilerliyoruz. Dizi değerlerimiz artık NGram ağacına takılı durumda. Artık burada kendimize göre işlemler yapabiliriz. Bu işlemlerden birisi ise tahmin ettiğimiz gibi diller arasında arama yapmak ve en yakın olanını bulmak. O zaman bunu yapan bi metod oluşturalım.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">arama</span><span class="p">(</span><span class="n">ara</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ara</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Sonuç:"</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<p>Evet burada bakmamız gereken kısım <code class="highlighter-rouge">v.search()</code> kısmı. search işlevi ilk argümanda kullanıcının atadığı değeri alır. Bu değer, daha önceden girili olan değerlere benzer mi değil mi kontrolü yapılır. Yani Örneğin <strong>prog_dilleri</strong> dizisindeki python ile payton ne kadar benzer şeklinde sorar. Gelelim <code class="highlighter-rouge">threshold</code> değerine. Bu değer girilen değerin, veritabanında yani NGram ağacındaki benzerine olan yakınlık durumunu sorgular. Bu yakınlık eşiğini kontrol için vardır. Genel itibariyle programımızın kodları şöyle:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">ngram</span> <span class="kn">import</span> <span class="n">NGram</span>
+
+<span class="n">prog_dilleri</span> <span class="o">=</span> <span class="p">[</span><span class="s">"php"</span><span class="p">,</span> <span class="s">"python"</span><span class="p">,</span> <span class="s">"csharp"</span><span class="p">,</span> <span class="s">"cpp"</span><span class="p">,</span>
+                <span class="s">"ruby"</span><span class="p">,</span> <span class="s">"java"</span><span class="p">,</span> <span class="s">"haskell"</span><span class="p">,</span> <span class="s">"erlang"</span><span class="p">]</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">NGram</span><span class="p">(</span><span class="n">prog_dilleri</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">aramaYap</span><span class="p">(</span><span class="n">ara</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ara</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Önerilen:"</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"-- Yakınlık:"</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">aramaYap</span><span class="p">(</span><span class="s">"payton"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Programımızı çalıştırınca şöyle oluyor:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Önerilen: python -- Yakınlık: 0.23076923076923078
+</code></pre>
+</div>
+
+<p>Evet bu kadardı arkadaşlar. İsterseniz NGram dokümanlarına <a href="https://pythonhosted.org/ngram/ngram.html">buradan</a> ulaşabilirsiniz.</p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/python-ve-ngram-algoritmasi';
+    var disqus_title      = "Python ve NGram Algoritması";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

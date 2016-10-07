@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SQL Server'da Filtreli Arama Gerceklestirme &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, SQL">
+    <link rel="canonical" href="https://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SQL Server'da Filtreli Arama Gerceklestirme">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="SQL Server'da Filtreli Arama Gerceklestirme" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>SQL Server'da Filtreli Arama Gerceklestirme</h1>
+  <span class="post-meta">Aug 3, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    2 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Merhaba. Karmaşık bir arama işleminiz olabilir. Örneğin basit bir uygulama ile olaya bakalım:</p>
+
+<p>Varsayalım ki InsanKaynaklari adında bir tablonuz bulunmakta. Bu tablo üzerinde bazı aramalar gerçekleştirmek istiyorsunuz. Örneğin bu aramalar</p>
+
+<p>Doğum Tarihi, Doğum Yeri, Cinsiyet, Medeni Durum, Maaş, Eğitim Düzeyi, Mesleki Belge ya da Meslek şeklinde olabilir. Normalde bir aramada tek şekilde şöyle bakabilirdik</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">InsanKaynaklari</span> <span class="k">as</span> <span class="n">Ik</span>
+<span class="k">WHERE</span> <span class="n">Ik</span><span class="p">.</span><span class="n">MedeniDurum</span><span class="o">=</span><span class="s1">'Bekar'</span> <span class="k">AND</span> <span class="n">Ik</span><span class="p">.</span><span class="n">Cinsiyet</span><span class="o">=</span><span class="s1">'Erkek'</span>
+</code></pre>
+</div>
+
+<p>Bu sorgu ilk başlangıç olarak işimizi görüyor olabilir. Ancak bazı durumlarda sorgularımız sadece iki tane ile sınırlı kalmayabilir ve işin ilginç noktası bu sorguları örneğin C# tarafında gerçekleştiriyor olabiliriz. 6-7 adet textBox içinden sadece 3 tanesinin dolu olduğunu, diğerlerinin NULL gönderildiğini düşünün.</p>
+
+<p>Bu gibi durumlar için bir Stored Procedure oluşturabiliriz. Bir Stored Procedure oluşturma aşamasını bildiğimizi varsayarak basit olarak bir SP oluşturalım. Örneğin:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">PersonelAra</span>
+	<span class="o">@</span><span class="n">dtarih</span> <span class="n">date</span><span class="p">,</span>
+	<span class="o">@</span><span class="n">dyeri</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">cinsiyet</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">mdurum</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">maas</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="c1">-- bilinçli money yapmadım</span>
+	<span class="o">@</span><span class="n">eduzey</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">mbelge</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">meslek</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+ 
+<span class="k">END</span>
+</code></pre>
+</div>
+
+<p>şeklinde bir hayali SP oluşturdum. Bu işlemde WHERE harici belki bize yabancı gelen bir method göreceğiz. COALESCE methodu. Bu metoda bakarsak eğer sınırsız sayıda parametre alabiliyor. Yaptığı işlemse ilk olarak NULL olmayan değeri geri döndürmektir. Eğer değer NULL ise zaten bu değeri geri döndürecektir.</p>
+
+<p>Çalışma mantığına bakacak olursak öyle işlemektedir. Varsayalım ki WHERE kontrolü gerçekleştiriyoruz:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">WHERE</span> <span class="n">kolonAdi</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">spDegiskeni</span><span class="p">,</span> <span class="n">kolonAdi</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>şeklinde bir kontrol ile null ya da null olmayan tüm değerleri listeletebiliriz. Bu bilgilere bakarak o zaman ben diyebilirim ki gelen her değişkeni COALESCE ile işletip null olmayan bir değer döndürebilirim. Eğer NULL ise yine gelecek diyebilirim.</p>
+
+<p>Örneğin yukarıda oluşturduğumuz SP içinden devam edelim:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">isim</span><span class="p">,</span> <span class="n">soyisim</span><span class="p">,</span> <span class="k">FROM</span> <span class="n">InsanKanaklari</span> <span class="k">as</span> <span class="n">Ik</span>
+    <span class="k">WHERE</span> <span class="p">(</span>
+        <span class="n">ik</span><span class="p">.</span><span class="n">dogumtarihi</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">dtarih</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumtarihi</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumyeri</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">dyeri</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumyeri</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">cinsiyet</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">cinsiyet</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">cinsiyet</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">medenidurum</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">mdurum</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">medenidurum</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">maas</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">maas</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">maas</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">egitimduzeyi</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">eduzey</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">egitimduzeyi</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslekibelge</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">mbelge</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslekibelge</span><span class="p">)</span>
+        <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslek</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">meslek</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslek</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Burada öncelikle WHERE şartını gerçekleştirdik. Daha sonra ise WHERE şartında kolonun değerini, COALESCE işlemi ile karşılaştırıp değerleri getirebiliyoruz. COALESCE metodu ilk parametresinde sorgulanacak değeri, ikinci parametresinde de tablo kolonunu aldı. Bunu görerek filtreli sorgulama gerçekleştirebiliriz.</p>
+
+<p>Son adımda SP şöyle oluyor:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">PersonelAra</span>
+	<span class="o">@</span><span class="n">dtarih</span> <span class="n">date</span><span class="p">,</span>
+	<span class="o">@</span><span class="n">dyeri</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">cinsiyet</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">mdurum</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">maas</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="c1">-- bilinçli money yapmadım</span>
+	<span class="o">@</span><span class="n">eduzey</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">mbelge</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+	<span class="o">@</span><span class="n">meslek</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+    <span class="k">SELECT</span> <span class="n">isim</span><span class="p">,</span> <span class="n">soyisim</span><span class="p">,</span> <span class="k">FROM</span> <span class="n">InsanKanaklari</span> <span class="k">as</span> <span class="n">Ik</span>
+        <span class="k">WHERE</span> <span class="p">(</span>
+            <span class="n">ik</span><span class="p">.</span><span class="n">dogumtarihi</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">dtarih</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumtarihi</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumyeri</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">dyeri</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">dogumyeri</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">cinsiyet</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">cinsiyet</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">cinsiyet</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">medenidurum</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">mdurum</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">medenidurum</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">maas</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">maas</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">maas</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">egitimduzeyi</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">eduzey</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">egitimduzeyi</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslekibelge</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">mbelge</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslekibelge</span><span class="p">)</span>
+            <span class="k">AND</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslek</span><span class="o">=</span><span class="n">COALESCE</span><span class="p">(</span><span class="o">@</span><span class="n">meslek</span><span class="p">,</span> <span class="n">ik</span><span class="p">.</span><span class="n">meslek</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">END</span>
+</code></pre>
+</div>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/sql-serverda-filtreli-arama-gerceklestirme';
+    var disqus_title      = "SQL Server'da Filtreli Arama Gerceklestirme";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

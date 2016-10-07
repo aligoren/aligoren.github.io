@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OpenSUSE 42.1 LAMP Kurulumu &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Linux">
+    <link rel="canonical" href="https://aligoren.com/opensuse-421-lamp-kurulumu">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="OpenSUSE 42.1 LAMP Kurulumu">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/opensuse-421-lamp-kurulumu">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="OpenSUSE 42.1 LAMP Kurulumu" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/opensuse-421-lamp-kurulumu" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>OpenSUSE 42.1 LAMP Kurulumu</h1>
+  <span class="post-meta">Nov 29, 2015</span><br>
+  
+  <span class="post-meta small">
+  
+    4 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Bilmiyorsanız söyleyeyim LAMP, Linux, Apache, MySQL ve PHP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım. Sırasıyla Adımlar:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1- Apache Kurulumu
+
+2- MariaDB Kurulumu
+
+3- PHP Kurulumu
+</code></pre>
+</div>
+
+<p>İlk sıraya Linux koymaya gerek yok biliyorsunuz :). Başlayalım o zaman.</p>
+
+<h1 id="apache-kurulumu">Apache Kurulumu</h1>
+
+<p>Apache, çoklu platformda çalışabilen web server’dır. İçerisinde CGI, SSL ve sanal alan adlarının da desteklendiği çoğu özellik bulunmaktadır. <!--TEASER_END--> Öncelikle Apache kurmak için Uçbirim’i açarak şu komutları girin:</p>
+
+<p><code class="highlighter-rouge">sudo zypper in apache2</code></p>
+
+<p>Bu komut apache2 kurulumunu yapacaktır. Daha sonra apache2’nin her başlangıçta otomatik olarak başlaması için şu iki komutu gireceğiz:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl start apache2
+
+sudo systemctl enable apache2
+</code></pre>
+</div>
+
+<p>Artık apache2 başlamış durumda ve aktif durumda. Varsayılan sunucu erişimi localhost tarafından sağlanmakta. Eğer uzak bir makineden erişime açık olmasını istiyorsanız güvenlik duvarınız ya da yönlendiricinize varsayılan port 80 olarak belirtebilirsiniz. Bunu OpenSUSE ile şöyle yaparız:</p>
+
+<p><code class="highlighter-rouge">sudo nano /etc/sysconfig/SuSEfirewall2</code></p>
+
+<p>Eğer nano yoksa komut satırına cnf nano yazarak nasıl kurulacağını görebilirsiniz.</p>
+
+<p>Açılan kısımda CTRL+W yaparak arama yapacaksınız. Arama kısmında FW_CONFIGURATIONS_EXT yazarak arayın. İlk çıkan sonuç yorum satırı içerisindedir. Tekrar CTRL+W yapın ve enter’a basın. Karşınıza şöyle bir sonuç çıkacaktır:</p>
+
+<p><code class="highlighter-rouge">FW_CONFIGURATIONS_EXT = ""</code></p>
+
+<p>Bu kısımdaki tırnaklar arasına apache2 yazın yani:</p>
+
+<p><code class="highlighter-rouge">FW_CONFIGURATIONS_EXT = "apache2"</code></p>
+
+<p>olarak ayarlamanız gerekmekte. Daha sonra CTRL+X yaparak kaydedin. Karşınıza öncelikle dosya adı geliyordu sanıyorum burada direkt enter diyin. Sonraki adımda kaydetmek isteyip istemediğinizi soruyor. Türkçe ise E olarak isteyebilir. İngilizce ise Y olarak cevaplayın. Daha sonra firewall yeniden başlatılmalı:</p>
+
+<p><code class="highlighter-rouge">sudo systemctl restart SuSEfirewall2</code></p>
+
+<h1 id="apache-test-lemi">Apache Test İşlemi:</h1>
+
+<p>Apache’yi test etmek için bir dosya oluşturalım. Bu dosyayı oluşturacağınız yol /srv/www/htdocs/ şeklinde olacaktır. Biz henüz PHP kurmadık basit olarak bir HTML dosyası oluşturalım:</p>
+
+<p><code class="highlighter-rouge">sudo nano /srv/www/htdocs/index.html</code></p>
+
+<p>İçerisine herhangi bir şey yazabilirsiniz ve kaydedip çıkın. Daha sonra tarayıcıdan http://localhost adresini açın. Eğer her şeyi doğru yaptıysanız oluşturduğunuz HTML dosyasının içeriğini göreceksiniz.</p>
+
+<h1 id="mariadb-kurulumu">MariaDB Kurulumu</h1>
+
+<p>MariaDB, MySQL’in forklanmış bir sürümüdür. Dinamik kolon gibi özelliklere sahiptir. O zaman kurulum için uçbirim’e şu komutu girelim:</p>
+
+<p><code class="highlighter-rouge">sudo zypper in mariadb</code></p>
+
+<p>Artık kurulum yapıldı. Şimdi MariaDB yani MySQL her başlangıçta başlasın istiyoruz. Aynı apache2 için yaptığımız gibi MySQL için de systemctl kullanacağız.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl start mysql
+
+sudo systemctl enable mysql
+</code></pre>
+</div>
+
+<h1 id="mysql-root-parolasn-ayarlama">MySQL root Parolasını Ayarlama</h1>
+
+<p>MySQL root parolası varsayılan olarak boş gelir. Ancak bazı durumlarda yetkisiz erişimi engellemek isteyebilirsiniz. Bu durumda MySQL’i root parolası ile korursunuz. Bunun için konsol’a</p>
+
+<p><code class="highlighter-rouge">mysql_secure_installation</code></p>
+
+<p>komutunu verelim. Karşımıza dolusuna yazı gelecek. Burada size bir soru soracak.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>“Set root password? [Y/n]”
+</code></pre>
+</div>
+
+<p>Bu kısım root parolası ayarlamak ister misiniz diyor. Y tuşuna basın. Parolanızı iki defa gireceksiniz. Her iki defasında da girmiyor gibi görünebilirsiniz. Parola gizli olarak giriliyor.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>“Remove anonymous users? [Y/n]”
+</code></pre>
+</div>
+
+<p>Anonim kullanıcıları silmek ister misiniz diyor. Eğer silmek isterseniz Y tuşuna basın.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>“Disallow root login remotely [Y/n]”
+</code></pre>
+</div>
+
+<p>Bu kısımda uzak root erişimini kısıtlayın diyor. Buna Y diyoruz.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>“Reload privilege tables now [Y/n]”
+</code></pre>
+</div>
+
+<p>Tabloları baştan oluşturmak isteyip istemediğinizi soruyor. Bu kısımda da Y diyoruz. MySQL ayarlarımızı tamamladık.
+PHP Kurulumu</p>
+
+<p>Her şeyi kurduk. Artık PHP kurulumunu yapmamız gerekiyor. Komut satırına şu komutları girelim:</p>
+
+<p><code class="highlighter-rouge">sudo zypper in php5 php5-mysql apache2-mod_php5</code></p>
+
+<p>Çok fazla uzun sürmeyecek bir kurulumla bir sonraki adıma geçelim. Yani mod-php aktif olmalı. Bunun için şu komutları çalıştırıyoruz:</p>
+
+<p><code class="highlighter-rouge">sudo a2enmod php5</code></p>
+
+<h1 id="phpyi-test-edelim">PHP’yi Test Edelim:</h1>
+
+<p>Basit olarak php bilgilerini veren bir PHP dosyası oluşturalım:</p>
+
+<p><code class="highlighter-rouge">sudo nano /srv/www/htdocs/info.php</code></p>
+
+<p>Bu dosyanın içine</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="nb">phpinfo</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+</div>
+<p>kodlarını ekleyelim, kaydedip çıkalım. Daha sonra apache2’yi yeniden başlatalım:</p>
+
+<p><code class="highlighter-rouge">sudo systemctl restart apache2</code></p>
+
+<p>Daha sonra PHP bilgilerinin olduğu dosyayı çalıştıralım:</p>
+
+<p><a href="http://localhost/info.php">http://localhost/info.php</a></p>
+
+<p>adresinde düzgünce görüntüleme işlemini yaptıysanız sıkıntı yok. Eğer tüm php modüllerini kurmak istiyorsanız konsoldan şu komutu giriniz:</p>
+
+<p><code class="highlighter-rouge">sudo zypper in php*</code></p>
+
+<p>Daha sonra eğer geliştirme amaçlı çalışıyorsanız, çalışırken hataları görmek amacıyla bunları aktif etmelisiniz. Bu hataların yönetimini display_errors’da saklı. Varsayılan değer Off olarak geliyor. Aktif etmek için konsoldan şu komutu çalıştıralım:</p>
+
+<p><code class="highlighter-rouge">sudo nano /etc/php5/apache2/php.ini</code></p>
+
+<p>Daha sonra <code class="highlighter-rouge">display_errors = Off</code> şeklinde aratıp bu kısmı <code class="highlighter-rouge">display_errors = On</code> olarak değiştiriyoruz. Kaydedip çıkalım.</p>
+
+<p>Tüm bunlardan sonra “permission denied” hatası almamak için chmod 777 yapmalıyız. Bu sayede “/srv/www/htdocs” ve altındaki dizinlere 777 iznini vermiş olacağız. Komut satırından şu komutu çalıştıralım:</p>
+
+<p><code class="highlighter-rouge">chmod 777 /srv/www/htdocs</code></p>
+
+<h1 id="phpmyadmin-kurulumu">phpMyAdmin Kurulumu</h1>
+
+<p>MySQL’i komut satırından kontrol etmek istemiyorsanız phpMyAdmin sizin için harika bir araç. Web arayüzü ile MySQL veritabanlarınızı yönetebilirsiniz. Kurulum için komut satırına şu komutu girelim:</p>
+
+<p><code class="highlighter-rouge">sudo zypper in phpmyadmin</code></p>
+
+<p>Eğer parola oluşturmanızı falan isterse MySQL için oluşturduğunuz parolayı tekrarlayın. Daha sonra “php.ini” düzenlemek için komut satırına şu komutu yazın:</p>
+
+<p><code class="highlighter-rouge">sudo nano /etc/php5/apache2/php.ini</code></p>
+
+<p>php.ini dosyası açıldıktan sonra şunu aratın:</p>
+
+<p><code class="highlighter-rouge">extension=php_mbstring.dll</code></p>
+
+<p>Burası yorum satırı olarak görünüyor. Bu kısmı yorum satırı olmaktan kurtarın. Daha sonra apache2’yi yeniden başlatın:</p>
+
+<p><code class="highlighter-rouge">sudo systemctl restart apache2</code></p>
+
+<p>Artık phpMyAdmin’e erişim sağlayabilirsiniz:</p>
+
+<p><a href="http://localhost/phpMyAdmin">http://localhost/phpMyAdmin</a></p>
+
+<p>Evet kurulum bu kadar ve basit. İyi çalışmalar</p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/opensuse-421-lamp-kurulumu';
+    var disqus_title      = "OpenSUSE 42.1 LAMP Kurulumu";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

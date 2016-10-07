@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MSSQL'de Stored Procedure Kullanımı &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="Programlama,, SQL">
+    <link rel="canonical" href="https://aligoren.com/mssqlde-stored-procedure-kullanimi">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201610072323" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MSSQL'de Stored Procedure Kullanımı">
+    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta property="og:url" content="https://aligoren.com/mssqlde-stored-procedure-kullanimi">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="MSSQL'de Stored Procedure Kullanımı" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/mssqlde-stored-procedure-kullanimi" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    <a href="/fb-instant-articles.xml"></a>
+
+    <a href="/feed.xml"></a>
+
+    <a href="/hakkimda">Hakkımda</a>
+
+    <a href="/"></a>
+
+    <a href="/css/pixyll.css"></a>
+
+    <a href="/page2/"></a>
+
+    <a href="/page3/"></a>
+
+    <a href="/page4/"></a>
+
+    <a href="/page5/"></a>
+
+    <a href="/page6/"></a>
+
+    <a href="/page7/"></a>
+
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>MSSQL'de Stored Procedure Kullanımı</h1>
+  <span class="post-meta">Oct 3, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    2 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Daha önceleri çok fazla veritabanı kullanan işlemler yapmadım. O yüzden şu sıralar pek yeniyim. Öğrenme aşamaları hızlıca gelişiyor.</p>
+
+<p>Stored Procedure dediğimiz şey ise veritabanında tutulan ve ilk çalışma derlenen daha sonraları tekrar derlenmeye ihtiyaç duyulmayan SQL ifadeleridir. Yani bir Stored Procedure oluşturursanız tekrar aynı isimde Stored Procedure’ü aynı veritabanı için oluşturamıyorsunuz.</p>
+
+<p>Bu gibi durumlarda oluşturduğunuz Stored Procedure’ü Modify etmeniz gerekiyor ki bu da ALTER komutu ile birlikte oluyor. Stored Procedure’lerin belli başlı avantajları vardır.</p>
+
+<p>Bu avantajlardan en önemlisi kuşkusuz hızlı çalışmalarıdır. Bunun sebebi ise oluşturulan Stored Procedure bir kere derlendikten sonra tekrar tekrar derlemenize gerek kalmaz. O zaman buradan Stored Procedure’lerin veritabanı tarafında saklandığını anlayabiliriz.</p>
+
+<p>Eğer uygulama katmanında çalışıyor olsaydık tek bir sorgu tekrar tekrar derlenmelidir ki bu da büyük sistemlerde büyük bir sorun haline gelebilir. Tabii ki zaman kaybı anlamına da geliyor. Yanlış anlaşılmasın C# tarafında SQL kodu yazıp, INSERT ettirmekle burada yazıp ettirmek mantık olarak pek farklı değil.</p>
+
+<p>Ama olur da uygulama katmanında kullanmanız gerekiyordur size daha rahat bir geliştirme şansı sunar ki şöyle düşünün 20 satırlık SQL sorgunuz var ve siz bunu Entity Framework kullanarak geliştirmiyorsunuz. Her sorgunun 20 satır sürdüğünü hayal edersek sanırım Database Provider baya bir şişecektir. Stored Procedure kullanmak bunun da önüne geçebilir.</p>
+
+<p>Bir diğer avantaj ise benim geçenlerde kullandığım özellikleri kullandırması yani T-SQL komutlarını kullanabiliyorsunuz ve if-else gibi while gibi işlemleri de gerçekleştirebiliyorsunuz.</p>
+
+<p>Eğer birisi veritabanınıza erişim imkanına sahipse yapacak bir şey yok ama veritabanı erişimine sahip olmayıp bir şekilde uygulama katmanındaki kodlara erişimi olan kişiler sadece Stored Procedure ve o Procedure’ün aldığı parametreleri göreceği için güvenlik anlamında da avantaj sağlar.</p>
+
+<p>Peki nasıl kullanabiliriz dediğinizi biliyorum. Aslında bir Stored Procedure çok zor da değil. Parametre alan ya da almayan olarak türleri vardır ve RETURN komutunu da kullanabilirsiniz. Basit olarak parametre alamayan bir Stored Procedure şöyle oluşturulur:</p>
+
+<p>CREATE PROC ProcedureAdi şeklinde ya da CREATE PROCEDURE ProcedureAdi şeklinde olabilir. Ben genellikle PROC kullanıyorum. Şimdi parametre almayan ve sadece SELECT sorgusunu döndüren bir PROC yazalım:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetUsers</span>
+<span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span>
+</code></pre>
+</div>
+
+<p>Evet parametre almayan basit olan bir Procedure yazdık bile. Bu Procedure bize kullanıcıları listelemede yardımcı olacaktır. Hmm nasıl çağırıldığını yazmadık:/</p>
+
+<p>EXEC komutunu kullanarak çalıştırma işlemini yaparız. Eğer Procedure parametre almıyorsa basit şöyledir:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetUsers</span>
+</code></pre>
+</div>
+
+<p>Peki tamam parametreli olanlar nasıl? Herhangi bir programlama dilinde method oluşturduğunuzu düşünün ve bu metodların parametre aldığını düşünün. Aynı şekilde Procedure’ler de parametreleri böyle alırlar. Tek farkı ise parantezler içerisinde parametreler almak yerine normal şekilde almak:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetUsers</span> <span class="s1">'Ali'</span>
+</code></pre>
+</div>
+
+<p>Buradaki senaryo şöyle:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span><span class="o">=</span><span class="s1">'Ali'</span>
+</code></pre>
+</div>
+
+<p>Bunu Stored Procedure ile şöyle yapabiliriz.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetSpesificUser</span>
+	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span><span class="o">=@</span><span class="n">UserName</span>
+ 
+<span class="k">EXEC</span> <span class="n">GetSpesificUser</span> <span class="s1">'Ali'</span>
+</code></pre>
+</div>
+
+<p>Eğer birden fazla parametre alacaksa da virgülle belirtilmeli.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetSpesificUserWithID</span>
+	<span class="o">@</span><span class="n">ID</span> <span class="n">int</span><span class="p">,</span>
+	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">=@</span><span class="n">ID</span> <span class="k">and</span> <span class="n">Name</span><span class="o">=@</span><span class="n">UserName</span>
+</code></pre>
+</div>
+
+<p>Tabii bu Stored Procedure çalıştırılırken de alacağı parametre sırasına göre parametreleri, aldığı türe göre Stored Procedure’e yollamalıyız. Örnek:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetSpesificUserWithID</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'Ali
+</span></code></pre>
+</div>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/mssqlde-stored-procedure-kullanimi';
+    var disqus_title      = "MSSQL'de Stored Procedure Kullanımı";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>
