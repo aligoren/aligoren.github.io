@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OpenSUSE PHP7 XDebug Kurulumu &#8211; Ali GÖREN...</title>
+    <title>Bugün Öğrendiklerim - Git &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Linux,, PHP">
-    <link rel="canonical" href="https://aligoren.com/opensuse-php7-xdebug-kurulumu">
+    <meta name="keywords" content="Kişisel,, Git">
+    <link rel="canonical" href="https://aligoren.com/bugun-ogrendiklerim">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -39,9 +39,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="OpenSUSE PHP7 XDebug Kurulumu">
+    <meta property="og:title" content="Bugün Öğrendiklerim - Git">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/opensuse-php7-xdebug-kurulumu">
+    <meta property="og:url" content="https://aligoren.com/bugun-ogrendiklerim">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -49,9 +49,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="OpenSUSE PHP7 XDebug Kurulumu" />
+    <meta name="twitter:title" content="Bugün Öğrendiklerim - Git" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/opensuse-php7-xdebug-kurulumu" />
+    <meta name="twitter:url" content="https://aligoren.com/bugun-ogrendiklerim" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -159,68 +159,94 @@
 
 
 <div class="post-header mb2">
-  <h1>OpenSUSE PHP7 XDebug Kurulumu</h1>
-  <span class="post-meta">Feb 18, 2016</span><br>
+  <h1>Bugün Öğrendiklerim - Git</h1>
+  <span class="post-meta">Oct 10, 2016</span><br>
   
   <span class="post-meta small">
   
-    1 Dakikada Okunabilir
+    2 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>PHP7 çıkalı baya oluyor. XDebug geliştiriciler için hata ayıklama aracı. Gerçekten çok faydalı bir araç. Bu aracı PHP7 için OpenSuSe’a kurmaya çalışırsanız depolarında bulamıyorsunuz. Depolarda php5-xdebug bulunmakta. Fazla uzatmadan konuya gireyim can sıkıcı bir makale olmasın.</p>
+  <p>Bugün enteresan bir şekilde güzel şeyler öğrendim. Aslında dün de öğrendim. Github’ı sadece ve sadece master’a dosya push etmek adına kullanan birisi olarak şimdilerde branch ne kadar da gerekli der oldum. Bu yazıda özellikle branchleri anlatmak isterim. Çünkü master ve branchler gerçekten çok önemli şeyler.</p>
 
-<p>XDebug kurmak için öncelikle PHP7 Devel gerekiyor. PHP7 Devel kurulumunu uçbirimden zypper yardımı ile kuralım. <!--TEASER_END--></p>
+<p><strong>Yeni Bir Git Reposu:</strong></p>
 
-<p><code class="highlighter-rouge">sudo zypper install php7-devel</code></p>
+<p>Bulunduğunuz dizini içereceğini bilerek <code class="highlighter-rouge">git init</code> komutunu vermeniz yeterlidir.</p>
 
-<p>Daha sonra ise xdebug sitesinden son sürümü indirelim (Bu yazıyı yazarken en son 2.4.0 RC4 Sürümü Vardı):</p>
+<p><strong>Uzak Git Reposunu Clonelamak</strong></p>
 
-<p><code class="highlighter-rouge">wget http://xdebug.org/files/xdebug-2.4.0rc4.tgz</code></p>
+<p>Bu en çok ihtiyaç duyduğumuz şeylerden birisi olabilir. Farklı amaçlarla bunu yaparız. Çoğu zaman dosyaları direkt indirebiliriz. Ancak neden tarayıcıyı açalım ki? Tabii bir de projelere katkıda bulunmak da var. Neyse bu işlem şöyle oluyor:</p>
 
-<p>Evet wget yardımı ile indirme işlemini yaptıktan sonra arşivi açalım:</p>
+<p><code class="highlighter-rouge">git clone https://uzak-git-deposu</code></p>
 
-<p><code class="highlighter-rouge">tar -xzf xdebug-2.4.0rc4.tgz</code></p>
+<p>Şaka değil bu kadar basit.</p>
 
-<p>Arşivi açtıktan sonra klasörün içerisine gidelim:</p>
+<p><strong>Dosya Ekleme</strong></p>
 
-<p><code class="highlighter-rouge">cd xdebug-2.4.0RC4/</code></p>
+<p>Yapılan çalışmaların artık ortak çalışma alanına aktarılması gerekmektedir. Öncelikle dosyaların eklenmesi şarttır. İki yöntem var.</p>
 
-<p>Klasöre girdikten sonra aşağıdaki komutları sırasıyla veriyoruz:</p>
+<p><em>Tamamını Ekleme:</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>phpize
-./configure --enable-xdebug
-make
-sudo cp modules/xdebug.so /usr/lib/.
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">git add *</code></p>
 
-<p>Burada phpize derleme aracıdır. Geri kalanı ise derleme işlemi. En son olarak da cp ile oluşturulan kütüphane dosyasını lib klasörüne taşıyoruz. Tüm bu işlemler bittikten sonra php7 içerisindeki conf.d klasörüne gidiyoruz. Ve orada 20-xdebug.ini adında bir dosya oluşturuyoruz.</p>
+<p><em>Spesifik Dosyalar Ekleme:</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /etc/php7/conf.d
-sudo nano 20-xdebug.ini
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">git add main.rb lib.rb file.rb</code></p>
 
-<p>Evet xdebug ini dosyasını oluşturduk. Şimdi sıra içerisine ekleyeceğimiz ayar stringlerinde. Yukarıda nano ile dosyayı açtığımızı varsayıyorum kapatmayın yani henüz oluşmadı aslında ama kaydedince oluşacak :) Sonra şu aşağıdaki stringleri ekliyoruz.</p>
+<p>Yöntemlerden dilediğinizi seçebilirsiniz ki bu size kalmış bir şey.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>zend_extension=/usr/lib/xdebug.so
-xdebug.remote_enable=1
-</code></pre>
-</div>
+<p><strong>Eklenen Dosyalara Mesaj Eklemek</strong></p>
 
-<p>Sonunda işlemler tamamlandı artık apache ya da nginx ne kullanıyorsanız onu yeniden başlatabilirsiniz. Nginx kullananlar aynı işlemi fpm klasöründeki conf.d için de yapabilirler. Yükleme işleminin kontrol için konsoldan php -v komutunu verin.</p>
+<p>Bu yöntemle hangi dosyalar çalışmada etkilenmiş yani değişikliğe uğramışsa o dosyalar bu mesajla repoya gönderilir. Örneğin şöyle düşünelim, info.py dosyasında bir değişiklik yaptınız. Bu değişiklik Person adında yeni bir class’ın eklenmesi olabilir. O zaman commit’e şu işlemi yapabilirsiniz:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>PHP 7.0.3 (cli) ( NTS )
-Copyright (c) 1997-2016 The PHP Group
-Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
-   with Xdebug v2.4.0RC4, Copyright (c) 2002-2016, by Derick Rethans
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">git commit -am "Add person class"</code></p>
 
-<p>Eğer çıktı yukarıdaki gibi ise yani with Xdebug yazısını görüyorsanız kurulum başarılı olmuştur. Bu kadar</p>
+<p><strong>Değişiklikleri Yayına Almak</strong></p>
+
+<p>En önemli mevzu bu bence. Herkesin katkı yaptığı bir projeye localden katkı yapmanız bir şeyi değiştirmez. Önemli olan bu katkının asıl repoya &amp; sizin kendi reponuza aktarılmasıdır. Eğer reponuz yeni ise varsayılan olarak <code class="highlighter-rouge">master</code> isimli branch’e sahipsinizdir. Bu arada branch dal ya da dallanmak demekmiş. Neyse değişiklikleri yayına almak yani uzak repoda göstermek için şu komutlar işimizi görebilir:</p>
+
+<p><code class="highlighter-rouge">git push origin master</code></p>
+
+<p>Mümkün olduğunca master branch rahatsız edilmemeli. Oraya publish edilen yapı aktarılmalı. Geliştirme aşamalarında kullanılan kalabalık dosyalar başka branchlerde yer almalı.</p>
+
+<p><strong>Hangi Branch’e Bağlıyım?</strong></p>
+
+<p>Bu da önemlidir. Olur da farklı bir branch’te çalışırsınız aman diyim. Bunun için <code class="highlighter-rouge">git branch</code> komutu yeterlidir. Bu komutla şu anda hangi branch’te çalıştığınızı görebilirsiniz.</p>
+
+<p><strong>Yeni Branch Oluşturma</strong></p>
+
+<p>Bu işlem sanırım en zevkli işlem. Basit bir komutla <code class="highlighter-rouge">dev</code> isimli yeni branch oluşturabilirsiniz:</p>
+
+<p><code class="highlighter-rouge"> git checkout -b dev</code></p>
+
+<p><strong>Branchler Arasında Dolaşma</strong></p>
+
+<p>Eğer yapacağınız değişiklikler belirli bir branchte yayınlanacaksa o branch’e geçiş yapmanız gerekiyor. Bunun için de işlem yine çok basit. Örneğin şu anda master branch’tesiniz ve dev isimli branch’e geçeceksiniz:</p>
+
+<p><code class="highlighter-rouge">git checkout dev</code></p>
+
+<p><strong>Oluşturulan Branch’i Yayınlamak</strong></p>
+
+<p>Eğer branch, uzak repoya gönderilmediyse o branch sizden başkası için görülebilir olmayacaktır. Branch’i yayınlama işlemini yukarıda oluşturduğumuz dev isimli branch’i baz alarak gerçekleştireceğiz.</p>
+
+<p><code class="highlighter-rouge">git push origin dev</code></p>
+
+<p>Artık branch’imiz yayında olacaktır.</p>
+
+<p><strong>Güncelleme</strong></p>
+
+<p>Siz bi uyudunuz falan sabah oldu işe gittiniz geldiniz o da ne bir sürü değişimler oldu. Ama bunlar bilgisayarınızda yok. Meraklanmayın. Basit bir komut işinizi görüyor:</p>
+
+<p><code class="highlighter-rouge">*git fetch &amp; git pull origin master</code></p>
+
+<p><strong>İşime Yarayan Komutlar:</strong></p>
+
+<p>Yapılan işlemlere dair logları <code class="highlighter-rouge">git log</code> yazarak alabiliyorum. Eğer yapılan değişikliklere dair bir durum alacaksam da <code class="highlighter-rouge">git status</code> yaparak eklenmemiş olanları görebilirim.</p>
+
+<p>Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.</p>
 
 </article>
 
@@ -243,8 +269,8 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/opensuse-php7-xdebug-kurulumu';
-    var disqus_title      = "OpenSUSE PHP7 XDebug Kurulumu";
+    var disqus_identifier = '/bugun-ogrendiklerim';
+    var disqus_title      = "Bugün Öğrendiklerim - Git";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

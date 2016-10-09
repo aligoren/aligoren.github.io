@@ -7,6 +7,91 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Bugün Öğrendiklerim - Git</title>
+        <description>&lt;p&gt;Bugün enteresan bir şekilde güzel şeyler öğrendim. Aslında dün de öğrendim. Github’ı sadece ve sadece master’a dosya push etmek adına kullanan birisi olarak şimdilerde branch ne kadar da gerekli der oldum. Bu yazıda özellikle branchleri anlatmak isterim. Çünkü master ve branchler gerçekten çok önemli şeyler.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Yeni Bir Git Reposu:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bulunduğunuz dizini içereceğini bilerek &lt;code class=&quot;highlighter-rouge&quot;&gt;git init&lt;/code&gt; komutunu vermeniz yeterlidir.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Uzak Git Reposunu Clonelamak&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu en çok ihtiyaç duyduğumuz şeylerden birisi olabilir. Farklı amaçlarla bunu yaparız. Çoğu zaman dosyaları direkt indirebiliriz. Ancak neden tarayıcıyı açalım ki? Tabii bir de projelere katkıda bulunmak da var. Neyse bu işlem şöyle oluyor:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://uzak-git-deposu&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Şaka değil bu kadar basit.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dosya Ekleme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yapılan çalışmaların artık ortak çalışma alanına aktarılması gerekmektedir. Öncelikle dosyaların eklenmesi şarttır. İki yöntem var.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Tamamını Ekleme:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add *&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Spesifik Dosyalar Ekleme:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add main.rb lib.rb file.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Yöntemlerden dilediğinizi seçebilirsiniz ki bu size kalmış bir şey.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eklenen Dosyalara Mesaj Eklemek&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu yöntemle hangi dosyalar çalışmada etkilenmiş yani değişikliğe uğramışsa o dosyalar bu mesajla repoya gönderilir. Örneğin şöyle düşünelim, info.py dosyasında bir değişiklik yaptınız. Bu değişiklik Person adında yeni bir class’ın eklenmesi olabilir. O zaman commit’e şu işlemi yapabilirsiniz:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -am &quot;Add person class&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Değişiklikleri Yayına Almak&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;En önemli mevzu bu bence. Herkesin katkı yaptığı bir projeye localden katkı yapmanız bir şeyi değiştirmez. Önemli olan bu katkının asıl repoya &amp;amp; sizin kendi reponuza aktarılmasıdır. Eğer reponuz yeni ise varsayılan olarak &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; isimli branch’e sahipsinizdir. Bu arada branch dal ya da dallanmak demekmiş. Neyse değişiklikleri yayına almak yani uzak repoda göstermek için şu komutlar işimizi görebilir:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Mümkün olduğunca master branch rahatsız edilmemeli. Oraya publish edilen yapı aktarılmalı. Geliştirme aşamalarında kullanılan kalabalık dosyalar başka branchlerde yer almalı.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hangi Branch’e Bağlıyım?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu da önemlidir. Olur da farklı bir branch’te çalışırsınız aman diyim. Bunun için &lt;code class=&quot;highlighter-rouge&quot;&gt;git branch&lt;/code&gt; komutu yeterlidir. Bu komutla şu anda hangi branch’te çalıştığınızı görebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Yeni Branch Oluşturma&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu işlem sanırım en zevkli işlem. Basit bir komutla &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; isimli yeni branch oluşturabilirsiniz:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; git checkout -b dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Branchler Arasında Dolaşma&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Eğer yapacağınız değişiklikler belirli bir branchte yayınlanacaksa o branch’e geçiş yapmanız gerekiyor. Bunun için de işlem yine çok basit. Örneğin şu anda master branch’tesiniz ve dev isimli branch’e geçeceksiniz:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Oluşturulan Branch’i Yayınlamak&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Eğer branch, uzak repoya gönderilmediyse o branch sizden başkası için görülebilir olmayacaktır. Branch’i yayınlama işlemini yukarıda oluşturduğumuz dev isimli branch’i baz alarak gerçekleştireceğiz.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Artık branch’imiz yayında olacaktır.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Güncelleme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Siz bi uyudunuz falan sabah oldu işe gittiniz geldiniz o da ne bir sürü değişimler oldu. Ama bunlar bilgisayarınızda yok. Meraklanmayın. Basit bir komut işinizi görüyor:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*git fetch &amp;amp; git pull origin master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;İşime Yarayan Komutlar:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yapılan işlemlere dair logları &lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt; yazarak alabiliyorum. Eğer yapılan değişikliklere dair bir durum alacaksam da &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; yaparak eklenmemiş olanları görebilirim.&lt;/p&gt;
+
+&lt;p&gt;Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 10 Oct 2016 00:08:00 +0300</pubDate>
+        <link>https://aligoren.com/bugun-ogrendiklerim</link>
+        <guid isPermaLink="true">https://aligoren.com/bugun-ogrendiklerim</guid>
+      </item>
+    
+      <item>
         <title>Türk Telekom ve Superonline Rezaleti</title>
         <description>&lt;p&gt;Bu yazıyı yayınlarken artık Türksat kullanıcısı olduğumu öncelikle belirtmek istiyorum. Kendilerine teşekkür etmek gerekebilir. Gerçekten de işlerini layıkıyla yapıyorlar.&lt;/p&gt;
 
@@ -1154,111 +1239,6 @@ AttributeError: can't set attribute
         <pubDate>Wed, 30 Mar 2016 22:26:00 +0300</pubDate>
         <link>https://aligoren.com/pythonda-struct-kullanimi</link>
         <guid isPermaLink="true">https://aligoren.com/pythonda-struct-kullanimi</guid>
-      </item>
-    
-      <item>
-        <title>The Flash</title>
-        <description>&lt;h3 id=&quot;diziyi-lk-defa-zleyecekler-in-en-fenasndan-spoiler-eren-ksmlar-var&quot;&gt;Diziyi İlk Defa İzleyecekler İçin En Fenasından Spoiler İçeren Kısımlar Var&lt;/h3&gt;
-
-&lt;p&gt;Son zamanlarda kendime aşırı vakit ayırıyorum öyle ki yazdığım kod sayısını satırla anlatacak olsaydım sanırım izlediğim dizi bölümünden daha az olurdu.&lt;/p&gt;
-
-&lt;p&gt;Bir süredir daha önceleri izlemediğim Fringe dizisi ile uğraştaydım. Tabi o diziyi izleyenler biliyordu nasıl bağımlılık yaratacağını. Bu sırada ayrıca Dr. Walter Bishop gibi bir dehayı arayacağımızı da biliyordu diziyi izleyenler.&lt;/p&gt;
-
-&lt;p&gt;Fringe dizisini bitirdim pişmanım aslında kısa sürede bitirdiğim için örneğin Olivia Dunham’ın FBI diye o kalın ses bağırışını özledim, Walter’ın kafası güzel ve çıplak dolaşmalarını da.&lt;/p&gt;
-
-&lt;p&gt;Neyse efenim bu özlem giderilsin diye &lt;strong&gt;walternatif&lt;/strong&gt; diziler arıyordum. Daha önceleri yani okula gelmeden önce Gebze’de sadece 15 dakika kadar gördüğüm The Flash dizisini izleme kararı aldım. Başlangıcında beni etkileyen dizileri daima izlemişimdir. Bunda da öyle oldu :)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/19.png&quot; alt=&quot;/images/posts/19.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Başladık diziye. Dizinin kahramanı bu görselde gördüğünüz abimiz. Kendisi Barry Allen dizideki adıyla. Kim canlandırıyor onu da bulun bi zahmet :P. Neyse bu Barry’nin küçükken Annesi öldürülüyor. Barry o esnada sadece bir şimşek görüyor. Sonraları fark edecek bunu. Bu şimşek iki ayrı renkte şimşek.&lt;/p&gt;
-
-&lt;p&gt;İşte annesinin ölümüne sebep olan şimşek bunlardan birisi. Ama Barry zaten bunu biliyor fakat yaşamadığı için hatırlamıyor. Nasıl mı demeyin o da dizinin bir kısmı. Şimdi bana spoiler verdirmeyin :P.&lt;/p&gt;
-
-&lt;p&gt;Barry’nin CCPD’de çalışması esnasında laboratuvar’a bir yıldırım düşer. Bu yıldırım &lt;strong&gt;S.T.A.R Labs&lt;/strong&gt;‘deki patlamadan dolayı meydana gelmiştir. Bu patlamada Barry haricinde sayısı bilinmemekte olan meta-insan adını verdikleri kişiler de ortaya çıkmıştır. Ve yine bu patlamaya sebep olan çalışmanın sahibi ise Dr. Harrison Wells.&lt;/p&gt;
-
-&lt;p&gt;Kendisini dizide çok farklı noktalarda göreceğiz. Ancak dizinin başında Barry’nin hayatını kurtaran kişi olarak tanıyoruz kendisini. Fakat dizi ilerledikçe bunun çok farklı olduğunu göreceğiz. Dr. Wells abimiz aşağıdaki kişi. Kendisi diziye özgü bir karakter. Çizgi romanda böyle bir karakterin olmadığı söyleniyor. &lt;em&gt;( Diziden sonra okumaya başladım. Belki çizgi roman hakkında da yazarım. )&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/20.png&quot; alt=&quot;/images/posts/20.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Dizide ayrıca yine kahramanımız kadar etkin olan karakterler de var. Öncelikle Barry’nin yetişmesinde rol oynayan ona babalık yapan Joe West’i söylemek gerekiyor. Diziyi izlerken de göreceksiniz kendisi babacan tavırlarıyla gönlünüzü fethedecek bir kişiliğe sahip. Açıkcası diziyi izlerken o üzüldüğü için ben de üzülüyorum.&lt;/p&gt;
-
-&lt;p&gt;Adamın karşısındakini duygulandırmaya müsait bir beden dili var çünkü. Kendisi &lt;strong&gt;CCPD(Central City Police Department)&lt;/strong&gt; başkomiseri oluyor aynı zamanda. Kendisinin The Flash ile tanışması ise ortağını kaybetmesi ile oluyor. Daha sonraları The Flash ile ortak birçok operasyona imza atacaklar. Fakat, Barry’nin The Flash olduğunu S.T.A.R Labs harici kimse bilmediği için başarı The Flash ve Joe’nun olacak Barry’nin değil. Joe West abimiz şu aşağıda gördüğünüz abimiz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/21.png&quot; alt=&quot;/images/posts/21.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Bir diğer etkin karakterimiz ise &lt;strong&gt;Francisco Ramon a.k.a Cisco&lt;/strong&gt; oluyor bu dizide. Kendisi aşırı zeki bir karakter. Hatta dizinin bir bölümünde göreceğimiz üzere Dr. Harrison Wells, Cisco için &lt;em&gt;oğlum gibiydin&lt;/em&gt; demiştir. Bu gerçekten de öyle çünkü Cisco aşırı zeki sadece hacking kısmında Felicity Smoak ile yarışamıyor :P Dizinin ilerleyen bölümlerinde göreceğiz ki Cisco da bir meta-insan’dır. Patlama onu da etkilemiştir. Bu konu ile ilgili tam detay vermeyeceğim. Kendisini zaten tanıyoruz. Ama cisco abimiz dizide tam olarak böyledir.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/22.png&quot; alt=&quot;/images/posts/23.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Gelelim diziyi gerçekten izleme sebebim olan Caitlin Snow ablamıza. Kendisi patlamada biricik Ronnie’sini kaybetmiştir &lt;em&gt;(başlarda öyle sanmıştır)&lt;/em&gt;. Sonraları yine biricik Ronnie’si ile evlenmiştir. Snow ablamız gerçekten de talihsiz ama bir o kadar da mükemmel kişiliğe sahip. Kalbinde en ufak kin duygusu yok. Alternatifi için öyle diyemeyeceğim. Alternatifi bir buz kraliçesi olup daha da mükemmel güzelliğe bürünmüştür. Talihsiz demiştim ya Ronnie’sini gerçekten kaybediyor bu sefer. İlk sezon finalinde yaşanıyor bu olay. Daha sonra aşık olduğu adam ise ne talihsiz ki Barry’nin en büyük düşmanı çıkıyor. Zaten güzelse kaderi kötüdür arkadaş dedim diziyi izlerken. Kendisi bu ablamız oluyor.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/23.png&quot; alt=&quot;/images/posts/24.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Dizide bir de benim için yan karakter olmayan, özel güçleri de olmayan birisi var. Prison Break dizisinden tanıdığımız Scofield da burada. Wenworth Miller. Abi bi adama her karakter yakışır mı ya. Burada da zeki bu adam. Burada zekası, soğuk tavrı ve elindeki Cisco yapımı &lt;em&gt;( bizim cisco )&lt;/em&gt; oyuncağı ile bay karizma oluyor kendisi.&lt;/p&gt;
-
-&lt;p&gt;Her zaman aşırı sakinliği, ölümden korkmaması hatta ölüme doğru koşması onu dizide bence önemli bir karakter yapıyor. Adam meta-insanları serbest bırakıp aynı zamanda onları öldürebiliyor ve hatta &lt;em&gt;bana borcu vardı&lt;/em&gt; diyebiliyor. Kendisi de keşke meta güçlü bir kişi olsaydı. Gerçi olmaması daha iyi. Bu haliyle süper bir kişilik. Dizide kendisine Captain Cold diyorlar. Bu dizide lakap takacak birisi varsa o da Cisco’dur arkadaş başkası takamaz. Kendisi öyle diyor çünkü :P.&lt;/p&gt;
-
-&lt;p&gt;Ayrıca Prison Break dizinden kardeşi de olan Burrows katılıyor diziye. Burada da beraberler. Burada iyi adamı değil kötü adamı oynuyorlar. Dizideki adı Mick Rory. Kendisi Captain Cold’un aksine yine zeki değil ve ateşi çok seviyor. Bu abimizin oyuncağı da ateşli silahlarla.&lt;/p&gt;
-
-&lt;p&gt;Golden Glider ise Snart abimizin yani Cold’un kız kardeşi. Ölümden korkmayan, ölümle tehdit edildiğinde umurunda olmayan Snart, kız kardeşi konu olunca babasını bile öldürüyor. Kız kardeşi için her şeyi yapar. Barry ona “içinde iyilik gördüm senin sadece dışarı çıkmayı bekliyor” gibi bir şey demişti zaten. Ayrıca anladığım kadarıyla Golden Glider &lt;em&gt;(Lisa Snart)&lt;/em&gt; sapyoseksüel bir abla yani zeki insana tav oluyor.&lt;/p&gt;
-
-&lt;p&gt;Bunu cisco ile arabada otururken &lt;em&gt;“unutma cisco zeka da bir seksiliktir”&lt;/em&gt; dediği zaman anlamıştım. Kendisine bir bölümde kızdım o da Cisco’yu tuzağa düşürdüğü zamanda. Ama sonra Cisco onun hayatını kurtarınca sanırım ona bakışı değişti. Tavırları çok rahat olan bu abla genelde Cisco ile uğraşmayı seviyor. Cisco’ya çarptığı sahnede Cisco ondan özür dilerken, Lisa hanım Cisco bey’e “bana istediğin zaman çarpabilirsin cisco” gibi bir cümle kurmuş ve Cisco’nun aklını başından almıştı yine.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Dizide ayrıca T-BAG var. Kendisi yine hapiste ve yine kaçacak kadar zeki. Zamanla bir sorunu var dizide. Kısa bir bölüm durduğu için fazla yazılacak bir kişi değil. En azından şimdilik.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada Cold ve Micky’nin diziden bir görüntüsü yer almakta&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/24.png&quot; alt=&quot;/images/posts/24.png&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;yan-karakterler&quot;&gt;Yan Karakterler&lt;/h3&gt;
-
-&lt;p&gt;Aslında çok uzun yazmayacaktım noluyor lan diyorum şu an. Sanırım diziyi yaşıyorum şu an. Diğer karakterlerden kısaca bahsedeyim o zaman. Çok uzun yazılması gereken karakterler değiller benim açımdan.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Henry Allen&lt;/strong&gt;, Barry’nin babası. Bu adamın dizide bir yamuğunu görmedim. Kendisi doktormuş. 15-16 yıl karısını öldürmek suçundan içeride yattı. Suçlu o değildi sonradan ortaya çıkıyor hapisten çıkması da bu şekilde oluyor. Yine de bu abimizde bir şeyler sezsene oğlum manyak mısın sen ya şeklinde konuşan bir iç sese sahibim. En iyisi dinlemeyeyim o sesi. Barry’nin amacı zaten bu feyzli abiyi kurtarmaktı. Kurtardı sonunda. Aslında tam kendisi de kurtarmadı. Burada aşağıda açıkladığım Eddie büyük rol oynadı.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Iris West&lt;/strong&gt;, Joe West abimizin kızı, Barry’nin bir dönem aşk beslediği sonraları ise Patty ile tanışınca unuttuğu çikolata hatundur. Güzel mi değil mi bilemem işin o türlü muhasebesi beni aşar. Ama şu bir gerçek ki dizide kendisi ve Barry sahnelerinden herkes nefret etmişti. O Barry için kardeşim gibi derken, Barry ona aşıktı. Bu tarz şeyler Türk dizilerinde daha çok olurdu. Türk dizi izleyicisi için şaşırtıcı olmadığından dolayı bu sahneler pek ilgi çekici olmadı.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Eddie Thawne&lt;/strong&gt;, Iris West’in biricik aşkı. Kendisi de Iris West’e aşıktır. Dizinin kader adamı nasıl olur da yazmam bunun hakkında diye merak ettim bi. Ama çok da bi albenisi yok. Öyle mükemmel, ahım şahım bir etkisi olmadı yaptığı en büyük şey varoluş’a olan etkisiydi. Hafif bir şeymiş gibi bahsediyorum ne güzel ya :P&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Patty Spivot&lt;/strong&gt;, Barry’nin sonunda gerçekten aşk beslediği güzel gülüşlü bana göre eğlenceli bir hatun ablamızdır. Babası, bir meta-insan saldırısında hayatını kaybettiği için polis olmayı seçmiştir. Ve daha sonraları Joe West’in başında olduğu meta-insanlara karşı özel kuvvetler’e katılmıştır. Amacı babasını öldüren meta-insan’ı yakalayıp öldürmek &amp;amp; adalete teslim etmek ( hatun burada duygularının da etkisiyle karmaşa yaşıyor ondan )&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Jay Garrick&lt;/strong&gt;, abov sen nasıl bir abisin öyle. Kimisine göre yakışıklı falan da gerçekten Reverse Flash’ı aratırsın. Hız konusunda ölçülemez sanırım. Bir de Barry’nin karizmasını fena çizmiştir. Zavallı Caitlin gidip buna aşık oluyor. Adam Zoom çıktı rıza baba. Henüz Zoom ile hesaplaşma falan olmadı. Adam çok hızlı abi. Zamanda yolculuğun ve evrenler arası geçişin dibine vurmuş.&lt;/p&gt;
-
-&lt;p&gt;Bahsetmediğim diğerleri ise Arrow takımı. Felicity, Thea, Arrow’un kendisi falan cümbür cemaat diziye gelmişler. Barry arada Arrow’dan yardım alıyor. Arrow abimiz özel güçleri olmadan da Barry abimizle kapışabiliyor (var böyle bi sahne evet). Thea cidden aşık olunası bir yüze sahip. Tanıdık bir yüze sahip ama hadi hayırlısı. Bir de bu hatunun babası var karanlıktan bir anda çıkmayı seviyor.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;dizide-u-an&quot;&gt;Dizide Şu An&lt;/h3&gt;
-
-&lt;p&gt;Ben dizinin 2. sezon 16. bölümünü izledim. Sezon finali değildir herhalde. 17. bölüm promo yayınlanmış. Aşağıda bu promo’yu izleyebilirsiniz:&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/TLz3t9Yzvx0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;dizi-hakknda-kaynaklar&quot;&gt;Dizi Hakkında Kaynaklar&lt;/h3&gt;
-
-&lt;p&gt;Ayrıca The Flash hakkında bilgi alabileceğiniz mükemmel bir wikia serisi var. Bunu sizinle paylaşmaktan mutluluk duyuyorum.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://theflash.wikia.com/wiki/The_Flash_Wiki&quot;&gt;http://theflash.wikia.com/wiki/The_Flash_Wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dc.wikia.com/wiki/Flash&quot;&gt;http://dc.wikia.com/wiki/Flash&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://arrow.wikia.com/wiki/The_Flash&quot;&gt;http://arrow.wikia.com/wiki/The_Flash&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.theflashfantr.com/&quot;&gt;http://www.theflashfantr.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;dipe&quot;&gt;Dipçe&lt;/h3&gt;
-
-&lt;p&gt;İzleyeyim mi diye tavsiye isteyenler olursa evet izleyin derim. Arrow izlememiş ben şimdi bir de Arrow dizisine başlayacağım. Mükemmel değil mi. Bu arada umarım çok uzun yazıp sizi sıkmamışımdır da. Artık kimler okuyacaksa :P&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Mar 2016 22:16:00 +0300</pubDate>
-        <link>https://aligoren.com/the-flash</link>
-        <guid isPermaLink="true">https://aligoren.com/the-flash</guid>
       </item>
     
   </channel>
