@@ -17,12 +17,13 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -172,21 +200,20 @@
 <article class="post-content">
   <p>Öncelikle güncelleme depolarını tanımlayalım ve aktif edelim:</p>
 
-<p><code class="highlighter-rouge">sudo zypper repos --uri</code></p>
+<p><code>sudo zypper repos --uri</code></p>
 
 <p>Daha sonra zypper ile depoları yenileyelim. Ve sonrasında update edelim:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo zypper refresh
+<pre><code>sudo zypper refresh
 
 sudo zypper update
 </code></pre>
-</div>
 
 <p>Güncelleme işlemi artık başlamıştır.</p>
 
 <p>Repoların tanımlı olduğu yol ise burada:</p>
 
-<p><code class="highlighter-rouge">/etc/zypp/repos.d</code></p>
+<p><code>/etc/zypp/repos.d</code></p>
 
 <p>Kolay gelsin.</p>
 
@@ -204,6 +231,14 @@ sudo zypper update
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Linux">Linux</a>,
+
 
 
 
@@ -239,6 +274,7 @@ sudo zypper update
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

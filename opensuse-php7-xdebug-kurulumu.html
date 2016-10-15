@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Linux,, PHP">
+    <meta name="keywords" content="Linux, PHP">
     <link rel="canonical" href="https://aligoren.com/opensuse-php7-xdebug-kurulumu">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -174,51 +202,47 @@
 
 <p>XDebug kurmak için öncelikle PHP7 Devel gerekiyor. PHP7 Devel kurulumunu uçbirimden zypper yardımı ile kuralım. <!--TEASER_END--></p>
 
-<p><code class="highlighter-rouge">sudo zypper install php7-devel</code></p>
+<p><code>sudo zypper install php7-devel</code></p>
 
 <p>Daha sonra ise xdebug sitesinden son sürümü indirelim (Bu yazıyı yazarken en son 2.4.0 RC4 Sürümü Vardı):</p>
 
-<p><code class="highlighter-rouge">wget http://xdebug.org/files/xdebug-2.4.0rc4.tgz</code></p>
+<p><code>wget http://xdebug.org/files/xdebug-2.4.0rc4.tgz</code></p>
 
 <p>Evet wget yardımı ile indirme işlemini yaptıktan sonra arşivi açalım:</p>
 
-<p><code class="highlighter-rouge">tar -xzf xdebug-2.4.0rc4.tgz</code></p>
+<p><code>tar -xzf xdebug-2.4.0rc4.tgz</code></p>
 
 <p>Arşivi açtıktan sonra klasörün içerisine gidelim:</p>
 
-<p><code class="highlighter-rouge">cd xdebug-2.4.0RC4/</code></p>
+<p><code>cd xdebug-2.4.0RC4/</code></p>
 
 <p>Klasöre girdikten sonra aşağıdaki komutları sırasıyla veriyoruz:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>phpize
+<pre><code>phpize
 ./configure --enable-xdebug
 make
 sudo cp modules/xdebug.so /usr/lib/.
 </code></pre>
-</div>
 
 <p>Burada phpize derleme aracıdır. Geri kalanı ise derleme işlemi. En son olarak da cp ile oluşturulan kütüphane dosyasını lib klasörüne taşıyoruz. Tüm bu işlemler bittikten sonra php7 içerisindeki conf.d klasörüne gidiyoruz. Ve orada 20-xdebug.ini adında bir dosya oluşturuyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /etc/php7/conf.d
+<pre><code>cd /etc/php7/conf.d
 sudo nano 20-xdebug.ini
 </code></pre>
-</div>
 
 <p>Evet xdebug ini dosyasını oluşturduk. Şimdi sıra içerisine ekleyeceğimiz ayar stringlerinde. Yukarıda nano ile dosyayı açtığımızı varsayıyorum kapatmayın yani henüz oluşmadı aslında ama kaydedince oluşacak :) Sonra şu aşağıdaki stringleri ekliyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>zend_extension=/usr/lib/xdebug.so
+<pre><code>zend_extension=/usr/lib/xdebug.so
 xdebug.remote_enable=1
 </code></pre>
-</div>
 
 <p>Sonunda işlemler tamamlandı artık apache ya da nginx ne kullanıyorsanız onu yeniden başlatabilirsiniz. Nginx kullananlar aynı işlemi fpm klasöründeki conf.d için de yapabilirler. Yükleme işleminin kontrol için konsoldan php -v komutunu verin.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>PHP 7.0.3 (cli) ( NTS )
+<pre><code>PHP 7.0.3 (cli) ( NTS )
 Copyright (c) 1997-2016 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
    with Xdebug v2.4.0RC4, Copyright (c) 2002-2016, by Derick Rethans
 </code></pre>
-</div>
 
 <p>Eğer çıktı yukarıdaki gibi ise yani with Xdebug yazısını görüyorsanız kurulum başarılı olmuştur. Bu kadar</p>
 
@@ -236,6 +260,16 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Linux">Linux</a>,
+
+<a href="kategoriler#PHP">PHP</a>,
+
 
 
 
@@ -271,6 +305,7 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

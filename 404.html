@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aradığın Sayfa Burada Pek Bulunan Cinsten Değil</title>
-  <link href="/assets/css/404.css" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="404 Hata Sayfası İşte Ne Ararsınız Burada?">
+  <title>404 Teyze...</title>
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
-
-<body>
-  <div class="dialog">
-    <h1>Sen bazı sayfalara baktın ben biliyom.</h1>
-    <p>
-		Lakin ki senin o baktığın sayfa buralarda yok.
-	</p>
-    <p>
-		Belkim klasöre neyim baktın.
-		Olabilir. İnsanlık Hali. Seni de anlıyom ben zaten. Ama yapma canısı. Hoş değil bunlar :/<br/> <br />
-		Eğer admin paneli falan arıyorsan ya da bu blog ne ile yazıldı diyorsan
-		<a href="/iletisim" target="_blank">iletişim</a> sayfasından yaz bence.<br/> <br />
-		Hem bak <code>target="_blank"</code> olarak açtırıyorum iletişim sayfasını :) Kıymetimi bil :)
-    </p>
+<body class="cyan">
+  <div id="error-page">
+    <div class="row">
+      <div class="col s12">
+        <div class="browser-window">
+          <div class="top-bar">
+            <div class="circles">
+              <div id="close-circle" class="circle"></div>
+              <div id="minimize-circle" class="circle"></div>
+              <div id="maximize-circle" class="circle"></div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div id="site-layout-example-top" class="col s12">
+                <p class="flat-text-logo center white-text caption-uppercase">404 Teyze</p>
+              </div>
+              <div id="site-layout-example-right" class="col s12 m12 l12">
+                <div class="row center">
+                  <h1 class="text-long-shadow col s12">404</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p>
-  <a href="/">Anasayfa</a> bu yeni sekmede açılmıyor ama :( <br /> <br />
-  Hata sayfası hoşuna gittiyse mail at da sohbet edelim. <br /> <br />
-  Bu arada hata sayfası RoR'dan alıntı.
-  </p>
+  <div class="row center">
+    <p class="center white-text col s12">Bu sayfayı yanlışlığnan görmüş olabilir misin?</p>
+    <p class="center s12"><button onclick="window.history.back()" class="btn waves-effect waves-light">Geri</button> <a href="/" class="btn waves-effect waves-light">Anasayfa</a>
+      <p>
+      </p>
+  </div>
 </body>
 </html>

@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python">
+    <meta name="keywords" content="Programlama, Python">
     <link rel="canonical" href="https://aligoren.com/hanoi-kuleleri-algoritmasi">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -192,7 +220,7 @@
 
 <p>Örneğin 4 diskli bir çözüm uyguladığımızı varsayalım. Bunun çıktısı şöyle olur:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Diski A çubuğundan B çubuğuna koy
+<pre><code>Diski A çubuğundan B çubuğuna koy
 Diski A çubuğundan C çubuğuna koy
 Diski B çubuğundan C çubuğuna koy
 Diski A çubuğundan B çubuğuna koy
@@ -208,7 +236,6 @@ Diski A çubuğundan B çubuğuna koy
 Diski A çubuğundan C çubuğuna koy
 Diski B çubuğundan C çubuğuna koy
 </code></pre>
-</div>
 
 <ul>
   <li>
@@ -229,28 +256,26 @@ Diski B çubuğundan C çubuğuna koy
 
 <p>Bu durumun Python ile çözümlenmiş hali ise şöyledir. Algoritmanın ana işlenilen işlevi hanoitoweralgorithm ile tanımlanıp 4 parametre alır. Bu işlev, parametreleri recursive olarak işler.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<pre><code class="language-python">def hanoi_tower_algorithm(n, x, y, z):
 
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Diski </span><span class="si">%</span><span class="s">s çubuğundan </span><span class="si">%</span><span class="s">s çubuğuna koy"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-        <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    if n == 1:
+        print("Diski %s çubuğundan %s çubuğuna koy" % (x,z))
+    else:
+        hanoi_tower_algorithm(n-1, x, z, y)
+        hanoi_tower_algorithm(1, x, y, z)
+        hanoi_tower_algorithm(n-1, y, x, z)
 </code></pre>
-</div>
 
 <p>Disk sayısının belirlenmesi içinse ayrıca bir işlev oluşturulur. Tek parametre alır. Bu parametre çözümdeki N disk sayısını belirtir. N adet disk bu işlevde belirtilir. Buradan alınan parametre bir üstteki ana işlevine yollanılır. Ve diskler de A, B ve C şeklinde parametre olarak yollanılır.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hanoi_tower_algorithm_main</span><span class="p">(</span><span class="n">ndisc</span><span class="p">):</span>
-    <span class="c"># ndisc = Number of Disc</span>
-    <span class="n">hanoi_tower_algorithm</span><span class="p">(</span><span class="n">ndisc</span><span class="p">,</span> <span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span>
+<pre><code class="language-python">def hanoi_tower_algorithm_main(ndisc):
+    # ndisc = Number of Disc
+    hanoi_tower_algorithm(ndisc, "A", "B", "C")
 </code></pre>
-</div>
 
 <p>10 adet disk için çıkarılan profile sonucu ise şöyledir:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python -m profile hanoi_tower_algorithm.py
+<pre><code>python -m profile hanoi_tower_algorithm.py
 
          6654 function calls (5121 primitive calls) in 0.078 seconds
 
@@ -272,7 +297,6 @@ tower_algorithm_main)
  0x01DCC2A0, file "hanoi_tower_algorithm.py", line 1&gt;)
         0    0.000             0.000          profile:0(profiler)
 </code></pre>
-</div>
 
 <h1 id="kaynaklar">Kaynaklar:</h1>
 
@@ -292,6 +316,16 @@ tower_algorithm_main)
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
 
 
 
@@ -327,6 +361,7 @@ tower_algorithm_main)
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

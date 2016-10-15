@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python">
+    <meta name="keywords" content="Programlama, Python">
     <link rel="canonical" href="https://aligoren.com/sublime-text-2de-python-3-ile-calismak">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -180,7 +208,7 @@
 
 <p>Daha sonra şu komutu ekrana girelim:</p>
 
-<p><code class="highlighter-rouge">gedit Python.sublime-build</code></p>
+<p><code>gedit Python.sublime-build</code></p>
 
 <p><img src="https://2.bp.blogspot.com/-0b_ZkLQpz9c/Ug0DsJGOkHI/AAAAAAAAA0Q/jp67tE_ozLU/s1600/st22.png" alt="https://2.bp.blogspot.com/-0b_ZkLQpz9c/Ug0DsJGOkHI/AAAAAAAAA0Q/jp67tE_ozLU/s1600/st22.png" /></p>
 
@@ -192,23 +220,21 @@
 
 <p>Kod olarak:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
- </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
- </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File "</span><span class="err">(...*?)</span><span class="s2">", line ([0-9]*)"</span><span class="p">,</span><span class="w">
- </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">{
+ "cmd": ["python", "-u", "$file"],
+ "file_regex": "^[ ]*File "(...*?)", line ([0-9]*)",
+ "selector": "source.python"
+}
+</code></pre>
 
 <p>Olan kısmı şununla değiştirelim:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
- </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
- </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File "</span><span class="err">(...*?)</span><span class="s2">", line ([0-9]*)"</span><span class="p">,</span><span class="w">
- </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code>{
+ "cmd": ["python3", "-u", "$file"],
+ "file_regex": "^[ ]*File "(...*?)", line ([0-9]*)",
+ "selector": "source.python"
+}
+</code></pre>
 
 <p>Ve farklı kaydet ile Python3.sublime-build olarak kaydedelim. Zaten farklı kaydet işlemini açınca çalıştığımız dizine kaydedecektir gedit onu.</p>
 
@@ -230,6 +256,16 @@
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
 
 
 
@@ -265,6 +301,7 @@
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

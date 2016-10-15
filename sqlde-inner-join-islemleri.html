@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, SQL">
+    <meta name="keywords" content="Programlama, SQL">
     <link rel="canonical" href="https://aligoren.com/sqlde-inner-join-islemleri">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -176,37 +204,34 @@
 
 <p>İki tablo düşünelim. Bu tablolardan birisi kullanıcıların sadece adlarını tutuyor. Bir diğeri ise kullanıcıların sadece açıklamalarını tutuyor. Bu iki tablonun tek sorguda ortak sonuçlar üretmesi gerekiyor. Aslında sanal bir tablo oluştuğunu düşünün. Tıpkı string birleştirme işlemlerinde olduğu gibi. Hemen bunu tanımlayan iki tablo oluşturalım.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">UserDetail</span><span class="p">]</span> <span class="p">(</span>
-<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
-<span class="p">[</span><span class="n">UserID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span>
-<span class="p">[</span><span class="n">UserDesc</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
+<pre><code class="language-sql">CREATE TABLE [UserDetail] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[UserID] int NOT NULL ,
+[UserDesc] nvarchar(50) NOT NULL
+);
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">Users</span><span class="p">]</span> <span class="p">(</span>
-<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
-<span class="p">[</span><span class="n">Name</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
+CREATE TABLE [Users] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(50) NOT NULL
+);
 </code></pre>
-</div>
 
 <p>Bu tabloları oluşturduktan sonra veri ekleme işlemlerini yapmalıyız. Bu işlemlerden ilkinde sadece kullanıcının adı yer alacakken, ikinci tabloda yani UserDetail tablosunda ise ilgili kullanıcının hem ID’si hem de açıklaması yer alacak. Eklemeleri ona göre gerçekleştirelim.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali2'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali3'</span><span class="p">);</span>
+<pre><code class="language-sql">INSERT INTO Users(Name) VALUES('Ali');
+INSERT INTO Users(Name) VALUES('Ali2');
+INSERT INTO Users(Name) VALUES('Ali3');
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Açıklama'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'2. Açıklama'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'3. Açıklama'</span><span class="p">);</span>
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(1, 'Açıklama');
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(2, '2. Açıklama');
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(3, '3. Açıklama');
 </code></pre>
-</div>
 
 <p>Şimdi normalde veri çekme işlemini yapıyor gibi SELECT sorgumuzu yazalım. Burada farklı olan şey ise veriyi seçeceğimiz asıl tablonun hemen yanına INNER JOIN yazmamız. JOIN işleminden sonra asıl tabloya bağlamak istediğimiz tabloyu belirtiyoruz. WHERE işleminin JOIN işlemlerinden sonra kullanıldığına da dikkat edin.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">UserDetail</span> <span class="n">ud</span> <span class="k">ON</span>  <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span> <span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<pre><code class="language-sql">SELECT u.Name, ud.UserDesc FROM Users u
+INNER JOIN UserDetail ud ON  u.ID=ud.UserID WHERE u.ID=2;
 </code></pre>
-</div>
 
 <p>Yukarıdaki kodda Users tablosunda bulunan Name kolonunu, UserDetail tablosunda bulunan UserDesc kolonunu, her iki tabloda da eşleşen kayda göre getir dedik.</p>
 
@@ -239,35 +264,33 @@
 
 <p>UserDetail tablosuna eklenen 4. verinin UserID kolonuna eklenecek değer NULL olarak gönderilsin.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">UserDetail</span><span class="p">]</span> <span class="p">(</span>
-<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
-<span class="p">[</span><span class="n">UserID</span><span class="p">]</span> <span class="n">int</span><span class="p">,</span>
-<span class="p">[</span><span class="n">UserDesc</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
+<pre><code class="language-sql">CREATE TABLE [UserDetail] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[UserID] int,
+[UserDesc] nvarchar(50) NOT NULL
+);
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">Users</span><span class="p">]</span> <span class="p">(</span>
-<span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="n">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span>
-<span class="p">[</span><span class="n">Name</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
+CREATE TABLE [Users] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(50) NOT NULL
+);
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali2'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali3'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Ali4'</span><span class="p">);</span>
+INSERT INTO Users(Name) VALUES('Ali');
+INSERT INTO Users(Name) VALUES('Ali2');
+INSERT INTO Users(Name) VALUES('Ali3');
+INSERT INTO Users(Name) VALUES('Ali4');
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Açıklama'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'2. Açıklama'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'3. Açıklama'</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">UserDetail</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">UserDesc</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">'4. Açıklama'</span><span class="p">);</span>
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(1, 'Açıklama');
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(2, '2. Açıklama');
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(3, '3. Açıklama');
+INSERT INTO UserDetail(UserID, UserDesc) VALUES(NULL, '4. Açıklama');
 </code></pre>
-</div>
 
 <p>Daha sonra JOIN işlemini WHERE kullanmadan çalıştıralım:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">UserDetail</span> <span class="n">ud</span> <span class="k">ON</span>  <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span><span class="p">;</span>
+<pre><code class="language-sql">SELECT u.Name, ud.UserDesc FROM Users u
+INNER JOIN UserDetail ud ON  u.ID=ud.UserID;
 </code></pre>
-</div>
 
 <table>
   <thead>
@@ -300,17 +323,16 @@
 
 <p>Evet eğer aklınızda WHERE sorgusu belirmiş olabilir. İkinci yöntem olarak WHERE sorgusu da kullanabilirsiniz</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span>
-<span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span><span class="p">,</span> <span class="n">UserDetail</span> <span class="n">ud</span>
-<span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span>
+<pre><code class="language-sql">SELECT u.Name, ud.UserDesc
+FROM Users u, UserDetail ud
+WHERE u.ID=ud.UserID
 
-<span class="c1">-- ya da</span>
+-- ya da
 
-<span class="k">SELECT</span> <span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">ud</span><span class="p">.</span><span class="n">UserDesc</span>
-<span class="k">FROM</span> <span class="n">Users</span> <span class="n">u</span><span class="p">,</span> <span class="n">UserDetail</span> <span class="n">ud</span>
-<span class="k">WHERE</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">ud</span><span class="p">.</span><span class="n">UserID</span> <span class="k">and</span> <span class="n">u</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="mi">2</span>
+SELECT u.Name, ud.UserDesc
+FROM Users u, UserDetail ud
+WHERE u.ID=ud.UserID and u.ID=2
 </code></pre>
-</div>
 
 <p>Yine aynı çıktıyı verecektir. İkisi arasındaki farkları araştırmanız, neyin nerede kullanılacağını bilmeniz sizin için iyi olur.</p>
 
@@ -330,6 +352,16 @@
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#SQL">SQL</a>,
+
 
 
 
@@ -365,6 +397,7 @@
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

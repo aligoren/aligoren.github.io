@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, SQL">
+    <meta name="keywords" content="Programlama, SQL">
     <link rel="canonical" href="https://aligoren.com/mssqlde-stored-procedure-kullanimi">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -190,58 +218,51 @@
 
 <p>CREATE PROC ProcedureAdi şeklinde ya da CREATE PROCEDURE ProcedureAdi şeklinde olabilir. Ben genellikle PROC kullanıyorum. Şimdi parametre almayan ve sadece SELECT sorgusunu döndüren bir PROC yazalım:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetUsers</span>
-<span class="k">AS</span>
-    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span>
+<pre><code class="language-sql">CREATE PROC GetUsers
+AS
+    SELECT * FROM Users
 </code></pre>
-</div>
 
 <p>Evet parametre almayan basit olan bir Procedure yazdık bile. Bu Procedure bize kullanıcıları listelemede yardımcı olacaktır. Hmm nasıl çağırıldığını yazmadık:/</p>
 
 <p>EXEC komutunu kullanarak çalıştırma işlemini yaparız. Eğer Procedure parametre almıyorsa basit şöyledir:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetUsers</span>
+<pre><code class="language-sql">EXEC GetUsers
 </code></pre>
-</div>
 
 <p>Peki tamam parametreli olanlar nasıl? Herhangi bir programlama dilinde method oluşturduğunuzu düşünün ve bu metodların parametre aldığını düşünün. Aynı şekilde Procedure’ler de parametreleri böyle alırlar. Tek farkı ise parantezler içerisinde parametreler almak yerine normal şekilde almak:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetUsers</span> <span class="s1">'Ali'</span>
+<pre><code class="language-sql">EXEC GetUsers 'Ali'
 </code></pre>
-</div>
 
 <p>Buradaki senaryo şöyle:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span><span class="o">=</span><span class="s1">'Ali'</span>
+<pre><code class="language-sql">SELECT * FROM Users WHERE Name='Ali'
 </code></pre>
-</div>
 
 <p>Bunu Stored Procedure ile şöyle yapabiliriz.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetSpesificUser</span>
-	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="k">AS</span>
-    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span><span class="o">=@</span><span class="n">UserName</span>
- 
-<span class="k">EXEC</span> <span class="n">GetSpesificUser</span> <span class="s1">'Ali'</span>
+<pre><code class="language-sql">CREATE PROC GetSpesificUser
+	@UserName nvarchar(30)
+AS
+    SELECT * FROM Users WHERE Name=@UserName
+
+EXEC GetSpesificUser 'Ali'
 </code></pre>
-</div>
 
 <p>Eğer birden fazla parametre alacaksa da virgülle belirtilmeli.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">GetSpesificUserWithID</span>
-	<span class="o">@</span><span class="n">ID</span> <span class="n">int</span><span class="p">,</span>
-	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="k">AS</span>
-    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">=@</span><span class="n">ID</span> <span class="k">and</span> <span class="n">Name</span><span class="o">=@</span><span class="n">UserName</span>
+<pre><code class="language-sql">CREATE PROC GetSpesificUserWithID
+	@ID int,
+	@UserName nvarchar(30)
+AS
+    SELECT * FROM Users WHERE ID=@ID and Name=@UserName
 </code></pre>
-</div>
 
 <p>Tabii bu Stored Procedure çalıştırılırken de alacağı parametre sırasına göre parametreleri, aldığı türe göre Stored Procedure’e yollamalıyız. Örnek:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">GetSpesificUserWithID</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'Ali
-</span></code></pre>
-</div>
+<pre><code class="language-sql">EXEC GetSpesificUserWithID 1, 'Ali
+</code></pre>
 
 </article>
 
@@ -257,6 +278,16 @@
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#SQL">SQL</a>,
+
 
 
 
@@ -292,6 +323,7 @@
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

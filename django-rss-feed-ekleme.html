@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python,, Django">
+    <meta name="keywords" content="Programlama, Python, Django">
     <link rel="canonical" href="https://aligoren.com/django-rss-feed-ekleme">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -172,127 +200,116 @@
 <article class="post-content">
   <p>Django’da RSS Feed ekleme işlemi çok basittir. Uzun uzun anlatabilir miyim diye düşündüm ancak yine de başaramam herhalde. Öncelikle yapılması gerekenleri söylemek gerekiyor sanırım.</p>
 
-<p>Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahmut.py deyin ) Oluşturma işlemini başarıyla yaptıysanız şimdi bu dosyanın içine sınıf oluşturmalıyız. Bunun için Django’nun <a href="https://docs.djangoproject.com/en/1.9/ref/contrib/syndication/">Feed Framework</a>‘ünü çağırmak gerekiyor. Bir de slug yani url için de core kütüphanesinde bulunan reverse() işlevini çağıralım. <!--TEASER_END--></p>
+<p>Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahmut.py deyin ) Oluşturma işlemini başarıyla yaptıysanız şimdi bu dosyanın içine sınıf oluşturmalıyız. Bunun için Django’nun <a href="https://docs.djangoproject.com/en/1.9/ref/contrib/syndication/">Feed Framework</a>‘ünü çağırmak gerekiyor. Bir de slug yani url için de core kütüphanesinde bulunan reverse() işlevini çağıralım.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib.syndication.views</span> <span class="kn">import</span> <span class="n">Feed</span>
-<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+<pre><code class="language-python">from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 </code></pre>
-</div>
 
 <p>Bu işlemden sonra da RSS beslemesi olarak alacağımız modeli çağıralım. Benim çalışmamda RSS beslemesi yazdığım blogum için vardı. Blogdaki son yazıları gösterecekti. Post isimli modelimi de yine dahil ediyorum:</p>
 
-<p><code class="highlighter-rouge">from .models import Post</code></p>
+<p><code>from .models import Post</code></p>
 
 <p>Dahil etme işlemi başladıktan sonra PostFeed adında bir sınıf oluşturup, bu sınıfa daha önce import ettiğim Feed sınıfından miras almasını söylüyorum. Böylece Feed sınıfının özelliklerini kendi PostFeed sınıfımda kullanabileceğim. Kısacası şöyle bir giriş olacak:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-   <span class="o">...</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+   ...
 </code></pre>
-</div>
 
 <p>Eh madem sınıfa bir giriş yaptık o zaman bu sınıfa dair bazı özellikleri, işlevleri kullanalım. Belirtmem gereken bazı şeyler var.</p>
 
 <p>title değişkeni RSS feed sayfanızda başlığı gösteriyor. Hem h1 tagleri arasında hem de tarayıcı başlığında görünen kısımdır. O zaman sınıfımızı şöyle değerlendirelim:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s">"Ali GÖREN"</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    title = "Ali GÖREN"
 </code></pre>
-</div>
 
 <p>Tüm işlemler bitince buradaki adımları kaynak kodlara bakıp görebilirsiniz. Neyse devam edelim:</p>
 
 <p>link değişkeni site linkini gösteriyor. Bu link tagleri arasında görünen link. Örneğin http://localhost/link-degiskeni gibi düşünebiliriz. O zaman sınıfımızı biraz daha ilerletelim:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s">"Ali GÖREN"</span>
-    <span class="n">link</span> <span class="o">=</span> <span class="s">"/"</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    title = "Ali GÖREN"
+    link = "/"
 </code></pre>
-</div>
 
 <p>Şimdi geldik en önemli noktaya. Açıklama kısmına. RSS belgelerine göre, RSS sayfaları için bir de açıklama kısmı olması gerekiyor. O zaman biz de bu doğrultuda description değişkenini kullanarak sınıfımızı geliştirelim:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="o">...</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s">"Bu Feed ya da Site Açıklaması Olabilir"</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    ...
+    ...
+    description = "Bu Feed ya da Site Açıklaması Olabilir"
 </code></pre>
-</div>
 
 <p>Üst kısımları tekrar tekrar vermemek için üç nokta koyuyorum oralara. Şimdilik gördüğümüz üç element gerekli olan elementlerdi. İsterseniz feed_type ya da feed_copyright gibi özellikleri de kullanabilirsiniz. Her şey iyi hoş ama bu işlemler bize içerikleri getirmiyor. Evet şimdi artık Feed sınıfının işlevlerini yani fonksiyonlarını kullanabiliriz. Öncelikle tüm içerikleri çekelim. Bu içerikleri views.py dosyasındaki gibi çekiyoruz.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="o">...</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    ...
 
 
-    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    def items(self):
+        return Post.objects.all()
 </code></pre>
-</div>
 
 <p>Buradaki <strong>items()</strong> işlevi Feed classını miras almamızdan dolayı geliyor. Daha sonra return ettiği bilgi ise Post modelimizde de belirttiğimiz içeriklerdir. Tıpkı bir views.py içinde oluşturulan işlevdeki çalışma gibi düşünelim. Buraya kadar güzel ancak henüz herhangi bir şekilde yine başlık, içerik vs. görüntüleyemiyoruz. Bunun için diğer işlevleri de kullanmalıyız. Öncelikle item_title() işlevini kullanarak çekilen içeriğin başlığını gösterelim.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="o">...</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    ...
 
-    <span class="k">def</span> <span class="nf">item_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">title</span>
+    def item_title(self, item):
+        return item.title
 </code></pre>
-</div>
 
 <p>Görmüş olduğumuz gibi itemtitle işlevi de aldığı argümanın title özelliğini döndürüyor. Buradaki item.title’da title kısmı bizim modelimizde bulunan title’dır. Artık içeriklerin başlıklarını görebiliriz. Şimdi de <strong>itemdescription()</strong> işlevi ile içeriğin ( yazı olduğunu düşünüyoruz ) bir kısmını gösterelim:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="o">...</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    ...
 
-    <span class="k">def</span> <span class="nf">item_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">content</span>
+    def item_description(self, item):
+        return item.content
 </code></pre>
-</div>
 
-<p>Yukarıdaki title kısmı için olan açıklamaların aynısını burası için de yapabilirim. Sadece bilmemiz gereken title ve content Post modelinden gelen değerler. Ayrıca eklemem gereken bir şey item* işlevler için return edilen değerlere HTML eklemesi yapabilirsiniz. Örneğin return item.content + “&lt;hr /&gt;” gibi. Şimdi son olarak da içeriğin URL’sini vermeliyiz. Bunun için <code class="highlighter-rouge">itemlink()</code> işlevini kullanacağız:</p>
+<p>Yukarıdaki title kısmı için olan açıklamaların aynısını burası için de yapabilirim. Sadece bilmemiz gereken title ve content Post modelinden gelen değerler. Ayrıca eklemem gereken bir şey item* işlevler için return edilen değerlere HTML eklemesi yapabilirsiniz. Örneğin return item.content + “&lt;hr /&gt;” gibi. Şimdi son olarak da içeriğin URL’sini vermeliyiz. Bunun için <code>itemlink()</code> işlevini kullanacağız:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="o">...</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    ...
 
-    <span class="k">def</span> <span class="nf">item_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s">"posts:detail"</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s">"slug"</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">slug</span><span class="p">})</span>
+    def item_link(self, item):
+        return reverse("posts:detail", kwargs={"slug": item.slug})
 </code></pre>
-</div>
 
 <p>Bu kısmı nasıl açıklayayım bilmiyorum ancak bunu yaparken Post gibi modelleriniz içerisinde getabsoluteurl() bulunması gerekebilir. kwars içerisindeki slug özelliğine denk gelen item.slug ise yine Post modelimizde belirtilen slug alanıdır. Son haliyle sınıfımıza bakalım:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PostsFeed</span><span class="p">(</span><span class="n">Feed</span><span class="p">):</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s">"Ali GÖREN"</span>
-    <span class="n">link</span> <span class="o">=</span> <span class="s">"/"</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s">"Açıklama"</span>
+<pre><code class="language-python">class PostsFeed(Feed):
+    title = "Ali GÖREN"
+    link = "/"
+    description = "Açıklama"
 
-    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    def items(self):
+        return Post.objects.all()
 
-    <span class="k">def</span> <span class="nf">item_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">title</span>
+    def item_title(self, item):
+        return item.title
 
-    <span class="k">def</span> <span class="nf">item_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">content</span>
+    def item_description(self, item):
+        return item.content
 
-    <span class="k">def</span> <span class="nf">item_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s">"posts:detail"</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s">"slug"</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">slug</span><span class="p">})</span>
+    def item_link(self, item):
+        return reverse("posts:detail", kwargs={"slug": item.slug})
 </code></pre>
-</div>
 
 <p>Sınıfımız hazır ancak bunu bir de URL olarak belirtmeliyiz ki feed adresine de erişebilelim. Bunun için uygulamamızın urls.py dosyasını açalım ve oluşturduğumuz feeds dosyasındaki PostsFeed ( sizinki nedir bilemem ) classını dahil edelim:</p>
 
-<p><code class="highlighter-rouge">from .feeds import PostsFeed</code></p>
+<p><code>from .feeds import PostsFeed</code></p>
 
 <p>Bu işlemi başarıyla yaptıysak bir URL eklemesi yapabiliriz:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="o">...</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r'^feed/$'</span><span class="p">,</span> <span class="n">PostsFeed</span><span class="p">()),</span>
+<pre><code class="language-python">urlpatterns = [
+    ...
+    url(r'^feed/$', PostsFeed()),
 
-<span class="p">]</span>
+]
 </code></pre>
-</div>
 
 <p>Artık feed çağrısı yapıldığında PostsFeed class’ı çalışacak ve içerikleri döndürecektir. Örneğin http://localhost/feed gibi düşünelim. Hatalı olduğum nokta var ise bildirmenizden memnuniyet duyarım. Kendimce aktarmaya çalıştım.</p>
 
@@ -310,6 +327,18 @@
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
+<a href="kategoriler#Django">Django</a>,
+
 
 
 
@@ -345,6 +374,7 @@
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

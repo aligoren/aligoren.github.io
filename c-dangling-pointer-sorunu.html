@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, C">
+    <meta name="keywords" content="Programlama, C">
     <link rel="canonical" href="https://aligoren.com/c-dangling-pointer-sorunu">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -174,7 +202,7 @@
 
 <p>İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.</p>
 
-<p>Çözüm için bazı yöntemler var. Bunlardan birisi akıllı pointer kullanımıdır. C++11 ile kullanımı biten <code class="highlighter-rouge">auto_ptr</code> ve onun yerine gelen <code class="highlighter-rouge">unique_ptr</code> kullanılabilir ilk yöntemlerdir.
+<p>Çözüm için bazı yöntemler var. Bunlardan birisi akıllı pointer kullanımıdır. C++11 ile kullanımı biten <code>auto_ptr</code> ve onun yerine gelen <code>unique_ptr</code> kullanılabilir ilk yöntemlerdir.
 <!-- TEASER_END -->
 Bir de bunun başka bir alternatifi olarak tombstone metodu var. Burada da yapılan şey pointer değişkenin başına başka bir değer ekliyoruz.</p>
 
@@ -252,6 +280,16 @@ Bir de bunun başka bir alternatifi olarak tombstone metodu var. Burada da yapı
 
 
 
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#C">C</a>,
+
+
+
+
+
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
@@ -283,6 +321,7 @@ Bir de bunun başka bir alternatifi olarak tombstone metodu var. Burada da yapı
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

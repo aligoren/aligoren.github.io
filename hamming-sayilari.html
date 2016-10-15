@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python">
+    <meta name="keywords" content="Programlama, Python">
     <link rel="canonical" href="https://aligoren.com/hamming-sayilari">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -180,62 +208,59 @@
 
 <p>hamming_numbers.py</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<pre><code class="language-python">if x % 2 == 0:
+        return is_hamming_numbers(x/2)
 </code></pre>
-</div>
 
 <p>Bu sayede artık var olan sayı elimizdeki dizideki sayılardan birisi durumunda. Örneğin 60/2 sonuç olarak 30 veriyor. Diziye baktığımızda 30’dan büyük ilk sayımız 32. Buna göre 2x32=64 olmakta. Yani 60’tan sonra sayı 2’ye bölünebiliyorsa bu da 2x32=64 olacaktır. Bu durum 3 ve 5 için de yine aynı şekilde anlaşılmaktadır.</p>
 
 <p>Ben 9830’a kadar olan sayıları bulmak istedim. Tabii 9830 kafama göre değildi. İlk stackoverflow hatasını alacağım noktayı aramam uzun sürmedi.</p>
 
-<p>O durumda aldığım hata <code class="highlighter-rouge">Python: Maximum recursion depth exceeded</code> hatası di. Yani yineleme derinliğinin aşıldığına dair bir hata mesajı.</p>
+<p>O durumda aldığım hata <code>Python: Maximum recursion depth exceeded</code> hatası di. Yani yineleme derinliğinin aşıldığına dair bir hata mesajı.</p>
 
 <p>Bunun için sys modülünü kullanarak izin verilen recursion aralığını değiştirebiliriz.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span> <span class="c"># ayarlanmadan önceki gerçek limit</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="c"># limiti 10.000'e ayarla</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span> <span class="c"># limiti göster</span>
+<pre><code class="language-python">import sys
+sys.getrecursionlimit() # ayarlanmadan önceki gerçek limit
+sys.setrecursionlimit(10000) # limiti 10.000'e ayarla
+sys.getrecursionlimit() # limiti göster
 </code></pre>
-</div>
 
 <p>setrecursionlimit yineleme limitini belirlemekte kullanılır. Biz bu denememizde özyinelemeli işlev kullandık. Bu özelliği threading modülünün stack_size işlevini kullanarak yükseltebilirsiniz. Var olan limiti yukarıdaki kodda görebiliriniz. getrecursionlimit özelliği size bu değeri verecektir.</p>
 
 <p>hamming_numbers.py</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<pre><code class="language-python">import sys
+sys.setrecursionlimit(10000)
 
-<span class="k">def</span> <span class="nf">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">0</span>
+def is_hamming_numbers(x):
+    if x == 1:
+        return 1
+    if x % 2 == 0:
+        return is_hamming_numbers(x/2)
+    if x % 3 == 0:
+        return is_hamming_numbers(x/3)
+    if x % 5 == 0:
+        return is_hamming_numbers(x/5)
+    return 0
 
-<span class="k">def</span> <span class="nf">hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="n">hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+def hamming_numbers(x):
+    if x == 1:
+        return 1
+    hamming_numbers(x-1)
+    if is_hamming_numbers(x) == True:
+        print("%s" % x, end=' ')
 
-<span class="k">def</span> <span class="nf">hamming_numbers_main</span><span class="p">():</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Hamming Numbers: "</span><span class="p">)</span>
-    <span class="n">hamming_numbers</span><span class="p">(</span><span class="mi">9830</span><span class="p">)</span>
+def hamming_numbers_main():
+    sys.stdout.write("Hamming Numbers: ")
+    hamming_numbers(9830)
 
-<span class="n">hamming_numbers_main</span><span class="p">()</span>
+hamming_numbers_main()
 </code></pre>
-</div>
 
 <p>Bu da 9830. sayıya kadar olanları yazdırmayı denediğim profile sonucu:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python -m profile hamming_numbers.py
+<pre><code>python -m profile hamming_numbers.py
 
          37722 function calls (10704 primitive calls) in 0.156 seconds
 
@@ -260,7 +285,6 @@ umbers)
  0x0178C390, file "hamming_numbers.py", line 1&gt;)
         0    0.000             0.000          profile:0(profiler)
 </code></pre>
-</div>
 
 <h1 id="kaynaklar">Kaynaklar:</h1>
 
@@ -286,6 +310,16 @@ umbers)
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
 
 
 
@@ -321,6 +355,7 @@ umbers)
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

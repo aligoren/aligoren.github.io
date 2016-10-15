@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, NodeJS">
+    <meta name="keywords" content="Programlama, NodeJS">
     <link rel="canonical" href="https://aligoren.com/nodejsde-json-server-ile-rest-api-gelistirme">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -179,7 +207,7 @@ Kurulum
 <!-- TEASER_END -->
 Kurulum npm üzerinden gerçekleşiyor.</p>
 
-<p><code class="highlighter-rouge">npm install -g json-server</code></p>
+<p><code>npm install -g json-server</code></p>
 
 <p>Burada -g flag’i indirilen kütüphanenin executable yani çalıştırılabilir olmasına imkan sağlıyor.</p>
 
@@ -187,48 +215,47 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>Uygulamamız basit olarak kitaplar hakkında bilgi sağlayan bir uygulama olacak. Kitap Adı ve Yazarını ayrıca yorumlarını da sunacak. Bu bilgileri de bir json dosyasında tutacak. Dosya adı db.json olsun.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"kitaplar"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suç ve Ceza"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Savaş ve Barış"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lev Tolstoy"</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yevgeni Onegin"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aleksandr Puşkin"</span><span class="w">
-		</span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"yorumlar"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yorum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Çok güzel bir kitap"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitapID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yorum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Okurken zevk aldım"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitapID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"yorum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Okumadan ölmeyin derim"</span><span class="p">,</span><span class="w"> 
-			</span><span class="nt">"kitapID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-		</span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">{
+    "kitaplar": [
+        {
+			"id": 1,
+			"kitap": "Suç ve Ceza",
+			"yazar": "Fyodor Dostoyevski"
+		},
+        {
+			"id": 2,
+			"kitap": "Savaş ve Barış",
+			"yazar": "Lev Tolstoy"
+		},
+        {
+			"id": 3,
+			"kitap": "Yevgeni Onegin",
+			"yazar": "Aleksandr Puşkin"
+		}
+    ],
+    "yorumlar": [
+        {
+			"id": 1,
+			"yorum": "Çok güzel bir kitap",
+			"kitapID": 1
+		},
+        {
+			"id": 2,
+			"yorum": "Okurken zevk aldım",
+			"kitapID": 2
+		},
+        {
+			"id": 3,
+			"yorum": "Okumadan ölmeyin derim",
+			"kitapID": 3
+		}
+    ]
+}
+</code></pre>
 
 <p>Bu basit örnekte 3 adet kitap ve her kitap için de birer yorum var. Bu işlemden sonra şu komutu db.json dosyasının olduğu dizine girerek verelim.</p>
 
-<p><code class="highlighter-rouge">json-server db.json</code></p>
+<p><code>json-server db.json</code></p>
 
 <p><img src="/images/posts/12.png" alt="/images/posts/12.png" /></p>
 
@@ -238,25 +265,24 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>Biz kitaplar sayfasını açtık ve şöyle bir çıktı ile karşılaştık:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suç ve Ceza"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Savaş ve Barış"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lev Tolstoy"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yevgeni Onegin"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aleksandr Puşkin"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">[
+  {
+    "id": 1,
+    "kitap": "Suç ve Ceza",
+    "yazar": "Fyodor Dostoyevski"
+  },
+  {
+    "id": 2,
+    "kitap": "Savaş ve Barış",
+    "yazar": "Lev Tolstoy"
+  },
+  {
+    "id": 3,
+    "kitap": "Yevgeni Onegin",
+    "yazar": "Aleksandr Puşkin"
+  }
+]
+</code></pre>
 
 <p>Bunlar bizim yazdıklarımız yani senaryoya göre veritabanında var olan veriler. Bu verileri direkt bu URL’i açtığımız gibi görebiliriz. Ancak bizim için bu verileri özellikle çekmek yani bir bakıma query ile çekmek daha önemli. Evet buna da imkan sağlıyor. Örneğin ID’ye göre çekecek olsaydık</p>
 
@@ -268,30 +294,29 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>O zaman gelin uygulamamızı biraz daha genişletelim. Bir yazar için birden fazla kitap girişi yapalım. Yeni bir kitap ekledik. Yine bir Dostoyevski kitabı olan Karamazov Kardeşler kitabını ekledik. Artık data dosyamız şöyle:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suç ve Ceza"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Savaş ve Barış"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lev Tolstoy"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yevgeni Onegin"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aleksandr Puşkin"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karamazov Kardeşler"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">[
+  {
+    "id": 1,
+    "kitap": "Suç ve Ceza",
+    "yazar": "Fyodor Dostoyevski"
+  },
+  {
+    "id": 2,
+    "kitap": "Savaş ve Barış",
+    "yazar": "Lev Tolstoy"
+  },
+  {
+    "id": 3,
+    "kitap": "Yevgeni Onegin",
+    "yazar": "Aleksandr Puşkin"
+  },
+  {
+    "id": 4,
+    "kitap": "Karamazov Kardeşler",
+    "yazar": "Fyodor Dostoyevski"
+  }
+]
+</code></pre>
 
 <p>Şimdi artık bir yazarın iki adet kitabı var. O zaman yazar adına göre aratalım. Arama URL’si bildiğiniz üzere şöyle olacak:</p>
 
@@ -299,24 +324,23 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>Sanırım tam da istediğimiz bu. Bize sadece seçili olan yazara ait kitapları sıraladı.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suç ve Ceza"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kitap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karamazov Kardeşler"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"yazar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fyodor Dostoyevski"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">[
+  {
+    "id": 1,
+    "kitap": "Suç ve Ceza",
+    "yazar": "Fyodor Dostoyevski"
+  },
+  {
+    "id": 4,
+    "kitap": "Karamazov Kardeşler",
+    "yazar": "Fyodor Dostoyevski"
+  }
+]
+</code></pre>
 
 <p>Konsol ekranında klavyeden s tuşuna basarak db’nizin bir snapshot’ını alabilirsiniz. Daha da farklı olarak yine npm kütüphanelerinden faker ve lodash kullanılarak internet üzerindeki kullanıcıların bilgileri alınarak sahte bir veritabanı oluşturabiliriz. Bunun için faker ve lodash kurulumunu yapmamız gerekmekte.</p>
 
-<p><code class="highlighter-rouge">npm install faker lodash</code></p>
+<p><code>npm install faker lodash</code></p>
 
 <p>Kurulumdan sonra bir adet JS dosyası oluşturalım. Bu dosyanın adı sahte.js olsun. Bu andan sonrası NodeJS bilenler için daha kolay olacak. Modülleri js dosyamıza aktaralım.</p>
 
@@ -373,31 +397,30 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>Ayrıca database yapınıza da bakabilirsiniz. Bunun için <a href="http://localhost:3000/db">http://localhost:3000/db</a> adresine girmeniz yeterli. Örneğin şu anki uygulamamız şöyle bir çıktı veriyor bize:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kullanici"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leonie_Padberg76"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liza Will"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"soyad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Satterfield"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uifaces/faces/twitter/robturlinckx/128.jpg"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kullanici"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harmon.DuBuque"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sincere Nicolas"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"soyad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gottlieb"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uifaces/faces/twitter/magugzbrand2d/128.jpg"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kullanici"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvester29"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alexzander Harris"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"soyad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hegmann"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">[
+  {
+    "id": 0,
+    "kullanici": "Leonie_Padberg76",
+    "isim": "Liza Will",
+    "soyad": "Satterfield",
+    "resim": "https://s3.amazonaws.com/uifaces/faces/twitter/robturlinckx/128.jpg"
+  },
+  {
+    "id": 1,
+    "kullanici": "Harmon.DuBuque",
+    "isim": "Sincere Nicolas",
+    "soyad": "Gottlieb",
+    "resim": "https://s3.amazonaws.com/uifaces/faces/twitter/magugzbrand2d/128.jpg"
+  },
+  {
+    "id": 2,
+    "kullanici": "Sylvester29",
+    "isim": "Alexzander Harris",
+    "soyad": "Hegmann",
+    "resim": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"
+  },
+]
+</code></pre>
 
 <p>Burada bir isim yapalım. Yine URL şöyle olacak:</p>
 
@@ -405,17 +428,16 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
 
 <p>Bu adres bize Alexzander Harris ismindeki kişinin bilgilerini veriyor. Bilgiler ise şunlar:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"kullanici"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvester29"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alexzander Harris"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"soyad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hegmann"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">[
+  {
+    "id": 2,
+    "kullanici": "Sylvester29",
+    "isim": "Alexzander Harris",
+    "soyad": "Hegmann",
+    "resim": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"
+  }
+]
+</code></pre>
 
 <p>Faker kullanarak daha bir sürü bilgi çekebilirsiniz. Unutmadan söylemek gerekiyor. Faker kullanarak yazılan uygulamalar için de snapshot alabilirsiniz. Ancak bu uygulamalarda veritabanı internetin ta kendisi yani local bir veritabanı yok.</p>
 
@@ -443,6 +465,16 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#NodeJS">NodeJS</a>,
+
 
 
 
@@ -478,6 +510,7 @@ Kurulum npm üzerinden gerçekleşiyor.</p>
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

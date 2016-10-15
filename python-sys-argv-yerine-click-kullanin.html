@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python">
+    <meta name="keywords" content="Programlama, Python">
     <link rel="canonical" href="https://aligoren.com/python-sys-argv-yerine-click-kullanin">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -172,34 +200,33 @@
 <article class="post-content">
   <p>Python ile konsol uygulamaları geliştirirken, konsolda bazen programı direkt olarak çağırmadan parametre kontrolü yapmamız gerekebiliyor. Örneğin şöyle bir çağrı:</p>
 
-<p><code class="highlighter-rouge">program.py --falan=filan</code></p>
+<p><code>program.py --falan=filan</code></p>
 
 <p>Bu program basit ilkel yöntemlerce sys.argv kontrolü şeklinde yapılmakta. Ancak bunun doğruluğu için dahi uzunca uğraşmak gerekiyor.</p>
 
 <p>Bu sorunu aşmak için çeşitli kütüphaneler mevcuttur. Örneğin argparse, docopt gibi kütüphaneler de bu soruna kolaylık sağlıyorlar. Ancak bunların yapıları gerçekten çok karmaşık. Örneğin argparse interspersed dediğimiz argümanların devre dışı bırakılmasını desteklemiyor. Bu güvenlik açısından bir sorun oluşturabilir. <!--TEASER_END--> Bu gibi bazı sorunlarla karşılaşmayı önlemek açısından Click, Armin Ronacher tarafından geliştirildi. Click kurulumu pip üzerinden yapılmakta.</p>
 
-<p><code class="highlighter-rouge">pip install Click</code></p>
+<p><code>pip install Click</code></p>
 
 <p>komutu ile kurulumu yapabilirsiniz. Python 2.x ve 3.x sürümlerini desteklediğini de söylemek iyi olacaktır.</p>
 
 <p>Kurulumdan sonra ilk olarak basit bir Merhaba uygulaması yapabiliriz.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">click</span>
+<pre><code class="language-python">import click
 
-<span class="nd">@click.command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">merhaba</span><span class="p">():</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">'Merhaba'</span><span class="p">)</span>
+@click.command()
+def merhaba():
+    click.echo('Merhaba')
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">merhaba</span><span class="p">()</span>
+if __name__ == '__main__':
+    merhaba()
 </code></pre>
-</div>
 
-<p>Click’i import ettikten sonra <code class="highlighter-rouge">command</code> decoratörünü çağırarak artık bunun click ile kontrol edileceğini söyleyebiliriz.</p>
+<p>Click’i import ettikten sonra <code>command</code> decoratörünü çağırarak artık bunun click ile kontrol edileceğini söyleyebiliriz.</p>
 
-<p>Ayrıca click <code class="highlighter-rouge">print()</code> harici kendisi <code class="highlighter-rouge">click.echo()</code> işlevi ile printer görevini sağlayabiliyor. İlk uygulamamız bu oldu ve çalıştırma işlemini yapalım. Sonuçlara bakalım. Örneğin bu yukarıdaki kodları hello.py adında bir dosyanın içerisine yazdığımızı varsayalım.</p>
+<p>Ayrıca click <code>print()</code> harici kendisi <code>click.echo()</code> işlevi ile printer görevini sağlayabiliyor. İlk uygulamamız bu oldu ve çalıştırma işlemini yapalım. Sonuçlara bakalım. Örneğin bu yukarıdaki kodları hello.py adında bir dosyanın içerisine yazdığımızı varsayalım.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ali@linux $ hello
+<pre><code>ali@linux $ hello
 Merhaba
 
 ali@linux $ hello -h
@@ -214,41 +241,38 @@ Usage: hello.py [OPTIONS]
 Options:
   --help  Show this message and exit.
 </code></pre>
-</div>
 
 <p>Merhaba kısmından daha çok otomatik oluşturulan help sayfalarının dikkatinizi çektiğini umuyorum. Evet click otomatik olarak help sayfası oluşturabiliyor. Bunu siz yapmadan yapabiliyor.</p>
 
 <p>Örnek olarak ilk parametrelerimi tanımlayalım ve bununla ilgili bir program yapalım. Programın işlevi girilen adı, girilen sayı kadar yazdırmak olsun. Bunun normalde for döngüsü ile basitçe yapılacağını biliyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sayaç =&gt; girilen sayı:
+<pre><code>sayaç =&gt; girilen sayı:
     yazdır: girilen isim
 </code></pre>
-</div>
 
-<p>Evet sahte kodu bu şekilde. Normalde Python ile yapmak isteseydik de bu format üzerinden gidecektik. Şimdi tekrar Click ile geliştirmeye dönelim. Öncelikle <code class="highlighter-rouge">option()</code> ve <code class="highlighter-rouge">argument()</code> decoratörlerini ekleyelim ve bunlara alması gereken değerleri bildirelim. Bu eklenen değerleri de yani decoratörler içerisinde tanımlanan option ve argument değerlerini de kendimize ait olan işleve işlev değişken olarak atayalım.</p>
+<p>Evet sahte kodu bu şekilde. Normalde Python ile yapmak isteseydik de bu format üzerinden gidecektik. Şimdi tekrar Click ile geliştirmeye dönelim. Öncelikle <code>option()</code> ve <code>argument()</code> decoratörlerini ekleyelim ve bunlara alması gereken değerleri bildirelim. Bu eklenen değerleri de yani decoratörler içerisinde tanımlanan option ve argument değerlerini de kendimize ait olan işleve işlev değişken olarak atayalım.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">click</span>
+<pre><code class="language-python">import click
 
-<span class="nd">@click.command</span><span class="p">()</span>
-<span class="nd">@click.option</span><span class="p">(</span><span class="s">'--count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'Kac defa yazdiracagiz?'</span><span class="p">)</span>
-<span class="nd">@click.argument</span><span class="p">(</span><span class="s">'isim'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'Ali'</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">isim</span><span class="p">):</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">'Merhaba'</span><span class="p">)</span>
+@click.command()
+@click.option('--count', default=1, help='Kac defa yazdiracagiz?')
+@click.argument('isim', default='Ali')
+def merhaba(count, isim):
+    click.echo('Merhaba')
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">merhaba</span><span class="p">()</span>
+if __name__ == '__main__':
+    merhaba()
 </code></pre>
-</div>
 
 <p>Burada iki decorator ve bu decoratorlerin argümanları var. Option decoratorunun aldığı –count argümanı programa şu özelliği katar:</p>
 
-<p><code class="highlighter-rouge">program.py --count</code></p>
+<p><code>program.py --count</code></p>
 
-<p>Daha sonra gelen ve 1 değerini almış olan <code class="highlighter-rouge">default</code> ise varsayılan değeri belirler. Burada varsayılan değerin belirli bir veri tipi yoktur. Ancak belirlenen veri tipini help metninde tür olarak gösterir. Biz sayaç işlemini yapacağımız için 1 dedik. Sonradan gelen <code class="highlighter-rouge">help</code> ise bu özelliğe dair yardım metnini gösterir. Yani program.py –help çağırıldığı zaman bu yardım metni de ayrıca gösterilir.</p>
+<p>Daha sonra gelen ve 1 değerini almış olan <code>default</code> ise varsayılan değeri belirler. Burada varsayılan değerin belirli bir veri tipi yoktur. Ancak belirlenen veri tipini help metninde tür olarak gösterir. Biz sayaç işlemini yapacağımız için 1 dedik. Sonradan gelen <code>help</code> ise bu özelliğe dair yardım metnini gösterir. Yani program.py –help çağırıldığı zaman bu yardım metni de ayrıca gösterilir.</p>
 
 <p>Argument decoratörü ise bir argüman alır. Bu argüman da ayrıca bir default değer alabilir.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ali@linux $ hello
+<pre><code>ali@linux $ hello
 Merhaba Ali
 
 ali@linux $ hello --help
@@ -259,34 +283,31 @@ Options:
   --count INTEGER  Kac defa yazdiracagiz?
   --help           Show this message and exit.
 </code></pre>
-</div>
 
 <p>Son olarak programı tamamlayalım ve belirtilen miktar adedince yazdırma işlemini yaptıralım.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">click</span>
+<pre><code class="language-python">import click
 
-<span class="nd">@click.command</span><span class="p">()</span>
-<span class="nd">@click.option</span><span class="p">(</span><span class="s">'--count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'Kac defa yazdiracagiz?'</span><span class="p">)</span>
-<span class="nd">@click.argument</span><span class="p">(</span><span class="s">'isim'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'Ali'</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">isim</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
-        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">'Merhaba </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">isim</span><span class="p">)</span>
+@click.command()
+@click.option('--count', default=1, help='Kac defa yazdiracagiz?')
+@click.argument('isim', default='Ali')
+def merhaba(count, isim):
+    for i in range(count):
+        click.echo('Merhaba %s' % isim)
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">merhaba</span><span class="p">()</span>
+if __name__ == '__main__':
+    merhaba()
 </code></pre>
-</div>
 
 <p>Kodlarımız bunlar. Konsolda şöyle çağırıyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ali@linux $ hello --count=5 Arkadaş?
+<pre><code>ali@linux $ hello --count=5 Arkadaş?
 Merhaba Arkadaş?
 Merhaba Arkadaş?
 Merhaba Arkadaş?
 Merhaba Arkadaş?
 Merhaba Arkadaş?
 </code></pre>
-</div>
 
 <p>Evet şimdilik bu kadar.</p>
 
@@ -304,6 +325,16 @@ Merhaba Arkadaş?
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
 
 
 
@@ -339,6 +370,7 @@ Merhaba Arkadaş?
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

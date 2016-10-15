@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Golang">
+    <meta name="keywords" content="Programlama, Golang">
     <link rel="canonical" href="https://aligoren.com/sublime-texti-go-idesine-cevirin">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -198,17 +226,16 @@
 
 <p>Öncelikle Sublime Package Control kurulu olmalı. Eğer kurulu değilse CTRL+` kısayolunu kullanarak aşağıda açılmış olan konsola şu alttaki kodları yapıştırın:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span>
-<span class="s">'7183a2d3e96f11eeadd761d777e62404'</span> <span class="o">+</span> <span class="s">'e330c659d4bb41d3bdf022e94cab3cd0'</span><span class="p">;</span>
-<span class="n">pf</span> <span class="o">=</span> <span class="s">'Package Control.sublime-package'</span><span class="p">;</span>
-<span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span>
-<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">())</span> <span class="p">);</span>
-<span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">'http://sublime.wbond.net/'</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">'</span><span class="si">%20</span><span class="s">'</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
-<span class="n">dh</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">by</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">();</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Error validating download (got </span><span class="si">%</span><span class="s">s instead of </span><span class="si">%</span><span class="s">s), please try manual install'</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">'wb'</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
+<pre><code class="language-python">import urllib.request,os,hashlib; h =
+'7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0';
+pf = 'Package Control.sublime-package';
+ipp = sublime.installed_packages_path();
+urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );
+by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read();
+dh = hashlib.sha256(by).hexdigest();
+print('Error validating download (got %s instead of %s), please try manual install' % (dh, h))
+if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 </code></pre>
-</div>
 
 <p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir <a href="https://gist.github.com/aligoren/3ceecc6f37c39dfae9b5">şuradaki</a> kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
 
@@ -237,28 +264,26 @@ Bazı Ayarlamalar</p>
 
 <p>Buraya tıklayınca karşımıza bir pencere açılacak. Bu pencere büyük ihtimalle boş. Boş kısma şu kodları yapıştırıp kaydedin.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"fmt_cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"goimports"</span><span class="p">],</span><span class="w">
-    </span><span class="err">//C</span><span class="p">:</span><span class="err">\Go\</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">windows</span><span class="w">
-    </span><span class="s2">"env"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"GOPATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$HOME/go"</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">{
+    "fmt_cmd": ["goimports"],
+    //C:\Go\ for windows
+    "env": {"GOPATH": "$HOME/go"}
+}
+</code></pre>
 
 <p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak <em>C:</em> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
 
 <p>Hızlı kodlama yapmak isteyenler olabilir. Otomatik build işlemi, Test ve diğer işlemler. Bunun için yine yukarıda belirttiğim ayar dosyasını açıp şu kodları goimports ayarının hemen altına yapıştırın:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"on_save"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gs9o_open"</span><span class="p">,</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"run"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"focus_view"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">}}]</span><span class="err">,</span><span class="w">
-</span><span class="s2">"autocomplete_closures"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
-</span><span class="s2">"complete_builtins"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
-</span></code></pre>
-</div>
+<pre><code class="language-json">"on_save": [{
+    "cmd": "gs9o_open", "args": {
+    "run": ["sh",
+        "go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."],
+    "focus_view": false
+}}],
+"autocomplete_closures": true,
+"complete_builtins": true,
+</code></pre>
 
 <p>Evet kurulum ve ayarlamalar bitti. Iyi kodlamalar.</p>
 
@@ -276,6 +301,16 @@ Bazı Ayarlamalar</p>
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Golang">Golang</a>,
+
 
 
 
@@ -311,6 +346,7 @@ Bazı Ayarlamalar</p>
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

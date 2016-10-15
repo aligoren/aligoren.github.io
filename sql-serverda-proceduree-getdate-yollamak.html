@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, SQL">
+    <meta name="keywords" content="Programlama, SQL">
     <link rel="canonical" href="https://aligoren.com/sql-serverda-proceduree-getdate-yollamak">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -176,45 +204,41 @@
 
 <p>Senaryoya göre ekleme işleminiz şöyle gerçekleşebilir:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">InsertNewUser</span> <span class="s1">'Ali'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="n">GETDATE</span><span class="p">();</span>
+<pre><code class="language-sql">EXEC InsertNewUser 'Ali', '123456', GETDATE();
 </code></pre>
-</div>
 
 <p>Ancak burada bir hata alacaksınız. Bu hatanın içeriğinde nvarchar ve date ile ilgili bir metin yer alacaktır.</p>
 
 <p>Bu hata’yı çözmenin basit bir yolu var. Tarih bilgisini saklayacak alanı nullable olarak tanımlayarak basit bir kontrolle bu işlemi halledebiliriz. Örneğin önceden oluşturduğumuz PROCEDURE şu haldeydi:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">InsertNewUser</span>
-	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-	<span class="o">@</span><span class="n">UserPassword</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-	<span class="o">@</span><span class="n">RegDate</span> <span class="n">date</span>
-<span class="k">AS</span>
-    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">UserName</span><span class="p">,</span> <span class="n">UserPassword</span><span class="p">,</span> <span class="n">RegDate</span><span class="p">)</span>
-    <span class="k">VALUES</span> <span class="p">(</span><span class="o">@</span><span class="n">UserName</span><span class="p">,</span> <span class="o">@</span><span class="n">UserPassword</span><span class="p">,</span> <span class="o">@</span><span class="n">RegDate</span><span class="p">)</span>
+<pre><code class="language-sql">CREATE PROC InsertNewUser
+	@UserName nvarchar(30),
+	@UserPassword nvarchar(30),
+	@RegDate date
+AS
+    INSERT INTO Users(UserName, UserPassword, RegDate)
+    VALUES (@UserName, @UserPassword, @RegDate)
 </code></pre>
-</div>
 
 <p>Burada aslında bir hata yok PROCEDURE ilgili değeri aldığı sürece doğru çalışıyor. Ama direkt olarak bugünün tarihini almasını istediğimiz durumlarda parametre almıyor. O zaman oluşturduğumuz PROC üzerinde bir değişiklik yaparak başlangıçta nullable bir date değişkeni oluşturup durumunu kontrol edebiliriz. PROCEDURE düzenlenir ve şöyle bir işlem gerçekleştirilir:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="n">PROC</span> <span class="n">InsertNewUser</span>
-	<span class="o">@</span><span class="n">UserName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-	<span class="o">@</span><span class="n">UserPassword</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-	<span class="o">@</span><span class="n">RegDate</span> <span class="n">date</span> <span class="o">=</span> <span class="k">NULL</span>
-<span class="k">AS</span>
- 
-<span class="n">IF</span> <span class="o">@</span><span class="n">RegDate</span> <span class="k">IS</span> <span class="k">NULL</span>
-    <span class="k">SET</span> <span class="o">@</span><span class="n">RegDate</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
- 
-    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Users</span><span class="p">(</span><span class="n">UserName</span><span class="p">,</span> <span class="n">UserPassword</span><span class="p">,</span> <span class="n">RegDate</span><span class="p">)</span>
-    <span class="k">VALUES</span> <span class="p">(</span><span class="o">@</span><span class="n">UserName</span><span class="p">,</span> <span class="o">@</span><span class="n">UserPassword</span><span class="p">,</span> <span class="o">@</span><span class="n">RegDate</span><span class="p">)</span>
+<pre><code class="language-sql">ALTER PROC InsertNewUser
+	@UserName nvarchar(30),
+	@UserPassword nvarchar(30),
+	@RegDate date = NULL
+AS
+
+IF @RegDate IS NULL
+    SET @RegDate = GETDATE()
+
+    INSERT INTO Users(UserName, UserPassword, RegDate)
+    VALUES (@UserName, @UserPassword, @RegDate)
 </code></pre>
-</div>
 
 <p>Artık bu sayede SQL Server tarafında NULL değer almış olsa dahi bugünün tarihini ekleyecektir. Eğer sizin için bu tip durumlar hayati önem taşıyorsa bu yapıyı kullanabilirsiniz. Basit olarak NULL yazmak, formatlı tarih yollamaktan daha kolay geliyor da olabilir. Unutmadan artık SP şöyle çalışacaktır:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">EXEC</span> <span class="n">InsertNewUser</span> <span class="s1">'Ali'</span><span class="p">,</span> <span class="s1">'GÖREN'</span><span class="p">,</span> <span class="k">NULL</span>
+<pre><code class="language-sql">EXEC InsertNewUser 'Ali', 'GÖREN', NULL
 </code></pre>
-</div>
 
 <p>Bu çalışmanın SQL Fiddle üzerindeki örneğine şuradan ulaşabilirsiniz:</p>
 
@@ -234,6 +258,16 @@
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#SQL">SQL</a>,
+
 
 
 
@@ -269,6 +303,7 @@
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

@@ -12,17 +12,18 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama,, Python">
+    <meta name="keywords" content="Programlama, Python">
     <link rel="canonical" href="https://aligoren.com/pythonda-zincirleme-metodlar">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201610100043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201610152053" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
 
     <!-- Fonts -->
     
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     
     
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -83,28 +84,55 @@
       <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
       <nav class="site-nav">
         
+    
     <a href="/fb-instant-articles.xml"></a>
+    
 
+    
     <a href="/feed.xml"></a>
+    
 
+    
     <a href="/hakkimda">Hakkımda</a>
+    
 
+    
     <a href="/"></a>
+    
 
+    
+
+    
     <a href="/css/pixyll.css"></a>
+    
 
+    
     <a href="/page2/"></a>
+    
 
+    
     <a href="/page3/"></a>
+    
 
+    
     <a href="/page4/"></a>
+    
 
+    
     <a href="/page5/"></a>
+    
 
+    
     <a href="/page6/"></a>
+    
 
+    
     <a href="/page7/"></a>
+    
 
+    
+    <a href="/page8/"></a>
+    
 
 
       </nav>
@@ -170,9 +198,9 @@
 </div>
 
 <article class="post-content">
-  <p>Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani <code class="highlighter-rouge">Chaining Methods</code> deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir <code class="highlighter-rouge">Cars</code> sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:</p>
+  <p>Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani <code>Chaining Methods</code> deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir <code>Cars</code> sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>A Sınıfı =&gt;
+<pre><code>A Sınıfı =&gt;
     A1_Metodu =&gt;
         ... işlemler
     A2_Metodu =&gt;
@@ -180,133 +208,124 @@
     A3_Metodu =&gt;
         ... işlemler
 </code></pre>
-</div>
 
 <p>Böyle bir yapıda sınıfımızı <strong>b</strong> değişkenine ilklediğimizi ve metodları çağırdığımızı düşünelim. O zaman durum şu olurdu</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>b = A Sınıfı
+<pre><code>b = A Sınıfı
 b.A1_Metodu
 b.A2_Metodu
 b.A3_Metodu
 </code></pre>
-</div>
 
 <p>gibi tam da burada yardımcı olarak zincirleme metod deseni geliyor önümüze. Eğer bir chaining metod olsaydı yukarıdaki gibi alt alta bir tekrar yerine şöyle olacaktı:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>b.A1_Metodu.A2_Metodu.A3_Metodu
+<pre><code>b.A1_Metodu.A2_Metodu.A3_Metodu
 </code></pre>
-</div>
 
-<p>Evet anlatmak istediğim tam da bu oluyor. Peki bu Python’da nasıl çalışıyor? Öncelikle kısaca Cars sınıfımızı oluşturalım. Bu sınıf ise <code class="highlighter-rouge">maker, model, year, price, miles, show_detail</code> metodlarına sahip olsun. Eldeki veriler üzerinden sınıfımızın iskeletini oluşturalım.</p>
+<p>Evet anlatmak istediğim tam da bu oluyor. Peki bu Python’da nasıl çalışıyor? Öncelikle kısaca Cars sınıfımızı oluşturalım. Bu sınıf ise <code>maker, model, year, price, miles, show_detail</code> metodlarına sahip olsun. Eldeki veriler üzerinden sınıfımızın iskeletini oluşturalım.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Cars</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<pre><code class="language-python">class Cars(object):
 
-    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
-        <span class="c"># işlemler</span>
+    def maker(self, mkr):
+        # işlemler
 
-    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
-        <span class="c"># işlemler</span>
+    def model(self, mdl):
+        # işlemler
 
-    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
-        <span class="c"># işlemler</span>
+    def year(self, yr):
+        # işlemler
 
-    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
-        <span class="c"># işlemler</span>
+    def price(self, prc):
+        # işlemler
 
-    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
-        <span class="c"># işlemler</span>
+    def miles(self, mile):
+        # işlemler
 
-    <span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># detay işlemleri</span>
+    def show_detail(self):
+        # detay işlemleri
 </code></pre>
-</div>
 
 <p>Evet iskeletimiz böyle. Şimdi maker yani üreticinin değer döndürmesini sağlamalıyız. Yukarıda <em>metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir</em> demiştim. O zaman bu maker metodu son olarak kendisini döndürmeli. Ve yine kendisine değer almalı. Kendi değerini ise aldığı argümana eşitlemeliyiz. Bakalım hemen:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
-    <span class="k">return</span> <span class="bp">self</span>
+<pre><code class="language-python">def maker(self, mkr):
+    self.maker = mkr
+    return self
 </code></pre>
-</div>
 
-<p><code class="highlighter-rouge">return self</code> ile metoda kendisini döndürme imkanı verdik. Bu işlemi <strong>show_detail</strong> hariç diğer metodlara da uygulayalım:</p>
+<p><code>return self</code> ile metoda kendisini döndürme imkanı verdik. Bu işlemi <strong>show_detail</strong> hariç diğer metodlara da uygulayalım:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Cars</span><span class="p">:</span>
+<pre><code class="language-python">class Cars:
 
-    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def maker(self, mkr):
+        self.maker = mkr
+        return self
 
-    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mdl</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def model(self, mdl):
+        self.model = mdl
+        return self
 
-    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">yr</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def year(self, yr):
+        self.year = yr
+        return self
 
-    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">prc</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def price(self, prc):
+        self.price = prc
+        return self
 
-    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="n">mile</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def miles(self, mile):
+        self.miles = mile
+        return self
 </code></pre>
-</div>
 
 <p>Son olarak da bu değerleri göstereceğimiz <strong>show_detail</strong> metodunu yazalım. O konu aslında basit olarak bildiğimiz bir konu zaten.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Maker:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maker</span><span class="p">,</span> <span class="s">"Model:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s">"Year:"</span><span class="p">,</span>
-          <span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s">"Price:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s">"Miles:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">miles</span><span class="p">)</span>
+<pre><code class="language-python">def show_detail(self):
+    print("Maker:", self.maker, "Model:", self.model, "Year:",
+          self.year, "Price:", self.price, "Miles:", self.miles)
 </code></pre>
-</div>
 
 <p>Artık marka model ne var ne yok yazdıracağız hem de ekstra bir uğraş vermeden. Kullanımına bakarsak anlayacağız:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">c</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">()</span>
+<pre><code class="language-python">c = Cars()
 
-<span class="n">c</span><span class="o">.</span><span class="n">maker</span><span class="p">(</span><span class="s">"Aston Martin"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s">"DB9"</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">(</span><span class="mi">2004</span><span class="p">)</span><span class="o">.</span><span class="n">price</span><span class="p">(</span><span class="mf">149.000</span><span class="p">)</span><span class="o">.</span><span class="n">miles</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">show_detail</span><span class="p">()</span>
-<span class="c"># Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30</span>
+c.maker("Aston Martin").model("DB9").year(2004).price(149.000).miles(30).show_detail()
+# Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30
 </code></pre>
-</div>
 
 <p>Üreticisi Aston Martin olan 2004 üretimli DB9 Model 30 Mildeki aracın fiyatının 149 bin euro olduğunu söylettik diyelim. Evet bu işlem bu kadar çıktıyı da yukarıda gördük. Kodların tamamı:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Cars</span><span class="p">:</span>
+<pre><code class="language-python">class Cars:
 
-    <span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mkr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maker</span> <span class="o">=</span> <span class="n">mkr</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def maker(self, mkr):
+        self.maker = mkr
+        return self
 
-    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mdl</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def model(self, mdl):
+        self.model = mdl
+        return self
 
-    <span class="k">def</span> <span class="nf">year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">yr</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def year(self, yr):
+        self.year = yr
+        return self
 
-    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prc</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">prc</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def price(self, prc):
+        self.price = prc
+        return self
 
-    <span class="k">def</span> <span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mile</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="n">mile</span>
-        <span class="k">return</span> <span class="bp">self</span>
+    def miles(self, mile):
+        self.miles = mile
+        return self
 
-    <span class="k">def</span> <span class="nf">show_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Maker:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maker</span><span class="p">,</span> <span class="s">"Model:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s">"Year:"</span><span class="p">,</span>
-              <span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s">"Price:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s">"Miles:"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">miles</span><span class="p">)</span>
+    def show_detail(self):
+        print("Maker:", self.maker, "Model:", self.model, "Year:",
+              self.year, "Price:", self.price, "Miles:", self.miles)
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">()</span>
+c = Cars()
 
-<span class="n">c</span><span class="o">.</span><span class="n">maker</span><span class="p">(</span><span class="s">"Aston Martin"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s">"DB9"</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">(</span>
-    <span class="mi">2004</span><span class="p">)</span><span class="o">.</span><span class="n">price</span><span class="p">(</span><span class="mf">149.000</span><span class="p">)</span><span class="o">.</span><span class="n">miles</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">show_detail</span><span class="p">()</span>
-<span class="c"># Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30</span>
+c.maker("Aston Martin").model("DB9").year(
+    2004).price(149.000).miles(30).show_detail()
+# Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30
 </code></pre>
-</div>
 
 <p>Kodları denediğim <a href="https://ideone.com/1blLKY">ideone</a>. Çalıştırılmış hali mevcut.</p>
 
@@ -324,6 +343,16 @@ b.A3_Metodu
     <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
   </p>
 </div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+<a href="kategoriler#Python">Python</a>,
+
 
 
 
@@ -359,6 +388,7 @@ b.A3_Metodu
     </small>
   </div>
 </footer>
+<script src="/js/prism.js"></script>
 
 
 </body>

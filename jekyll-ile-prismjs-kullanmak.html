@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HTML5 E-Kitap İndir &#8211; Ali GÖREN...</title>
+    <title>Jekyll ile PrismJS Kullanmak &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama, HTML, HTML5, E, Kitap">
-    <link rel="canonical" href="https://aligoren.com/html5-e-kitap-indir">
+    <meta name="keywords" content="Jekyll">
+    <link rel="canonical" href="https://aligoren.com/jekyll-ile-prismjs-kullanmak">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -40,9 +40,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="HTML5 E-Kitap İndir">
+    <meta property="og:title" content="Jekyll ile PrismJS Kullanmak">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/html5-e-kitap-indir">
+    <meta property="og:url" content="https://aligoren.com/jekyll-ile-prismjs-kullanmak">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -50,9 +50,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="HTML5 E-Kitap İndir" />
+    <meta name="twitter:title" content="Jekyll ile PrismJS Kullanmak" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/html5-e-kitap-indir" />
+    <meta name="twitter:url" content="https://aligoren.com/jekyll-ile-prismjs-kullanmak" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -187,26 +187,70 @@
 
 
 <div class="post-header mb2">
-  <h1>HTML5 E-Kitap İndir</h1>
-  <span class="post-meta">Dec 5, 2013</span><br>
+  <h1>Jekyll ile PrismJS Kullanmak</h1>
+  <span class="post-meta">Oct 15, 2016</span><br>
   
   <span class="post-meta small">
   
-    1 Dakikada Okunabilir
+    2 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>Selam arkadaşlar. Elimde 7z arşiv biçiminde 404 MB boyutunda HTML5 Kitapları var. Arşiv’den çıkınca 525 MB boyuta oluşuyor. Toplam 38 adet kitap vardır. Diğer kitaplarda da olduğu gibi bu kitap da PDF biçimindedir. 38 adet kitap olduğu için kitapların adlarını burada tek tek listeletmek akıllıca olmaz. Sayfa felaket şekilde uzayabilir.Kitapların Dili İngilizce’dir.</p>
+  <p>Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.</p>
 
-<p>Bu konuda (dil sorunu) maalesef yapabileceğim bir şey yok. Hatta bunun üzerine güzel bir mesaj da Donanım Haber forumundaki Muco53‘den gelmişti. Yine Yandex üzerinde paylaşacağım. Ben silmediğim sürece ya da Yandex silmediği sürece kitaplar silinmeyecek. Kitapları indirmeden önce eğer kontrol etmek isterseniz diye Ekran Görüntüsü‘de paylaşacağım yani klasör içeriğini. Bu sayede beğenmezseniz indirmeyebilirsiniz. Sanırım bu kadar uzattığım yeter. Linki hemen aşağıda paylaşayım</p>
+<p>Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak jekyll ile birlikte <a href="http://rouge.jneen.net/">Route</a> varsayılan olarak geldiği için pek de arayışa geçmeyiz. Fakat benim gibi görselliği de seviyorsanız mutlaka farklı alternatifleri de düşünürsünüz ki bunlardan birisi de <a href="http://pygments.org/">Pygments</a> oluyor. Tabi bunu da beğenmiyor olmanız pekala normal karşılanabilir.</p>
 
-<p>İndirme Linki: <a href="http://yadi.sk/d/MQ1pBAX4B5m4A">http://yadi.sk/d/MQ1pBAX4B5m4A</a></p>
+<p>Ben özellikle son dönemde en popüler kod renklandiricilerden olan PrismJS kullanmayı uygun gördüm. Bu yazıda ve diğer yazılarda etkisini göreceksiniz. Çok uzatmadan nasıl kurulacağını anlatayım. Şimdi bu işlem 3 adımdan oluşmakta.</p>
 
-<h3 id="ekran-grnts">Ekran Görüntüsü:</h3>
+<ul>
+  <li>İlk Adım: Rouge’un devre dışı bırakılması</li>
+  <li>İkinci Adım PrismJS’in İndirilmesi</li>
+  <li>Üçüncü Adım İlgili Kütüphanelerin head ve footer’a eklenmesi</li>
+</ul>
 
-<p><img src="https://3.bp.blogspot.com/-_fz0l-EgZ2Y/Ul75clBI-jI/AAAAAAAAA58/iBZt1s1r7Lw/s1600/html5_525mb.PNG" alt="https://3.bp.blogspot.com/-_fz0l-EgZ2Y/Ul75clBI-jI/AAAAAAAAA58/iBZt1s1r7Lw/s1600/html5_525mb.PNG" /></p>
+<p><strong>1-)</strong> Şimdi öncelikle bize lazım olan şey Rouge’un devre dışı kalması dedik. <code>_config.yml</code> dosyasına geçelim. Burada yapmamız gereken şey öncelikle <code>highlighter: none</code> demeliyiz.</p>
+
+<p>Daha sonra <code>kramdown</code> için alt seçeneklere bazı eklemeler gerçekleştirmeliyiz. Bu işleme göre syntax highlighter disable olmalı. Kısacası ilgili bölümler aşağıdaki gibi olmalı:</p>
+
+<pre><code class="language-yaml">highlighter: none
+markdown: kramdown
+kramdown:
+    syntax_highlighter_opts:
+        disable: true
+</code></pre>
+
+<p><strong>2-)</strong> İlk adımı atlattık şimdi geldi ikinci adıma. İkinci adımda PrismJS’yi <a href="http://prismjs.com/">http://prismjs.com/</a> adresinden indirelim. Bu indirme ile birlikte iki dosya karşınıza gelecektir.Birisi JS bir diğeri de CSS dosyası.</p>
+
+<p>Ben PrismJS’i özelleştirerek indirmenizi öneriyorum. Syntax highlighter için default tema aslında gayet iyi ama siz dilerseniz farklı temaları da seçebilirsiniz. Blogunuzda hangi dillerde yayın yapıyorsanız (Programlama dilleri) o dilleri seçin öncelikle. Ben hepsini seçmedim ama bazı deneyip bir şeyler aktaracağım dillere dair seçimler gerçekleştirdim.</p>
+
+<p>Dil seçimi tamamlandı. Artık seçmemiz gereken bir diğer şey ise plugin yani eklentiler. Bunlar inanın PrismJS’i daha güzel bir şekilde kullanmanıza da imkan tanıyan eklentiler. Benim önerilerim şunlar:</p>
+
+<p><strong>Line Numbers:</strong> Satır numaralarını gösterir.</p>
+
+<p><strong>Autolinker:</strong> Kodlarda yer alan yorum satırlarında link varsa tıklanabilir hale getirir</p>
+
+<p><strong>Show Language:</strong> Eklenen kodun hangi dilde eklendiğini sağ üst köşede gösterir. Bu yazıdaki <code>YAML</code> örneğinde olduğu gibi</p>
+
+<p><strong>3-)</strong> Son adıma geldik. Bu adımda indirilen dosyaları klasörlere atma zamanı. <code>css</code> zaten hazır olduğu için <code>prism.css</code> dosyasını o klasöre atın. Eğer <code>js</code> klasörü yoksa oluşturun ve <code>prism.js</code> dosyasını da o klasöre atın.</p>
+
+<p>Şimdi gelelim son adımlara. Öncelikle <mark>head.html</mark> dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:</p>
+
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/css/prism.css"&gt;
+</code></pre>
+
+<p><em>Not: href içinde süslü parantezler vardır:</em></p>
+
+<pre><code class="language-json">{{ "/css/prism.css" | prepend: site.baseurl }}
+</code></pre>
+
+<p>Bu işlem bittikten sonra da artık son bir işimiz kalıyor. <mark>footer.html</mark> dosyasını açıp şu kodu yapıştıralım:</p>
+
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/js/prism.js"&gt;
+</code></pre>
+
+<p>Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.</p>
 
 </article>
 
@@ -228,15 +272,7 @@
 
 Kategori:
 
-<a href="kategoriler#Programlama">Programlama</a>,
-
-<a href="kategoriler#HTML">HTML</a>,
-
-<a href="kategoriler#HTML5">HTML5</a>,
-
-<a href="kategoriler#E">E</a>,
-
-<a href="kategoriler#Kitap">Kitap</a>,
+<a href="kategoriler#Jekyll">Jekyll</a>,
 
 
 
@@ -245,8 +281,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/html5-e-kitap-indir';
-    var disqus_title      = "HTML5 E-Kitap İndir";
+    var disqus_identifier = '/jekyll-ile-prismjs-kullanmak';
+    var disqus_title      = "Jekyll ile PrismJS Kullanmak";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
