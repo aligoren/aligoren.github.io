@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Java İçin Java IDE'leri &#8211; Ali GÖREN...</title>
+    <title>Jekyll Github Badge Eklentisi &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Java">
-    <link rel="canonical" href="https://aligoren.com/java-icin-java-ideleri">
+    <meta name="keywords" content="Jekyll">
+    <link rel="canonical" href="https://aligoren.com/jekyll-github-badge-eklentisi">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -41,9 +41,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Java İçin Java IDE'leri">
+    <meta property="og:title" content="Jekyll Github Badge Eklentisi">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/java-icin-java-ideleri">
+    <meta property="og:url" content="https://aligoren.com/jekyll-github-badge-eklentisi">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -51,9 +51,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="Java İçin Java IDE'leri" />
+    <meta name="twitter:title" content="Jekyll Github Badge Eklentisi" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/java-icin-java-ideleri" />
+    <meta name="twitter:url" content="https://aligoren.com/jekyll-github-badge-eklentisi" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -188,8 +188,8 @@
 
 
 <div class="post-header mb2">
-  <h1>Java İçin Java IDE'leri</h1>
-  <span class="post-meta">Mar 24, 2012</span><br>
+  <h1>Jekyll Github Badge Eklentisi</h1>
+  <span class="post-meta">Oct 16, 2016</span><br>
   
   <span class="post-meta small">
   
@@ -199,61 +199,36 @@
 </div>
 
 <article class="post-content">
-  <p>JAVA IDE nedir?</p>
+  <p>Selam bu aslında tam bir eklenti. Değil. Buna daha çok Liquid Tag desek yanlış söylemiş olmayız. Bu eklentinin yaptığı şey kısacası belirli bir repo için <mark>BADGE</mark> oluşturuyor.
+Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card özelliğinden faydalandım.</p>
 
-<p>JAVA IDE aslinda şöyle açıklanabilir, bir yükü bir yerden başka bir yere götürmek için daha rahat yöntemler mi yoksa daha zor yöntemler mi kullanılır? İşte IDE kavramı burada ortaya çıkıyor. IDE’ler gömülü fonksiyonlar, fonksiyon tamamlamalar vs. gibi özellikler ve örneğin tasarımsal yapılardaki ekleriyle hız, zaman kazanımı sağlar. Örneğin swing kodlarını elimizle yazarsak ve tüm projeyi bu şekilde götürürsek proje büyüklüğüne göre harcanan zaman da değişir. Peki bir IDE olsa ve bunları tamamlasa? İşte burada bize yardım ediyorlar. Ayrıca hatalar varsa bu hataları ayıklar. JAVA’nın içindeki gömülü fonksiyonları, bizim oluşturduğumuz fonksiyonları, string, integer, float vs. bunları vurgular. Bunları renkli bir biçimde yapar. Görüntü olarak karıştırma yapmayız. Kısacası kullanıcı için bazı şeyleri kolaylaştırmayı sağlar… Giriş için bu kadar yeter sanırım..</p>
+<p>Eklenti şu anda sadece çağırıldığı anda olan değerleri üretiyor. Yani bugün 10 olan bir beğeni, yarın 15 olsa bile değişmeyecektir. Vakit olursa bir sonraki sürümde onu da değiştirmeyi düşünüyorum.</p>
 
-<p>Editörlere göz atacak olursak eğer; Eclipse</p>
+<p>Kısacası bu eklenti bize şunları sunuyor:</p>
 
-<p>http://www.eclipse.org/downloads/</p>
+<ul>
+  <li>Proje Adı</li>
+  <li>Açıklama</li>
+  <li>Proje yazarı / sahibi (Author)</li>
+  <li>Programlama dili</li>
+  <li>Stargazers (kaç kişi beğenmiş)</li>
+  <li>Forks (Çatallama sayısı)</li>
+  <li>Download (Projenin master branchteki dosyalarının zip URL’si)</li>
+</ul>
 
-<p>Hepimizin bildiği bu editor, Netbeans ile birlikte en popüler editörler arasında gelir. Gelişimi IBM tarafından yapılmış olan Eclipse plug-in(eklenti) desteği sayesinde tercih sebebidir. Versiyonlara ayrılmış olması da başka bir güzel yanıdır. Versiyonlar derken? Ticari vs. vs.. Geliştiriciler için her türlü kolaylık sağlayan bu editör’ü kullanmanızı tavsiye ederim. Üst kısımda verdiğim linkten indirebilirsiniz.</p>
+<p>Kullanım için bazı adımlar var. Öncelikle card.css dosyasını aktarmak gerekiyor:</p>
 
-<p>Netbeans</p>
+<pre><code class="language-json">{{ "/css/card.css" | prepend: site.baseurl }}
+</code></pre>
 
-<p>http://netbeans.org/downloads/index.html</p>
+<p>Daha sonra da kullanımı basitçe şöyle oluyor:</p>
 
-<p>Netbeans IDE Eclipse kadar büyük bir editör diyemeyiz. Ama onun kadar başarılıdır. Eclipse için geçerli olan kod tamamlama vs. özellikleri renklendirme, Swing UI ozellikleri yine burada vardir. Kurumsal uygulamalar ve mobil uygulamalar geliştirmek için bence en güzel editör. Kullanmanızı tavsiye ederim. Üst kısımdaki linkten indirebilirsiniz.</p>
+<pre><code class="language-json">{% gitrepo KULLANICI_ADINIZ/REPO_ADINIZ %}
+</code></pre>
 
-<p>JCreator</p>
+<p>Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:</p>
 
-<p>http://www.jcreator.org/download.htm</p>
-
-<p>JCreator editörü yeni başlayanlar için bence tercih sebebidir. Hafif ve basit bir IDE olmasından dolayı diyorum. Yeni baslayanlar için programlama daima zordur. Akılda kalıcı, en yardımcı, ve karmaşık olmayan IDE’ler onların gelişimini yüksek tutar. Bu yüzden bunu tercih etmenizi öneririm. Üst kısımdaki linkten indirebilirsiniz.</p>
-
-<p>Processing IDE</p>
-
-<p>http://www.processing.org/download/</p>
-
-<p>Gerçekten gelişmir bir IDE, ama yeni başlayan grafik arayüzlü tasarımcılar bile kullanabilir. Eclipse ve Netbeans gibi bu editör de win, mac, linux üzerinde çalışabilme yeteneğine sahiptir. Üst kısımdaki linkten indirebilirisiniz.</p>
-
-<p>Bir de diğer IDE’lere bakalım:</p>
-
-<p>DrJava -&gt;http://www.drjava.org/</p>
-
-<p>BlueJ-&gt;http://www.bluej.org/download/download.html</p>
-
-<p>jGRASP-&gt;http://spider.eng.auburn.edu/user-cgi/grasp/grasp.pl?;dl=download_jgrasp.html</p>
-
-<p>MyEclipse-http://www.myeclipseide.com/</p>
-
-<p>Zeus Edit-&gt;http://www.zeusedit.com/java.html</p>
-
-<p>jBuilder-&gt;http://www.embarcadero.com/products/jbuilder</p>
-
-<p>jDeveloper-&gt;http://www.oracle.com/technetwork/developer-tools/jdev/downloads/index.html</p>
-
-<p>Gel-&gt;http://www.gexperts.com/products/gel/download.php</p>
-
-<p>JIPE-&gt;http://jipe.sourceforge.net/</p>
-
-<p>jEdit-&gt;http://www.jedit.org/index.php?page=download</p>
-
-<p>Intellij IDEA-&gt;http://www.jetbrains.com/idea/download/index.html</p>
-
-<p>Bütün linkler tıklanabilirdir.</p>
-
-<p>Bu kadar, iyi geliştirmeler. Umarım bu makale sizlere yardımcı olmuştur.</p>
+<div class="card card-block"><p class="card-text"><b>Project Details: </b>jekyll-github-badge</p><p class="card-text"><b>Description: </b>Jekyll Github Repo Badge Generator</p><table class="table table-sm"><tbody><tr><th scope="row">Project Name</th><td><a class="card-link" href="https://github.com/aligoren/jekyll-github-badge" target="_blank">jekyll-github-badge</a></td></tr><tr><th scope="row">Author</th><td><a class="card-link" href="https://github.com/aligoren" target="_blank">aligoren</a></td></tr><tr><th scope="row">Programming Language</th><td>CSS</td></tr><tr><th scope="row">Stargazers</th><td>0</td></tr><tr><th scope="row">Forks</th><td>0</td></tr></tbody></table><a href="https://github.com/aligoren/jekyll-github-badge/archive/master.zip" class="btn btn-primary" target="_blank">Download</a></div>
 
 </article>
 
@@ -275,7 +250,7 @@
 
 Kategori:
 
-<a href="kategoriler#Java">Java</a>,
+<a href="kategoriler#Jekyll">Jekyll</a>,
 
 
 
@@ -284,8 +259,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/java-icin-java-ideleri';
-    var disqus_title      = "Java İçin Java IDE'leri";
+    var disqus_identifier = '/jekyll-github-badge-eklentisi';
+    var disqus_title      = "Jekyll Github Badge Eklentisi";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

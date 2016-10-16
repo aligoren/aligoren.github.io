@@ -7,6 +7,44 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Jekyll Github Badge Eklentisi</title>
+        <description>&lt;p&gt;Selam bu aslında tam bir eklenti. Değil. Buna daha çok Liquid Tag desek yanlış söylemiş olmayız. Bu eklentinin yaptığı şey kısacası belirli bir repo için &lt;mark&gt;BADGE&lt;/mark&gt; oluşturuyor.
+Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card özelliğinden faydalandım.&lt;/p&gt;
+
+&lt;p&gt;Eklenti şu anda sadece çağırıldığı anda olan değerleri üretiyor. Yani bugün 10 olan bir beğeni, yarın 15 olsa bile değişmeyecektir. Vakit olursa bir sonraki sürümde onu da değiştirmeyi düşünüyorum.&lt;/p&gt;
+
+&lt;p&gt;Kısacası bu eklenti bize şunları sunuyor:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Proje Adı&lt;/li&gt;
+  &lt;li&gt;Açıklama&lt;/li&gt;
+  &lt;li&gt;Proje yazarı / sahibi (Author)&lt;/li&gt;
+  &lt;li&gt;Programlama dili&lt;/li&gt;
+  &lt;li&gt;Stargazers (kaç kişi beğenmiş)&lt;/li&gt;
+  &lt;li&gt;Forks (Çatallama sayısı)&lt;/li&gt;
+  &lt;li&gt;Download (Projenin master branchteki dosyalarının zip URL’si)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Kullanım için bazı adımlar var. Öncelikle card.css dosyasını aktarmak gerekiyor:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{{ &quot;/css/card.css&quot; | prepend: site.baseurl }}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Daha sonra da kullanımı basitçe şöyle oluyor:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{% gitrepo KULLANICI_ADINIZ/REPO_ADINIZ %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:&lt;/p&gt;
+
+&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sun, 16 Oct 2016 21:57:00 +0300</pubDate>
+        <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
+        <guid isPermaLink="true">https://aligoren.com/jekyll-github-badge-eklentisi</guid>
+      </item>
+    
+      <item>
         <title>Jekyll ile PrismJS Kullanmak</title>
         <description>&lt;p&gt;Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.&lt;/p&gt;
 
@@ -943,144 +981,6 @@ if __name__ == &quot;__main__&quot;:
         <pubDate>Sun, 03 Apr 2016 22:41:00 +0300</pubDate>
         <link>https://aligoren.com/flask-ile-json-cikti-almak</link>
         <guid isPermaLink="true">https://aligoren.com/flask-ile-json-cikti-almak</guid>
-      </item>
-    
-      <item>
-        <title>Python'da Zincirleme Metodlar</title>
-        <description>&lt;p&gt;Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani &lt;code&gt;Chaining Methods&lt;/code&gt; deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir &lt;code&gt;Cars&lt;/code&gt; sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;A Sınıfı =&amp;gt;
-    A1_Metodu =&amp;gt;
-        ... işlemler
-    A2_Metodu =&amp;gt;
-        ... işlemler
-    A3_Metodu =&amp;gt;
-        ... işlemler
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Böyle bir yapıda sınıfımızı &lt;strong&gt;b&lt;/strong&gt; değişkenine ilklediğimizi ve metodları çağırdığımızı düşünelim. O zaman durum şu olurdu&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;b = A Sınıfı
-b.A1_Metodu
-b.A2_Metodu
-b.A3_Metodu
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;gibi tam da burada yardımcı olarak zincirleme metod deseni geliyor önümüze. Eğer bir chaining metod olsaydı yukarıdaki gibi alt alta bir tekrar yerine şöyle olacaktı:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;b.A1_Metodu.A2_Metodu.A3_Metodu
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet anlatmak istediğim tam da bu oluyor. Peki bu Python’da nasıl çalışıyor? Öncelikle kısaca Cars sınıfımızı oluşturalım. Bu sınıf ise &lt;code&gt;maker, model, year, price, miles, show_detail&lt;/code&gt; metodlarına sahip olsun. Eldeki veriler üzerinden sınıfımızın iskeletini oluşturalım.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Cars(object):
-
-    def maker(self, mkr):
-        # işlemler
-
-    def model(self, mdl):
-        # işlemler
-
-    def year(self, yr):
-        # işlemler
-
-    def price(self, prc):
-        # işlemler
-
-    def miles(self, mile):
-        # işlemler
-
-    def show_detail(self):
-        # detay işlemleri
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet iskeletimiz böyle. Şimdi maker yani üreticinin değer döndürmesini sağlamalıyız. Yukarıda &lt;em&gt;metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir&lt;/em&gt; demiştim. O zaman bu maker metodu son olarak kendisini döndürmeli. Ve yine kendisine değer almalı. Kendi değerini ise aldığı argümana eşitlemeliyiz. Bakalım hemen:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def maker(self, mkr):
-    self.maker = mkr
-    return self
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;return self&lt;/code&gt; ile metoda kendisini döndürme imkanı verdik. Bu işlemi &lt;strong&gt;show_detail&lt;/strong&gt; hariç diğer metodlara da uygulayalım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Cars:
-
-    def maker(self, mkr):
-        self.maker = mkr
-        return self
-
-    def model(self, mdl):
-        self.model = mdl
-        return self
-
-    def year(self, yr):
-        self.year = yr
-        return self
-
-    def price(self, prc):
-        self.price = prc
-        return self
-
-    def miles(self, mile):
-        self.miles = mile
-        return self
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Son olarak da bu değerleri göstereceğimiz &lt;strong&gt;show_detail&lt;/strong&gt; metodunu yazalım. O konu aslında basit olarak bildiğimiz bir konu zaten.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def show_detail(self):
-    print(&quot;Maker:&quot;, self.maker, &quot;Model:&quot;, self.model, &quot;Year:&quot;,
-          self.year, &quot;Price:&quot;, self.price, &quot;Miles:&quot;, self.miles)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Artık marka model ne var ne yok yazdıracağız hem de ekstra bir uğraş vermeden. Kullanımına bakarsak anlayacağız:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;c = Cars()
-
-c.maker(&quot;Aston Martin&quot;).model(&quot;DB9&quot;).year(2004).price(149.000).miles(30).show_detail()
-# Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Üreticisi Aston Martin olan 2004 üretimli DB9 Model 30 Mildeki aracın fiyatının 149 bin euro olduğunu söylettik diyelim. Evet bu işlem bu kadar çıktıyı da yukarıda gördük. Kodların tamamı:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Cars:
-
-    def maker(self, mkr):
-        self.maker = mkr
-        return self
-
-    def model(self, mdl):
-        self.model = mdl
-        return self
-
-    def year(self, yr):
-        self.year = yr
-        return self
-
-    def price(self, prc):
-        self.price = prc
-        return self
-
-    def miles(self, mile):
-        self.miles = mile
-        return self
-
-    def show_detail(self):
-        print(&quot;Maker:&quot;, self.maker, &quot;Model:&quot;, self.model, &quot;Year:&quot;,
-              self.year, &quot;Price:&quot;, self.price, &quot;Miles:&quot;, self.miles)
-
-c = Cars()
-
-c.maker(&quot;Aston Martin&quot;).model(&quot;DB9&quot;).year(
-    2004).price(149.000).miles(30).show_detail()
-# Maker: Aston Martin Model: DB9 Year: 2004 Price: 149.0 Miles: 30
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kodları denediğim &lt;a href=&quot;https://ideone.com/1blLKY&quot;&gt;ideone&lt;/a&gt;. Çalıştırılmış hali mevcut.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 31 Mar 2016 22:39:00 +0300</pubDate>
-        <link>https://aligoren.com/pythonda-zincirleme-metodlar</link>
-        <guid isPermaLink="true">https://aligoren.com/pythonda-zincirleme-metodlar</guid>
       </item>
     
   </channel>
