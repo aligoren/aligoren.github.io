@@ -64,7 +64,7 @@ sniff(filter='tcp', prn=tcp_ayikla)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Çıktı olarak şöyle görüntüleriz:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/posts/sniff_url.png&quot; alt=&quot;images/posts/sniff_url.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/posts/sniff_url.PNG&quot; alt=&quot;images/posts/sniff_url.PNG&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Buraya kadar olan kısım şu &lt;a href=&quot;http://www.lucainvernizzi.net/blog/2015/02/12/extracting-urls-from-network-traffic-in-just-9-python-lines-with-scapy-http/&quot;&gt;bağlantı&lt;/a&gt; üzerinden alıntılandı&lt;/p&gt;
 
