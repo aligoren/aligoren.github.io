@@ -9,6 +9,78 @@
     
         
             <item>
+                <title>Asp.Net MVC'De Çoklu Checkbox Kullanımıi</title>
+                <link>https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. 
+Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.</p>
+
+<p>Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID değerleri var. Örnekte şöyle olsun:</p>
+
+<pre><code class="language-html">&lt;input type="checkbox" name="degerler" value="1" /&gt;
+&lt;input type="checkbox" name="degerler" value="2" /&gt;
+&lt;input type="checkbox" name="degerler" value="3" /&gt;
+&lt;input type="checkbox" name="degerler" value="4" /&gt;
+&lt;input type="checkbox" name="degerler" value="5" /&gt;
+&lt;input type="checkbox" name="degerler" value="6" /&gt;
+</code></pre>
+
+<p>Bunların bazıları seçili olabilir bazıları olmayabilir. Şimdi ben gelen değerleri veritabanına ekletmek istiyorum.
+Belki başka yöntemleri de vardır bilemem ancak bunun MVC’de basit bir yolu var. Şimdi bu formun basit olarak şöyle post edildiğini düşünelim:</p>
+
+<pre><code class="language-html">&lt;form action="/Home/DegerAl" method="post"&gt;
+    &lt;input type="checkbox" name="degerler" value="1" /&gt;
+    &lt;input type="checkbox" name="degerler" value="2" /&gt;
+    &lt;input type="checkbox" name="degerler" value="3" /&gt;
+    &lt;input type="checkbox" name="degerler" value="4" /&gt;
+    &lt;input type="checkbox" name="degerler" value="5" /&gt;
+    &lt;input type="checkbox" name="degerler" value="6" /&gt;
+    &lt;input type="submit" value="Ekle" /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Yukarıdaki yapıda name karşılığı <mark>degerler</mark> olan bir input grup görüyoruz. Bu name karşılıklarının aslında bir name array oluşturduğunu söyleyebiliriz.
+Bu array’in adı da <mark>degerler</mark> array’i olsun. O zaman C# tarafında bu değerleri hangi türden alacağımızı biliyoruz.</p>
+
+<p><code>[HttpPost]</code> attribute’unu çağıran method’a gelen argüman tipi array olacak. Basit olarak array tipli değer alan methodların nasıl oluştuğunu hatırlayalım:</p>
+
+<pre><code class="language-csharp">public void DegerAlacak(string[] degerler)
+{
+    //...
+}
+</code></pre>
+
+<p>Şimdi bu bilgilere göre basit anlamda bir checkbox list’ten gelen verinin nasıl alınacağını görelim:</p>
+
+<pre><code class="language-csharp">[HttpPost]
+public ActionResult DegerAl(string[] degerler)
+{
+    for (int i = 0; i &lt; degerler.Length; i++)
+    {
+        ViewData["Degerler"] += degerler[i];
+    }
+    return View();
+}
+</code></pre>
+
+<p>Ben bunları <code>DegerAl</code> sayfasında yazdırdığım için ViewData içerisine atadım. Dilerseniz parametre alınan noktaya bir breakpoint koyarak gelen değerleri görüntüleyebilirsiniz.</p>
+
+<p><img src="/images/posts/mvc_check.png" alt="/images/posts/mvc_check.png" /></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sat, 22 Oct 2016 12:05:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Jekyll Github Badge Eklentisi</title>
                 <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
                 <content:encoded>
@@ -42,7 +114,7 @@ Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card 
 
 <p>Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:</p>
 
-<div class="card card-block"><p class="card-text"><b>Project Details: </b>jekyll-github-badge</p><p class="card-text"><b>Description: </b>Jekyll Github Repo Badge Generator</p><table class="table table-sm"><tbody><tr><th scope="row">Project Name</th><td><a class="card-link" href="https://github.com/aligoren/jekyll-github-badge" target="_blank">jekyll-github-badge</a></td></tr><tr><th scope="row">Author</th><td><a class="card-link" href="https://github.com/aligoren" target="_blank">aligoren</a></td></tr><tr><th scope="row">Programming Language</th><td>CSS</td></tr><tr><th scope="row">Stargazers</th><td>0</td></tr><tr><th scope="row">Forks</th><td>0</td></tr></tbody></table><a href="https://github.com/aligoren/jekyll-github-badge/archive/master.zip" class="btn btn-primary" target="_blank">Download</a></div>
+<div class="card card-block"><p class="card-text"><b>Project Details: </b>jekyll-github-badge</p><p class="card-text"><b>Description: </b>Jekyll Github Repo Badge Generator</p><table class="table table-sm"><tbody><tr><th scope="row">Project Name</th><td><a class="card-link" href="https://github.com/aligoren/jekyll-github-badge" target="_blank">jekyll-github-badge</a></td></tr><tr><th scope="row">Author</th><td><a class="card-link" href="https://github.com/aligoren" target="_blank">aligoren</a></td></tr><tr><th scope="row">Programming Language</th><td>CSS</td></tr><tr><th scope="row">Stargazers</th><td>2</td></tr><tr><th scope="row">Forks</th><td>0</td></tr></tbody></table><a href="https://github.com/aligoren/jekyll-github-badge/archive/master.zip" class="btn btn-primary" target="_blank">Download</a></div>
 
                     ]]>
                 </content:encoded>
@@ -100,7 +172,7 @@ kramdown:
 
 <p>Şimdi gelelim son adımlara. Öncelikle <mark>head.html</mark> dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:</p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="/css/prism.css"&gt;
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/css/prism.css"&gt;
 </code></pre>
 
 <p><em>Not: href içinde süslü parantezler vardır:</em></p>
@@ -110,7 +182,7 @@ kramdown:
 
 <p>Bu işlem bittikten sonra da artık son bir işimiz kalıyor. <mark>footer.html</mark> dosyasını açıp şu kodu yapıştıralım:</p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="/js/prism.js"&gt;
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/js/prism.js"&gt;
 </code></pre>
 
 <p>Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.</p>

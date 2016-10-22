@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Android Oyun Geliştirme - E Kitap İndir &#8211; Ali GÖREN...</title>
+    <title>Asp.Net MVC'De Çoklu Checkbox Kullanımıi &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programalama, Android, E, Kitap">
-    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/android-oyun-gelistirme-e-kitap-indir">
+    <meta name="keywords" content="C#, Asp.NET">
+    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="https://aligoren.com/feed.xml" />
 
     <!-- Custom CSS -->
@@ -41,9 +41,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Android Oyun Geliştirme - E Kitap İndir">
+    <meta property="og:title" content="Asp.Net MVC'De Çoklu Checkbox Kullanımıi">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/android-oyun-gelistirme-e-kitap-indir">
+    <meta property="og:url" content="https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -51,9 +51,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="Android Oyun Geliştirme - E Kitap İndir" />
+    <meta name="twitter:title" content="Asp.Net MVC'De Çoklu Checkbox Kullanımıi" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/android-oyun-gelistirme-e-kitap-indir" />
+    <meta name="twitter:url" content="https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -188,8 +188,8 @@
 
 
 <div class="post-header mb2">
-  <h1>Android Oyun Geliştirme - E Kitap İndir</h1>
-  <span class="post-meta">Dec 1, 2013</span><br>
+  <h1>Asp.Net MVC'De Çoklu Checkbox Kullanımıi</h1>
+  <span class="post-meta">Oct 22, 2016</span><br>
   
   <span class="post-meta small">
   
@@ -199,23 +199,60 @@
 </div>
 
 <article class="post-content">
-  <p>Selam arkadaşlar. Android için oyun geliştirme e-kitapları var elimde. Onları sizlerle paylaşayım. Yandex Disk‘e yükledim. Yani ben silmedikçe ya da Yandex beni silmedikçe asla silinmeyecekler içiniz rahat olsun.</p>
+  <p>Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. 
+Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.</p>
 
-<p>7z formatında boyutu 100 mb gibi. Arşivden çıkartınca 187 mb boyutuna ulaşıyor.</p>
+<p>Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID değerleri var. Örnekte şöyle olsun:</p>
 
-<p>Kitapların dili ingilizce. Maalesef kaliteli Türkçe kitaplar zaten yok. Olmadığı için de bunun e-kitap olayına girişilmesi mantıksız olurdu. Ama zaten bu işlerden anlayan arkadaşlar için pek de sorun olacağını sanmam. Şimdilik sizlerle bir kısmını paylaşıyorum ama daha sonra da elimden geldikçe paylaşmaya devam edeceğim. Şu sıralar ikinci üniversite sınavına hazırlandığım için programlama makaleleri yayınlayamıyorum. Ancak böyle paylaşımlar yapabiliyorum.</p>
+<pre><code class="language-html">&lt;input type="checkbox" name="degerler" value="1" /&gt;
+&lt;input type="checkbox" name="degerler" value="2" /&gt;
+&lt;input type="checkbox" name="degerler" value="3" /&gt;
+&lt;input type="checkbox" name="degerler" value="4" /&gt;
+&lt;input type="checkbox" name="degerler" value="5" /&gt;
+&lt;input type="checkbox" name="degerler" value="6" /&gt;
+</code></pre>
 
-<p>Yeri gelmişken de açıklayayım bu paylaşımlar karşılığında herhangi bir maddi beklentim yok. Bazı arkadaşlar hep maddiyat bekliyorsun, neden köşede üstte ve altta reklamlar var vs. gibisinden küfürler etmişler iletişimdeki e-posta adresime. Öyle bir beklentim olsaydı tık başına para veren linkler ile yönlendirme yapardım. Bugün en büyük siteler dahi reklam alıyorlar ben köşeye çok da kasmayan, okuyanı bozmayan 3 reklam koymuşum bu o kadar da kötü olmamalı diyorum.</p>
+<p>Bunların bazıları seçili olabilir bazıları olmayabilir. Şimdi ben gelen değerleri veritabanına ekletmek istiyorum.
+Belki başka yöntemleri de vardır bilemem ancak bunun MVC’de basit bir yolu var. Şimdi bu formun basit olarak şöyle post edildiğini düşünelim:</p>
 
-<p>Yani size zorlayıcı, dayatmacı bir reklam politikası da yok. Çoğunuz Adblock kullanıyorsunuz istatistiklerini aliyorum. Bir dizi sitesinde AdBlock kullananlara “Nasıl AdBlock güzel mi?” gibisinden eleştiriler gelmişti. Bu gibi ucuz şeylerle de uğraşmıyorum. Her şey sizin kararınıza kalmış fazla da uzatmama gerek yok. Neyse bunu da açıklamış oldum. Yarın ya da sonraki günler de Java ya da Oyun Geliştirme üzerine e-kitaplar paylaşacağım.</p>
+<pre><code class="language-html">&lt;form action="/Home/DegerAl" method="post"&gt;
+    &lt;input type="checkbox" name="degerler" value="1" /&gt;
+    &lt;input type="checkbox" name="degerler" value="2" /&gt;
+    &lt;input type="checkbox" name="degerler" value="3" /&gt;
+    &lt;input type="checkbox" name="degerler" value="4" /&gt;
+    &lt;input type="checkbox" name="degerler" value="5" /&gt;
+    &lt;input type="checkbox" name="degerler" value="6" /&gt;
+    &lt;input type="submit" value="Ekle" /&gt;
+&lt;/form&gt;
+</code></pre>
 
-<p>İndirme Linki: <a href="http://yadi.sk/d/ZvQlZyMeAUb53">http://yadi.sk/d/ZvQlZyMeAUb53</a></p>
+<p>Yukarıdaki yapıda name karşılığı <mark>degerler</mark> olan bir input grup görüyoruz. Bu name karşılıklarının aslında bir name array oluşturduğunu söyleyebiliriz.
+Bu array’in adı da <mark>degerler</mark> array’i olsun. O zaman C# tarafında bu değerleri hangi türden alacağımızı biliyoruz.</p>
 
-<p>İçerik hakkında ekran görüntüsü de vereyim yani kitaplar hakkında</p>
+<p><code>[HttpPost]</code> attribute’unu çağıran method’a gelen argüman tipi array olacak. Basit olarak array tipli değer alan methodların nasıl oluştuğunu hatırlayalım:</p>
 
-<p><img src="https://4.bp.blogspot.com/-QAZ2stwKp2s/UlGIQlfQ-GI/AAAAAAAAA5M/LENe_9YelKU/s1600/androidgamedevelopment_100mb.PNG" alt="https://4.bp.blogspot.com/-QAZ2stwKp2s/UlGIQlfQ-GI/AAAAAAAAA5M/LENe_9YelKU/s1600/androidgamedevelopment_100mb.PNG" /></p>
+<pre><code class="language-csharp">public void DegerAlacak(string[] degerler)
+{
+    //...
+}
+</code></pre>
 
-<p>NOT: Eğer link bozuk olursa bu yazı altından yorumla bildiriniz lütfen.</p>
+<p>Şimdi bu bilgilere göre basit anlamda bir checkbox list’ten gelen verinin nasıl alınacağını görelim:</p>
+
+<pre><code class="language-csharp">[HttpPost]
+public ActionResult DegerAl(string[] degerler)
+{
+    for (int i = 0; i &lt; degerler.Length; i++)
+    {
+        ViewData["Degerler"] += degerler[i];
+    }
+    return View();
+}
+</code></pre>
+
+<p>Ben bunları <code>DegerAl</code> sayfasında yazdırdığım için ViewData içerisine atadım. Dilerseniz parametre alınan noktaya bir breakpoint koyarak gelen değerleri görüntüleyebilirsiniz.</p>
+
+<p><img src="/images/posts/mvc_check.png" alt="/images/posts/mvc_check.png" /></p>
 
 </article>
 
@@ -237,13 +274,9 @@
 
 Kategori:
 
-<a href="kategoriler#Programalama">Programalama</a>,
+<a href="kategoriler#C#">C#</a>,
 
-<a href="kategoriler#Android">Android</a>,
-
-<a href="kategoriler#E">E</a>,
-
-<a href="kategoriler#Kitap">Kitap</a>,
+<a href="kategoriler#Asp.NET">Asp.NET</a>,
 
 
 
@@ -252,8 +285,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/android-oyun-gelistirme-e-kitap-indir';
-    var disqus_title      = "Android Oyun Geliştirme - E Kitap İndir";
+    var disqus_identifier = '/aspnet-mvcde-coklu-checkbox-kullanimi';
+    var disqus_title      = "Asp.Net MVC'De Çoklu Checkbox Kullanımıi";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

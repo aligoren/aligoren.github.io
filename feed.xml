@@ -3,8 +3,70 @@
   <channel>
     <title>Ali GÖREN...</title>
     <description>.NET, SQL, Python, Açık Kaynak</description>
-    <link>https://aligoren.com/</link>
-    <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://aligoren.comhttps://aligoren.com/</link>
+    <atom:link href="https://aligoren.comhttps://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Asp.Net MVC'De Çoklu Checkbox Kullanımıi</title>
+        <description>&lt;p&gt;Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. 
+Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.&lt;/p&gt;
+
+&lt;p&gt;Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID değerleri var. Örnekte şöyle olsun:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;1&quot; /&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;2&quot; /&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;3&quot; /&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;4&quot; /&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;5&quot; /&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;6&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bunların bazıları seçili olabilir bazıları olmayabilir. Şimdi ben gelen değerleri veritabanına ekletmek istiyorum.
+Belki başka yöntemleri de vardır bilemem ancak bunun MVC’de basit bir yolu var. Şimdi bu formun basit olarak şöyle post edildiğini düşünelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;form action=&quot;/Home/DegerAl&quot; method=&quot;post&quot;&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;1&quot; /&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;2&quot; /&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;3&quot; /&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;4&quot; /&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;5&quot; /&amp;gt;
+    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;6&quot; /&amp;gt;
+    &amp;lt;input type=&quot;submit&quot; value=&quot;Ekle&quot; /&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki yapıda name karşılığı &lt;mark&gt;degerler&lt;/mark&gt; olan bir input grup görüyoruz. Bu name karşılıklarının aslında bir name array oluşturduğunu söyleyebiliriz.
+Bu array’in adı da &lt;mark&gt;degerler&lt;/mark&gt; array’i olsun. O zaman C# tarafında bu değerleri hangi türden alacağımızı biliyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;[HttpPost]&lt;/code&gt; attribute’unu çağıran method’a gelen argüman tipi array olacak. Basit olarak array tipli değer alan methodların nasıl oluştuğunu hatırlayalım:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;public void DegerAlacak(string[] degerler)
+{
+    //...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Şimdi bu bilgilere göre basit anlamda bir checkbox list’ten gelen verinin nasıl alınacağını görelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;[HttpPost]
+public ActionResult DegerAl(string[] degerler)
+{
+    for (int i = 0; i &amp;lt; degerler.Length; i++)
+    {
+        ViewData[&quot;Degerler&quot;] += degerler[i];
+    }
+    return View();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ben bunları &lt;code&gt;DegerAl&lt;/code&gt; sayfasında yazdırdığım için ViewData içerisine atadım. Dilerseniz parametre alınan noktaya bir breakpoint koyarak gelen değerleri görüntüleyebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mvc_check.png&quot; alt=&quot;/images/posts/mvc_check.png&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Oct 2016 12:05:00 +0300</pubDate>
+        <link>https://aligoren.comhttps://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
+      </item>
     
       <item>
         <title>Jekyll Github Badge Eklentisi</title>
@@ -37,11 +99,11 @@ Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card 
 
 &lt;p&gt;Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:&lt;/p&gt;
 
-&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 16 Oct 2016 21:57:00 +0300</pubDate>
-        <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
-        <guid isPermaLink="true">https://aligoren.com/jekyll-github-badge-eklentisi</guid>
+        <link>https://aligoren.comhttps://aligoren.com/jekyll-github-badge-eklentisi</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/jekyll-github-badge-eklentisi</guid>
       </item>
     
       <item>
@@ -85,7 +147,7 @@ kramdown:
 
 &lt;p&gt;Şimdi gelelim son adımlara. Öncelikle &lt;mark&gt;head.html&lt;/mark&gt; dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prism.css&quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://aligoren.com/css/prism.css&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;Not: href içinde süslü parantezler vardır:&lt;/em&gt;&lt;/p&gt;
@@ -95,14 +157,14 @@ kramdown:
 
 &lt;p&gt;Bu işlem bittikten sonra da artık son bir işimiz kalıyor. &lt;mark&gt;footer.html&lt;/mark&gt; dosyasını açıp şu kodu yapıştıralım:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/js/prism.js&quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://aligoren.com/js/prism.js&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.&lt;/p&gt;
 </description>
         <pubDate>Sat, 15 Oct 2016 20:05:00 +0300</pubDate>
-        <link>https://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
-        <guid isPermaLink="true">https://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
+        <link>https://aligoren.comhttps://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
       </item>
     
       <item>
@@ -186,8 +248,8 @@ kramdown:
 &lt;p&gt;Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.&lt;/p&gt;
 </description>
         <pubDate>Mon, 10 Oct 2016 00:08:00 +0300</pubDate>
-        <link>https://aligoren.com/bugun-ogrendiklerim</link>
-        <guid isPermaLink="true">https://aligoren.com/bugun-ogrendiklerim</guid>
+        <link>https://aligoren.comhttps://aligoren.com/bugun-ogrendiklerim</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/bugun-ogrendiklerim</guid>
       </item>
     
       <item>
@@ -289,8 +351,8 @@ kramdown:
 &lt;p&gt;Kısacası müşterilerini mağdur eden Türk Telekom ve Superonline gibi sağlayıcılardan mecbur kalmadıkça hizmet almamak ruh sağlığınız için iyidir. Gerçi ben bu sürede kendimi ilginç bir şekilde bozmadım. Daima kibar kibar konuştum.&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Oct 2016 14:39:00 +0300</pubDate>
-        <link>https://aligoren.com/turk-telekom-superonline-rezaleti</link>
-        <guid isPermaLink="true">https://aligoren.com/turk-telekom-superonline-rezaleti</guid>
+        <link>https://aligoren.comhttps://aligoren.com/turk-telekom-superonline-rezaleti</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/turk-telekom-superonline-rezaleti</guid>
       </item>
     
       <item>
@@ -436,8 +498,8 @@ WHERE u.ID=ud.UserID and u.ID=2
 &lt;p&gt;Örnek SQL Fiddle &lt;a href=&quot;http://sqlfiddle.com/#!6/1e87c/2&quot;&gt;Linki&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 07 Oct 2016 23:17:00 +0300</pubDate>
-        <link>https://aligoren.com/sqlde-inner-join-islemleri</link>
-        <guid isPermaLink="true">https://aligoren.com/sqlde-inner-join-islemleri</guid>
+        <link>https://aligoren.comhttps://aligoren.com/sqlde-inner-join-islemleri</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sqlde-inner-join-islemleri</guid>
       </item>
     
       <item>
@@ -509,8 +571,8 @@ AS
 &lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Mon, 03 Oct 2016 23:12:00 +0300</pubDate>
-        <link>https://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
-        <guid isPermaLink="true">https://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
+        <link>https://aligoren.comhttps://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
       </item>
     
       <item>
@@ -562,8 +624,8 @@ IF @RegDate IS NULL
 &lt;p&gt;&lt;a href=&quot;http://sqlfiddle.com/#!6/921f6/1&quot;&gt;http://sqlfiddle.com/#!6/921f6/1&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Oct 2016 23:09:00 +0300</pubDate>
-        <link>https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</link>
-        <guid isPermaLink="true">https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</guid>
+        <link>https://aligoren.comhttps://aligoren.com/sql-serverda-proceduree-getdate-yollamak</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sql-serverda-proceduree-getdate-yollamak</guid>
       </item>
     
       <item>
@@ -651,8 +713,8 @@ END
 &lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Wed, 03 Aug 2016 23:04:00 +0300</pubDate>
-        <link>https://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</link>
-        <guid isPermaLink="true">https://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</guid>
+        <link>https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</guid>
       </item>
     
       <item>
@@ -718,269 +780,8 @@ aramaYap(&quot;payton&quot;)
 &lt;p&gt;Evet bu kadardı arkadaşlar. İsterseniz NGram dokümanlarına &lt;a href=&quot;https://pythonhosted.org/ngram/ngram.html&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
 </description>
         <pubDate>Wed, 13 Apr 2016 22:44:00 +0300</pubDate>
-        <link>https://aligoren.com/python-ve-ngram-algoritmasi</link>
-        <guid isPermaLink="true">https://aligoren.com/python-ve-ngram-algoritmasi</guid>
-      </item>
-    
-      <item>
-        <title>Flask ile JSON Çıktı Almak</title>
-        <description>&lt;p&gt;Flask framework’ü bilmeyen yoktur. Bu yazı hiç kullanmamış arkadaşlar için değil baştan belirteyim. Bu yazıda Flask framework ile nasıl json çıktı alırız onu anlatmaya çalışacağım.&lt;/p&gt;
-
-&lt;p&gt;Öncelikle flask kurulu olmalı onu biliyoruz. json çıktı alma işlemi için ben flask ile gelen jsonify metodunu tercih ediyorum. Siz isterseniz klasik json da kullanabilirsiniz. İki türlü de aynı çalışıyor. Sadece jsonify çıktıları biraz daha güzel gösteriyor. Ben bu yazı için hazırladığım uygulamada işi biraz farklı bir noktaya taşıdım ve sanki bir api varmış gibi çalışsın istedim.&lt;/p&gt;
-
-&lt;p&gt;Bunun için bir API_KEY oluşturulmalı. Ben api key için uuid kullandım. Vereceğim kod parçasını sakın referans olarak almayın. Değişik bir api oluşturma kafasına sahiptim o sıra. Neyse api key oluşturma işlevi şöyle:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import uuid
-import random
-import hashlib
-
-def generate_key(user_name):
-    uname_comp = hashlib.md5(user_name.encode()).hexdigest()
-    g_key = uuid.uuid5(uuid.NAMESPACE_DNS,
-                       (uname_comp + user_name + 'api_gen'))
-    gt_key = str(g_key)
-    gt_key = gt_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    i_key = uuid.uuid5(uuid.NAMESPACE_DNS, (uname_comp + '127.0.0.1'))
-    ip_key = str(i_key)
-    ip_key = ip_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    p_key = uuid.uuid5(uuid.NAMESPACE_X500,
-                       (uname_comp + 'python' + uname_comp))
-    py_key = str(p_key)
-    py_key = py_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    flsk_key = uuid.uuid5(uuid.NAMESPACE_URL, ('flask' + uname_comp))
-    flk_key = str(flsk_key)
-    flk_key = flk_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    now_key = ip_key + gt_key + py_key + flk_key
-
-    rt_key = uuid.uuid5(uuid.NAMESPACE_DNS,
-                        (uname_comp + now_key + uname_comp + uname_comp))
-    rtn_key = str(rt_key)
-    rtn_key = rtn_key.replace(&quot;-&quot;, &quot;&quot;)
-    return rtn_key
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kod kötü bi pratik olduğu için değişken isimlerini vs. değiştirmedim önemli gelmedi bana sonuçta bu yazıya hazırlıyorum. Muhtemelen api key oluşturmanın daha mükemmel yolları var. Efendim gelelim Bu &lt;code&gt;generate_key&lt;/code&gt; işlevi ile oluşturacağımız key’lere. Kullanımı basit tek bi argüman alıyor o da user_name. Bu argüman kullanıcı kayıt olduğu anda gelen argüman olarak oluştu diyelim. Şöyle kullanalım&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(generate_key(&quot;admin&quot;))
-# &quot;a21aacf74f79519b85581b87b8583f13&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Çıktı olarak buna benzer 32 karakterden oluşan bi string üretilmiş oldu. Şimdi bu api_key işlemi tamam. Bu yazı için rastgele sözler uygulaması hazırladım. Sözleri author’a göre çekecek. Herhangi bir veritabanı kullanmadım. Basit bi dictionary’den oluşuyor. O zaman author’a göre çekecekse ve api key ile olacaksa URL yapısını şöyle düşündüm:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;http://site.dev:5000/quote/author=&amp;lt;author&amp;gt;&amp;amp;api_key=&amp;lt;api_key&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;URL’den de anlaşılacağı gibi route, quote olarak ayarlanmış durumda.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@app.route('/quote/author=&amp;lt;author&amp;gt;&amp;amp;api_key=&amp;lt;api_key&amp;gt;')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Artık bu route için oluşturacağımız metod iki argüman alacak. Birisi author diğeri ise api_key argümanı olacak.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def quoteing(api_key, author):
-    key_list = [&quot;2bd137ea90b45b8b8902a39b6b192936&quot;,
-                &quot;3b2b6e8152475891a39297e331e8ad52&quot;,
-                &quot;26fec42ede2057ae84ed6514be7823c6&quot;,
-                &quot;a21aacf74f79519b85581b87b8583f13&quot;,
-                &quot;6968a8489e495d12976eaf25ba860423&quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Route için oluşturduğum işlev burada. Adına bakmayın :p. Burada key_list kısmını ben yukarıdaki generate_key işlevi ile oluşturdum. Bunlar statik keyler. Daha sonra ise işlevin aldığı argüman bu liste içinde var mı yok mu şeklinde kontrol edeceğiz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;harfler = {'İ': 'i', 'Ö': 'o', 'I': 'i', 'ı': 'i',
-           'Ç': 'c', 'Ğ': 'g', 'Ş': 's', 'Ü': 'u',
-           'ü': 'u', 'ö': 'o', 'ş': 's', 'ç': 'c',
-           'ğ': 'g'
-           }
-
-
-def karakter(metin, sozluk):
-    for i, j in sozluk.items():
-        metin = metin.replace(i, j)
-    return metin
-
-if api_key in key_list:
-    quotes = {'ataturk':
-              ['Hayatta En Hakiki Mursit Ilimdir Fendir',
-               'Bagimsizlik, ugruna olmesini bilen toplumlarin hakkidir.'],
-              'mahatma gandhi':
-              ['Happiness is when what you think, what you'
-               'say,and what you do are in harmony.',
-               'Guc fiziki kapasiteden degil,'
-               'boyun egmeyen iradeden gelir.']}
-
-    get_quote = quotes[karakter(author.lower(), harfler)]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Buradaki quotes bir sözlük yani dict olduğu için key-value şeklinde çalışıyor. Biz key değerini girerek value çekebiliriz. İçeride yer alan bir karakter işlevi. Türkçe karakter sorunu yaşanıyorsa kullanılabilir. Benim url yapımda örneğin &lt;code&gt;/quote/author=Atatürk&amp;amp;api_key=&amp;lt;api_key&amp;gt;&lt;/code&gt; şeklinde bir author çağrısında yani aslında key çağrısında karakterden dolayı sorun yaşıyordum. Onu hallettim denilebilir.&lt;/p&gt;
-
-&lt;p&gt;Daha sonra ise artık bu değerleri döndürmemiz gerekiyor. api key var mı yok mu kontrolü ile birlikte olacak şekilde. Burada jsonify işlevi direkt olarak dict alabiliyor. Yani herhangi bir değişkene ilklemenize gerek yok aslında. Sol değer key, sağ değer ise value gibi bir çıktı verecektir.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    return jsonify(quotes=random.choice(get_quote))
-else:
-    return jsonify(error=&quot;API Key Not Found&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Son olarak da parametrelerden birisi girilmezse 404 hatası yerine yine json çıktısı üretelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@app.errorhandler(404)
-def exception_handler(e):
-    return jsonify(error=&quot;404 Not Found&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu sayede 404 olacak hatalarda json haliyle çıkmış olacak. Şimdi hazırladığımız uygulamayı bi çalıştıralım ve bakalım. Öncelikle konsolda &lt;code&gt;a21aacf74f79519b85581b87b8583f13&lt;/code&gt; şeklinde bir çıktı var. O generate_key işlevi ile ürettiğimiz bir çıktı bunu biliyoruz. &lt;code&gt;http://127.0.0.1:5000/&lt;/code&gt; adresini açarsak eğer error anahtarlı bir uyarı göreceğiz yine çıktısı json:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
-  &quot;error&quot;: &quot;404 Not Found&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;O zaman quote url’sine yönlenelim. URL şöyle olacak &lt;code&gt;http://127.0.0.1:5000/quote/&lt;/code&gt;. Bu kısma gelince ufak bi manual tarzı şey hazırlamıştım. Onu göreceğiz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
-  &quot;USER_API_KEY&quot;: [
-    &quot;2bd137ea90b45b8b8902a39b6b192936&quot;,
-    &quot;3b2b6e8152475891a39297e331e8ad52&quot;,
-    &quot;26fec42ede2057ae84ed6514be7823c6&quot;,
-    &quot;a21aacf74f79519b85581b87b8583f13&quot;,
-    &quot;6968a8489e495d12976eaf25ba860423&quot;
-  ],
-  &quot;error&quot;: &quot;API Key Required&quot;,
-  &quot;url_example&quot;: &quot;/quote/author=ATATURK&amp;amp;api_key=API_KEY_HERE&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Biz de url_example üzerinden listedeki örnek api keyleri kullanarak gidelim. Adres yapısını şöyle seçtim &lt;code&gt;http://127.0.0.1:5000/quote/author=atatürk&amp;amp;api_key=a21aacf74f79519b85581b87b8583f13&lt;/code&gt;. Bu haliyle şu çıktıyı veriyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
-  &quot;quotes&quot;: &quot;Hayatta En Hakiki Mursit Ilimdir Fendir&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sayfayı yeniledikçe hangi sözler var ise rastgele onu çekecek. Bizim örnekte iki tane vardı. Peki hatalı bir API girseydik? Örneğin şöyle &lt;code&gt;http://127.0.0.1:5000/quote/author=atatürk&amp;amp;api_key=interesting_api&lt;/code&gt;. Çıktısı şöyle olacaktı:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
-  &quot;error&quot;: &quot;API Key Not Found&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Son olarak değer girilmezse şöyle olacak. URL örneğin &lt;code&gt;http://127.0.0.1:5000/quote/author=atatürk&amp;amp;api_key=&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
-  &quot;error&quot;: &quot;404 Not Found&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;kodlarn-tamam&quot;&gt;Kodların Tamamı&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from flask import Flask, jsonify
-import uuid
-import random
-import hashlib
-
-
-app = Flask(__name__)
-
-
-def generate_key(user_name):
-    uname_comp = hashlib.md5(user_name.encode()).hexdigest()
-    g_key = uuid.uuid5(uuid.NAMESPACE_DNS,
-                       (uname_comp + user_name + 'api_gen'))
-    gt_key = str(g_key)
-    gt_key = gt_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    i_key = uuid.uuid5(uuid.NAMESPACE_DNS, (uname_comp + '127.0.0.1'))
-    ip_key = str(i_key)
-    ip_key = ip_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    p_key = uuid.uuid5(uuid.NAMESPACE_X500,
-                       (uname_comp + 'python' + uname_comp))
-    py_key = str(p_key)
-    py_key = py_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    flsk_key = uuid.uuid5(uuid.NAMESPACE_URL, ('flask' + uname_comp))
-    flk_key = str(flsk_key)
-    flk_key = flk_key.replace(&quot;-&quot;, &quot;&quot;)
-
-    now_key = ip_key + gt_key + py_key + flk_key
-
-    rt_key = uuid.uuid5(uuid.NAMESPACE_DNS,
-                        (uname_comp + now_key + uname_comp + uname_comp))
-    rtn_key = str(rt_key)
-    rtn_key = rtn_key.replace(&quot;-&quot;, &quot;&quot;)
-    return rtn_key
-
-print(generate_key(&quot;admin&quot;))
-
-harfler = {'İ': 'i', 'Ö': 'o', 'I': 'i', 'ı': 'i',
-           'Ç': 'c', 'Ğ': 'g', 'Ş': 's', 'Ü': 'u',
-           'ü': 'u', 'ö': 'o', 'ş': 's', 'ç': 'c',
-           'ğ': 'g'
-           }
-
-
-def karakter(metin, sozluk):
-    for i, j in sozluk.items():
-        metin = metin.replace(i, j)
-    return metin
-
-
-@app.route('/quote/')
-def quote_index():
-    url_type = '/quote/author=ATATURK&amp;amp;api_key=API_KEY_HERE'
-
-    key_list = [&quot;2bd137ea90b45b8b8902a39b6b192936&quot;,
-                &quot;3b2b6e8152475891a39297e331e8ad52&quot;,
-                &quot;26fec42ede2057ae84ed6514be7823c6&quot;,
-                &quot;a21aacf74f79519b85581b87b8583f13&quot;,
-                &quot;6968a8489e495d12976eaf25ba860423&quot;]
-
-    return jsonify(error=&quot;API Key Required&quot;, url_example=url_type,
-                   USER_API_KEY=key_list)
-
-
-@app.route(&quot;/quote/author=&amp;lt;author&amp;gt;&amp;amp;api_key=&amp;lt;api_key&amp;gt;&quot;)
-def quoteing(api_key, author):
-    key_list = [&quot;2bd137ea90b45b8b8902a39b6b192936&quot;,
-                &quot;3b2b6e8152475891a39297e331e8ad52&quot;,
-                &quot;26fec42ede2057ae84ed6514be7823c6&quot;,
-                &quot;a21aacf74f79519b85581b87b8583f13&quot;,
-                &quot;6968a8489e495d12976eaf25ba860423&quot;]
-
-    if api_key in key_list:
-        quotes = {'ataturk':
-                  ['Hayatta En Hakiki Mursit Ilimdir Fendir',
-                   'Bagimsizlik, ugruna olmesini bilen toplumlarin hakkidir.'],
-                  'mahatma gandhi':
-                  ['Happiness is when what you think, what you'
-                   'say,and what you do are in harmony.',
-                   'Guc fiziki kapasiteden degil,'
-                   'boyun egmeyen iradeden gelir.']}
-
-        get_quote = quotes[karakter(author.lower(), harfler)]
-
-        return jsonify(quotes=random.choice(get_quote))
-    else:
-        return jsonify(error=&quot;API Key Not Found&quot;)
-
-
-@app.errorhandler(404)
-def exception_handler(e):
-    return jsonify(error=&quot;404 Not Found&quot;)
-
-if __name__ == &quot;__main__&quot;:
-    # app.debug = True
-    app.run()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Eğer &lt;code&gt;app.debug = True&lt;/code&gt; yaparsanız live olarak çalışırsınız. Yenileme yaptığınız zaman değişiklikler anında uygulanır tekrardan başlatmanıza gerek kalmaz. Evet bu kadar. Hatalı noktalarım varsa şimdiden özür dilerim.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 03 Apr 2016 22:41:00 +0300</pubDate>
-        <link>https://aligoren.com/flask-ile-json-cikti-almak</link>
-        <guid isPermaLink="true">https://aligoren.com/flask-ile-json-cikti-almak</guid>
+        <link>https://aligoren.comhttps://aligoren.com/python-ve-ngram-algoritmasi</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/python-ve-ngram-algoritmasi</guid>
       </item>
     
   </channel>
