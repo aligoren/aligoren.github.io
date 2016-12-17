@@ -3,8 +3,35 @@
   <channel>
     <title>Ali GÖREN...</title>
     <description>.NET, SQL, Python, Açık Kaynak</description>
-    <link>https://aligoren.comhttps://aligoren.com/</link>
-    <atom:link href="https://aligoren.comhttps://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://aligoren.com/</link>
+    <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>MongoDB Data Directory Not Found Hatası</title>
+        <description>&lt;p&gt;Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;&quot;Data directory C:\data\db\ not found., terminating&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Eğer böyle bir hata alıyorsanız MongoDB kurulduktan sonra C: dizininde ya da bulunduğunuz sistemin belirtilen dizininde &lt;strong&gt;data&lt;/strong&gt; klasörü ve onun içerisine &lt;strong&gt;db&lt;/strong&gt; klasörü oluşturulamamış demektir.&lt;/p&gt;
+
+&lt;p&gt;Bu durumda yapılacak iki şey vardır. Birincisi oluşturulamayan data path’i siz oluşturacaksınız.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;C:&lt;/strong&gt; dizini altına kendiniz bir data klasörü ve içine de db klasörü oluşturun.&lt;/p&gt;
+
+&lt;p&gt;Ardından mongod komutunu vererek mongodb’yi çalıştırın. Bir diğer yöntem ise data path flag’ini kullanarak data yolu belirtebilirsin.&lt;/p&gt;
+
+&lt;p&gt;Ben mongodb 3.4 kullanarak şöyle yapıyorum&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;mongod --dbpath &quot;C:\Program Files\MongoDB\Server\3.4\data\db&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Artık mongodb başarılı bir şekilde çalışacaktır.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Nov 2016 23:30:00 +0300</pubDate>
+        <link>https://aligoren.com/mongodb-data-directory-not-found</link>
+        <guid isPermaLink="true">https://aligoren.com/mongodb-data-directory-not-found</guid>
+      </item>
     
       <item>
         <title>Python ile Ağ Üzerinde İzleme Yapma</title>
@@ -128,8 +155,8 @@ Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.&
 &lt;p&gt;Sanırım bir anlatımın daha sonuna geldik. Özetle: SSL kullanın&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Oct 2016 00:41:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</guid>
+        <link>https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
+        <guid isPermaLink="true">https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</guid>
       </item>
     
       <item>
@@ -190,8 +217,8 @@ public ActionResult DegerAl(string[] degerler)
 &lt;p&gt;&lt;img src=&quot;/images/posts/mvc_check.png&quot; alt=&quot;/images/posts/mvc_check.png&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 22 Oct 2016 12:05:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
+        <link>https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
+        <guid isPermaLink="true">https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
       </item>
     
       <item>
@@ -225,11 +252,11 @@ Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card 
 
 &lt;p&gt;Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:&lt;/p&gt;
 
-&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 16 Oct 2016 21:57:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/jekyll-github-badge-eklentisi</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/jekyll-github-badge-eklentisi</guid>
+        <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
+        <guid isPermaLink="true">https://aligoren.com/jekyll-github-badge-eklentisi</guid>
       </item>
     
       <item>
@@ -273,7 +300,7 @@ kramdown:
 
 &lt;p&gt;Şimdi gelelim son adımlara. Öncelikle &lt;mark&gt;head.html&lt;/mark&gt; dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://aligoren.com/css/prism.css&quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prism.css&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;Not: href içinde süslü parantezler vardır:&lt;/em&gt;&lt;/p&gt;
@@ -283,14 +310,14 @@ kramdown:
 
 &lt;p&gt;Bu işlem bittikten sonra da artık son bir işimiz kalıyor. &lt;mark&gt;footer.html&lt;/mark&gt; dosyasını açıp şu kodu yapıştıralım:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://aligoren.com/js/prism.js&quot;&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/js/prism.js&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.&lt;/p&gt;
 </description>
         <pubDate>Sat, 15 Oct 2016 20:05:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
+        <link>https://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
+        <guid isPermaLink="true">https://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
       </item>
     
       <item>
@@ -374,8 +401,8 @@ kramdown:
 &lt;p&gt;Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.&lt;/p&gt;
 </description>
         <pubDate>Mon, 10 Oct 2016 00:08:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/bugun-ogrendiklerim</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/bugun-ogrendiklerim</guid>
+        <link>https://aligoren.com/bugun-ogrendiklerim</link>
+        <guid isPermaLink="true">https://aligoren.com/bugun-ogrendiklerim</guid>
       </item>
     
       <item>
@@ -477,8 +504,8 @@ kramdown:
 &lt;p&gt;Kısacası müşterilerini mağdur eden Türk Telekom ve Superonline gibi sağlayıcılardan mecbur kalmadıkça hizmet almamak ruh sağlığınız için iyidir. Gerçi ben bu sürede kendimi ilginç bir şekilde bozmadım. Daima kibar kibar konuştum.&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Oct 2016 14:39:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/turk-telekom-superonline-rezaleti</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/turk-telekom-superonline-rezaleti</guid>
+        <link>https://aligoren.com/turk-telekom-superonline-rezaleti</link>
+        <guid isPermaLink="true">https://aligoren.com/turk-telekom-superonline-rezaleti</guid>
       </item>
     
       <item>
@@ -624,8 +651,8 @@ WHERE u.ID=ud.UserID and u.ID=2
 &lt;p&gt;Örnek SQL Fiddle &lt;a href=&quot;http://sqlfiddle.com/#!6/1e87c/2&quot;&gt;Linki&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 07 Oct 2016 23:17:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/sqlde-inner-join-islemleri</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sqlde-inner-join-islemleri</guid>
+        <link>https://aligoren.com/sqlde-inner-join-islemleri</link>
+        <guid isPermaLink="true">https://aligoren.com/sqlde-inner-join-islemleri</guid>
       </item>
     
       <item>
@@ -697,8 +724,8 @@ AS
 &lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Mon, 03 Oct 2016 23:12:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
+        <link>https://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
+        <guid isPermaLink="true">https://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
       </item>
     
       <item>
@@ -750,97 +777,8 @@ IF @RegDate IS NULL
 &lt;p&gt;&lt;a href=&quot;http://sqlfiddle.com/#!6/921f6/1&quot;&gt;http://sqlfiddle.com/#!6/921f6/1&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Oct 2016 23:09:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/sql-serverda-proceduree-getdate-yollamak</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sql-serverda-proceduree-getdate-yollamak</guid>
-      </item>
-    
-      <item>
-        <title>SQL Server'da Filtreli Arama Gerceklestirme</title>
-        <description>&lt;p&gt;Merhaba. Karmaşık bir arama işleminiz olabilir. Örneğin basit bir uygulama ile olaya bakalım:&lt;/p&gt;
-
-&lt;p&gt;Varsayalım ki InsanKaynaklari adında bir tablonuz bulunmakta. Bu tablo üzerinde bazı aramalar gerçekleştirmek istiyorsunuz. Örneğin bu aramalar&lt;/p&gt;
-
-&lt;p&gt;Doğum Tarihi, Doğum Yeri, Cinsiyet, Medeni Durum, Maaş, Eğitim Düzeyi, Mesleki Belge ya da Meslek şeklinde olabilir. Normalde bir aramada tek şekilde şöyle bakabilirdik&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT * FROM InsanKaynaklari as Ik
-WHERE Ik.MedeniDurum='Bekar' AND Ik.Cinsiyet='Erkek'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu sorgu ilk başlangıç olarak işimizi görüyor olabilir. Ancak bazı durumlarda sorgularımız sadece iki tane ile sınırlı kalmayabilir ve işin ilginç noktası bu sorguları örneğin C# tarafında gerçekleştiriyor olabiliriz. 6-7 adet textBox içinden sadece 3 tanesinin dolu olduğunu, diğerlerinin NULL gönderildiğini düşünün.&lt;/p&gt;
-
-&lt;p&gt;Bu gibi durumlar için bir Stored Procedure oluşturabiliriz. Bir Stored Procedure oluşturma aşamasını bildiğimizi varsayarak basit olarak bir SP oluşturalım. Örneğin:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROCEDURE PersonelAra
-	@dtarih date,
-	@dyeri nvarchar(50),
-	@cinsiyet nvarchar(5),
-	@mdurum nvarchar(15),
-	@maas nvarchar(50), -- bilinçli money yapmadım
-	@eduzey nvarchar(50),
-	@mbelge nvarchar(50),
-	@meslek nvarchar(50)
-AS
-BEGIN
-
-END
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;şeklinde bir hayali SP oluşturdum. Bu işlemde WHERE harici belki bize yabancı gelen bir method göreceğiz. COALESCE methodu. Bu metoda bakarsak eğer sınırsız sayıda parametre alabiliyor. Yaptığı işlemse ilk olarak NULL olmayan değeri geri döndürmektir. Eğer değer NULL ise zaten bu değeri geri döndürecektir.&lt;/p&gt;
-
-&lt;p&gt;Çalışma mantığına bakacak olursak öyle işlemektedir. Varsayalım ki WHERE kontrolü gerçekleştiriyoruz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;WHERE kolonAdi=COALESCE(@spDegiskeni, kolonAdi)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;şeklinde bir kontrol ile null ya da null olmayan tüm değerleri listeletebiliriz. Bu bilgilere bakarak o zaman ben diyebilirim ki gelen her değişkeni COALESCE ile işletip null olmayan bir değer döndürebilirim. Eğer NULL ise yine gelecek diyebilirim.&lt;/p&gt;
-
-&lt;p&gt;Örneğin yukarıda oluşturduğumuz SP içinden devam edelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT isim, soyisim, FROM InsanKanaklari as Ik
-    WHERE (
-        ik.dogumtarihi=COALESCE(@dtarih, ik.dogumtarihi)
-        AND ik.dogumyeri=COALESCE(@dyeri, ik.dogumyeri)
-        AND ik.cinsiyet=COALESCE(@cinsiyet, ik.cinsiyet)
-        AND ik.medenidurum=COALESCE(@mdurum, ik.medenidurum)
-        AND ik.maas=COALESCE(@maas, ik.maas)
-        AND ik.egitimduzeyi=COALESCE(@eduzey, ik.egitimduzeyi)
-        AND ik.meslekibelge=COALESCE(@mbelge, ik.meslekibelge)
-        AND ik.meslek=COALESCE(@meslek, ik.meslek)
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Burada öncelikle WHERE şartını gerçekleştirdik. Daha sonra ise WHERE şartında kolonun değerini, COALESCE işlemi ile karşılaştırıp değerleri getirebiliyoruz. COALESCE metodu ilk parametresinde sorgulanacak değeri, ikinci parametresinde de tablo kolonunu aldı. Bunu görerek filtreli sorgulama gerçekleştirebiliriz.&lt;/p&gt;
-
-&lt;p&gt;Son adımda SP şöyle oluyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROCEDURE PersonelAra
-	@dtarih date,
-	@dyeri nvarchar(50),
-	@cinsiyet nvarchar(5),
-	@mdurum nvarchar(15),
-	@maas nvarchar(50), -- bilinçli money yapmadım
-	@eduzey nvarchar(50),
-	@mbelge nvarchar(50),
-	@meslek nvarchar(50)
-AS
-BEGIN
-    SELECT isim, soyisim, FROM InsanKanaklari as Ik
-        WHERE (
-            ik.dogumtarihi=COALESCE(@dtarih, ik.dogumtarihi)
-            AND ik.dogumyeri=COALESCE(@dyeri, ik.dogumyeri)
-            AND ik.cinsiyet=COALESCE(@cinsiyet, ik.cinsiyet)
-            AND ik.medenidurum=COALESCE(@mdurum, ik.medenidurum)
-            AND ik.maas=COALESCE(@maas, ik.maas)
-            AND ik.egitimduzeyi=COALESCE(@eduzey, ik.egitimduzeyi)
-            AND ik.meslekibelge=COALESCE(@mbelge, ik.meslekibelge)
-            AND ik.meslek=COALESCE(@meslek, ik.meslek)
-    )
-END
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Wed, 03 Aug 2016 23:04:00 +0300</pubDate>
-        <link>https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</link>
-        <guid isPermaLink="true">https://aligoren.comhttps://aligoren.com/sql-serverda-filtreli-arama-gerceklestirme</guid>
+        <link>https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</link>
+        <guid isPermaLink="true">https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</guid>
       </item>
     
   </channel>

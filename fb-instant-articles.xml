@@ -9,6 +9,43 @@
     
         
             <item>
+                <title>MongoDB Data Directory Not Found Hatası</title>
+                <link>https://aligoren.com/mongodb-data-directory-not-found</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:</p>
+
+<pre><code class="language-shell">"Data directory C:\data\db\ not found., terminating"
+</code></pre>
+
+<p>Eğer böyle bir hata alıyorsanız MongoDB kurulduktan sonra C: dizininde ya da bulunduğunuz sistemin belirtilen dizininde <strong>data</strong> klasörü ve onun içerisine <strong>db</strong> klasörü oluşturulamamış demektir.</p>
+
+<p>Bu durumda yapılacak iki şey vardır. Birincisi oluşturulamayan data path’i siz oluşturacaksınız.</p>
+
+<p><strong>C:</strong> dizini altına kendiniz bir data klasörü ve içine de db klasörü oluşturun.</p>
+
+<p>Ardından mongod komutunu vererek mongodb’yi çalıştırın. Bir diğer yöntem ise data path flag’ini kullanarak data yolu belirtebilirsin.</p>
+
+<p>Ben mongodb 3.4 kullanarak şöyle yapıyorum</p>
+
+<pre><code class="language-shell">mongod --dbpath "C:\Program Files\MongoDB\Server\3.4\data\db"
+</code></pre>
+
+<p>Artık mongodb başarılı bir şekilde çalışacaktır.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/mongodb-data-directory-not-found</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Wed, 30 Nov 2016 23:30:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Python ile Ağ Üzerinde İzleme Yapma</title>
                 <link>https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
                 <content:encoded>
@@ -250,7 +287,7 @@ Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card 
 
 <p>Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:</p>
 
-<div class="card card-block"><p class="card-text"><b>Project Details: </b>jekyll-github-badge</p><p class="card-text"><b>Description: </b>Jekyll Github Repo Badge Generator</p><table class="table table-sm"><tbody><tr><th scope="row">Project Name</th><td><a class="card-link" href="https://github.com/aligoren/jekyll-github-badge" target="_blank">jekyll-github-badge</a></td></tr><tr><th scope="row">Author</th><td><a class="card-link" href="https://github.com/aligoren" target="_blank">aligoren</a></td></tr><tr><th scope="row">Programming Language</th><td>CSS</td></tr><tr><th scope="row">Stargazers</th><td>2</td></tr><tr><th scope="row">Forks</th><td>0</td></tr></tbody></table><a href="https://github.com/aligoren/jekyll-github-badge/archive/master.zip" class="btn btn-primary" target="_blank">Download</a></div>
+<div class="card card-block"><p class="card-text"><b>Project Details: </b>jekyll-github-badge</p><p class="card-text"><b>Description: </b>Jekyll Github Repo Badge Generator</p><table class="table table-sm"><tbody><tr><th scope="row">Project Name</th><td><a class="card-link" href="https://github.com/aligoren/jekyll-github-badge" target="_blank">jekyll-github-badge</a></td></tr><tr><th scope="row">Author</th><td><a class="card-link" href="https://github.com/aligoren" target="_blank">aligoren</a></td></tr><tr><th scope="row">Programming Language</th><td>CSS</td></tr><tr><th scope="row">Stargazers</th><td>3</td></tr><tr><th scope="row">Forks</th><td>0</td></tr></tbody></table><a href="https://github.com/aligoren/jekyll-github-badge/archive/master.zip" class="btn btn-primary" target="_blank">Download</a></div>
 
                     ]]>
                 </content:encoded>
@@ -308,7 +345,7 @@ kramdown:
 
 <p>Şimdi gelelim son adımlara. Öncelikle <mark>head.html</mark> dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:</p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/css/prism.css"&gt;
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/css/prism.css"&gt;
 </code></pre>
 
 <p><em>Not: href içinde süslü parantezler vardır:</em></p>
@@ -318,7 +355,7 @@ kramdown:
 
 <p>Bu işlem bittikten sonra da artık son bir işimiz kalıyor. <mark>footer.html</mark> dosyasını açıp şu kodu yapıştıralım:</p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/js/prism.js"&gt;
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/js/prism.js"&gt;
 </code></pre>
 
 <p>Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.</p>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bugün Öğrendiklerim - Git &#8211; Ali GÖREN...</title>
+    <title>MongoDB Data Directory Not Found Hatası &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -12,8 +12,8 @@
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Kişisel, Git">
-    <link rel="canonical" href="https://aligoren.com/bugun-ogrendiklerim">
+    <meta name="keywords" content="MongoDB, Programlama">
+    <link rel="canonical" href="https://aligoren.com/mongodb-data-directory-not-found">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -41,9 +41,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Bugün Öğrendiklerim - Git">
+    <meta property="og:title" content="MongoDB Data Directory Not Found Hatası">
     <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/bugun-ogrendiklerim">
+    <meta property="og:url" content="https://aligoren.com/mongodb-data-directory-not-found">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
@@ -51,9 +51,9 @@
     
         <meta name="twitter:site" content="@yazilimci_adam" />
     
-    <meta name="twitter:title" content="Bugün Öğrendiklerim - Git" />
+    <meta name="twitter:title" content="MongoDB Data Directory Not Found Hatası" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/bugun-ogrendiklerim" />
+    <meta name="twitter:url" content="https://aligoren.com/mongodb-data-directory-not-found" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -188,94 +188,36 @@
 
 
 <div class="post-header mb2">
-  <h1>Bugün Öğrendiklerim - Git</h1>
-  <span class="post-meta">Oct 10, 2016</span><br>
+  <h1>MongoDB Data Directory Not Found Hatası</h1>
+  <span class="post-meta">Nov 30, 2016</span><br>
   
   <span class="post-meta small">
   
-    2 Dakikada Okunabilir
+    1 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>Bugün enteresan bir şekilde güzel şeyler öğrendim. Aslında dün de öğrendim. Github’ı sadece ve sadece master’a dosya push etmek adına kullanan birisi olarak şimdilerde branch ne kadar da gerekli der oldum. Bu yazıda özellikle branchleri anlatmak isterim. Çünkü master ve branchler gerçekten çok önemli şeyler.</p>
+  <p>Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:</p>
 
-<p><strong>Yeni Bir Git Reposu:</strong></p>
+<pre><code class="language-shell">"Data directory C:\data\db\ not found., terminating"
+</code></pre>
 
-<p>Bulunduğunuz dizini içereceğini bilerek <code>git init</code> komutunu vermeniz yeterlidir.</p>
+<p>Eğer böyle bir hata alıyorsanız MongoDB kurulduktan sonra C: dizininde ya da bulunduğunuz sistemin belirtilen dizininde <strong>data</strong> klasörü ve onun içerisine <strong>db</strong> klasörü oluşturulamamış demektir.</p>
 
-<p><strong>Uzak Git Reposunu Clonelamak</strong></p>
+<p>Bu durumda yapılacak iki şey vardır. Birincisi oluşturulamayan data path’i siz oluşturacaksınız.</p>
 
-<p>Bu en çok ihtiyaç duyduğumuz şeylerden birisi olabilir. Farklı amaçlarla bunu yaparız. Çoğu zaman dosyaları direkt indirebiliriz. Ancak neden tarayıcıyı açalım ki? Tabii bir de projelere katkıda bulunmak da var. Neyse bu işlem şöyle oluyor:</p>
+<p><strong>C:</strong> dizini altına kendiniz bir data klasörü ve içine de db klasörü oluşturun.</p>
 
-<p><code>git clone https://uzak-git-deposu</code></p>
+<p>Ardından mongod komutunu vererek mongodb’yi çalıştırın. Bir diğer yöntem ise data path flag’ini kullanarak data yolu belirtebilirsin.</p>
 
-<p>Şaka değil bu kadar basit.</p>
+<p>Ben mongodb 3.4 kullanarak şöyle yapıyorum</p>
 
-<p><strong>Dosya Ekleme</strong></p>
+<pre><code class="language-shell">mongod --dbpath "C:\Program Files\MongoDB\Server\3.4\data\db"
+</code></pre>
 
-<p>Yapılan çalışmaların artık ortak çalışma alanına aktarılması gerekmektedir. Öncelikle dosyaların eklenmesi şarttır. İki yöntem var.</p>
-
-<p><em>Tamamını Ekleme:</em></p>
-
-<p><code>git add *</code></p>
-
-<p><em>Spesifik Dosyalar Ekleme:</em></p>
-
-<p><code>git add main.rb lib.rb file.rb</code></p>
-
-<p>Yöntemlerden dilediğinizi seçebilirsiniz ki bu size kalmış bir şey.</p>
-
-<p><strong>Eklenen Dosyalara Mesaj Eklemek</strong></p>
-
-<p>Bu yöntemle hangi dosyalar çalışmada etkilenmiş yani değişikliğe uğramışsa o dosyalar bu mesajla repoya gönderilir. Örneğin şöyle düşünelim, info.py dosyasında bir değişiklik yaptınız. Bu değişiklik Person adında yeni bir class’ın eklenmesi olabilir. O zaman commit’e şu işlemi yapabilirsiniz:</p>
-
-<p><code>git commit -am "Add person class"</code></p>
-
-<p><strong>Değişiklikleri Yayına Almak</strong></p>
-
-<p>En önemli mevzu bu bence. Herkesin katkı yaptığı bir projeye localden katkı yapmanız bir şeyi değiştirmez. Önemli olan bu katkının asıl repoya &amp; sizin kendi reponuza aktarılmasıdır. Eğer reponuz yeni ise varsayılan olarak <code>master</code> isimli branch’e sahipsinizdir. Bu arada branch dal ya da dallanmak demekmiş. Neyse değişiklikleri yayına almak yani uzak repoda göstermek için şu komutlar işimizi görebilir:</p>
-
-<p><code>git push origin master</code></p>
-
-<p>Mümkün olduğunca master branch rahatsız edilmemeli. Oraya publish edilen yapı aktarılmalı. Geliştirme aşamalarında kullanılan kalabalık dosyalar başka branchlerde yer almalı.</p>
-
-<p><strong>Hangi Branch’e Bağlıyım?</strong></p>
-
-<p>Bu da önemlidir. Olur da farklı bir branch’te çalışırsınız aman diyim. Bunun için <code>git branch</code> komutu yeterlidir. Bu komutla şu anda hangi branch’te çalıştığınızı görebilirsiniz.</p>
-
-<p><strong>Yeni Branch Oluşturma</strong></p>
-
-<p>Bu işlem sanırım en zevkli işlem. Basit bir komutla <code>dev</code> isimli yeni branch oluşturabilirsiniz:</p>
-
-<p><code> git checkout -b dev</code></p>
-
-<p><strong>Branchler Arasında Dolaşma</strong></p>
-
-<p>Eğer yapacağınız değişiklikler belirli bir branchte yayınlanacaksa o branch’e geçiş yapmanız gerekiyor. Bunun için de işlem yine çok basit. Örneğin şu anda master branch’tesiniz ve dev isimli branch’e geçeceksiniz:</p>
-
-<p><code>git checkout dev</code></p>
-
-<p><strong>Oluşturulan Branch’i Yayınlamak</strong></p>
-
-<p>Eğer branch, uzak repoya gönderilmediyse o branch sizden başkası için görülebilir olmayacaktır. Branch’i yayınlama işlemini yukarıda oluşturduğumuz dev isimli branch’i baz alarak gerçekleştireceğiz.</p>
-
-<p><code>git push origin dev</code></p>
-
-<p>Artık branch’imiz yayında olacaktır.</p>
-
-<p><strong>Güncelleme</strong></p>
-
-<p>Siz bi uyudunuz falan sabah oldu işe gittiniz geldiniz o da ne bir sürü değişimler oldu. Ama bunlar bilgisayarınızda yok. Meraklanmayın. Basit bir komut işinizi görüyor:</p>
-
-<p><code>*git fetch &amp; git pull origin master</code></p>
-
-<p><strong>İşime Yarayan Komutlar:</strong></p>
-
-<p>Yapılan işlemlere dair logları <code>git log</code> yazarak alabiliyorum. Eğer yapılan değişikliklere dair bir durum alacaksam da <code>git status</code> yaparak eklenmemiş olanları görebilirim.</p>
-
-<p>Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.</p>
+<p>Artık mongodb başarılı bir şekilde çalışacaktır.</p>
 
 </article>
 
@@ -297,9 +239,9 @@
 
 Kategori:
 
-<a href="kategoriler#Kişisel">Kişisel</a>,
+<a href="kategoriler#MongoDB">MongoDB</a>,
 
-<a href="kategoriler#Git">Git</a>,
+<a href="kategoriler#Programlama">Programlama</a>,
 
 
 
@@ -308,8 +250,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/bugun-ogrendiklerim';
-    var disqus_title      = "Bugün Öğrendiklerim - Git";
+    var disqus_identifier = '/mongodb-data-directory-not-found';
+    var disqus_title      = "MongoDB Data Directory Not Found Hatası";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
