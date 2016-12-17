@@ -7,6 +7,208 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Atıştırmalık MongoDB Yazısı</title>
+        <description>&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
+Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[NOT]&lt;/strong&gt;: Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mongo.png&quot; alt=&quot;/images/posts/mongo.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;online-mongodb-ortamyla-tann&quot;&gt;Online MongoDB Ortamıyla Tanışın&lt;/h2&gt;
+
+&lt;p&gt;Pratiğe giriş yapmadan önce MongoDB bilgisayarınızda kurulu olmalı. MongoShell olmadan bilgisayarınızdan bağlantıyı kurmanız mümkün değil.
+Online shell kullanırsanız ayrı. Kurulum aşamalarını geçtiniz varsayarak size MongoLaB sitesini önereceğim.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mlab.com&quot;&gt;https://mlab.com&lt;/a&gt; Bu adrese girip kaydolarak ücretsiz 500 MB MongoDB hakkı kazanıyorsunuz.
+Tabii ki online çalışmak zorunda değilsiniz bu bir alternatif.&lt;/p&gt;
+
+&lt;p&gt;Kaydolduktan sonra bir veritabanı oluşturmalısınız ve bu veritabanı için bir kullanıcı da oluşturmanız gerekiyor ki buraya kadar olan kısım standart yapıyla aynı.
+Her şeyi doğru yaptıysanız çalışma alanınızın görüntüsü şöyle olmalı:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mongolab.png&quot; alt=&quot;/images/posts/mongolab.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mongodbyi-local-ortamda-kullanmak&quot;&gt;MongoDB’yi Local Ortamda Kullanmak&lt;/h2&gt;
+
+&lt;p&gt;Eğer MongoDB’yi herhangi bir sınırlama olmaksızın (500 MB gibi) local ortamda kullanmak isterseniz öncelikle komut satırına &lt;code&gt;mongod&lt;/code&gt; komutunu yazmalısınız.
+Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak &lt;strong&gt;27017&lt;/strong&gt; dinlenir. Bunu söyleme sebebim yukarıdaki ilk seçenekte varsayılan port farklı.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mongod_local.png&quot; alt=&quot;/images/posts/mongod_local.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Daha sonra ikinci bir komut satırını açarak mongo komutunu verip local mongodb kullanımına başlayabilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mongo_local.png&quot; alt=&quot;/images/posts/mongo_local.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;veritabann-seelim&quot;&gt;Veritabanını Seçelim&lt;/h3&gt;
+
+&lt;p&gt;Veritabanını seçme işlemi, mongoshell üzerinde diğerlerinde olduğu gibi &lt;code&gt;use&lt;/code&gt; ile olacaktır. Localde çalışanlar için test veritanı şöyle seçilir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;use test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;ufaktan-insert-operasyonlar&quot;&gt;Ufaktan Insert Operasyonları&lt;/h3&gt;
+
+&lt;p&gt;Veritabanını seçtik. MongoDB kullanırken insert operasyonları, RDBMS’lerden farklı şekilde çalışabilir. Burada yaşayacağınız farklılık syntax anlamında olabilir.
+Ancak NodeJS kullanıcılarının bu işlemlere karşı yabancı olacağı pek söylenemez :)&lt;/p&gt;
+
+&lt;p&gt;MongoDB’de insert operasyonları üç metod altında toplanmıştır. Bunlar sırasıyla;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;insert()&lt;/strong&gt;, &lt;strong&gt;insertOne()&lt;/strong&gt; ve &lt;strong&gt;insertMany()&lt;/strong&gt; metodlarıdır.
+Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisiniz. Yani JSON’a da aşina olmanız gerekmektedir. Neyse ki öğrenmesi çok da zor değil.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Basit Olarak Insert&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Basit olarak bir insert operasyonu şöyle olur.&lt;/p&gt;
+
+&lt;p&gt;DBNESNESİ.TABLO.INSERT bu sahte yöntemin gerçeğe dönüşmüş hali şöyledir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Tablo.insert({
+    'alan': 'Verisi',
+    'alan2': 'Baska Veri'
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O zaman bir blog sisteminin yapısından yola çıkarak şöyle olacak diyebiliriz:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insert({
+    'Baslik': 'Blog Başlığı',
+    'Icerik': 'Lorem Ipsum Dolor Sit Amet...',
+    'Kategori': 'Kişisel'
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Evet klasik bir insert operasyonunu gördük. Bu kodları Mongoshell üzerinde çalıştırınca şu çıktıyı alırsanız her şey doğrudur:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;WriteResult({ &quot;nInserted&quot; : 1 })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Nedir Bu insertOne() ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bilinen bir yanlıştan dolayı insert ve insertOne karıştırılmakta. insert sadece tek bir ekleme yapmaz.
+Eğer sadece insert metodunu kullanıyorsanız birden fazla ekleme de yapabilirsiniz. Örnek:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insert([
+    {&quot;Baslik&quot;: &quot;Başka&quot;},
+    {&quot;Baslik&quot;: &quot;Oteki&quot;}
+])
+
+/*
+ÇIKTISI:
+
+BulkWriteResult({
+        &quot;writeErrors&quot; : [ ],
+        &quot;writeConcernErrors&quot; : [ ],
+        &quot;nInserted&quot; : 2,
+        &quot;nUpserted&quot; : 0,
+        &quot;nMatched&quot; : 0,
+        &quot;nModified&quot; : 0,
+        &quot;nRemoved&quot; : 0,
+        &quot;upserted&quot; : [ ]
+})
+
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ancak insertOne metodu böyle değil. Sadece ve sadece bir adet ekleme gerçekleştirebilirsiniz.
+Ayrıca insertOne metodu ile insert edilen içeriğin ID’sini de alabilirsiniz. Kullanımı şöyledir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilart.insertOne({
+    &quot;Baslik&quot;: &quot;Tek Başlık&quot;
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yani ikinci bir başlık ekleme işlemi yapamazsınız. Evet bu kadar basit.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gelelim insertMany() Metoduna&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;insert ve insertMany metodları da çoklu ekleme işlemlerini destekler.
+Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir &lt;code&gt;insertedId&lt;/code&gt; dönmezdi. Aynı işlemi &lt;code&gt;insertMany&lt;/code&gt; ile yaparsak bir ID dönüşü alırız:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insertMany([
+    {&quot;Baslik&quot;: &quot;Başka&quot;},
+    {&quot;Baslik&quot;: &quot;Oteki&quot;}
+])
+
+/*
+ÇIKTISI:
+
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;5855b0a5f7e668b0e155210f&quot;),
+                ObjectId(&quot;5855b0a5f7e668b0e1552110&quot;)
+        ]
+}
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;imdi-bu-verileri-nasl-ekeriz&quot;&gt;Şimdi Bu Verileri Nasıl Çekeriz?&lt;/h3&gt;
+
+&lt;p&gt;Veri çekme işlemi MongoDB üzerindeki en basit işlemlerdendir. Örneğin Yazilar tablosundan verileri çekelim. Bunun için &lt;code&gt;find()&lt;/code&gt; metodunu kullanırız:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find()
+
+/*
+ÇIKTISI:
+
+{ &quot;_id&quot; : ObjectId(&quot;5855aef5f7e668b0e155210c&quot;), &quot;BAŞLIK&quot; : &quot;İçerik&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5855aef5f7e668b0e155210d&quot;), &quot;BAŞLIK BAŞKA&quot; : &quot;İçerik 2&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5855afd0f7e668b0e155210e&quot;), &quot;ÖTEKİ&quot; : &quot;İçerik 3&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5855b0a5f7e668b0e155210f&quot;), &quot;FALAN&quot; : &quot;İçerik 4&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5855b0a5f7e668b0e1552110&quot;), &quot;NEYSE&quot; : &quot;İçerik 5&quot; }
+*/
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;nerede-bu-where-clause&quot;&gt;Nerede Bu WHERE Clause?&lt;/h3&gt;
+
+&lt;p&gt;Benim en çok merak ettiklerimden birisi de bu konuydu. MongoDB üzerinde where aynı mantığa sahip olsa da kullanımı tabii ki farklı. Yine find() metodunu kullanacağız.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find({ $where: &quot;this.Baslik == 'FALAN'&quot; })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki kullanımla tek satırlık bir değer dönecektir. Ancak aynı değere sahip 2 içerik varsa onları unique yapan diğer değerleri de sorgulamanız iyi olur.&lt;/p&gt;
+
+&lt;h3 id=&quot;hadi-bu-erikleri-sralayalm&quot;&gt;Hadi Bu İçerikleri Sıralayalım&lt;/h3&gt;
+
+&lt;p&gt;ASC ve DESC olaylarını RDBMS üzerinde kullanırken ORDER BY kullanıyorduk. Ancak bunda maalesef ki böyle değil. Fakat daha basit olduğunu söyleyebilirim.
+Yine find() metodunu olaya dahil ederek şöyle bir işlem yapabiliriz:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({_id:1})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki yöntemle birlikte ASCENDING bir sıralama yapabilirsiniz. Bunun tam tersi olarak DESCENDING işlemi ise şöyle yapılır:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({_id:-1})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;limit-falan-nasl-olacak&quot;&gt;Limit Falan Nasıl Olacak?&lt;/h3&gt;
+
+&lt;p&gt;Şimdi bu işlemde de find() metodunu kullanıyoruz. Tabi bu sefer sort() metodu da bize katılıyor.
+Limit işlemini limit() metodunu kullanarak yaparız. Örneğin kullanımı şöyle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({ID:-1}).limit(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki yöntem bize son eklenen verinin içeriğini döndürecektir ve dönen değer tek satırdır.
+Çünkü limit metodu parametre olarak tek &lt;strong&gt;1&lt;/strong&gt; rakamını almıştır. Dilersek dönen değerdeki tek bir alana dair de veri çekebiliriz.
+Ben bu işlemde kendim &lt;strong&gt;ID&lt;/strong&gt; adında bir alan tanımladım. MongoDB tarafından üretilen &lt;strong&gt;_id&lt;/strong&gt; alanından farklı olduğunu belirteyim. Şimdi tanımlı olan bu alanı çekelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({ID:-1}).limit(1)[0][&quot;ID&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Buradan anlaşılacağı üzere eklenmiş olan verilerden en sonuncusu getirilip bu satırdaki ID alanında yer alan veriyi göreceğiz.
+Klasik bir array access işleminden fazlası değil yani.&lt;/p&gt;
+
+&lt;p&gt;Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız 
+&lt;a href=&quot;https://docs.mongodb.com/manual/crud/&quot;&gt;MongoDB Manual&lt;/a&gt; sizin için iyi bir yol gösterici olacaktır.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 17 Dec 2016 23:30:00 +0300</pubDate>
+        <link>https://aligoren.com/atistirmalik-mongodb-yazisi</link>
+        <guid isPermaLink="true">https://aligoren.com/atistirmalik-mongodb-yazisi</guid>
+      </item>
+    
+      <item>
         <title>MongoDB Data Directory Not Found Hatası</title>
         <description>&lt;p&gt;Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:&lt;/p&gt;
 
@@ -726,59 +928,6 @@ AS
         <pubDate>Mon, 03 Oct 2016 23:12:00 +0300</pubDate>
         <link>https://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
         <guid isPermaLink="true">https://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
-      </item>
-    
-      <item>
-        <title>SQL Server'da Procedure'e GETDATE() Yollamak</title>
-        <description>&lt;p&gt;SQL Server tarafında çalışma yaparken bazen oluşturmuş olduğunuz Stored Procedure’lere parametre olarak GETDATE() yollamak isteyebiliriz.&lt;/p&gt;
-
-&lt;p&gt;Kısaca bir örnek verecek olursak kullanıcıların kaydedildiği bir tablo var normalde bu işlemleri bir programlama dili yardımıyla zaten hallediyordunuz ama işiniz SQL Server’a düştü.&lt;/p&gt;
-
-&lt;p&gt;Senaryoya göre ekleme işleminiz şöyle gerçekleşebilir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;EXEC InsertNewUser 'Ali', '123456', GETDATE();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ancak burada bir hata alacaksınız. Bu hatanın içeriğinde nvarchar ve date ile ilgili bir metin yer alacaktır.&lt;/p&gt;
-
-&lt;p&gt;Bu hata’yı çözmenin basit bir yolu var. Tarih bilgisini saklayacak alanı nullable olarak tanımlayarak basit bir kontrolle bu işlemi halledebiliriz. Örneğin önceden oluşturduğumuz PROCEDURE şu haldeydi:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROC InsertNewUser
-	@UserName nvarchar(30),
-	@UserPassword nvarchar(30),
-	@RegDate date
-AS
-    INSERT INTO Users(UserName, UserPassword, RegDate)
-    VALUES (@UserName, @UserPassword, @RegDate)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Burada aslında bir hata yok PROCEDURE ilgili değeri aldığı sürece doğru çalışıyor. Ama direkt olarak bugünün tarihini almasını istediğimiz durumlarda parametre almıyor. O zaman oluşturduğumuz PROC üzerinde bir değişiklik yaparak başlangıçta nullable bir date değişkeni oluşturup durumunu kontrol edebiliriz. PROCEDURE düzenlenir ve şöyle bir işlem gerçekleştirilir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;ALTER PROC InsertNewUser
-	@UserName nvarchar(30),
-	@UserPassword nvarchar(30),
-	@RegDate date = NULL
-AS
-
-IF @RegDate IS NULL
-    SET @RegDate = GETDATE()
-
-    INSERT INTO Users(UserName, UserPassword, RegDate)
-    VALUES (@UserName, @UserPassword, @RegDate)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Artık bu sayede SQL Server tarafında NULL değer almış olsa dahi bugünün tarihini ekleyecektir. Eğer sizin için bu tip durumlar hayati önem taşıyorsa bu yapıyı kullanabilirsiniz. Basit olarak NULL yazmak, formatlı tarih yollamaktan daha kolay geliyor da olabilir. Unutmadan artık SP şöyle çalışacaktır:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;EXEC InsertNewUser 'Ali', 'GÖREN', NULL
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu çalışmanın SQL Fiddle üzerindeki örneğine şuradan ulaşabilirsiniz:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://sqlfiddle.com/#!6/921f6/1&quot;&gt;http://sqlfiddle.com/#!6/921f6/1&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 03 Oct 2016 23:09:00 +0300</pubDate>
-        <link>https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</link>
-        <guid isPermaLink="true">https://aligoren.com/sql-serverda-proceduree-getdate-yollamak</guid>
       </item>
     
   </channel>

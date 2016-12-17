@@ -9,6 +9,218 @@
     
         
             <item>
+                <title>Atıştırmalık MongoDB Yazısı</title>
+                <link>https://aligoren.com/atistirmalik-mongodb-yazisi</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
+Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</p>
+
+<p><strong>[NOT]</strong>: Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)</p>
+
+<p><img src="/images/posts/mongo.png" alt="/images/posts/mongo.png" /></p>
+
+<h2 id="online-mongodb-ortamyla-tann">Online MongoDB Ortamıyla Tanışın</h2>
+
+<p>Pratiğe giriş yapmadan önce MongoDB bilgisayarınızda kurulu olmalı. MongoShell olmadan bilgisayarınızdan bağlantıyı kurmanız mümkün değil.
+Online shell kullanırsanız ayrı. Kurulum aşamalarını geçtiniz varsayarak size MongoLaB sitesini önereceğim.</p>
+
+<p><a href="https://mlab.com">https://mlab.com</a> Bu adrese girip kaydolarak ücretsiz 500 MB MongoDB hakkı kazanıyorsunuz.
+Tabii ki online çalışmak zorunda değilsiniz bu bir alternatif.</p>
+
+<p>Kaydolduktan sonra bir veritabanı oluşturmalısınız ve bu veritabanı için bir kullanıcı da oluşturmanız gerekiyor ki buraya kadar olan kısım standart yapıyla aynı.
+Her şeyi doğru yaptıysanız çalışma alanınızın görüntüsü şöyle olmalı:</p>
+
+<p><img src="/images/posts/mongolab.png" alt="/images/posts/mongolab.png" /></p>
+
+<h2 id="mongodbyi-local-ortamda-kullanmak">MongoDB’yi Local Ortamda Kullanmak</h2>
+
+<p>Eğer MongoDB’yi herhangi bir sınırlama olmaksızın (500 MB gibi) local ortamda kullanmak isterseniz öncelikle komut satırına <code>mongod</code> komutunu yazmalısınız.
+Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak <strong>27017</strong> dinlenir. Bunu söyleme sebebim yukarıdaki ilk seçenekte varsayılan port farklı.</p>
+
+<p><img src="/images/posts/mongod_local.png" alt="/images/posts/mongod_local.png" /></p>
+
+<p>Daha sonra ikinci bir komut satırını açarak mongo komutunu verip local mongodb kullanımına başlayabilirsiniz.</p>
+
+<p><img src="/images/posts/mongo_local.png" alt="/images/posts/mongo_local.png" /></p>
+
+<h3 id="veritabann-seelim">Veritabanını Seçelim</h3>
+
+<p>Veritabanını seçme işlemi, mongoshell üzerinde diğerlerinde olduğu gibi <code>use</code> ile olacaktır. Localde çalışanlar için test veritanı şöyle seçilir:</p>
+
+<pre><code class="language-sql">use test
+</code></pre>
+
+<h3 id="ufaktan-insert-operasyonlar">Ufaktan Insert Operasyonları</h3>
+
+<p>Veritabanını seçtik. MongoDB kullanırken insert operasyonları, RDBMS’lerden farklı şekilde çalışabilir. Burada yaşayacağınız farklılık syntax anlamında olabilir.
+Ancak NodeJS kullanıcılarının bu işlemlere karşı yabancı olacağı pek söylenemez :)</p>
+
+<p>MongoDB’de insert operasyonları üç metod altında toplanmıştır. Bunlar sırasıyla;</p>
+
+<p><strong>insert()</strong>, <strong>insertOne()</strong> ve <strong>insertMany()</strong> metodlarıdır.
+Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisiniz. Yani JSON’a da aşina olmanız gerekmektedir. Neyse ki öğrenmesi çok da zor değil.</p>
+
+<p><strong>Basit Olarak Insert</strong></p>
+
+<p>Basit olarak bir insert operasyonu şöyle olur.</p>
+
+<p>DBNESNESİ.TABLO.INSERT bu sahte yöntemin gerçeğe dönüşmüş hali şöyledir:</p>
+
+<pre><code class="language-js">db.Tablo.insert({
+    'alan': 'Verisi',
+    'alan2': 'Baska Veri'
+})
+</code></pre>
+
+<p>O zaman bir blog sisteminin yapısından yola çıkarak şöyle olacak diyebiliriz:</p>
+
+<pre><code class="language-js">db.Yazilar.insert({
+    'Baslik': 'Blog Başlığı',
+    'Icerik': 'Lorem Ipsum Dolor Sit Amet...',
+    'Kategori': 'Kişisel'
+})
+</code></pre>
+
+<p>Evet klasik bir insert operasyonunu gördük. Bu kodları Mongoshell üzerinde çalıştırınca şu çıktıyı alırsanız her şey doğrudur:</p>
+
+<pre><code class="language-json">WriteResult({ "nInserted" : 1 })
+</code></pre>
+
+<p><strong>Nedir Bu insertOne() ?</strong></p>
+
+<p>Bilinen bir yanlıştan dolayı insert ve insertOne karıştırılmakta. insert sadece tek bir ekleme yapmaz.
+Eğer sadece insert metodunu kullanıyorsanız birden fazla ekleme de yapabilirsiniz. Örnek:</p>
+
+<pre><code class="language-js">db.Yazilar.insert([
+    {"Baslik": "Başka"},
+    {"Baslik": "Oteki"}
+])
+
+/*
+ÇIKTISI:
+
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+
+*/
+</code></pre>
+
+<p>Ancak insertOne metodu böyle değil. Sadece ve sadece bir adet ekleme gerçekleştirebilirsiniz.
+Ayrıca insertOne metodu ile insert edilen içeriğin ID’sini de alabilirsiniz. Kullanımı şöyledir:</p>
+
+<pre><code class="language-js">db.Yazilart.insertOne({
+    "Baslik": "Tek Başlık"
+})
+</code></pre>
+
+<p>Yani ikinci bir başlık ekleme işlemi yapamazsınız. Evet bu kadar basit.</p>
+
+<p><strong>Gelelim insertMany() Metoduna</strong></p>
+
+<p>insert ve insertMany metodları da çoklu ekleme işlemlerini destekler.
+Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir <code>insertedId</code> dönmezdi. Aynı işlemi <code>insertMany</code> ile yaparsak bir ID dönüşü alırız:</p>
+
+<pre><code class="language-js">db.Yazilar.insertMany([
+    {"Baslik": "Başka"},
+    {"Baslik": "Oteki"}
+])
+
+/*
+ÇIKTISI:
+
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5855b0a5f7e668b0e155210f"),
+                ObjectId("5855b0a5f7e668b0e1552110")
+        ]
+}
+*/
+</code></pre>
+
+<h3 id="imdi-bu-verileri-nasl-ekeriz">Şimdi Bu Verileri Nasıl Çekeriz?</h3>
+
+<p>Veri çekme işlemi MongoDB üzerindeki en basit işlemlerdendir. Örneğin Yazilar tablosundan verileri çekelim. Bunun için <code>find()</code> metodunu kullanırız:</p>
+
+<pre><code class="language-js">db.Yazilar.find()
+
+/*
+ÇIKTISI:
+
+{ "_id" : ObjectId("5855aef5f7e668b0e155210c"), "BAŞLIK" : "İçerik" }
+{ "_id" : ObjectId("5855aef5f7e668b0e155210d"), "BAŞLIK BAŞKA" : "İçerik 2" }
+{ "_id" : ObjectId("5855afd0f7e668b0e155210e"), "ÖTEKİ" : "İçerik 3" }
+{ "_id" : ObjectId("5855b0a5f7e668b0e155210f"), "FALAN" : "İçerik 4" }
+{ "_id" : ObjectId("5855b0a5f7e668b0e1552110"), "NEYSE" : "İçerik 5" }
+*/
+
+</code></pre>
+
+<h3 id="nerede-bu-where-clause">Nerede Bu WHERE Clause?</h3>
+
+<p>Benim en çok merak ettiklerimden birisi de bu konuydu. MongoDB üzerinde where aynı mantığa sahip olsa da kullanımı tabii ki farklı. Yine find() metodunu kullanacağız.</p>
+
+<pre><code class="language-js">db.Yazilar.find({ $where: "this.Baslik == 'FALAN'" })
+</code></pre>
+
+<p>Yukarıdaki kullanımla tek satırlık bir değer dönecektir. Ancak aynı değere sahip 2 içerik varsa onları unique yapan diğer değerleri de sorgulamanız iyi olur.</p>
+
+<h3 id="hadi-bu-erikleri-sralayalm">Hadi Bu İçerikleri Sıralayalım</h3>
+
+<p>ASC ve DESC olaylarını RDBMS üzerinde kullanırken ORDER BY kullanıyorduk. Ancak bunda maalesef ki böyle değil. Fakat daha basit olduğunu söyleyebilirim.
+Yine find() metodunu olaya dahil ederek şöyle bir işlem yapabiliriz:</p>
+
+<pre><code class="language-js">db.Yazilar.find().sort({_id:1})
+</code></pre>
+
+<p>Yukarıdaki yöntemle birlikte ASCENDING bir sıralama yapabilirsiniz. Bunun tam tersi olarak DESCENDING işlemi ise şöyle yapılır:</p>
+
+<pre><code class="language-js">db.Yazilar.find().sort({_id:-1})
+</code></pre>
+
+<h3 id="limit-falan-nasl-olacak">Limit Falan Nasıl Olacak?</h3>
+
+<p>Şimdi bu işlemde de find() metodunu kullanıyoruz. Tabi bu sefer sort() metodu da bize katılıyor.
+Limit işlemini limit() metodunu kullanarak yaparız. Örneğin kullanımı şöyle:</p>
+
+<pre><code class="language-js">db.Yazilar.find().sort({ID:-1}).limit(1)
+</code></pre>
+
+<p>Yukarıdaki yöntem bize son eklenen verinin içeriğini döndürecektir ve dönen değer tek satırdır.
+Çünkü limit metodu parametre olarak tek <strong>1</strong> rakamını almıştır. Dilersek dönen değerdeki tek bir alana dair de veri çekebiliriz.
+Ben bu işlemde kendim <strong>ID</strong> adında bir alan tanımladım. MongoDB tarafından üretilen <strong>_id</strong> alanından farklı olduğunu belirteyim. Şimdi tanımlı olan bu alanı çekelim:</p>
+
+<pre><code class="language-js">db.Yazilar.find().sort({ID:-1}).limit(1)[0]["ID"]
+</code></pre>
+
+<p>Buradan anlaşılacağı üzere eklenmiş olan verilerden en sonuncusu getirilip bu satırdaki ID alanında yer alan veriyi göreceğiz.
+Klasik bir array access işleminden fazlası değil yani.</p>
+
+<p>Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız 
+<a href="https://docs.mongodb.com/manual/crud/">MongoDB Manual</a> sizin için iyi bir yol gösterici olacaktır.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/atistirmalik-mongodb-yazisi</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sat, 17 Dec 2016 23:30:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>MongoDB Data Directory Not Found Hatası</title>
                 <link>https://aligoren.com/mongodb-data-directory-not-found</link>
                 <content:encoded>
