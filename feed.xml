@@ -7,6 +7,167 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Atıştırmalık MongoDB Yazısı - 2</title>
+        <description>&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;https://aligoren.com/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı.
+Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mongo.png&quot; alt=&quot;/images/posts/mongo.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;mongodbyi-dosyadan-okuyalm&quot;&gt;MongoDB’yi Dosyadan Okuyalım&lt;/h3&gt;
+
+&lt;p&gt;MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor.
+MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;use deneme;
+
+db.x.insert({
+	&quot;kolon&quot;: &quot;içerik&quot;,
+	&quot;kolon2&quot;: &quot;içerik2&quot;,
+	&quot;kolon3&quot;: &quot;içerik3&quot;,
+	&quot;kolon4&quot;: &quot;içerik4&quot;,
+	&quot;kolon5&quot;: &quot;içerik5&quot;,
+	&quot;kolon6&quot;: &quot;içerik6&quot;,
+	&quot;kolon7&quot;: &quot;içerik7&quot;,
+	&quot;kolon8&quot;: &quot;içerik8&quot;,
+	&quot;kolon9&quot;: &quot;içerik9&quot;,
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin
+&lt;strong&gt;(Farklı uzantıları denemedim)&lt;/strong&gt; ve komut satırından şu komutu verin: &lt;code&gt;mongo &amp;lt; dosyaniz.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Evet bu kadar :)&lt;/p&gt;
+
+&lt;h3 id=&quot;nasl-yaplyor-bu-update&quot;&gt;Nasıl Yapılıyor Bu Update?&lt;/h3&gt;
+
+&lt;p&gt;Yukarıdaki X collection’ında yer alan içeriklerden &lt;code&gt;&quot;kolon4&quot;&lt;/code&gt; e ait datayı değiştirelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.update(
+	{
+		&quot;kolon4&quot;: &quot;Yenilendi&quot;
+	}
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;İstersek şöyle bir sorgu ile kolon4’e ait yeni değeri görüntüleyebiliriz:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.find()[1][&quot;kolon4&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor.
+Tabii yaptığınız işlem sonucunda &lt;strong&gt;nInserted&lt;/strong&gt; yerine &lt;strong&gt;nModified&lt;/strong&gt; içinde bir rakam göreceksiniz.&lt;/p&gt;
+
+&lt;p&gt;Yine aynı şekilde &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany&quot;&gt;updateMany&lt;/a&gt; ve &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne&quot;&gt;updateOne&lt;/a&gt; metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.&lt;/p&gt;
+
+&lt;p&gt;Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı &lt;strong&gt;replaceOne()&lt;/strong&gt; evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar.
+Örneği bir SQL cümlesinden verelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT * FROM Kullanicilar WHERE Adi='Ali'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak &lt;strong&gt;replaceOne()&lt;/strong&gt; metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar.
+Örnek kullanımı şöyledir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.replaceOne(
+	{
+		kolon: &quot;icerik&quot;
+	},
+	{
+		kolon: &quot;Yeni icerik&quot;
+	}
+)
+
+/*
+ÇIKTISI:
+
+{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 1, &quot;modifiedCount&quot; : 1 }
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;İsterseniz &lt;strong&gt;db.x.find()&lt;/strong&gt; diyerek çıkan sonucu görüntüleyebilirsiniz:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{ &quot;_id&quot; : ObjectId(&quot;5856e7347db38a7560ec56ae&quot;), &quot;kolon&quot; : &quot;Yeni icerik&quot; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Güncelleme işlemleri sadece bu kadarla sınırlığı değil. Bu işlemleri siz verdiğim linklerden daha geniş bir şekilde öğrenebilirsiniz.&lt;/p&gt;
+
+&lt;h3 id=&quot;nasl-sileceiz&quot;&gt;Nasıl Sileceğiz?&lt;/h3&gt;
+
+&lt;p&gt;RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil.
+Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- remove()
+- deleteOne()
+- deleteMany()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;remove Metodu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bunlardan ilki olan &lt;strong&gt;remove()&lt;/strong&gt; metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz.
+Burada bilmemiz gereken toplu silme yaptığımızdır.&lt;/p&gt;
+
+&lt;p&gt;Örnek herhangi bir koşula bağlı olmaksızın tüm &lt;strong&gt;x&lt;/strong&gt; koleksiyonunu silen sorgu kodunu verelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.remove( {} )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Eğer bu silme işleminin bütün tablo geneline değil de sadece belirli değerlere yansımasını istiyorsak şöyle yapmalıyız:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.remove({ 
+    &quot;kolon&quot;: &quot;Bir İçerik&quot;
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Artık bu sayede içinde &lt;strong&gt;Bir İçerik&lt;/strong&gt; geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir.
+Tüm dokümana &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.remove/#db.collection.remove&quot;&gt;buradan&lt;/a&gt; bakabilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;deleteOne() Metodu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım.
+Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.deleteOne( { &quot;_id&quot; : ObjectId(&quot;5856e7347db38a7560ec56ae&quot;) } );
+
+/*
+ÇIKTISI:
+
+{ &quot;acknowledged&quot; : true, &quot;deletedCount&quot; : 1 }
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki işlemin klasik SQL sorgusu şöyle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;DELETE FROM Kullanicilar WHERE ID=2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;deleteMany() Metodu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım.
+Burada aslında &lt;strong&gt;remove()&lt;/strong&gt; metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.deleteMany( { &quot;kolon&quot; : &quot;A Değeri&quot; } );
+
+/*
+ÇIKTISI:
+
+{ &quot;acknowledged&quot; : true, &quot;deletedCount&quot; : 1 }
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıda &lt;strong&gt;A Değeri&lt;/strong&gt; sadece 1 adet olduğu için silindiğinde de &lt;strong&gt;deletedCount&lt;/strong&gt; 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.&lt;/p&gt;
+
+&lt;h2 id=&quot;kaynaklar&quot;&gt;Kaynaklar&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/update-documents/#update&quot;&gt;Update İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods&quot;&gt;Delete İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 17 Dec 2016 23:30:00 +0300</pubDate>
+        <link>https://aligoren.com/atistirmalik-mongodb-yazisi-2</link>
+        <guid isPermaLink="true">https://aligoren.com/atistirmalik-mongodb-yazisi-2</guid>
+      </item>
+    
+      <item>
         <title>Atıştırmalık MongoDB Yazısı</title>
         <description>&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
 Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.&lt;/p&gt;
@@ -855,79 +1016,6 @@ WHERE u.ID=ud.UserID and u.ID=2
         <pubDate>Fri, 07 Oct 2016 23:17:00 +0300</pubDate>
         <link>https://aligoren.com/sqlde-inner-join-islemleri</link>
         <guid isPermaLink="true">https://aligoren.com/sqlde-inner-join-islemleri</guid>
-      </item>
-    
-      <item>
-        <title>MSSQL'de Stored Procedure Kullanımı</title>
-        <description>&lt;p&gt;Daha önceleri çok fazla veritabanı kullanan işlemler yapmadım. O yüzden şu sıralar pek yeniyim. Öğrenme aşamaları hızlıca gelişiyor.&lt;/p&gt;
-
-&lt;p&gt;Stored Procedure dediğimiz şey ise veritabanında tutulan ve ilk çalışma derlenen daha sonraları tekrar derlenmeye ihtiyaç duyulmayan SQL ifadeleridir. Yani bir Stored Procedure oluşturursanız tekrar aynı isimde Stored Procedure’ü aynı veritabanı için oluşturamıyorsunuz.&lt;/p&gt;
-
-&lt;p&gt;Bu gibi durumlarda oluşturduğunuz Stored Procedure’ü Modify etmeniz gerekiyor ki bu da ALTER komutu ile birlikte oluyor. Stored Procedure’lerin belli başlı avantajları vardır.&lt;/p&gt;
-
-&lt;p&gt;Bu avantajlardan en önemlisi kuşkusuz hızlı çalışmalarıdır. Bunun sebebi ise oluşturulan Stored Procedure bir kere derlendikten sonra tekrar tekrar derlemenize gerek kalmaz. O zaman buradan Stored Procedure’lerin veritabanı tarafında saklandığını anlayabiliriz.&lt;/p&gt;
-
-&lt;p&gt;Eğer uygulama katmanında çalışıyor olsaydık tek bir sorgu tekrar tekrar derlenmelidir ki bu da büyük sistemlerde büyük bir sorun haline gelebilir. Tabii ki zaman kaybı anlamına da geliyor. Yanlış anlaşılmasın C# tarafında SQL kodu yazıp, INSERT ettirmekle burada yazıp ettirmek mantık olarak pek farklı değil.&lt;/p&gt;
-
-&lt;p&gt;Ama olur da uygulama katmanında kullanmanız gerekiyordur size daha rahat bir geliştirme şansı sunar ki şöyle düşünün 20 satırlık SQL sorgunuz var ve siz bunu Entity Framework kullanarak geliştirmiyorsunuz. Her sorgunun 20 satır sürdüğünü hayal edersek sanırım Database Provider baya bir şişecektir. Stored Procedure kullanmak bunun da önüne geçebilir.&lt;/p&gt;
-
-&lt;p&gt;Bir diğer avantaj ise benim geçenlerde kullandığım özellikleri kullandırması yani T-SQL komutlarını kullanabiliyorsunuz ve if-else gibi while gibi işlemleri de gerçekleştirebiliyorsunuz.&lt;/p&gt;
-
-&lt;p&gt;Eğer birisi veritabanınıza erişim imkanına sahipse yapacak bir şey yok ama veritabanı erişimine sahip olmayıp bir şekilde uygulama katmanındaki kodlara erişimi olan kişiler sadece Stored Procedure ve o Procedure’ün aldığı parametreleri göreceği için güvenlik anlamında da avantaj sağlar.&lt;/p&gt;
-
-&lt;p&gt;Peki nasıl kullanabiliriz dediğinizi biliyorum. Aslında bir Stored Procedure çok zor da değil. Parametre alan ya da almayan olarak türleri vardır ve RETURN komutunu da kullanabilirsiniz. Basit olarak parametre alamayan bir Stored Procedure şöyle oluşturulur:&lt;/p&gt;
-
-&lt;p&gt;CREATE PROC ProcedureAdi şeklinde ya da CREATE PROCEDURE ProcedureAdi şeklinde olabilir. Ben genellikle PROC kullanıyorum. Şimdi parametre almayan ve sadece SELECT sorgusunu döndüren bir PROC yazalım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROC GetUsers
-AS
-    SELECT * FROM Users
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet parametre almayan basit olan bir Procedure yazdık bile. Bu Procedure bize kullanıcıları listelemede yardımcı olacaktır. Hmm nasıl çağırıldığını yazmadık:/&lt;/p&gt;
-
-&lt;p&gt;EXEC komutunu kullanarak çalıştırma işlemini yaparız. Eğer Procedure parametre almıyorsa basit şöyledir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;EXEC GetUsers
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Peki tamam parametreli olanlar nasıl? Herhangi bir programlama dilinde method oluşturduğunuzu düşünün ve bu metodların parametre aldığını düşünün. Aynı şekilde Procedure’ler de parametreleri böyle alırlar. Tek farkı ise parantezler içerisinde parametreler almak yerine normal şekilde almak:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;EXEC GetUsers 'Ali'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Buradaki senaryo şöyle:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT * FROM Users WHERE Name='Ali'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bunu Stored Procedure ile şöyle yapabiliriz.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROC GetSpesificUser
-	@UserName nvarchar(30)
-AS
-    SELECT * FROM Users WHERE Name=@UserName
-
-EXEC GetSpesificUser 'Ali'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Eğer birden fazla parametre alacaksa da virgülle belirtilmeli.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE PROC GetSpesificUserWithID
-	@ID int,
-	@UserName nvarchar(30)
-AS
-    SELECT * FROM Users WHERE ID=@ID and Name=@UserName
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tabii bu Stored Procedure çalıştırılırken de alacağı parametre sırasına göre parametreleri, aldığı türe göre Stored Procedure’e yollamalıyız. Örnek:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;EXEC GetSpesificUserWithID 1, 'Ali
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Mon, 03 Oct 2016 23:12:00 +0300</pubDate>
-        <link>https://aligoren.com/mssqlde-stored-procedure-kullanimi</link>
-        <guid isPermaLink="true">https://aligoren.com/mssqlde-stored-procedure-kullanimi</guid>
       </item>
     
   </channel>

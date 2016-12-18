@@ -9,6 +9,177 @@
     
         
             <item>
+                <title>Atıştırmalık MongoDB Yazısı - 2</title>
+                <link>https://aligoren.com/atistirmalik-mongodb-yazisi-2</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selam bu yazı bir önceki <a href="https://aligoren.com/atistirmalik-mongodb-yazisi">Atıştırmalık MongoDB Yazısı</a>‘nın devamı niteliğinde bir yazı.
+Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</p>
+
+<p><img src="/images/posts/mongo.png" alt="/images/posts/mongo.png" /></p>
+
+<h3 id="mongodbyi-dosyadan-okuyalm">MongoDB’yi Dosyadan Okuyalım</h3>
+
+<p>MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor.
+MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:</p>
+
+<pre><code class="language-js">use deneme;
+
+db.x.insert({
+	"kolon": "içerik",
+	"kolon2": "içerik2",
+	"kolon3": "içerik3",
+	"kolon4": "içerik4",
+	"kolon5": "içerik5",
+	"kolon6": "içerik6",
+	"kolon7": "içerik7",
+	"kolon8": "içerik8",
+	"kolon9": "içerik9",
+})
+</code></pre>
+
+<p>Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin
+<strong>(Farklı uzantıları denemedim)</strong> ve komut satırından şu komutu verin: <code>mongo &lt; dosyaniz.js</code></p>
+
+<p>Evet bu kadar :)</p>
+
+<h3 id="nasl-yaplyor-bu-update">Nasıl Yapılıyor Bu Update?</h3>
+
+<p>Yukarıdaki X collection’ında yer alan içeriklerden <code>"kolon4"</code> e ait datayı değiştirelim:</p>
+
+<pre><code class="language-js">db.x.update(
+	{
+		"kolon4": "Yenilendi"
+	}
+)
+</code></pre>
+
+<p>İstersek şöyle bir sorgu ile kolon4’e ait yeni değeri görüntüleyebiliriz:</p>
+
+<pre><code class="language-js">db.x.find()[1]["kolon4"]
+</code></pre>
+
+<p>Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor.
+Tabii yaptığınız işlem sonucunda <strong>nInserted</strong> yerine <strong>nModified</strong> içinde bir rakam göreceksiniz.</p>
+
+<p>Yine aynı şekilde <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany">updateMany</a> ve <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne">updateOne</a> metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.</p>
+
+<p>Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı <strong>replaceOne()</strong> evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar.
+Örneği bir SQL cümlesinden verelim:</p>
+
+<pre><code class="language-sql">SELECT * FROM Kullanicilar WHERE Adi='Ali'
+</code></pre>
+
+<p>Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak <strong>replaceOne()</strong> metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar.
+Örnek kullanımı şöyledir:</p>
+
+<pre><code class="language-js">db.x.replaceOne(
+	{
+		kolon: "icerik"
+	},
+	{
+		kolon: "Yeni icerik"
+	}
+)
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+*/
+</code></pre>
+
+<p>İsterseniz <strong>db.x.find()</strong> diyerek çıkan sonucu görüntüleyebilirsiniz:</p>
+
+<pre><code class="language-json">{ "_id" : ObjectId("5856e7347db38a7560ec56ae"), "kolon" : "Yeni icerik" }
+</code></pre>
+
+<p>Güncelleme işlemleri sadece bu kadarla sınırlığı değil. Bu işlemleri siz verdiğim linklerden daha geniş bir şekilde öğrenebilirsiniz.</p>
+
+<h3 id="nasl-sileceiz">Nasıl Sileceğiz?</h3>
+
+<p>RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil.
+Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:</p>
+
+<pre><code>- remove()
+- deleteOne()
+- deleteMany()
+</code></pre>
+
+<p><strong>remove Metodu</strong></p>
+
+<p>Bunlardan ilki olan <strong>remove()</strong> metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz.
+Burada bilmemiz gereken toplu silme yaptığımızdır.</p>
+
+<p>Örnek herhangi bir koşula bağlı olmaksızın tüm <strong>x</strong> koleksiyonunu silen sorgu kodunu verelim:</p>
+
+<pre><code class="language-js">db.x.remove( {} )
+</code></pre>
+
+<p>Eğer bu silme işleminin bütün tablo geneline değil de sadece belirli değerlere yansımasını istiyorsak şöyle yapmalıyız:</p>
+
+<pre><code class="language-js">db.x.remove({ 
+    "kolon": "Bir İçerik"
+})
+</code></pre>
+
+<p>Artık bu sayede içinde <strong>Bir İçerik</strong> geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir.
+Tüm dokümana <a href="https://docs.mongodb.com/manual/reference/method/db.collection.remove/#db.collection.remove">buradan</a> bakabilirsiniz.</p>
+
+<p><strong>deleteOne() Metodu</strong></p>
+
+<p>Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım.
+Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)</p>
+
+<pre><code class="language-js">db.x.deleteOne( { "_id" : ObjectId("5856e7347db38a7560ec56ae") } );
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+*/
+</code></pre>
+
+<p>Yukarıdaki işlemin klasik SQL sorgusu şöyle:</p>
+
+<pre><code class="language-sql">DELETE FROM Kullanicilar WHERE ID=2
+</code></pre>
+
+<p><strong>deleteMany() Metodu</strong></p>
+
+<p>İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım.
+Burada aslında <strong>remove()</strong> metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:</p>
+
+<pre><code class="language-js">db.x.deleteMany( { "kolon" : "A Değeri" } );
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+*/
+</code></pre>
+
+<p>Yukarıda <strong>A Değeri</strong> sadece 1 adet olduğu için silindiğinde de <strong>deletedCount</strong> 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.</p>
+
+<h2 id="kaynaklar">Kaynaklar</h2>
+
+<p><a href="https://docs.mongodb.com/manual/tutorial/update-documents/#update">Update İşlemleri - MongoDB Resmi Dokümanı</a></p>
+
+<p><a href="https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods">Delete İşlemleri - MongoDB Resmi Dokümanı</a></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/atistirmalik-mongodb-yazisi-2</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sat, 17 Dec 2016 23:30:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Atıştırmalık MongoDB Yazısı</title>
                 <link>https://aligoren.com/atistirmalik-mongodb-yazisi</link>
                 <content:encoded>

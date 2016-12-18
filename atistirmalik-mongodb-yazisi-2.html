@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Atıştırmalık MongoDB Yazısı - 2 &#8211; Ali GÖREN...</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MongoDB ile Update ve Delete İşlemleri">
+    <meta name="robots" content="all">
+    <meta name="author" content="Ali GÖREN">
+    
+    <meta name="keywords" content="MongoDB, Programlama">
+    <link rel="canonical" href="https://aligoren.com/atistirmalik-mongodb-yazisi-2">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201612182319" type="text/css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/card.css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Atıştırmalık MongoDB Yazısı - 2">
+    <meta property="og:description" content="MongoDB ile Update ve Delete İşlemleri">
+    <meta property="og:url" content="https://aligoren.com/atistirmalik-mongodb-yazisi-2">
+    <meta property="og:site_name" content="Ali GÖREN...">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+        <meta name="twitter:site" content="@yazilimci_adam" />
+    
+    <meta name="twitter:title" content="Atıştırmalık MongoDB Yazısı - 2" />
+    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
+    <meta name="twitter:url" content="https://aligoren.com/atistirmalik-mongodb-yazisi-2" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
+      <nav class="site-nav">
+        
+    
+    <a href="/fb-instant-articles.xml"></a>
+    
+
+    
+    <a href="/feed.xml"></a>
+    
+
+    
+    <a href="/hakkimda">Hakkımda</a>
+    
+
+    
+    <a href="/"></a>
+    
+
+    
+
+    
+    <a href="/css/pixyll.css"></a>
+    
+
+    
+    <a href="/page2/"></a>
+    
+
+    
+    <a href="/page3/"></a>
+    
+
+    
+    <a href="/page4/"></a>
+    
+
+    
+    <a href="/page5/"></a>
+    
+
+    
+    <a href="/page6/"></a>
+    
+
+    
+    <a href="/page7/"></a>
+    
+
+    
+    <a href="/page8/"></a>
+    
+
+    
+    <a href="/page9/"></a>
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="social-icons-right">
+    
+      <a class="fa fa-github" href="https://github.com/aligoren"></a>
+    
+    
+      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
+    
+    
+      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/yazilimci_adam"></a>
+    
+    
+    
+    
+      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
+    
+    
+      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
+    
+    
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
+    
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Atıştırmalık MongoDB Yazısı - 2</h1>
+  <span class="post-meta">Dec 17, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    3 Dakikada Okunabilir
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>Selam bu yazı bir önceki <a href="https://aligoren.com/atistirmalik-mongodb-yazisi">Atıştırmalık MongoDB Yazısı</a>‘nın devamı niteliğinde bir yazı.
+Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</p>
+
+<p><img src="/images/posts/mongo.png" alt="/images/posts/mongo.png" /></p>
+
+<h3 id="mongodbyi-dosyadan-okuyalm">MongoDB’yi Dosyadan Okuyalım</h3>
+
+<p>MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor.
+MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:</p>
+
+<pre><code class="language-js">use deneme;
+
+db.x.insert({
+	"kolon": "içerik",
+	"kolon2": "içerik2",
+	"kolon3": "içerik3",
+	"kolon4": "içerik4",
+	"kolon5": "içerik5",
+	"kolon6": "içerik6",
+	"kolon7": "içerik7",
+	"kolon8": "içerik8",
+	"kolon9": "içerik9",
+})
+</code></pre>
+
+<p>Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin
+<strong>(Farklı uzantıları denemedim)</strong> ve komut satırından şu komutu verin: <code>mongo &lt; dosyaniz.js</code></p>
+
+<p>Evet bu kadar :)</p>
+
+<h3 id="nasl-yaplyor-bu-update">Nasıl Yapılıyor Bu Update?</h3>
+
+<p>Yukarıdaki X collection’ında yer alan içeriklerden <code>"kolon4"</code> e ait datayı değiştirelim:</p>
+
+<pre><code class="language-js">db.x.update(
+	{
+		"kolon4": "Yenilendi"
+	}
+)
+</code></pre>
+
+<p>İstersek şöyle bir sorgu ile kolon4’e ait yeni değeri görüntüleyebiliriz:</p>
+
+<pre><code class="language-js">db.x.find()[1]["kolon4"]
+</code></pre>
+
+<p>Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor.
+Tabii yaptığınız işlem sonucunda <strong>nInserted</strong> yerine <strong>nModified</strong> içinde bir rakam göreceksiniz.</p>
+
+<p>Yine aynı şekilde <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany">updateMany</a> ve <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne">updateOne</a> metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.</p>
+
+<p>Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı <strong>replaceOne()</strong> evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar.
+Örneği bir SQL cümlesinden verelim:</p>
+
+<pre><code class="language-sql">SELECT * FROM Kullanicilar WHERE Adi='Ali'
+</code></pre>
+
+<p>Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak <strong>replaceOne()</strong> metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar.
+Örnek kullanımı şöyledir:</p>
+
+<pre><code class="language-js">db.x.replaceOne(
+	{
+		kolon: "icerik"
+	},
+	{
+		kolon: "Yeni icerik"
+	}
+)
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+*/
+</code></pre>
+
+<p>İsterseniz <strong>db.x.find()</strong> diyerek çıkan sonucu görüntüleyebilirsiniz:</p>
+
+<pre><code class="language-json">{ "_id" : ObjectId("5856e7347db38a7560ec56ae"), "kolon" : "Yeni icerik" }
+</code></pre>
+
+<p>Güncelleme işlemleri sadece bu kadarla sınırlığı değil. Bu işlemleri siz verdiğim linklerden daha geniş bir şekilde öğrenebilirsiniz.</p>
+
+<h3 id="nasl-sileceiz">Nasıl Sileceğiz?</h3>
+
+<p>RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil.
+Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:</p>
+
+<pre><code>- remove()
+- deleteOne()
+- deleteMany()
+</code></pre>
+
+<p><strong>remove Metodu</strong></p>
+
+<p>Bunlardan ilki olan <strong>remove()</strong> metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz.
+Burada bilmemiz gereken toplu silme yaptığımızdır.</p>
+
+<p>Örnek herhangi bir koşula bağlı olmaksızın tüm <strong>x</strong> koleksiyonunu silen sorgu kodunu verelim:</p>
+
+<pre><code class="language-js">db.x.remove( {} )
+</code></pre>
+
+<p>Eğer bu silme işleminin bütün tablo geneline değil de sadece belirli değerlere yansımasını istiyorsak şöyle yapmalıyız:</p>
+
+<pre><code class="language-js">db.x.remove({ 
+    "kolon": "Bir İçerik"
+})
+</code></pre>
+
+<p>Artık bu sayede içinde <strong>Bir İçerik</strong> geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir.
+Tüm dokümana <a href="https://docs.mongodb.com/manual/reference/method/db.collection.remove/#db.collection.remove">buradan</a> bakabilirsiniz.</p>
+
+<p><strong>deleteOne() Metodu</strong></p>
+
+<p>Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım.
+Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)</p>
+
+<pre><code class="language-js">db.x.deleteOne( { "_id" : ObjectId("5856e7347db38a7560ec56ae") } );
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+*/
+</code></pre>
+
+<p>Yukarıdaki işlemin klasik SQL sorgusu şöyle:</p>
+
+<pre><code class="language-sql">DELETE FROM Kullanicilar WHERE ID=2
+</code></pre>
+
+<p><strong>deleteMany() Metodu</strong></p>
+
+<p>İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım.
+Burada aslında <strong>remove()</strong> metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:</p>
+
+<pre><code class="language-js">db.x.deleteMany( { "kolon" : "A Değeri" } );
+
+/*
+ÇIKTISI:
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+*/
+</code></pre>
+
+<p>Yukarıda <strong>A Değeri</strong> sadece 1 adet olduğu için silindiğinde de <strong>deletedCount</strong> 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.</p>
+
+<h2 id="kaynaklar">Kaynaklar</h2>
+
+<p><a href="https://docs.mongodb.com/manual/tutorial/update-documents/#update">Update İşlemleri - MongoDB Resmi Dokümanı</a></p>
+
+<p><a href="https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods">Delete İşlemleri - MongoDB Resmi Dokümanı</a></p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
+  <p>
+    Bu da böyle bir anımdır işte...
+  </p>
+  <p>
+    <a target="_blank" href="https://twitter.com/yazilimci_adam">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+Kategori:
+
+<a href="kategoriler#MongoDB">MongoDB</a>,
+
+<a href="kategoriler#Programlama">Programlama</a>,
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'aligren';
+    var disqus_identifier = '/atistirmalik-mongodb-yazisi-2';
+    var disqus_title      = "Atıştırmalık MongoDB Yazısı - 2";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+<script src="/js/prism.js"></script>
+
+
+</body>
+</html>
