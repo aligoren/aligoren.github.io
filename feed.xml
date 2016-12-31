@@ -8,9 +8,9 @@
     
       <item>
         <title>PHP ile Base URL Almak</title>
-        <description>&lt;p&gt;Selamlar&lt;/p&gt;
+        <description>&lt;p&gt;Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.&lt;/p&gt;
 
-&lt;p&gt;Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu. Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk &lt;a href=&quot;http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858&quot;&gt;geldikten&lt;/a&gt; sonra oturup kodunu kendim yazmalıyım dedim.&lt;/p&gt;
+&lt;p&gt;Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk &lt;a href=&quot;http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858&quot;&gt;geldikten&lt;/a&gt; sonra oturup kodunu kendim yazmalıyım dedim.&lt;/p&gt;
 
 &lt;p&gt;Sorun şu normalde &lt;code&gt;http://localhost&lt;/code&gt; adresi bizim base_url adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor. Çünkü &lt;code&gt;http://localhost/proje&lt;/code&gt; böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:&lt;/p&gt;
 
