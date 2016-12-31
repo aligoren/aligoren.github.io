@@ -9,6 +9,110 @@
     
         
             <item>
+                <title>PHP ile Base URL Almak</title>
+                <link>https://aligoren.com/php-ile-base-url-almak</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selamlar</p>
+
+<p>Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu. Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk <a href="http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858">geldikten</a> sonra oturup kodunu kendim yazmalıyım dedim.</p>
+
+<p>Sorun şu normalde <code>http://localhost</code> adresi bizim base_url adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor. Çünkü <code>http://localhost/proje</code> böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:</p>
+
+<h2 id="zm-1">Çözüm 1:</h2>
+
+<p>Bu yöntemde, base_url methodu tanımlanır ve o yönteme statik url verilir:</p>
+
+<pre><code class="language-php">function base_url() {
+	return 'http://localhost/proje';
+}
+</code></pre>
+
+<h2 id="zm-2">Çözüm 2:</h2>
+
+<p>Bu yöntemde biraz programlama beceriniz önemli aslında. Ben trait kullandım, çünkü bu kod şu anki projemin bi parçası. Multiple olarak extends işlemi yapamadığım için 5.4 ile gelen traitleri kullanmaya karar verdim.</p>
+
+<h3 id="gereksinimler">Gereksinimler:</h3>
+
+<pre><code>- Gezindiğimiz alan adı: $_SERVER['SERVER_NAME'];
+- Şu anda bulunduğumuz sayaf: $_SERVER['REQUEST_URI'];
+</code></pre>
+
+<p>Bu işlemde mevcut bulunduğumuz sayfayı PHP’nin <code>str_replace()</code> fonksiyonunu kullanarak temizleyeceğiz. Zaten düz root ise hiçbir şey görünmeyecek. Yok farklı URL’lerde isek o zaman kalan kısım görülecektir. Örneğin şöyle:</p>
+
+<pre><code class="language-php">/*
+http://localhost =&gt; return ""
+http://localhost/proje =&gt; return "/proje"
+*/
+</code></pre>
+
+<p>Yukarıdaki gibi bir temizleme işlemi sonrası yapılması gereken PHP’nin <code>explode()</code> fonksiyonunu slash ile kullanarak slashtan sonra gelen ilk değeri almak. Yani şöyle düşünelim:</p>
+
+<pre><code class="language-php">/*
+/proje
+/proje/abc/
+/proje/a/b/c/d/e/f/g
+*/
+</code></pre>
+
+<p>İlk satırdaki proje değerini almak zaten sıkıntılı değil ama bulunduğunuz sayfa 3. satırdaki gibi ise bir problemimiz var demektir. Bu yüzden explode ile böldüklerimizin ilkini alıyoruz. Bu genelde projenin root dizinidir.</p>
+
+<p>Dizinin altındaki dizinlere maalesef bir çözümüm yok, o durumlarda artık manuel olarak ilk yöntemi denemelisiniz. Neyse bu işlem sonrasında ise dönen array türü değerin 1. indexini çağırıyoruz.</p>
+
+<p>Bu projemizin root olarak görünen klasörüdür. Yani <code>/proje/a/b/c/d/e/f/g</code> gibi bir adresten sadece <strong>proje</strong> değerini alıyoruz. Ve ilk değerin başına tekrar bir slash ekliyoruz Son olarak dönen değer <em>”/”</em> ya da <em>“/proje_kok_dizini”</em> şeklinde oluyor. Aslında senaryo olarak size bu işlemin nasıl yapacağını söylediğime göre kodlaması da basit anlamda kafanızda canlandı. Yine de kodlarını paylaşayım:</p>
+
+<p><strong>url.php</strong></p>
+
+<pre><code class="language-php">trait URL {
+    private $url = '';
+    private $current_url = '';
+    public $get = '';
+
+    function __construct()
+    {
+        $this-&gt;url = $_SERVER['SERVER_NAME'];
+        $this-&gt;current_url = $_SERVER['REQUEST_URI'];
+
+        $clean_server = str_replace('', $this-&gt;url, $this-&gt;current_url);
+        $clean_server = explode('/', $clean_server);
+
+        $this-&gt;get = array('base_url' =&gt; "/".$clean_server[1]);
+    }
+}
+</code></pre>
+
+<p><strong>index.php</strong></p>
+
+<pre><code class="language-php">require_once 'url.php'
+
+class Home
+{
+    use URL;
+}
+
+$h = new Home();
+
+// Bu satır HTML kodları içermektedir.
+// O yüzden üst kısımda PHP taglerini kapatmalısınız.
+
+&lt;a href="&lt;?=$h-&gt;get['base_url']?&gt;"&gt;Base&lt;/a&gt;
+</code></pre>
+
+<p>Bu yazıyı Stackoverflow’da verdiğim <a href="http://stackoverflow.com/a/41407858/3821823">şu</a> cevaptan esinlenerek oluşturdum</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/php-ile-base-url-almak</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sat, 31 Dec 2016 15:50:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Atıştırmalık MongoDB Yazısı - 2</title>
                 <link>https://aligoren.com/atistirmalik-mongodb-yazisi-2</link>
                 <content:encoded>

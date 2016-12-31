@@ -7,6 +7,100 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>PHP ile Base URL Almak</title>
+        <description>&lt;p&gt;Selamlar&lt;/p&gt;
+
+&lt;p&gt;Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu. Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk &lt;a href=&quot;http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858&quot;&gt;geldikten&lt;/a&gt; sonra oturup kodunu kendim yazmalıyım dedim.&lt;/p&gt;
+
+&lt;p&gt;Sorun şu normalde &lt;code&gt;http://localhost&lt;/code&gt; adresi bizim base_url adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor. Çünkü &lt;code&gt;http://localhost/proje&lt;/code&gt; böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:&lt;/p&gt;
+
+&lt;h2 id=&quot;zm-1&quot;&gt;Çözüm 1:&lt;/h2&gt;
+
+&lt;p&gt;Bu yöntemde, base_url methodu tanımlanır ve o yönteme statik url verilir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;function base_url() {
+	return 'http://localhost/proje';
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;zm-2&quot;&gt;Çözüm 2:&lt;/h2&gt;
+
+&lt;p&gt;Bu yöntemde biraz programlama beceriniz önemli aslında. Ben trait kullandım, çünkü bu kod şu anki projemin bi parçası. Multiple olarak extends işlemi yapamadığım için 5.4 ile gelen traitleri kullanmaya karar verdim.&lt;/p&gt;
+
+&lt;h3 id=&quot;gereksinimler&quot;&gt;Gereksinimler:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;- Gezindiğimiz alan adı: $_SERVER['SERVER_NAME'];
+- Şu anda bulunduğumuz sayaf: $_SERVER['REQUEST_URI'];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bu işlemde mevcut bulunduğumuz sayfayı PHP’nin &lt;code&gt;str_replace()&lt;/code&gt; fonksiyonunu kullanarak temizleyeceğiz. Zaten düz root ise hiçbir şey görünmeyecek. Yok farklı URL’lerde isek o zaman kalan kısım görülecektir. Örneğin şöyle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;/*
+http://localhost =&amp;gt; return &quot;&quot;
+http://localhost/proje =&amp;gt; return &quot;/proje&quot;
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki gibi bir temizleme işlemi sonrası yapılması gereken PHP’nin &lt;code&gt;explode()&lt;/code&gt; fonksiyonunu slash ile kullanarak slashtan sonra gelen ilk değeri almak. Yani şöyle düşünelim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;/*
+/proje
+/proje/abc/
+/proje/a/b/c/d/e/f/g
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;İlk satırdaki proje değerini almak zaten sıkıntılı değil ama bulunduğunuz sayfa 3. satırdaki gibi ise bir problemimiz var demektir. Bu yüzden explode ile böldüklerimizin ilkini alıyoruz. Bu genelde projenin root dizinidir.&lt;/p&gt;
+
+&lt;p&gt;Dizinin altındaki dizinlere maalesef bir çözümüm yok, o durumlarda artık manuel olarak ilk yöntemi denemelisiniz. Neyse bu işlem sonrasında ise dönen array türü değerin 1. indexini çağırıyoruz.&lt;/p&gt;
+
+&lt;p&gt;Bu projemizin root olarak görünen klasörüdür. Yani &lt;code&gt;/proje/a/b/c/d/e/f/g&lt;/code&gt; gibi bir adresten sadece &lt;strong&gt;proje&lt;/strong&gt; değerini alıyoruz. Ve ilk değerin başına tekrar bir slash ekliyoruz Son olarak dönen değer &lt;em&gt;”/”&lt;/em&gt; ya da &lt;em&gt;“/proje_kok_dizini”&lt;/em&gt; şeklinde oluyor. Aslında senaryo olarak size bu işlemin nasıl yapacağını söylediğime göre kodlaması da basit anlamda kafanızda canlandı. Yine de kodlarını paylaşayım:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;url.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;trait URL {
+    private $url = '';
+    private $current_url = '';
+    public $get = '';
+
+    function __construct()
+    {
+        $this-&amp;gt;url = $_SERVER['SERVER_NAME'];
+        $this-&amp;gt;current_url = $_SERVER['REQUEST_URI'];
+
+        $clean_server = str_replace('', $this-&amp;gt;url, $this-&amp;gt;current_url);
+        $clean_server = explode('/', $clean_server);
+
+        $this-&amp;gt;get = array('base_url' =&amp;gt; &quot;/&quot;.$clean_server[1]);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;index.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;require_once 'url.php'
+
+class Home
+{
+    use URL;
+}
+
+$h = new Home();
+
+// Bu satır HTML kodları içermektedir.
+// O yüzden üst kısımda PHP taglerini kapatmalısınız.
+
+&amp;lt;a href=&quot;&amp;lt;?=$h-&amp;gt;get['base_url']?&amp;gt;&quot;&amp;gt;Base&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;
+</description>
+        <pubDate>Sat, 31 Dec 2016 15:50:00 +0300</pubDate>
+        <link>https://aligoren.com/php-ile-base-url-almak</link>
+        <guid isPermaLink="true">https://aligoren.com/php-ile-base-url-almak</guid>
+      </item>
+    
+      <item>
         <title>Atıştırmalık MongoDB Yazısı - 2</title>
         <description>&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;https://aligoren.com/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı.
 Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.&lt;/p&gt;
@@ -869,153 +963,6 @@ kramdown:
         <pubDate>Sat, 08 Oct 2016 14:39:00 +0300</pubDate>
         <link>https://aligoren.com/turk-telekom-superonline-rezaleti</link>
         <guid isPermaLink="true">https://aligoren.com/turk-telekom-superonline-rezaleti</guid>
-      </item>
-    
-      <item>
-        <title>SQL'de Inner Join İşlemleri</title>
-        <description>&lt;p&gt;SQL’de normalizasyon işlemlerini gerçekleştirdiğimiz zaman tabloları da bölme işlemini gerçekleştirmiş oluruz. Bu sayede hem normal formlarda bir database tasarımı gerçekleştirmiş oluruz hem de performans kazanabiliriz.&lt;/p&gt;
-
-&lt;p&gt;Bu yazıda bölünmüş tabloların birleştirilmesinde faydalanabileceğimiz INNER JOIN kullanımına değineceğim. Yukarıda değinmiş olduğum performans konusu sadece yukarısı için geçerlidir. Her INNER JOIN performanslı olacak diye bir şey yoktur.&lt;/p&gt;
-
-&lt;p&gt;İki tablo düşünelim. Bu tablolardan birisi kullanıcıların sadece adlarını tutuyor. Bir diğeri ise kullanıcıların sadece açıklamalarını tutuyor. Bu iki tablonun tek sorguda ortak sonuçlar üretmesi gerekiyor. Aslında sanal bir tablo oluştuğunu düşünün. Tıpkı string birleştirme işlemlerinde olduğu gibi. Hemen bunu tanımlayan iki tablo oluşturalım.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE TABLE [UserDetail] (
-[ID] int NOT NULL IDENTITY(1,1) ,
-[UserID] int NOT NULL ,
-[UserDesc] nvarchar(50) NOT NULL
-);
-
-CREATE TABLE [Users] (
-[ID] int NOT NULL IDENTITY(1,1) ,
-[Name] nvarchar(50) NOT NULL
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu tabloları oluşturduktan sonra veri ekleme işlemlerini yapmalıyız. Bu işlemlerden ilkinde sadece kullanıcının adı yer alacakken, ikinci tabloda yani UserDetail tablosunda ise ilgili kullanıcının hem ID’si hem de açıklaması yer alacak. Eklemeleri ona göre gerçekleştirelim.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;INSERT INTO Users(Name) VALUES('Ali');
-INSERT INTO Users(Name) VALUES('Ali2');
-INSERT INTO Users(Name) VALUES('Ali3');
-
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(1, 'Açıklama');
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(2, '2. Açıklama');
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(3, '3. Açıklama');
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Şimdi normalde veri çekme işlemini yapıyor gibi SELECT sorgumuzu yazalım. Burada farklı olan şey ise veriyi seçeceğimiz asıl tablonun hemen yanına INNER JOIN yazmamız. JOIN işleminden sonra asıl tabloya bağlamak istediğimiz tabloyu belirtiyoruz. WHERE işleminin JOIN işlemlerinden sonra kullanıldığına da dikkat edin.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT u.Name, ud.UserDesc FROM Users u
-INNER JOIN UserDetail ud ON  u.ID=ud.UserID WHERE u.ID=2;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki kodda Users tablosunda bulunan Name kolonunu, UserDetail tablosunda bulunan UserDesc kolonunu, her iki tabloda da eşleşen kayda göre getir dedik.&lt;/p&gt;
-
-&lt;p&gt;Buradan sahte bir kod yapısıyla şunu anlayabiliriz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-pseudo&quot;&gt;if UsersTablosundakiUserID eşittir UserDetaildekiUserID ise
-	getir(UsersTablosundakiUserID)
-
-# Yani UserID2=UserDetailID2 ise WHERE ID=2 olanı getir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;İşlemin nasıl çalıştığını yukarıdaki kodla basitçe anlatmaya çalıştım. Anlayacağımız bir diğer şey ise görüyoruz ki sadece birbirine eşit olan kayıtları getiriyor. Burada bu işlemden sonra çıktının şöyle olduğunu görmekteyiz:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;UserDesc&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ali2&lt;/td&gt;
-      &lt;td&gt;2. Açiklama&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Dilersek bir WHERE sorgusunu kullanmadan tablodaki eşleşen tüm kayıtları getirebiliriz. Bunun için UserDetail tablosunu düzenleyip UserID bölümünü NULLABLE olarak ayarlayalım ve bu tabloya bir veri eklemesi gerçekleştirelim.&lt;/p&gt;
-
-&lt;p&gt;UserDetail tablosuna eklenen 4. verinin UserID kolonuna eklenecek değer NULL olarak gönderilsin.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;CREATE TABLE [UserDetail] (
-[ID] int NOT NULL IDENTITY(1,1) ,
-[UserID] int,
-[UserDesc] nvarchar(50) NOT NULL
-);
-
-CREATE TABLE [Users] (
-[ID] int NOT NULL IDENTITY(1,1) ,
-[Name] nvarchar(50) NOT NULL
-);
-
-INSERT INTO Users(Name) VALUES('Ali');
-INSERT INTO Users(Name) VALUES('Ali2');
-INSERT INTO Users(Name) VALUES('Ali3');
-INSERT INTO Users(Name) VALUES('Ali4');
-
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(1, 'Açıklama');
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(2, '2. Açıklama');
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(3, '3. Açıklama');
-INSERT INTO UserDetail(UserID, UserDesc) VALUES(NULL, '4. Açıklama');
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Daha sonra JOIN işlemini WHERE kullanmadan çalıştıralım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT u.Name, ud.UserDesc FROM Users u
-INNER JOIN UserDetail ud ON  u.ID=ud.UserID;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;UserDesc&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ali&lt;/td&gt;
-      &lt;td&gt;Açiklama&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ali2&lt;/td&gt;
-      &lt;td&gt;2. Açiklama&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ali3&lt;/td&gt;
-      &lt;td&gt;3. Açiklama&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Fark ettiyseniz çıktıda eklediğimiz 4. veri yok. Çünkü iki tablodaki ortak kabul edilen alanlardan birisi diğerinden farklı. Eşleşme sağlanamıyor. Buradan INNER JOIN için NULL olmayan, eşleşen kayıtları getiren SQL ifadeleridir çıkarımını da gerçekleştirebiliriz.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Yöntem WHERE Sorgusu Kullanmak&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Evet eğer aklınızda WHERE sorgusu belirmiş olabilir. İkinci yöntem olarak WHERE sorgusu da kullanabilirsiniz&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT u.Name, ud.UserDesc
-FROM Users u, UserDetail ud
-WHERE u.ID=ud.UserID
-
--- ya da
-
-SELECT u.Name, ud.UserDesc
-FROM Users u, UserDetail ud
-WHERE u.ID=ud.UserID and u.ID=2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yine aynı çıktıyı verecektir. İkisi arasındaki farkları araştırmanız, neyin nerede kullanılacağını bilmeniz sizin için iyi olur.&lt;/p&gt;
-
-&lt;p&gt;Örnek SQL Fiddle &lt;a href=&quot;http://sqlfiddle.com/#!6/1e87c/2&quot;&gt;Linki&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 07 Oct 2016 23:17:00 +0300</pubDate>
-        <link>https://aligoren.com/sqlde-inner-join-islemleri</link>
-        <guid isPermaLink="true">https://aligoren.com/sqlde-inner-join-islemleri</guid>
       </item>
     
   </channel>
