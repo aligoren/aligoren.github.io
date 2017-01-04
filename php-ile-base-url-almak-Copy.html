@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E Sayısının Hesaplanması &#8211; Ali GÖREN...</title>
+    <title>PHP ile Base URL Almak &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="description" content="PHP ile Base URL Almak">
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama, Python">
-    <link rel="canonical" href="https://aligoren.com/e-sayisinin-hesaplanmasi">
+    <meta name="keywords" content="PHP, Programlama">
+    <link rel="canonical" href="https://aligoren.com/php-ile-base-url-almak-Copy">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -43,17 +43,17 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="E Sayısının Hesaplanması">
-    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/e-sayisinin-hesaplanmasi">
+    <meta property="og:title" content="PHP ile Base URL Almak">
+    <meta property="og:description" content="PHP ile Base URL Almak">
+    <meta property="og:url" content="https://aligoren.com/php-ile-base-url-almak-Copy">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="E Sayısının Hesaplanması" />
+    <meta name="twitter:title" content="PHP ile Base URL Almak" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/e-sayisinin-hesaplanmasi" />
+    <meta name="twitter:url" content="https://aligoren.com/php-ile-base-url-almak-Copy" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -199,50 +199,103 @@
 
 
 <div class="post-header mb2">
-  <h1>E Sayısının Hesaplanması</h1>
-  <span class="post-meta">Oct 1, 2015</span><br>
+  <h1>PHP ile Base URL Almak</h1>
+  <span class="post-meta">Dec 31, 2016</span><br>
   
   <span class="post-meta small">
   
-    1 Dakikada Okunabilir
+    2 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>E sayısı ünlü bir irrasyonel sayıdır ve matematiğin en önemli sayılarındandır. E sayısı, ilk olarak İskoç Matematikçi John Napier tarafından ortaya atılmıştır. Napier, E sayısını 1618 yılında yayınladığı logaritmalar kitabının ekinde yayınlamıştır. Esasen dolaylı olarak bir değinme olmuş. E sayısının keşfi ise kitabın yayınlandığı tarihten çok daha sonraları gerçekleşmiş. Jakob Bernoulli 1683 yılında birleşik faiz problemini incelerken e sayıını keşfetmiş. Bu öyle bir sayı ki bir sürü kişi uğraşmış ama bu sayıya adını Leonhard Euler vermiştir. E sayısı adını 1731 yılında almıştır. Euler sayısı, “Oiler” olarak telafuz ediliyormuş.</p>
+  <p>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</p>
 
-<p>E sayısı aynı zamanda Doğal Logaritmanın da tabanını oluşturur. E sayısı ilginç noktalarda karşınıza çıkabileceği için öğrenmeye değer diye düşünüyorum.</p>
+<p>Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk <a href="http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858">geldikten</a> sonra oturup kodunu kendim yazmalıyım dedim.</p>
 
-<p>Bu kadar vikipedia yeterli sanırım.</p>
+<p>Sorun şu normalde <code>http://localhost</code> adresi bizim base_url adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor. Çünkü <code>http://localhost/proje</code> böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:</p>
 
-<p>E Sayısı</p>
+<h2 id="zm-1">Çözüm 1:</h2>
 
-<p>Aşağıda e sayısının ilk birkaç basamağı vardır.</p>
+<p>Bu yöntemde, base_url methodu tanımlanır ve o yönteme statik url verilir:</p>
 
-<p>e = 2,7182818284590452353602874713527</p>
+<pre><code class="language-php">function base_url() {
+	return 'http://localhost/proje';
+}
+</code></pre>
 
-<p>E sayısı aşağıdaki gibi bir tanımla hesaplanabilir.</p>
+<h2 id="zm-2">Çözüm 2:</h2>
 
-<p>e = 1 + (1/n)^n</p>
+<p>Bu yöntemde biraz programlama beceriniz önemli aslında. Ben trait kullandım, çünkü bu kod şu anki projemin bi parçası. Multiple olarak extends işlemi yapamadığım için 5.4 ile gelen traitleri kullanmaya karar verdim.</p>
 
-<p><strong>E sayısının grafiği şöyledir:</strong></p>
+<h3 id="gereksinimler">Gereksinimler:</h3>
 
-<!-- ![/images/posts/9.png](/images/posts/9.png) -->
+<pre><code>- Gezindiğimiz alan adı: $_SERVER['SERVER_NAME'];
+- Şu anda bulunduğumuz sayaf: $_SERVER['REQUEST_URI'];
+</code></pre>
 
-<p>Daha farklı olarak faktoriyel kullanılarak da hesaplanabilir. Aslında en güzel yöntemi bu gibi geliyor bana.</p>
+<p>Bu işlemde mevcut bulunduğumuz sayfayı PHP’nin <code>str_replace()</code> fonksiyonunu kullanarak temizleyeceğiz. Zaten düz root ise hiçbir şey görünmeyecek. Yok farklı URL’lerde isek o zaman kalan kısım görülecektir. Örneğin şöyle:</p>
 
-<p><strong>1+1/1! + 1/2! + 1/3!..</strong> şeklinde giden bir hesaplama furyası var.</p>
+<pre><code class="language-php">/*
+http://localhost =&gt; return ""
+http://localhost/proje =&gt; return "/proje"
+*/
+</code></pre>
 
-<p>E Sayısının Programlamada Gösterimi</p>
+<p>Yukarıdaki gibi bir temizleme işlemi sonrası yapılması gereken PHP’nin <code>explode()</code> fonksiyonunu slash ile kullanarak slashtan sonra gelen ilk değeri almak. Yani şöyle düşünelim:</p>
 
-<p>E sayısının python ile çalışan hali ise aşağıdadır. Başlangıç ve bitiş değerini kullanıcının vereceği varsayılırsa (1,6) gibi bir değer ile deneme yapalım.</p>
+<pre><code class="language-php">/*
+/proje
+/proje/abc/
+/proje/a/b/c/d/e/f/g
+*/
+</code></pre>
 
-<p><img src="/images/posts/10.png" alt="/images/posts/10.png" /></p>
+<p>İlk satırdaki proje değerini almak zaten sıkıntılı değil ama bulunduğunuz sayfa 3. satırdaki gibi ise bir problemimiz var demektir. Bu yüzden explode ile böldüklerimizin ilkini alıyoruz. Bu genelde projenin root dizinidir.</p>
 
-<p>Sonuç olarak şu doğruları bize veriyor.</p>
+<p>Dizinin altındaki dizinlere maalesef bir çözümüm yok, o durumlarda artık manuel olarak ilk yöntemi denemelisiniz. Neyse bu işlem sonrasında ise dönen array türü değerin 1. indexini çağırıyoruz.</p>
 
-<p><img src="/images/posts/11.png" alt="/images/posts/11.png" /></p>
+<p>Bu projemizin root olarak görünen klasörüdür. Yani <code>/proje/a/b/c/d/e/f/g</code> gibi bir adresten sadece <strong>proje</strong> değerini alıyoruz. Ve ilk değerin başına tekrar bir slash ekliyoruz Son olarak dönen değer <em>”/”</em> ya da <em>“/proje_kok_dizini”</em> şeklinde oluyor. Aslında senaryo olarak size bu işlemin nasıl yapacağını söylediğime göre kodlaması da basit anlamda kafanızda canlandı. Yine de kodlarını paylaşayım:</p>
+
+<p><strong>url.php</strong></p>
+
+<pre><code class="language-php">trait URL {
+    private $url = '';
+    private $current_url = '';
+    public $get = '';
+
+    function __construct()
+    {
+        $this-&gt;url = $_SERVER['SERVER_NAME'];
+        $this-&gt;current_url = $_SERVER['REQUEST_URI'];
+
+        $clean_server = str_replace('', $this-&gt;url, $this-&gt;current_url);
+        $clean_server = explode('/', $clean_server);
+
+        $this-&gt;get = array('base_url' =&gt; "/".$clean_server[1]);
+    }
+}
+</code></pre>
+
+<p><strong>index.php</strong></p>
+
+<pre><code class="language-php">require_once 'url.php'
+
+class Home
+{
+    use URL;
+}
+
+$h = new Home();
+
+// Bu satır HTML kodları içermektedir.
+// O yüzden üst kısımda PHP taglerini kapatmalısınız.
+
+&lt;a href="&lt;?=$h-&gt;get['base_url']?&gt;"&gt;Base&lt;/a&gt;
+</code></pre>
+
+<p>Bu yazıyı Stackoverflow’da verdiğim <a href="http://stackoverflow.com/a/41407858/3821823">şu</a> cevaptan esinlenerek oluşturdum</p>
 
 </article>
 
@@ -261,9 +314,9 @@
 
 Kategori:
 
-<a href="kategoriler#Programlama">Programlama</a>,
+<a href="kategoriler#PHP">PHP</a>,
 
-<a href="kategoriler#Python">Python</a>,
+<a href="kategoriler#Programlama">Programlama</a>,
 
 
 
@@ -272,8 +325,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/e-sayisinin-hesaplanmasi';
-    var disqus_title      = "E Sayısının Hesaplanması";
+    var disqus_identifier = '/php-ile-base-url-almak - Copy';
+    var disqus_title      = "PHP ile Base URL Almak";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

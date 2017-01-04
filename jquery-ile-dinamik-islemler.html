@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E Sayısının Hesaplanması &#8211; Ali GÖREN...</title>
+    <title>jQuery ile Dinamik İşlemler &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="description" content="jQuery ile Dinamik İşlemler">
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama, Python">
-    <link rel="canonical" href="https://aligoren.com/e-sayisinin-hesaplanmasi">
+    <meta name="keywords" content="jQuery, JavaScript, Programlama">
+    <link rel="canonical" href="https://aligoren.com/jquery-ile-dinamik-islemler">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -43,17 +43,17 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="E Sayısının Hesaplanması">
-    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/e-sayisinin-hesaplanmasi">
+    <meta property="og:title" content="jQuery ile Dinamik İşlemler">
+    <meta property="og:description" content="jQuery ile Dinamik İşlemler">
+    <meta property="og:url" content="https://aligoren.com/jquery-ile-dinamik-islemler">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="E Sayısının Hesaplanması" />
+    <meta name="twitter:title" content="jQuery ile Dinamik İşlemler" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/e-sayisinin-hesaplanmasi" />
+    <meta name="twitter:url" content="https://aligoren.com/jquery-ile-dinamik-islemler" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -199,50 +199,111 @@
 
 
 <div class="post-header mb2">
-  <h1>E Sayısının Hesaplanması</h1>
-  <span class="post-meta">Oct 1, 2015</span><br>
+  <h1>jQuery ile Dinamik İşlemler</h1>
+  <span class="post-meta">Dec 31, 2016</span><br>
   
   <span class="post-meta small">
   
-    1 Dakikada Okunabilir
+    2 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>E sayısı ünlü bir irrasyonel sayıdır ve matematiğin en önemli sayılarındandır. E sayısı, ilk olarak İskoç Matematikçi John Napier tarafından ortaya atılmıştır. Napier, E sayısını 1618 yılında yayınladığı logaritmalar kitabının ekinde yayınlamıştır. Esasen dolaylı olarak bir değinme olmuş. E sayısının keşfi ise kitabın yayınlandığı tarihten çok daha sonraları gerçekleşmiş. Jakob Bernoulli 1683 yılında birleşik faiz problemini incelerken e sayıını keşfetmiş. Bu öyle bir sayı ki bir sürü kişi uğraşmış ama bu sayıya adını Leonhard Euler vermiştir. E sayısı adını 1731 yılında almıştır. Euler sayısı, “Oiler” olarak telafuz ediliyormuş.</p>
+  <p>Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
+<a href="http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme">sorudan</a> çıkarıyorum.</p>
 
-<p>E sayısı aynı zamanda Doğal Logaritmanın da tabanını oluşturur. E sayısı ilginç noktalarda karşınıza çıkabileceği için öğrenmeye değer diye düşünüyorum.</p>
+<p>Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor.
+Kapasitesi belli bir alanın üzerinde olana da renk vermek istiyor. Ama burada işlemin jQuery ile nasıl yapılacağı ile ilgileniyor.
+Normalde bunu back-end kısımda sorguyu çekerken de halledebileceğinizi söylemem gerekiyor.</p>
 
-<p>Bu kadar vikipedia yeterli sanırım.</p>
+<p>Sorunun özüne dönersek ilk satırda bir adet robot bulunmakta. Bu robota dair üç adet kapasite birimi bulunmakta.
+Arkadaşımız diyor ki kapasitesi 12’yi geçen hücrenin arkaplanı kırmızı renk olsun. Aslında kendisi zaten bir adet hücreyi yapmış.
+Fakat o tüm hücrelerin hesaplanmasını ve aslında tüm satırların da bu hesaba dahil olmasını istiyor.</p>
 
-<p>E Sayısı</p>
+<p>Öncelikle basit olarak tablomuzu şöyle size aktarayım kodları da yer alsın:</p>
 
-<p>Aşağıda e sayısının ilk birkaç basamağı vardır.</p>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;th&gt;Ad&lt;/th&gt;
+    &lt;th&gt;Kapasite&lt;/th&gt;
+    &lt;th&gt;Kapasite 2&lt;/th&gt;
+    &lt;th&gt;Kapasite 3&lt;/th&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot1&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;12&lt;/td&gt;
+      &lt;td class='kapasite'&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot2&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot3&lt;/td&gt;
+      &lt;td class='kapasite'&gt;4&lt;/td&gt;
+      &lt;td class='kapasite'&gt;18&lt;/td&gt;
+      &lt;td class='kapasite'&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot4&lt;/td&gt;
+      &lt;td class='kapasite'&gt;5&lt;/td&gt;
+      &lt;td class='kapasite'&gt;21&lt;/td&gt;
+      &lt;td class='kapasite'&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
 
-<p>e = 2,7182818284590452353602874713527</p>
+<p><em>#Tablo Örnek</em></p>
 
-<p>E sayısı aşağıdaki gibi bir tanımla hesaplanabilir.</p>
+<p><img src="/images/posts/robot_table.png" alt="/images/posts/robot_table.png" /></p>
 
-<p>e = 1 + (1/n)^n</p>
+<p>Neyse bu tabloda belli başlı alanlar kurallı olarak renklendirilmeli. Arkadaşımızın kuralı 12’den büyük olanların arkaplanı kırmızı olsun şeklinde.
+Ben tüm hücrelere class vererek tek bir noktanın kontrolünün sağlanmasını istedim. Her bir satırda bulunan her bir hücrenin kontrolünü de sağlayarak bu işlemi tamamlayalım.</p>
 
-<p><strong>E sayısının grafiği şöyledir:</strong></p>
+<p><em>#jQuery Kodu</em></p>
 
-<!-- ![/images/posts/9.png](/images/posts/9.png) -->
+<pre><code class="language-js">$("table").ready(function() {
+  	$(this).find("tr td.kapasite").each(function() {
+    	if(parseInt($(this).text()) &gt; 12) {
+      	$(this).css("background-color", "red")
+      }
+    })
+    
+  })
+</code></pre>
 
-<p>Daha farklı olarak faktoriyel kullanılarak da hesaplanabilir. Aslında en güzel yöntemi bu gibi geliyor bana.</p>
+<p>Yukarıdaki kodla tablo hazır olduğu anda hazır olan tabloda dolaşıyoruz. Öncelikle o tabloda tr yani satırı yakalıyoruz.
+Ardından o satırda yer alan hücreyi dolaşıyoruz tabi bunu yaparken ana şartıız ise class’ı <strong>kapasite</strong> olanı dolaşıyoruz.
+Tabloda 50 satır varsa 50 satırı ve hücrelerini dolaşacak kısacası. Bu işlemi <code>each()</code> fonksiyonu ile yapıyoruz.</p>
 
-<p><strong>1+1/1! + 1/2! + 1/3!..</strong> şeklinde giden bir hesaplama furyası var.</p>
+<p>Daha sonra ilk dolaşılan satırdaki ilk hücrede yer alan değerin text’ini int türüne parse edip arkadaşımızın istediği koşuldan büyük mü kontrol ediyoruz.
+Zaten sonrası ise o hücreye yeni bir CSS atamak. Aynı işlemi buton için de yapabiliriz. Yani butona tıklayınca bu işlem gerçekleşmeli.
+Tabii bu işlemde bu sefer değer inputtan gelecek.</p>
 
-<p>E Sayısının Programlamada Gösterimi</p>
+<pre><code class="language-js">$("button").on("click", function() {
+      $("table").ready(function() {
+      var kapasite = $(this).find("tr td.kapasite").each(function() {
+      	$(this).css("background-color", "")
+        if(parseInt($(this).text()) &gt; parseInt($("[name='txtSayi']").val())) {
+          $(this).css("background-color", "red")
+        }
+      })
 
-<p>E sayısının python ile çalışan hali ise aşağıdadır. Başlangıç ve bitiş değerini kullanıcının vereceği varsayılırsa (1,6) gibi bir değer ile deneme yapalım.</p>
+    })
+  })
+</code></pre>
 
-<p><img src="/images/posts/10.png" alt="/images/posts/10.png" /></p>
+<h2 id="jsfiddle-zerinde-rnek">JSFiddle Üzerinde Örnek</h2>
 
-<p>Sonuç olarak şu doğruları bize veriyor.</p>
+<script async="" src="//jsfiddle.net/cc6ded5w/1/embed/"></script>
 
-<p><img src="/images/posts/11.png" alt="/images/posts/11.png" /></p>
+<p>Evet işlem bu kadar.</p>
 
 </article>
 
@@ -261,9 +322,11 @@
 
 Kategori:
 
-<a href="kategoriler#Programlama">Programlama</a>,
+<a href="kategoriler#jQuery">jQuery</a>,
 
-<a href="kategoriler#Python">Python</a>,
+<a href="kategoriler#JavaScript">JavaScript</a>,
+
+<a href="kategoriler#Programlama">Programlama</a>,
 
 
 
@@ -272,8 +335,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/e-sayisinin-hesaplanmasi';
-    var disqus_title      = "E Sayısının Hesaplanması";
+    var disqus_identifier = '/jquery-ile-dinamik-islemler';
+    var disqus_title      = "jQuery ile Dinamik İşlemler";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

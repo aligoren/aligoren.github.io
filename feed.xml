@@ -7,6 +7,108 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>jQuery ile Dinamik İşlemler</title>
+        <description>&lt;p&gt;Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
+&lt;a href=&quot;http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme&quot;&gt;sorudan&lt;/a&gt; çıkarıyorum.&lt;/p&gt;
+
+&lt;p&gt;Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor.
+Kapasitesi belli bir alanın üzerinde olana da renk vermek istiyor. Ama burada işlemin jQuery ile nasıl yapılacağı ile ilgileniyor.
+Normalde bunu back-end kısımda sorguyu çekerken de halledebileceğinizi söylemem gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;Sorunun özüne dönersek ilk satırda bir adet robot bulunmakta. Bu robota dair üç adet kapasite birimi bulunmakta.
+Arkadaşımız diyor ki kapasitesi 12’yi geçen hücrenin arkaplanı kırmızı renk olsun. Aslında kendisi zaten bir adet hücreyi yapmış.
+Fakat o tüm hücrelerin hesaplanmasını ve aslında tüm satırların da bu hesaba dahil olmasını istiyor.&lt;/p&gt;
+
+&lt;p&gt;Öncelikle basit olarak tablomuzu şöyle size aktarayım kodları da yer alsın:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;table&amp;gt;
+  &amp;lt;thead&amp;gt;
+    &amp;lt;th&amp;gt;Ad&amp;lt;/th&amp;gt;
+    &amp;lt;th&amp;gt;Kapasite&amp;lt;/th&amp;gt;
+    &amp;lt;th&amp;gt;Kapasite 2&amp;lt;/th&amp;gt;
+    &amp;lt;th&amp;gt;Kapasite 3&amp;lt;/th&amp;gt;
+  &amp;lt;/thead&amp;gt;
+  &amp;lt;tbody&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;Robot1&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;13&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;12&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;11&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;Robot2&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;13&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;13&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;13&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;Robot3&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;4&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;18&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;21&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;Robot4&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;5&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;21&amp;lt;/td&amp;gt;
+      &amp;lt;td class='kapasite'&amp;gt;11&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;#Tablo Örnek&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/robot_table.png&quot; alt=&quot;/images/posts/robot_table.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Neyse bu tabloda belli başlı alanlar kurallı olarak renklendirilmeli. Arkadaşımızın kuralı 12’den büyük olanların arkaplanı kırmızı olsun şeklinde.
+Ben tüm hücrelere class vererek tek bir noktanın kontrolünün sağlanmasını istedim. Her bir satırda bulunan her bir hücrenin kontrolünü de sağlayarak bu işlemi tamamlayalım.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;#jQuery Kodu&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;$(&quot;table&quot;).ready(function() {
+  	$(this).find(&quot;tr td.kapasite&quot;).each(function() {
+    	if(parseInt($(this).text()) &amp;gt; 12) {
+      	$(this).css(&quot;background-color&quot;, &quot;red&quot;)
+      }
+    })
+    
+  })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki kodla tablo hazır olduğu anda hazır olan tabloda dolaşıyoruz. Öncelikle o tabloda tr yani satırı yakalıyoruz.
+Ardından o satırda yer alan hücreyi dolaşıyoruz tabi bunu yaparken ana şartıız ise class’ı &lt;strong&gt;kapasite&lt;/strong&gt; olanı dolaşıyoruz.
+Tabloda 50 satır varsa 50 satırı ve hücrelerini dolaşacak kısacası. Bu işlemi &lt;code&gt;each()&lt;/code&gt; fonksiyonu ile yapıyoruz.&lt;/p&gt;
+
+&lt;p&gt;Daha sonra ilk dolaşılan satırdaki ilk hücrede yer alan değerin text’ini int türüne parse edip arkadaşımızın istediği koşuldan büyük mü kontrol ediyoruz.
+Zaten sonrası ise o hücreye yeni bir CSS atamak. Aynı işlemi buton için de yapabiliriz. Yani butona tıklayınca bu işlem gerçekleşmeli.
+Tabii bu işlemde bu sefer değer inputtan gelecek.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;$(&quot;button&quot;).on(&quot;click&quot;, function() {
+      $(&quot;table&quot;).ready(function() {
+      var kapasite = $(this).find(&quot;tr td.kapasite&quot;).each(function() {
+      	$(this).css(&quot;background-color&quot;, &quot;&quot;)
+        if(parseInt($(this).text()) &amp;gt; parseInt($(&quot;[name='txtSayi']&quot;).val())) {
+          $(this).css(&quot;background-color&quot;, &quot;red&quot;)
+        }
+      })
+
+    })
+  })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;jsfiddle-zerinde-rnek&quot;&gt;JSFiddle Üzerinde Örnek&lt;/h2&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/cc6ded5w/1/embed/&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Evet işlem bu kadar.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 31 Dec 2016 15:50:00 +0300</pubDate>
+        <link>https://aligoren.com/jquery-ile-dinamik-islemler</link>
+        <guid isPermaLink="true">https://aligoren.com/jquery-ile-dinamik-islemler</guid>
+      </item>
+    
+      <item>
         <title>PHP ile Base URL Almak</title>
         <description>&lt;p&gt;Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.&lt;/p&gt;
 
@@ -96,8 +198,8 @@ $h = new Home();
 &lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;
 </description>
         <pubDate>Sat, 31 Dec 2016 15:50:00 +0300</pubDate>
-        <link>https://aligoren.com/php-ile-base-url-almak</link>
-        <guid isPermaLink="true">https://aligoren.com/php-ile-base-url-almak</guid>
+        <link>https://aligoren.com/php-ile-base-url-almak-Copy</link>
+        <guid isPermaLink="true">https://aligoren.com/php-ile-base-url-almak-Copy</guid>
       </item>
     
       <item>
@@ -860,109 +962,6 @@ kramdown:
         <pubDate>Mon, 10 Oct 2016 00:08:00 +0300</pubDate>
         <link>https://aligoren.com/bugun-ogrendiklerim</link>
         <guid isPermaLink="true">https://aligoren.com/bugun-ogrendiklerim</guid>
-      </item>
-    
-      <item>
-        <title>Türk Telekom ve Superonline Rezaleti</title>
-        <description>&lt;p&gt;Bu yazıyı yayınlarken artık Türksat kullanıcısı olduğumu öncelikle belirtmek istiyorum. Kendilerine teşekkür etmek gerekebilir. Gerçekten de işlerini layıkıyla yapıyorlar.&lt;/p&gt;
-
-&lt;p&gt;Size çok uzun bir hikaye anlatmak istemiyorum. Ancak nasıl başladığını ve nasıl sonlandığını anlatarak doğru şirketi seçmenizi belki sağlayabileceğimi düşünüyorum. Öncelikle Türk Telekom’u anlatmam gerekiyor.&lt;/p&gt;
-
-&lt;h3 id=&quot;telekom-bavurusunu-yaptm&quot;&gt;Telekom Başvurusunu Yaptım&lt;/h3&gt;
-
-&lt;p&gt;Temmuz ayıydı internet başvurusunda bulundum. Online olarak. Bu başvuruyu yaptıktan yaklaşık 2-3 saat kadar sonra beni bir Türk Telekom çalışanı aradı. Bana kampanyalarda bahsetti. 24 ya da 25 yanlış aktarmayayım bir hızımız var dedi. Ben de 50 destekleyip desteklemediğini sordum. Bana desteklediğini söyledi.&lt;/p&gt;
-
-&lt;h3 id=&quot;avantajlar-sayyorlar&quot;&gt;Avantajları Sayıyorlar&lt;/h3&gt;
-
-&lt;p&gt;Her şey mükemmel görünüyordu ki çalışan arkadaş bana kampanya dahilinde elde edeceğim avantajları saydı. Ben de hani avantajında değilim, çalışıyorum bana internet lazım dedim. Randevu oluşturalım dediler. Neyse kendilerine sordum “Cumartesi ya da Pazar Günleri Kurulum Var Mı?” maalesef o günlerde randevularımız dolu ancak size haftaya randevu verebilirim. Bayramdan önce internetiniz bağlanmış olur dediler. Randevu’yu çarşamba gününe aldık. O gün kesin eve gelecek misiniz diye sorduğumda ise evet dendi ki ona göre iş yerinden izin aldım da.&lt;/p&gt;
-
-&lt;h3 id=&quot;randevu-verdikleri-gn-gelmediler&quot;&gt;Randevu Verdikleri Gün Gelmediler&lt;/h3&gt;
-
-&lt;p&gt;Neyse tabi aradan tam 1 hafta geçti. O gün geldi çattı. Çarşamba günü öğleden sonra eve geldim. Çünkü Türk Telekom çalışanlarının evde olmaları gerekiyordu. Ancak içimde bir endişe var kesin gelmeyecekler gibisinden. Bu endişeden kaynaklı saat 13:20 sularında kendilerini de aradım.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h4 id=&quot;sms-atarak-bilgilendirme-veriliyor&quot;&gt;SMS Atarak Bilgilendirme Veriliyor&lt;/h4&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Neyse bekle bekle saat 15:30 oldu gelmediler. Bir SMS geldi. “Evinizde olamadığımız için üzgünüz” şeklinde. Çok üzgünler ya. Ben eve gelmedileri konusunda direttim. Mesai saatleri daha dolmadı şeklinde bir beyanda doldular. Şuraya küfür yazabilsem keşke içimden geçenleri aktarırdım.&lt;/p&gt;
-
-&lt;p&gt;Mesai saati olan 18:00 olduğunda gelmediler tabi ki. Neyse beni bilgilendireceklerini söylemişlerdi. Bilgilendirdiler peki ne zaman? Bir sonraki hafta saat 16:10 sularında. Aradan 1 hafta geçiyor ve ben bilgilendirilmek için aranıyorum.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h4 id=&quot;randevu-gereklemeyince-bavuruyu-ptal-ettim&quot;&gt;Randevu Gerçekleşmeyince Başvuruyu İptal Ettim&lt;/h4&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Böyle beceriksiz, böyle kabiliyetsiz bir şirketin müşterisi olunur mu dedim istemiyorum başvuru falan iptal edin dedim suratlarına kapattım. Alternatif aramaya başladım. Aslında bulacağım alternatifi kafamda hazır etmiştim de çekincelerim vardı.&lt;/p&gt;
-
-&lt;h3 id=&quot;turkcell-superonlinea-bavuru-yaptm&quot;&gt;Turkcell Superonline’a Başvuru Yaptım&lt;/h3&gt;
-
-&lt;p&gt;Bulduğum alternatif kimdi dersiniz.. Turkcell Superonline’ın ta kendisiydi. Lanet olsun böyle bir firmaya. Bakın çağrı merkezi çalışanlarına hayatta bir şey diyemem. Her emekçi gibi onlar da zor şartlar altında, karın tokluğuna çalışan insanlar. Şikayetim onlara değil.&lt;/p&gt;
-
-&lt;p&gt;Ama firmaya yöneltiliyorsa onlar da zan altında kalıyorlar. Kendilerine başvuru yapmak için ya aradım ya da yine internetten başvuru yaptım tam hatırlayamadım. Ancak başvurumu bir cumartesi günü öğleden önce yaptım. Tek bildiğim bayram öncesiydi.&lt;/p&gt;
-
-&lt;h3 id=&quot;bavuruda-48-saat-inde-aktivasyon-denildi&quot;&gt;Başvuruda 48 Saat İçinde Aktivasyon Denildi&lt;/h3&gt;
-
-&lt;p&gt;Başvurumu telefonla arayıp alan kadın bana bugün cumartesi ekiplerimiz bugün gelemeyebilir ancak hafta içi kuruluma gelir ve 48 saat içerisinde aktivasyon vs. her şey hazır olur dedi. İyi dedim peki dedim. Ama şunu belirteyim dedim. Sizden önceki firma olan Türk Telekom böyle böyle rezalet yaptı.&lt;/p&gt;
-
-&lt;p&gt;Aynı sorunu sizde yaşamayacağımdan emin olmalıyım dedim. Hayır bizde böyle bir sorunla karşılaşmazsınız dedi. Hızımın ne olacağını sordu. Adresimi verince 70’e kadar destekliyor dedi. İyi dedim 50 olsun dedim. Size VDSL verelim fiber bölgenizde bulunmamakta dedi. Tamam dedim kaç olursa olsun verin şunu dedim.&lt;/p&gt;
-
-&lt;h3 id=&quot;yine-maduriyet-dolu-1-hafta&quot;&gt;Yine Mağduriyet Dolu 1 Hafta&lt;/h3&gt;
-
-&lt;p&gt;Ben yine ertesi haftayı bekledim. Cuma günü kendilerine sosyal medya üzerinden yazdım ya da aradım hatırlamıyorum ancak bir şekilde beni aradılar. Maalesef araya da bayram giriyor ama kusura bakmayın özür dileriz şeklinde kurumsal cümleler kurdular.&lt;/p&gt;
-
-&lt;p&gt;Sinir oldum ama çalışanı rencide etmemek adına da alttan ala ala konuştum. Ertesi hafta oldu. Bekledim bayramın bitmesini. Kendilerini aradığımda bana “Hat desteklenmiyor” şeklinde bir mesaj düşüldüğü söylendi. Bakın şu kafaya. Yahu hat hızı desteklenmiyor ise neden ben aranıp bilgilendirilmiyorum. Yazı sonunda Türk Telekom ve Superonline’ı kaç kere aradığımı da yazacağım.&lt;/p&gt;
-
-&lt;h3 id=&quot;sosyal-medyadan-tepki-verince-aryorlar-&quot;&gt;Sosyal Medyadan Tepki Verince Arıyorlar :)&lt;/h3&gt;
-
-&lt;p&gt;Neyse sosyal medya üzerinden tepkimi gösterince aradılar beni. Arayan arkadaş dedi hızınız desteklenmiyor ise yeni bir başvuru açıp en düşük ADSL hızından verelim. Ben 8 uygun mu dediğimde bana uygun dediler. Tamam olsun yeter ki olsun dedim. Bekle bekle bekle..&lt;/p&gt;
-
-&lt;p&gt;Gelen yok. Tekrar aradım kendilerini. Bu arada her aramada yarım saat konuşuyorum. Önce aradım biz fiber’e bakıyoruz dedi birisi hatta çıksın diye 10 dakika beklediğim kişi biz fiberiz dedi beni bir yere aktardı. O aktarım esnasında da bir 10 dakika bekledim. Aktarımımın yapıldığı kadın da bir başka arkadaşa aktardı ki sanıyorum bu teknik kısımdaki arkadaştı.&lt;/p&gt;
-
-&lt;h3 id=&quot;rencide-edici-hakaret-eren-cmleler-yok-sabrlym-hala&quot;&gt;Rencide Edici, Hakaret İçeren Cümleler Yok Sabırlıyım Hala..&lt;/h3&gt;
-
-&lt;p&gt;Neyse ben sakin sakin konuşuyorum en ufak bir ses yükseltme, küfür ve hakaret içeren cümle kurmuş değilim. En sonunda dayanamayıp CEO’larına laf söyledim. Pahalı takım elbisesini bi kenara bırakıp şu kurumsal imajını düzeltsin gibisinden bir cümle kurdum. Temmuz’dan Eylül ayına kadar kurduğum en ağır cümleydi. O cümle sonrası o arkadaş bir dakika bekleticem sizi dedi.&lt;/p&gt;
-
-&lt;h3 id=&quot;telekom-alanlarnn-yalanlar&quot;&gt;Telekom Çalışanlarının Yalanları..&lt;/h3&gt;
-
-&lt;p&gt;Döndüğünde internetimin bu kadar süre geçmesine rağmen bağlanamamış olmasına o da hiddetlenmiş olacak ki şöyle üzüldüm, böyle üzüldüm. Evinize hız kontrolüne gelmeyen Telekom çalışanları hakkında şikayet başlattık da bu sürecin takibini gerçekleştireceğiz de gibisinden yine kurumsal yalanlar söylendi.&lt;/p&gt;
-
-&lt;p&gt;Bu arada atlamayayım. Telekom öyle yalancı çalışanlara sahip ki. Evime geldiklerini belirtiyorlar ancak arayıp bana ulaşamamışlar. Bana ulaşamadıkları esnada ben şebekeden bağlanıp Twitter üzerinden yine şikayetlerimi saydırıyordum. Yalanları belli olunca da bu şikayetinizi de biz alıyoruz dedi arkadaş. Bu arada size çok teşekkür ederim dedi. Ben sizin yerinizde olsam sakin olmazdım bu kadar. Sizin adınıza çok üzgünüm dedi.&lt;/p&gt;
-
-&lt;h3 id=&quot;ar-merkezine-ulamak-in-25-dakika-bekleyin&quot;&gt;Çağrı Merkezine Ulaşmak İçin 25 Dakika Bekleyin..&lt;/h3&gt;
-
-&lt;p&gt;Neyse aradan 2 hafta geçti. Ekim oldu işte. Bir kere aradım hatta çıkmaları toplam 12 dakika sürdü. Şikayetim var dedim. Bir dakika hattan ayrılmayın denildi bana 12 dakika daha bekledim 24 dakika sürdü. Karşımda yavşak yavşak konuşan bir kadın vardı.&lt;/p&gt;
-
-&lt;p&gt;Kusura bakılmasın ama bu kelimeyi ilk defa o akşam kullandım. Bu süreç içerisinde ilk defa kullanmamın bir kötü yanı olmamalı. O an kadın denk geldi erkek olsa da aynısını yapsa aynı şeyleri söylerdim.&lt;/p&gt;
-
-&lt;h3 id=&quot;trksat-1-gnde-balanty-gerekletirdi&quot;&gt;Türksat 1 Günde Bağlantıyı Gerçekleştirdi&lt;/h3&gt;
-
-&lt;p&gt;Daha sonra Twitter üzerinden &lt;a href=&quot;https://twitter.com/mertcangokgoz&quot;&gt;Mertcan&lt;/a&gt; Türksat’ı seçmemi söyledi. Aslında geçmeye kararlıydım. Ancak perşembe gününe kadar Superonline’a süre tanıdım. Bakın hala sabırlıyım bu esnada. Taş olsa çatlardı.&lt;/p&gt;
-
-&lt;p&gt;Ben öyle sakin durdum ki hayatımın rekoru bu. Zamanında elektrik 10 dakika olmayınca sandalye kırardım. Neyse Perşembe günü akşamı da bağlanmayınca aradım Türksat’ı başvurumu yaptım. Ertesi gün yani cuma günü yani dün internetimi aktif ettiler. 1 gün yahu 1 gün… Bağlandı. Akşamüstü de Superonline beni arayıp “Binanızda port yokmuş” şeklinde haber verdi. İptal edin başvurumu dedim ve kapattım.&lt;/p&gt;
-
-&lt;h3 id=&quot;telekom-ve-superonline-ile-64-telefon-grmesi&quot;&gt;Telekom ve Superonline ile 64 Telefon Görüşmesi&lt;/h3&gt;
-
-&lt;p&gt;Bu yazı sayesinde aslında nereyi seçmeniz gerektiğine dair aklınızda bir fikir olmuştur umarım. Son olarak aşağıda şunları belirteyim:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Superonline ile: 46&lt;/li&gt;
-  &lt;li&gt;Türk Telekom ile: 18&lt;/li&gt;
-  &lt;li&gt;Türksat ile: 3&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mecbur-deilseniz-kullanmamaya-zen-gsterin&quot;&gt;Mecbur Değilseniz Kullanmamaya Özen Gösterin..&lt;/h3&gt;
-
-&lt;p&gt;telefon görüşmesi gerçekleştirdim. Türksat’ın ilki başvuru içindi. Diğer ikisinin ilkinde abi öğlen geleceğiz diye aradılar. Son aramaları da abi geldik de binanız neredeydi şeklinde aramaları oldu.&lt;/p&gt;
-
-&lt;p&gt;Kısacası müşterilerini mağdur eden Türk Telekom ve Superonline gibi sağlayıcılardan mecbur kalmadıkça hizmet almamak ruh sağlığınız için iyidir. Gerçi ben bu sürede kendimi ilginç bir şekilde bozmadım. Daima kibar kibar konuştum.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 08 Oct 2016 14:39:00 +0300</pubDate>
-        <link>https://aligoren.com/turk-telekom-superonline-rezaleti</link>
-        <guid isPermaLink="true">https://aligoren.com/turk-telekom-superonline-rezaleti</guid>
       </item>
     
   </channel>

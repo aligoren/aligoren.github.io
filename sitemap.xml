@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://aligoren.com/php-ile-base-url-almak</loc>
+<loc>https://aligoren.com/jquery-ile-dinamik-islemler</loc>
+<lastmod>2016-12-31T15:50:00+03:00</lastmod>
+</url>
+<url>
+<loc>https://aligoren.com/php-ile-base-url-almak-Copy</loc>
 <lastmod>2016-12-31T15:50:00+03:00</lastmod>
 </url>
 <url>
@@ -82,15 +86,15 @@
 </url>
 <url>
 <loc>https://aligoren.com/django-rss-feed-ekleme</loc>
-<lastmod>2016-02-28T22:06:00+02:00</lastmod>
+<lastmod>2016-02-28T22:06:00+03:00</lastmod>
 </url>
 <url>
 <loc>https://aligoren.com/django-markdown-editor-kurulumu</loc>
-<lastmod>2016-02-24T22:01:00+02:00</lastmod>
+<lastmod>2016-02-24T22:01:00+03:00</lastmod>
 </url>
 <url>
 <loc>https://aligoren.com/opensuse-php7-xdebug-kurulumu</loc>
-<lastmod>2016-02-18T21:59:00+02:00</lastmod>
+<lastmod>2016-02-18T21:59:00+03:00</lastmod>
 </url>
 <url>
 <loc>https://aligoren.com/opensuse-421-lamp-kurulumu</loc>
@@ -170,7 +174,7 @@
 </url>
 <url>
 <loc>https://aligoren.com/java-icin-java-ideleri</loc>
-<lastmod>2012-03-24T19:38:00+02:00</lastmod>
+<lastmod>2012-03-24T19:38:00+03:00</lastmod>
 </url>
 <url>
 <loc>https://aligoren.com/hakkimda</loc>

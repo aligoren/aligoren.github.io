@@ -9,8 +9,120 @@
     
         
             <item>
+                <title>jQuery ile Dinamik İşlemler</title>
+                <link>https://aligoren.com/jquery-ile-dinamik-islemler</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
+<a href="http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme">sorudan</a> çıkarıyorum.</p>
+
+<p>Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor.
+Kapasitesi belli bir alanın üzerinde olana da renk vermek istiyor. Ama burada işlemin jQuery ile nasıl yapılacağı ile ilgileniyor.
+Normalde bunu back-end kısımda sorguyu çekerken de halledebileceğinizi söylemem gerekiyor.</p>
+
+<p>Sorunun özüne dönersek ilk satırda bir adet robot bulunmakta. Bu robota dair üç adet kapasite birimi bulunmakta.
+Arkadaşımız diyor ki kapasitesi 12’yi geçen hücrenin arkaplanı kırmızı renk olsun. Aslında kendisi zaten bir adet hücreyi yapmış.
+Fakat o tüm hücrelerin hesaplanmasını ve aslında tüm satırların da bu hesaba dahil olmasını istiyor.</p>
+
+<p>Öncelikle basit olarak tablomuzu şöyle size aktarayım kodları da yer alsın:</p>
+
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;th&gt;Ad&lt;/th&gt;
+    &lt;th&gt;Kapasite&lt;/th&gt;
+    &lt;th&gt;Kapasite 2&lt;/th&gt;
+    &lt;th&gt;Kapasite 3&lt;/th&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot1&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;12&lt;/td&gt;
+      &lt;td class='kapasite'&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot2&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+      &lt;td class='kapasite'&gt;13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot3&lt;/td&gt;
+      &lt;td class='kapasite'&gt;4&lt;/td&gt;
+      &lt;td class='kapasite'&gt;18&lt;/td&gt;
+      &lt;td class='kapasite'&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Robot4&lt;/td&gt;
+      &lt;td class='kapasite'&gt;5&lt;/td&gt;
+      &lt;td class='kapasite'&gt;21&lt;/td&gt;
+      &lt;td class='kapasite'&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p><em>#Tablo Örnek</em></p>
+
+<p><img src="/images/posts/robot_table.png" alt="/images/posts/robot_table.png" /></p>
+
+<p>Neyse bu tabloda belli başlı alanlar kurallı olarak renklendirilmeli. Arkadaşımızın kuralı 12’den büyük olanların arkaplanı kırmızı olsun şeklinde.
+Ben tüm hücrelere class vererek tek bir noktanın kontrolünün sağlanmasını istedim. Her bir satırda bulunan her bir hücrenin kontrolünü de sağlayarak bu işlemi tamamlayalım.</p>
+
+<p><em>#jQuery Kodu</em></p>
+
+<pre><code class="language-js">$("table").ready(function() {
+  	$(this).find("tr td.kapasite").each(function() {
+    	if(parseInt($(this).text()) &gt; 12) {
+      	$(this).css("background-color", "red")
+      }
+    })
+    
+  })
+</code></pre>
+
+<p>Yukarıdaki kodla tablo hazır olduğu anda hazır olan tabloda dolaşıyoruz. Öncelikle o tabloda tr yani satırı yakalıyoruz.
+Ardından o satırda yer alan hücreyi dolaşıyoruz tabi bunu yaparken ana şartıız ise class’ı <strong>kapasite</strong> olanı dolaşıyoruz.
+Tabloda 50 satır varsa 50 satırı ve hücrelerini dolaşacak kısacası. Bu işlemi <code>each()</code> fonksiyonu ile yapıyoruz.</p>
+
+<p>Daha sonra ilk dolaşılan satırdaki ilk hücrede yer alan değerin text’ini int türüne parse edip arkadaşımızın istediği koşuldan büyük mü kontrol ediyoruz.
+Zaten sonrası ise o hücreye yeni bir CSS atamak. Aynı işlemi buton için de yapabiliriz. Yani butona tıklayınca bu işlem gerçekleşmeli.
+Tabii bu işlemde bu sefer değer inputtan gelecek.</p>
+
+<pre><code class="language-js">$("button").on("click", function() {
+      $("table").ready(function() {
+      var kapasite = $(this).find("tr td.kapasite").each(function() {
+      	$(this).css("background-color", "")
+        if(parseInt($(this).text()) &gt; parseInt($("[name='txtSayi']").val())) {
+          $(this).css("background-color", "red")
+        }
+      })
+
+    })
+  })
+</code></pre>
+
+<h2 id="jsfiddle-zerinde-rnek">JSFiddle Üzerinde Örnek</h2>
+
+<script async="" src="//jsfiddle.net/cc6ded5w/1/embed/"></script>
+
+<p>Evet işlem bu kadar.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jquery-ile-dinamik-islemler</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sat, 31 Dec 2016 15:50:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>PHP ile Base URL Almak</title>
-                <link>https://aligoren.com/php-ile-base-url-almak</link>
+                <link>https://aligoren.com/php-ile-base-url-almak-Copy</link>
                 <content:encoded>
                     <![CDATA[
                     <p>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</p>
@@ -102,7 +214,7 @@ $h = new Home();
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/php-ile-base-url-almak</guid>
+                <guid isPermaLink="false">/php-ile-base-url-almak-Copy</guid>
                 <description>
                     
                 </description>
@@ -2421,7 +2533,7 @@ from django.core.urlresolvers import reverse
                 <description>
                     
                 </description>
-                <pubDate>Sun, 28 Feb 2016 22:06:00 +0200</pubDate>
+                <pubDate>Sun, 28 Feb 2016 22:06:00 +0300</pubDate>
                 <author>Ali GÖREN</author>
             </item>
         
@@ -2518,7 +2630,7 @@ class PostForm(forms.ModelForm):
                 <description>
                     
                 </description>
-                <pubDate>Wed, 24 Feb 2016 22:01:00 +0200</pubDate>
+                <pubDate>Wed, 24 Feb 2016 22:01:00 +0300</pubDate>
                 <author>Ali GÖREN</author>
             </item>
         
@@ -2583,7 +2695,7 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
                 <description>
                     
                 </description>
-                <pubDate>Thu, 18 Feb 2016 21:59:00 +0200</pubDate>
+                <pubDate>Thu, 18 Feb 2016 21:59:00 +0300</pubDate>
                 <author>Ali GÖREN</author>
             </item>
         
@@ -4162,7 +4274,7 @@ DOĞUM YILI: 1907
                 <description>
                     
                 </description>
-                <pubDate>Sat, 24 Mar 2012 19:38:00 +0200</pubDate>
+                <pubDate>Sat, 24 Mar 2012 19:38:00 +0300</pubDate>
                 <author>Ali GÖREN</author>
             </item>
         
