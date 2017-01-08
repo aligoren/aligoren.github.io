@@ -9,6 +9,80 @@
     
         
             <item>
+                <title>Disable or Enable HTML Element with JavaScript</title>
+                <link>https://aligoren.com/disable-html-element-with-javascript</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Hi. I needed to make the HTML elements enabled or disable.</p>
+
+<p>When I try with VanillaJS I wrote this code:</p>
+
+<h2 style="color: red;">VanillaJS Way</h2>
+
+<p><strong>JS Code</strong></p>
+
+<pre><code class="language-js">function disableOrEnableBtn() {
+    var isDisabled = document.getElementById("myBtn").disabled;
+    if(isDisabled) {
+      document.getElementById("myBtn").disabled = false;
+    } else {
+      document.getElementById("myBtn").disabled = true;
+    }
+}
+</code></pre>
+
+<p><strong>HTML Code</strong></p>
+
+<pre><code class="language-html">&lt;button id="myBtn"&gt;Button&lt;/button&gt;
+
+&lt;button onclick="disableBtn();"&gt;Change Button Status&lt;/button&gt;
+</code></pre>
+
+<p>See VanillaJS Example <a href="https://jsfiddle.net/aligoren/pqa6xw51/">https://jsfiddle.net/aligoren/pqa6xw51/</a></p>
+
+<h2 style="color: red;">jQuery Way</h2>
+
+<p>You can also use jQuery. This code is very basic:</p>
+
+<p><strong>JS Code</strong></p>
+
+<pre><code class="language-js">$.disableBtn = function() {
+	$('#myBtn').prop("disabled", (_, val) =&gt; !val);
+}
+</code></pre>
+
+<p><strong>HTML Code</strong></p>
+
+<pre><code class="language-html">&lt;button id="myBtn"&gt;Button&lt;/button&gt;
+
+&lt;button onclick="$.disableBtn();"&gt;Change Button Status&lt;/button&gt;
+</code></pre>
+
+<p>See jQuery Example <a href="https://jsfiddle.net/aligoren/n14pzh5g/">https://jsfiddle.net/aligoren/n14pzh5g/</a></p>
+
+<h2 style="color: red;">AngularJS Way</h2>
+
+<pre><code class="language-html">&lt;body ng-app=""&gt;
+  &lt;label&gt;Change Button Status: &lt;input type="checkbox" ng-model="checked"&gt;&lt;/label&gt;&lt;br/&gt;
+  &lt;button ng-model="button" ng-disabled="checked"&gt;Button&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>See Example <a href="https://jsfiddle.net/aligoren/6nby94kj/">https://jsfiddle.net/aligoren/6nby94kj/</a></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/disable-html-element-with-javascript</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 08 Jan 2017 15:10:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>jQuery ile Dinamik İşlemler</title>
                 <link>https://aligoren.com/jquery-ile-dinamik-islemler</link>
                 <content:encoded>

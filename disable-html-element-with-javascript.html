@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jekyll ile PrismJS Kullanmak &#8211; Ali GÖREN...</title>
+    <title>Disable or Enable HTML Element with JavaScript &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="description" content="Disable HTML Element with JavaScript">
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Jekyll">
-    <link rel="canonical" href="https://aligoren.com/jekyll-ile-prismjs-kullanmak">
+    <meta name="keywords" content="jQuery, JavaScript, Programlama">
+    <link rel="canonical" href="https://aligoren.com/disable-html-element-with-javascript">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -43,17 +43,17 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jekyll ile PrismJS Kullanmak">
-    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/jekyll-ile-prismjs-kullanmak">
+    <meta property="og:title" content="Disable or Enable HTML Element with JavaScript">
+    <meta property="og:description" content="Disable HTML Element with JavaScript">
+    <meta property="og:url" content="https://aligoren.com/disable-html-element-with-javascript">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="Jekyll ile PrismJS Kullanmak" />
+    <meta name="twitter:title" content="Disable or Enable HTML Element with JavaScript" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/jekyll-ile-prismjs-kullanmak" />
+    <meta name="twitter:url" content="https://aligoren.com/disable-html-element-with-javascript" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -199,70 +199,73 @@
 
 
 <div class="post-header mb2">
-  <h1>Jekyll ile PrismJS Kullanmak</h1>
-  <span class="post-meta">Oct 15, 2016</span><br>
+  <h1>Disable or Enable HTML Element with JavaScript</h1>
+  <span class="post-meta">Jan 8, 2017</span><br>
   
   <span class="post-meta small">
   
-    2 Dakikada Okunabilir
+    1 Dakikada Okunabilir
   
   </span>
 </div>
 
 <article class="post-content">
-  <p>Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.</p>
+  <p>Hi. I needed to make the HTML elements enabled or disable.</p>
 
-<p>Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak jekyll ile birlikte <a href="http://rouge.jneen.net/">Route</a> varsayılan olarak geldiği için pek de arayışa geçmeyiz. Fakat benim gibi görselliği de seviyorsanız mutlaka farklı alternatifleri de düşünürsünüz ki bunlardan birisi de <a href="http://pygments.org/">Pygments</a> oluyor. Tabi bunu da beğenmiyor olmanız pekala normal karşılanabilir.</p>
+<p>When I try with VanillaJS I wrote this code:</p>
 
-<p>Ben özellikle son dönemde en popüler kod renklandiricilerden olan PrismJS kullanmayı uygun gördüm. Bu yazıda ve diğer yazılarda etkisini göreceksiniz. Çok uzatmadan nasıl kurulacağını anlatayım. Şimdi bu işlem 3 adımdan oluşmakta.</p>
+<h2 style="color: red;">VanillaJS Way</h2>
 
-<ul>
-  <li>İlk Adım: Rouge’un devre dışı bırakılması</li>
-  <li>İkinci Adım PrismJS’in İndirilmesi</li>
-  <li>Üçüncü Adım İlgili Kütüphanelerin head ve footer’a eklenmesi</li>
-</ul>
+<p><strong>JS Code</strong></p>
 
-<p><strong>1-)</strong> Şimdi öncelikle bize lazım olan şey Rouge’un devre dışı kalması dedik. <code>_config.yml</code> dosyasına geçelim. Burada yapmamız gereken şey öncelikle <code>highlighter: none</code> demeliyiz.</p>
-
-<p>Daha sonra <code>kramdown</code> için alt seçeneklere bazı eklemeler gerçekleştirmeliyiz. Bu işleme göre syntax highlighter disable olmalı. Kısacası ilgili bölümler aşağıdaki gibi olmalı:</p>
-
-<pre><code class="language-yaml">highlighter: none
-markdown: kramdown
-kramdown:
-    syntax_highlighter_opts:
-        disable: true
+<pre><code class="language-js">function disableOrEnableBtn() {
+    var isDisabled = document.getElementById("myBtn").disabled;
+    if(isDisabled) {
+      document.getElementById("myBtn").disabled = false;
+    } else {
+      document.getElementById("myBtn").disabled = true;
+    }
+}
 </code></pre>
 
-<p><strong>2-)</strong> İlk adımı atlattık şimdi geldi ikinci adıma. İkinci adımda PrismJS’yi <a href="http://prismjs.com/">http://prismjs.com/</a> adresinden indirelim. Bu indirme ile birlikte iki dosya karşınıza gelecektir.Birisi JS bir diğeri de CSS dosyası.</p>
+<p><strong>HTML Code</strong></p>
 
-<p>Ben PrismJS’i özelleştirerek indirmenizi öneriyorum. Syntax highlighter için default tema aslında gayet iyi ama siz dilerseniz farklı temaları da seçebilirsiniz. Blogunuzda hangi dillerde yayın yapıyorsanız (Programlama dilleri) o dilleri seçin öncelikle. Ben hepsini seçmedim ama bazı deneyip bir şeyler aktaracağım dillere dair seçimler gerçekleştirdim.</p>
+<pre><code class="language-html">&lt;button id="myBtn"&gt;Button&lt;/button&gt;
 
-<p>Dil seçimi tamamlandı. Artık seçmemiz gereken bir diğer şey ise plugin yani eklentiler. Bunlar inanın PrismJS’i daha güzel bir şekilde kullanmanıza da imkan tanıyan eklentiler. Benim önerilerim şunlar:</p>
-
-<p><strong>Line Numbers:</strong> Satır numaralarını gösterir.</p>
-
-<p><strong>Autolinker:</strong> Kodlarda yer alan yorum satırlarında link varsa tıklanabilir hale getirir</p>
-
-<p><strong>Show Language:</strong> Eklenen kodun hangi dilde eklendiğini sağ üst köşede gösterir. Bu yazıdaki <code>YAML</code> örneğinde olduğu gibi</p>
-
-<p><strong>3-)</strong> Son adıma geldik. Bu adımda indirilen dosyaları klasörlere atma zamanı. <code>css</code> zaten hazır olduğu için <code>prism.css</code> dosyasını o klasöre atın. Eğer <code>js</code> klasörü yoksa oluşturun ve <code>prism.js</code> dosyasını da o klasöre atın.</p>
-
-<p>Şimdi gelelim son adımlara. Öncelikle <mark>head.html</mark> dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:</p>
-
-<pre><code class="language-html">&lt;link rel="stylesheet" href="/css/prism.css"&gt;
+&lt;button onclick="disableBtn();"&gt;Change Button Status&lt;/button&gt;
 </code></pre>
 
-<p><em>Not: href içinde süslü parantezler vardır:</em></p>
+<p>See VanillaJS Example <a href="https://jsfiddle.net/aligoren/pqa6xw51/">https://jsfiddle.net/aligoren/pqa6xw51/</a></p>
 
-<pre><code class="language-json">{{ "/css/prism.css" | prepend: site.baseurl }}
+<h2 style="color: red;">jQuery Way</h2>
+
+<p>You can also use jQuery. This code is very basic:</p>
+
+<p><strong>JS Code</strong></p>
+
+<pre><code class="language-js">$.disableBtn = function() {
+	$('#myBtn').prop("disabled", (_, val) =&gt; !val);
+}
 </code></pre>
 
-<p>Bu işlem bittikten sonra da artık son bir işimiz kalıyor. <mark>footer.html</mark> dosyasını açıp şu kodu yapıştıralım:</p>
+<p><strong>HTML Code</strong></p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="/js/prism.js"&gt;
+<pre><code class="language-html">&lt;button id="myBtn"&gt;Button&lt;/button&gt;
+
+&lt;button onclick="$.disableBtn();"&gt;Change Button Status&lt;/button&gt;
 </code></pre>
 
-<p>Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.</p>
+<p>See jQuery Example <a href="https://jsfiddle.net/aligoren/n14pzh5g/">https://jsfiddle.net/aligoren/n14pzh5g/</a></p>
+
+<h2 style="color: red;">AngularJS Way</h2>
+
+<pre><code class="language-html">&lt;body ng-app=""&gt;
+  &lt;label&gt;Change Button Status: &lt;input type="checkbox" ng-model="checked"&gt;&lt;/label&gt;&lt;br/&gt;
+  &lt;button ng-model="button" ng-disabled="checked"&gt;Button&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>See Example <a href="https://jsfiddle.net/aligoren/6nby94kj/">https://jsfiddle.net/aligoren/6nby94kj/</a></p>
 
 </article>
 
@@ -281,7 +284,11 @@ kramdown:
 
 Kategori:
 
-<a href="kategoriler#Jekyll">Jekyll</a>,
+<a href="kategoriler#jQuery">jQuery</a>,
+
+<a href="kategoriler#JavaScript">JavaScript</a>,
+
+<a href="kategoriler#Programlama">Programlama</a>,
 
 
 
@@ -290,8 +297,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/jekyll-ile-prismjs-kullanmak';
-    var disqus_title      = "Jekyll ile PrismJS Kullanmak";
+    var disqus_identifier = '/disable-html-element-with-javascript';
+    var disqus_title      = "Disable or Enable HTML Element with JavaScript";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -7,6 +7,70 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Disable or Enable HTML Element with JavaScript</title>
+        <description>&lt;p&gt;Hi. I needed to make the HTML elements enabled or disable.&lt;/p&gt;
+
+&lt;p&gt;When I try with VanillaJS I wrote this code:&lt;/p&gt;
+
+&lt;h2 style=&quot;color: red;&quot;&gt;VanillaJS Way&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;JS Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function disableOrEnableBtn() {
+    var isDisabled = document.getElementById(&quot;myBtn&quot;).disabled;
+    if(isDisabled) {
+      document.getElementById(&quot;myBtn&quot;).disabled = false;
+    } else {
+      document.getElementById(&quot;myBtn&quot;).disabled = true;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HTML Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;button id=&quot;myBtn&quot;&amp;gt;Button&amp;lt;/button&amp;gt;
+
+&amp;lt;button onclick=&quot;disableBtn();&quot;&amp;gt;Change Button Status&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See VanillaJS Example &lt;a href=&quot;https://jsfiddle.net/aligoren/pqa6xw51/&quot;&gt;https://jsfiddle.net/aligoren/pqa6xw51/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color: red;&quot;&gt;jQuery Way&lt;/h2&gt;
+
+&lt;p&gt;You can also use jQuery. This code is very basic:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JS Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;$.disableBtn = function() {
+	$('#myBtn').prop(&quot;disabled&quot;, (_, val) =&amp;gt; !val);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HTML Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;button id=&quot;myBtn&quot;&amp;gt;Button&amp;lt;/button&amp;gt;
+
+&amp;lt;button onclick=&quot;$.disableBtn();&quot;&amp;gt;Change Button Status&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See jQuery Example &lt;a href=&quot;https://jsfiddle.net/aligoren/n14pzh5g/&quot;&gt;https://jsfiddle.net/aligoren/n14pzh5g/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color: red;&quot;&gt;AngularJS Way&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;body ng-app=&quot;&quot;&amp;gt;
+  &amp;lt;label&amp;gt;Change Button Status: &amp;lt;input type=&quot;checkbox&quot; ng-model=&quot;checked&quot;&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;br/&amp;gt;
+  &amp;lt;button ng-model=&quot;button&quot; ng-disabled=&quot;checked&quot;&amp;gt;Button&amp;lt;/button&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See Example &lt;a href=&quot;https://jsfiddle.net/aligoren/6nby94kj/&quot;&gt;https://jsfiddle.net/aligoren/6nby94kj/&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Jan 2017 15:10:00 +0300</pubDate>
+        <link>https://aligoren.com/disable-html-element-with-javascript</link>
+        <guid isPermaLink="true">https://aligoren.com/disable-html-element-with-javascript</guid>
+      </item>
+    
+      <item>
         <title>jQuery ile Dinamik İşlemler</title>
         <description>&lt;p&gt;Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
 &lt;a href=&quot;http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme&quot;&gt;sorudan&lt;/a&gt; çıkarıyorum.&lt;/p&gt;
@@ -877,91 +941,6 @@ kramdown:
         <pubDate>Sat, 15 Oct 2016 20:05:00 +0300</pubDate>
         <link>https://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
         <guid isPermaLink="true">https://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
-      </item>
-    
-      <item>
-        <title>Bugün Öğrendiklerim - Git</title>
-        <description>&lt;p&gt;Bugün enteresan bir şekilde güzel şeyler öğrendim. Aslında dün de öğrendim. Github’ı sadece ve sadece master’a dosya push etmek adına kullanan birisi olarak şimdilerde branch ne kadar da gerekli der oldum. Bu yazıda özellikle branchleri anlatmak isterim. Çünkü master ve branchler gerçekten çok önemli şeyler.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Yeni Bir Git Reposu:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bulunduğunuz dizini içereceğini bilerek &lt;code&gt;git init&lt;/code&gt; komutunu vermeniz yeterlidir.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Uzak Git Reposunu Clonelamak&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu en çok ihtiyaç duyduğumuz şeylerden birisi olabilir. Farklı amaçlarla bunu yaparız. Çoğu zaman dosyaları direkt indirebiliriz. Ancak neden tarayıcıyı açalım ki? Tabii bir de projelere katkıda bulunmak da var. Neyse bu işlem şöyle oluyor:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git clone https://uzak-git-deposu&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Şaka değil bu kadar basit.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dosya Ekleme&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yapılan çalışmaların artık ortak çalışma alanına aktarılması gerekmektedir. Öncelikle dosyaların eklenmesi şarttır. İki yöntem var.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Tamamını Ekleme:&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add *&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Spesifik Dosyalar Ekleme:&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add main.rb lib.rb file.rb&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Yöntemlerden dilediğinizi seçebilirsiniz ki bu size kalmış bir şey.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Eklenen Dosyalara Mesaj Eklemek&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu yöntemle hangi dosyalar çalışmada etkilenmiş yani değişikliğe uğramışsa o dosyalar bu mesajla repoya gönderilir. Örneğin şöyle düşünelim, info.py dosyasında bir değişiklik yaptınız. Bu değişiklik Person adında yeni bir class’ın eklenmesi olabilir. O zaman commit’e şu işlemi yapabilirsiniz:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git commit -am &quot;Add person class&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Değişiklikleri Yayına Almak&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;En önemli mevzu bu bence. Herkesin katkı yaptığı bir projeye localden katkı yapmanız bir şeyi değiştirmez. Önemli olan bu katkının asıl repoya &amp;amp; sizin kendi reponuza aktarılmasıdır. Eğer reponuz yeni ise varsayılan olarak &lt;code&gt;master&lt;/code&gt; isimli branch’e sahipsinizdir. Bu arada branch dal ya da dallanmak demekmiş. Neyse değişiklikleri yayına almak yani uzak repoda göstermek için şu komutlar işimizi görebilir:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Mümkün olduğunca master branch rahatsız edilmemeli. Oraya publish edilen yapı aktarılmalı. Geliştirme aşamalarında kullanılan kalabalık dosyalar başka branchlerde yer almalı.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Hangi Branch’e Bağlıyım?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu da önemlidir. Olur da farklı bir branch’te çalışırsınız aman diyim. Bunun için &lt;code&gt;git branch&lt;/code&gt; komutu yeterlidir. Bu komutla şu anda hangi branch’te çalıştığınızı görebilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Yeni Branch Oluşturma&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu işlem sanırım en zevkli işlem. Basit bir komutla &lt;code&gt;dev&lt;/code&gt; isimli yeni branch oluşturabilirsiniz:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; git checkout -b dev&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Branchler Arasında Dolaşma&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Eğer yapacağınız değişiklikler belirli bir branchte yayınlanacaksa o branch’e geçiş yapmanız gerekiyor. Bunun için de işlem yine çok basit. Örneğin şu anda master branch’tesiniz ve dev isimli branch’e geçeceksiniz:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git checkout dev&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Oluşturulan Branch’i Yayınlamak&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Eğer branch, uzak repoya gönderilmediyse o branch sizden başkası için görülebilir olmayacaktır. Branch’i yayınlama işlemini yukarıda oluşturduğumuz dev isimli branch’i baz alarak gerçekleştireceğiz.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push origin dev&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Artık branch’imiz yayında olacaktır.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Güncelleme&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Siz bi uyudunuz falan sabah oldu işe gittiniz geldiniz o da ne bir sürü değişimler oldu. Ama bunlar bilgisayarınızda yok. Meraklanmayın. Basit bir komut işinizi görüyor:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;*git fetch &amp;amp; git pull origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;İşime Yarayan Komutlar:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yapılan işlemlere dair logları &lt;code&gt;git log&lt;/code&gt; yazarak alabiliyorum. Eğer yapılan değişikliklere dair bir durum alacaksam da &lt;code&gt;git status&lt;/code&gt; yaparak eklenmemiş olanları görebilirim.&lt;/p&gt;
-
-&lt;p&gt;Bugün daha çok şeyler öğrendim bunda @hwclass hocama teşekkür etmem gerekiyor. Onlar da başka bir yazının konusu olsun.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 10 Oct 2016 00:08:00 +0300</pubDate>
-        <link>https://aligoren.com/bugun-ogrendiklerim</link>
-        <guid isPermaLink="true">https://aligoren.com/bugun-ogrendiklerim</guid>
       </item>
     
   </channel>
