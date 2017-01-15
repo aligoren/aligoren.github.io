@@ -9,6 +9,72 @@
     
         
             <item>
+                <title>PHP'de Anonim Fonksiyonlar</title>
+                <link>https://aligoren.com/phpde-anonim-fonksiyonlar-nedir</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.</p>
+
+<p>Şimdi elimizde bir nesne var diyelim. Bu nesnenin bir instance’ı yani örneğini oluşturdunuz ve 
+bu oluşturulan instance’lara ait methodları kullanarak yeni bir instance oluşturabileceğinizi düşünün daha önce düşündünüz mü bilmiyorum.</p>
+
+<h3 style="color:red">Yalnız Değilsiniz!</h3>
+
+<p>Eğer hayır diyorsanız yalnız olmadığınıza inancım tam. Size reflection ve closure kavramlarının nasıl kullanılacağını göstermek için bu yazıyı yazdım.</p>
+
+<p>Öncelikle closure ya da anonym functions olarak karşımıza çıkar bu kavram. Onu bilelim. PHP konu olduğu için belirtmek gerekiyor ki 5.3 sürümünden itibaren closure’ları kullanabiliriz. Yanılmıyorsam günümüzde desteklemeyen pek az yer vardır.</p>
+
+<p>Zaten bu closure kavramını araştırsanız internette bir sürü kaynak bulabilirsiniz. Ben bu yazıyı yazmadan önce baya baya yazanlar olmuştur gerek Türkçe gerekse İngilizce dilinde mevcuttur yani. Çok uzatmayayım.</p>
+
+<h3 style="color:red;">İsimsiz</h3>
+
+<p><img src="/images/posts/bourne.jpg" alt="/images/posts/bourne.jpg" /></p>
+
+<p>İsimsiz denilince aklıma Jason Bourne gelir. Bilmiyorum Bourne serisini izlediniz mi ama kendisi kimliksiz aslında adı olmayan kafasının içinde kaybolan bir abimiz. Ama  merak etmeyin bu anonim fonksiyonlar öyle aksiyon dolu bir şey değil.</p>
+
+<p>Anonim fonksiyonlar dediğime göre bu fonksiyonların nasıl fonksiyonlar olacağını adlarından anlamış olmalısınız. Anonim fonksiyonlar. Eğer <strong>isme sahip olmayan fonksiyon</strong> tanımı aklınıza geliyorsa doğru düşünmüşsünüz. Basit bir örneği şöyle size gösterebilirim.</p>
+
+<pre><code class="language-php">$isimsiz = function() {
+	echo 'Merhaba';
+};
+
+$isimsiz(); // Çıktısı Merhaba;
+</code></pre>
+
+<p>Kodu dikkatli incelersiniz fonksiyona herhangi bir isim verilmedi ancak oluşturulduğu anda <code>$isimsiz</code> isimli bir değişkene atamasını yaptık. Yani normal bir değişken oluşturma işlemini yaptınız sonuna noktalı virgülünü de koydunuz. Tek farkı değişkene atanan şey direkt bir <strong>value</strong> yani <strong>değer</strong> değil. Bir fonksiyon. Bu kısmı da uzun uzun yazmayayım. Sadece bu fonksiyonları çağırırken başlarına dollar sign yani <strong>$</strong> koymanız gerektiğini unutmayın.</p>
+
+<p>Bu fonksiyonların bir başka metoda parameter olarak da geçilebileceğini unutmayın. Basit bir başka örnek vereyim bu da fonksiyona, anonim bir fonksiyon eklenebilmesine dair olsun:</p>
+
+<pre><code class="language-php">function benim_fonksiyonum($anonim_fonksiyon) {
+	return $anonim_fonksiyon();
+}
+
+benim_fonksiyonum(function() {
+	echo 'Fonksiyon içinde fonksiyon mu olur? Oluyor işte';
+});
+</code></pre>
+
+<p>Yukarıdaki yönteme eğer frameworklere aşinaysanız ya da onları incelediyseniz denk gelmişsinizdir. Kısacası böyle de kullanabilirsiniz. Ben bu yöntemi kullanarak şöyle basit bir repo olışturdum:</p>
+
+<p><a href="https://github.com/aligoren/Request">https://github.com/aligoren/Request</a></p>
+
+<p>Readme dosyasını incelerseniz aslında anlattığım şeyin ne gibi noktalarda kullanılabileceğini de anlamış olursunuz. Yazıyı çok uzatmak istemiyorum ancak bu konuda <a href="http://php.net/manual/tr/class.reflectionmethod.php">ReflectionMethod</a> sınıfını iyi incelemenizi öneririm. Bu sayede direkt olarak closure kullanımını da deneyimlemiş olursunuz.</p>
+
+<p>Umarım faydalı olmuştur.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/phpde-anonim-fonksiyonlar-nedir</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 15 Jan 2017 15:10:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Disable or Enable HTML Element with JavaScript</title>
                 <link>https://aligoren.com/disable-html-element-with-javascript</link>
                 <content:encoded>

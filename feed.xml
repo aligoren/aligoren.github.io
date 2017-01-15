@@ -7,6 +7,62 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>PHP'de Anonim Fonksiyonlar</title>
+        <description>&lt;p&gt;Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.&lt;/p&gt;
+
+&lt;p&gt;Şimdi elimizde bir nesne var diyelim. Bu nesnenin bir instance’ı yani örneğini oluşturdunuz ve 
+bu oluşturulan instance’lara ait methodları kullanarak yeni bir instance oluşturabileceğinizi düşünün daha önce düşündünüz mü bilmiyorum.&lt;/p&gt;
+
+&lt;h3 style=&quot;color:red&quot;&gt;Yalnız Değilsiniz!&lt;/h3&gt;
+
+&lt;p&gt;Eğer hayır diyorsanız yalnız olmadığınıza inancım tam. Size reflection ve closure kavramlarının nasıl kullanılacağını göstermek için bu yazıyı yazdım.&lt;/p&gt;
+
+&lt;p&gt;Öncelikle closure ya da anonym functions olarak karşımıza çıkar bu kavram. Onu bilelim. PHP konu olduğu için belirtmek gerekiyor ki 5.3 sürümünden itibaren closure’ları kullanabiliriz. Yanılmıyorsam günümüzde desteklemeyen pek az yer vardır.&lt;/p&gt;
+
+&lt;p&gt;Zaten bu closure kavramını araştırsanız internette bir sürü kaynak bulabilirsiniz. Ben bu yazıyı yazmadan önce baya baya yazanlar olmuştur gerek Türkçe gerekse İngilizce dilinde mevcuttur yani. Çok uzatmayayım.&lt;/p&gt;
+
+&lt;h3 style=&quot;color:red;&quot;&gt;İsimsiz&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/bourne.jpg&quot; alt=&quot;/images/posts/bourne.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;İsimsiz denilince aklıma Jason Bourne gelir. Bilmiyorum Bourne serisini izlediniz mi ama kendisi kimliksiz aslında adı olmayan kafasının içinde kaybolan bir abimiz. Ama  merak etmeyin bu anonim fonksiyonlar öyle aksiyon dolu bir şey değil.&lt;/p&gt;
+
+&lt;p&gt;Anonim fonksiyonlar dediğime göre bu fonksiyonların nasıl fonksiyonlar olacağını adlarından anlamış olmalısınız. Anonim fonksiyonlar. Eğer &lt;strong&gt;isme sahip olmayan fonksiyon&lt;/strong&gt; tanımı aklınıza geliyorsa doğru düşünmüşsünüz. Basit bir örneği şöyle size gösterebilirim.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;$isimsiz = function() {
+	echo 'Merhaba';
+};
+
+$isimsiz(); // Çıktısı Merhaba;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kodu dikkatli incelersiniz fonksiyona herhangi bir isim verilmedi ancak oluşturulduğu anda &lt;code&gt;$isimsiz&lt;/code&gt; isimli bir değişkene atamasını yaptık. Yani normal bir değişken oluşturma işlemini yaptınız sonuna noktalı virgülünü de koydunuz. Tek farkı değişkene atanan şey direkt bir &lt;strong&gt;value&lt;/strong&gt; yani &lt;strong&gt;değer&lt;/strong&gt; değil. Bir fonksiyon. Bu kısmı da uzun uzun yazmayayım. Sadece bu fonksiyonları çağırırken başlarına dollar sign yani &lt;strong&gt;$&lt;/strong&gt; koymanız gerektiğini unutmayın.&lt;/p&gt;
+
+&lt;p&gt;Bu fonksiyonların bir başka metoda parameter olarak da geçilebileceğini unutmayın. Basit bir başka örnek vereyim bu da fonksiyona, anonim bir fonksiyon eklenebilmesine dair olsun:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;function benim_fonksiyonum($anonim_fonksiyon) {
+	return $anonim_fonksiyon();
+}
+
+benim_fonksiyonum(function() {
+	echo 'Fonksiyon içinde fonksiyon mu olur? Oluyor işte';
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki yönteme eğer frameworklere aşinaysanız ya da onları incelediyseniz denk gelmişsinizdir. Kısacası böyle de kullanabilirsiniz. Ben bu yöntemi kullanarak şöyle basit bir repo olışturdum:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/aligoren/Request&quot;&gt;https://github.com/aligoren/Request&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Readme dosyasını incelerseniz aslında anlattığım şeyin ne gibi noktalarda kullanılabileceğini de anlamış olursunuz. Yazıyı çok uzatmak istemiyorum ancak bu konuda &lt;a href=&quot;http://php.net/manual/tr/class.reflectionmethod.php&quot;&gt;ReflectionMethod&lt;/a&gt; sınıfını iyi incelemenizi öneririm. Bu sayede direkt olarak closure kullanımını da deneyimlemiş olursunuz.&lt;/p&gt;
+
+&lt;p&gt;Umarım faydalı olmuştur.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Jan 2017 15:10:00 +0300</pubDate>
+        <link>https://aligoren.com/phpde-anonim-fonksiyonlar-nedir</link>
+        <guid isPermaLink="true">https://aligoren.com/phpde-anonim-fonksiyonlar-nedir</guid>
+      </item>
+    
+      <item>
         <title>Disable or Enable HTML Element with JavaScript</title>
         <description>&lt;p&gt;Hi. I needed to make the HTML elements enabled or disable.&lt;/p&gt;
 
@@ -880,67 +936,6 @@ Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card 
         <pubDate>Sun, 16 Oct 2016 21:57:00 +0300</pubDate>
         <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
         <guid isPermaLink="true">https://aligoren.com/jekyll-github-badge-eklentisi</guid>
-      </item>
-    
-      <item>
-        <title>Jekyll ile PrismJS Kullanmak</title>
-        <description>&lt;p&gt;Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.&lt;/p&gt;
-
-&lt;p&gt;Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak jekyll ile birlikte &lt;a href=&quot;http://rouge.jneen.net/&quot;&gt;Route&lt;/a&gt; varsayılan olarak geldiği için pek de arayışa geçmeyiz. Fakat benim gibi görselliği de seviyorsanız mutlaka farklı alternatifleri de düşünürsünüz ki bunlardan birisi de &lt;a href=&quot;http://pygments.org/&quot;&gt;Pygments&lt;/a&gt; oluyor. Tabi bunu da beğenmiyor olmanız pekala normal karşılanabilir.&lt;/p&gt;
-
-&lt;p&gt;Ben özellikle son dönemde en popüler kod renklandiricilerden olan PrismJS kullanmayı uygun gördüm. Bu yazıda ve diğer yazılarda etkisini göreceksiniz. Çok uzatmadan nasıl kurulacağını anlatayım. Şimdi bu işlem 3 adımdan oluşmakta.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;İlk Adım: Rouge’un devre dışı bırakılması&lt;/li&gt;
-  &lt;li&gt;İkinci Adım PrismJS’in İndirilmesi&lt;/li&gt;
-  &lt;li&gt;Üçüncü Adım İlgili Kütüphanelerin head ve footer’a eklenmesi&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;1-)&lt;/strong&gt; Şimdi öncelikle bize lazım olan şey Rouge’un devre dışı kalması dedik. &lt;code&gt;_config.yml&lt;/code&gt; dosyasına geçelim. Burada yapmamız gereken şey öncelikle &lt;code&gt;highlighter: none&lt;/code&gt; demeliyiz.&lt;/p&gt;
-
-&lt;p&gt;Daha sonra &lt;code&gt;kramdown&lt;/code&gt; için alt seçeneklere bazı eklemeler gerçekleştirmeliyiz. Bu işleme göre syntax highlighter disable olmalı. Kısacası ilgili bölümler aşağıdaki gibi olmalı:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;highlighter: none
-markdown: kramdown
-kramdown:
-    syntax_highlighter_opts:
-        disable: true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;2-)&lt;/strong&gt; İlk adımı atlattık şimdi geldi ikinci adıma. İkinci adımda PrismJS’yi &lt;a href=&quot;http://prismjs.com/&quot;&gt;http://prismjs.com/&lt;/a&gt; adresinden indirelim. Bu indirme ile birlikte iki dosya karşınıza gelecektir.Birisi JS bir diğeri de CSS dosyası.&lt;/p&gt;
-
-&lt;p&gt;Ben PrismJS’i özelleştirerek indirmenizi öneriyorum. Syntax highlighter için default tema aslında gayet iyi ama siz dilerseniz farklı temaları da seçebilirsiniz. Blogunuzda hangi dillerde yayın yapıyorsanız (Programlama dilleri) o dilleri seçin öncelikle. Ben hepsini seçmedim ama bazı deneyip bir şeyler aktaracağım dillere dair seçimler gerçekleştirdim.&lt;/p&gt;
-
-&lt;p&gt;Dil seçimi tamamlandı. Artık seçmemiz gereken bir diğer şey ise plugin yani eklentiler. Bunlar inanın PrismJS’i daha güzel bir şekilde kullanmanıza da imkan tanıyan eklentiler. Benim önerilerim şunlar:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Line Numbers:&lt;/strong&gt; Satır numaralarını gösterir.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Autolinker:&lt;/strong&gt; Kodlarda yer alan yorum satırlarında link varsa tıklanabilir hale getirir&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Show Language:&lt;/strong&gt; Eklenen kodun hangi dilde eklendiğini sağ üst köşede gösterir. Bu yazıdaki &lt;code&gt;YAML&lt;/code&gt; örneğinde olduğu gibi&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3-)&lt;/strong&gt; Son adıma geldik. Bu adımda indirilen dosyaları klasörlere atma zamanı. &lt;code&gt;css&lt;/code&gt; zaten hazır olduğu için &lt;code&gt;prism.css&lt;/code&gt; dosyasını o klasöre atın. Eğer &lt;code&gt;js&lt;/code&gt; klasörü yoksa oluşturun ve &lt;code&gt;prism.js&lt;/code&gt; dosyasını da o klasöre atın.&lt;/p&gt;
-
-&lt;p&gt;Şimdi gelelim son adımlara. Öncelikle &lt;mark&gt;head.html&lt;/mark&gt; dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prism.css&quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Not: href içinde süslü parantezler vardır:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{{ &quot;/css/prism.css&quot; | prepend: site.baseurl }}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu işlem bittikten sonra da artık son bir işimiz kalıyor. &lt;mark&gt;footer.html&lt;/mark&gt; dosyasını açıp şu kodu yapıştıralım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/js/prism.js&quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 15 Oct 2016 20:05:00 +0300</pubDate>
-        <link>https://aligoren.com/jekyll-ile-prismjs-kullanmak</link>
-        <guid isPermaLink="true">https://aligoren.com/jekyll-ile-prismjs-kullanmak</guid>
       </item>
     
   </channel>
