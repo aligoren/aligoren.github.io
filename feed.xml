@@ -7,6 +7,97 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>JavaScript Console ile Debug İşlemleri</title>
+        <description>&lt;p&gt;Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.&lt;/p&gt;
+
+&lt;p&gt;Aslında debug işlemleri, programlamanın vazgeçilmez bir parçasıdır. Çoğu yazılımcı zamanının bir bölümünü bug ve sorunları düzeltmek amacıyla harcamıştır.&lt;/p&gt;
+
+&lt;p&gt;Bu yazıda JavaScript &lt;code&gt;console&lt;/code&gt; nesnesi ile debug işlemlerine dair ufak tefek ipuçları paylaşacağım. Bu basit bi tanıtım olacaktır. Daha derinlemesine bilgi için bahsi geçen yöntemlere göz atmanız daha iyi olacaktır.&lt;/p&gt;
+
+&lt;h2 id=&quot;assert-lemi&quot;&gt;Assert İşlemi&lt;/h2&gt;
+
+&lt;p&gt;Bu işlem içim &lt;code&gt;console.assert()&lt;/code&gt; kullanmalısınız. &lt;strong&gt;assert()&lt;/strong&gt; fonksiyonu mutlaka boolean türünden bir değer almalıdır. Aşağıdaki örnek tam da buna uygundur:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/assert_js.png&quot; alt=&quot;/images/posts/assert_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;trace-lemi&quot;&gt;Trace İşlemi&lt;/h2&gt;
+
+&lt;p&gt;Javascript console’unda log bilgilerini ve bu bilgiler sonucu ortaya çıkan değerleri almak için çokca yöntem mevcuttur. Bunlardan birisi &lt;code&gt;console.trace()&lt;/code&gt; olmakta.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/trace_js.png&quot; alt=&quot;/images/posts/trace_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yukarıdaki işlem size aslında bir adet stack trace döndürecektir.&lt;/p&gt;
+
+&lt;h2 id=&quot;tablolar&quot;&gt;Tablolar&lt;/h2&gt;
+
+&lt;p&gt;Evet javascript console’u tablolara da izin vermektedir. Şaşırtıcı gibi ama olmasın :). Bu işlemi &lt;code&gt;console.table()&lt;/code&gt; ile yaparız. Tabi bu işlem Object ve array türünden değeri bize sunar. Ayrıca bir de hoş bir tabloyu da önümüze getirir.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.table(
+	[
+		{
+			dil: 'PHP', uzanti: '.php' 
+		}, 
+		{
+			dil: 'Javascript', uzanti: '.js'
+		}
+	]
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/table_js.png&quot; alt=&quot;/images/posts/table_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;log-tutma&quot;&gt;Log Tutma&lt;/h2&gt;
+
+&lt;p&gt;Javascript ile log mesajları oluşturabilirsiniz. Aslında full stack ya da front-end olun fark etmez mutlaka console’da değer döndürmek zorunda kalmışsınızdır. Çünkü bir alert asla ve asla size direkt bilgileri sunmaz.&lt;/p&gt;
+
+&lt;p&gt;Bu açıdan bakarsak console’un bize sunduğu loglar bizim için çok değerlidir. Yeri gelmişken kendi hazırladığım &lt;a href=&quot;https://github.com/aligoren/ColorLog.js&quot;&gt;ColorLog.js&lt;/a&gt; kütüphanesini kullanabilirsiniz. Log mesajlarını renkli olarak alırsınız.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.info(&quot;Bilgi Mesajı&quot;);
+console.warn(&quot;Uyarı Mesajı&quot;);
+console.error(&quot;Hata Mesajı&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki log fonksiyonları ile işimizi görecek şekilde mesajlar üretebiliriz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/log_js.png&quot; alt=&quot;/images/posts/log_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;timerlar&quot;&gt;Timer’lar&lt;/h2&gt;
+
+&lt;p&gt;Zaman tutmak bazen önemlidir. Örneğin bir for döngüsünün ne kadar sürede tamamlanacağının bilgisini almak gibi basit bir işlem şöyle gerçekleştirilir.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.time(&quot;zamanTut&quot;);
+for(i = 0; i &amp;lt; 100; i++) {
+	// işlemler
+}
+console.timeEnd(&quot;zamanTut&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/timer_js.png&quot; alt=&quot;/images/posts/timer_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;monitr-etme&quot;&gt;Monitör Etme&lt;/h2&gt;
+
+&lt;p&gt;Bazen fonksiyonları izlemek isteyebilirsiniz ya da bazı hareketlerin monitörlenmesini isteyebilirsiniz. O zamanlarda iki tür fonksiyon mevcuttur. İlki;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;monitor() Fonksiyonu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu fonksiyonla bir başka fonksiyonu izlemeniz mümkündür. Örnek;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/monitor_js.png&quot; alt=&quot;/images/posts/monitor_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;monitorEvents() Fonksiyonu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu fonksiyonla event’lar monitör edilebilir. Bu event’ları zaten hepimiz biliyoruz. Örneğin bu event’lar arasında click yer alıyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/monitorEvent_js.png&quot; alt=&quot;/images/posts/monitorEvent_js.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b id=&quot;f1&quot;&gt;Alıntı&lt;/b&gt;: Carlos Cuesta &lt;a href=&quot;https://carloscuesta.me/blog/debugging-with-the-javascript-console/&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 Jan 2017 22:54:00 +0300</pubDate>
+        <link>https://aligoren.com/javascript-console-ile-debug-islemleri</link>
+        <guid isPermaLink="true">https://aligoren.com/javascript-console-ile-debug-islemleri</guid>
+      </item>
+    
+      <item>
         <title>PHP'de Anonim Fonksiyonlar</title>
         <description>&lt;p&gt;Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.&lt;/p&gt;
 
@@ -898,44 +989,6 @@ public ActionResult DegerAl(string[] degerler)
         <pubDate>Sat, 22 Oct 2016 12:05:00 +0300</pubDate>
         <link>https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
         <guid isPermaLink="true">https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
-      </item>
-    
-      <item>
-        <title>Jekyll Github Badge Eklentisi</title>
-        <description>&lt;p&gt;Selam bu aslında tam bir eklenti. Değil. Buna daha çok Liquid Tag desek yanlış söylemiş olmayız. Bu eklentinin yaptığı şey kısacası belirli bir repo için &lt;mark&gt;BADGE&lt;/mark&gt; oluşturuyor.
-Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card özelliğinden faydalandım.&lt;/p&gt;
-
-&lt;p&gt;Eklenti şu anda sadece çağırıldığı anda olan değerleri üretiyor. Yani bugün 10 olan bir beğeni, yarın 15 olsa bile değişmeyecektir. Vakit olursa bir sonraki sürümde onu da değiştirmeyi düşünüyorum.&lt;/p&gt;
-
-&lt;p&gt;Kısacası bu eklenti bize şunları sunuyor:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Proje Adı&lt;/li&gt;
-  &lt;li&gt;Açıklama&lt;/li&gt;
-  &lt;li&gt;Proje yazarı / sahibi (Author)&lt;/li&gt;
-  &lt;li&gt;Programlama dili&lt;/li&gt;
-  &lt;li&gt;Stargazers (kaç kişi beğenmiş)&lt;/li&gt;
-  &lt;li&gt;Forks (Çatallama sayısı)&lt;/li&gt;
-  &lt;li&gt;Download (Projenin master branchteki dosyalarının zip URL’si)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Kullanım için bazı adımlar var. Öncelikle card.css dosyasını aktarmak gerekiyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{{ &quot;/css/card.css&quot; | prepend: site.baseurl }}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Daha sonra da kullanımı basitçe şöyle oluyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{% gitrepo KULLANICI_ADINIZ/REPO_ADINIZ %}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Şimdi basit bir örnekle, bu eklentinin repo’sunu paylaşayım ki inceleyin. Ben kötü Ruby ve Jekyll Liquid bilgimle yaptım bunu.:&lt;/p&gt;
-
-&lt;div class=&quot;card card-block&quot;&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Project Details: &lt;/b&gt;jekyll-github-badge&lt;/p&gt;&lt;p class=&quot;card-text&quot;&gt;&lt;b&gt;Description: &lt;/b&gt;Jekyll Github Repo Badge Generator&lt;/p&gt;&lt;table class=&quot;table table-sm&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Project Name&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren/jekyll-github-badge&quot; target=&quot;_blank&quot;&gt;jekyll-github-badge&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Author&lt;/th&gt;&lt;td&gt;&lt;a class=&quot;card-link&quot; href=&quot;https://github.com/aligoren&quot; target=&quot;_blank&quot;&gt;aligoren&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Programming Language&lt;/th&gt;&lt;td&gt;CSS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Stargazers&lt;/th&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Forks&lt;/th&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a href=&quot;https://github.com/aligoren/jekyll-github-badge/archive/master.zip&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sun, 16 Oct 2016 21:57:00 +0300</pubDate>
-        <link>https://aligoren.com/jekyll-github-badge-eklentisi</link>
-        <guid isPermaLink="true">https://aligoren.com/jekyll-github-badge-eklentisi</guid>
       </item>
     
   </channel>

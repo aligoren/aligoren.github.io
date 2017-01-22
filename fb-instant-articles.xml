@@ -9,6 +9,107 @@
     
         
             <item>
+                <title>JavaScript Console ile Debug İşlemleri</title>
+                <link>https://aligoren.com/javascript-console-ile-debug-islemleri</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.</p>
+
+<p>Aslında debug işlemleri, programlamanın vazgeçilmez bir parçasıdır. Çoğu yazılımcı zamanının bir bölümünü bug ve sorunları düzeltmek amacıyla harcamıştır.</p>
+
+<p>Bu yazıda JavaScript <code>console</code> nesnesi ile debug işlemlerine dair ufak tefek ipuçları paylaşacağım. Bu basit bi tanıtım olacaktır. Daha derinlemesine bilgi için bahsi geçen yöntemlere göz atmanız daha iyi olacaktır.</p>
+
+<h2 id="assert-lemi">Assert İşlemi</h2>
+
+<p>Bu işlem içim <code>console.assert()</code> kullanmalısınız. <strong>assert()</strong> fonksiyonu mutlaka boolean türünden bir değer almalıdır. Aşağıdaki örnek tam da buna uygundur:</p>
+
+<p><img src="/images/posts/assert_js.png" alt="/images/posts/assert_js.png" /></p>
+
+<h2 id="trace-lemi">Trace İşlemi</h2>
+
+<p>Javascript console’unda log bilgilerini ve bu bilgiler sonucu ortaya çıkan değerleri almak için çokca yöntem mevcuttur. Bunlardan birisi <code>console.trace()</code> olmakta.</p>
+
+<p><img src="/images/posts/trace_js.png" alt="/images/posts/trace_js.png" /></p>
+
+<p>Yukarıdaki işlem size aslında bir adet stack trace döndürecektir.</p>
+
+<h2 id="tablolar">Tablolar</h2>
+
+<p>Evet javascript console’u tablolara da izin vermektedir. Şaşırtıcı gibi ama olmasın :). Bu işlemi <code>console.table()</code> ile yaparız. Tabi bu işlem Object ve array türünden değeri bize sunar. Ayrıca bir de hoş bir tabloyu da önümüze getirir.</p>
+
+<pre><code class="language-js">console.table(
+	[
+		{
+			dil: 'PHP', uzanti: '.php' 
+		}, 
+		{
+			dil: 'Javascript', uzanti: '.js'
+		}
+	]
+)
+</code></pre>
+
+<p><img src="/images/posts/table_js.png" alt="/images/posts/table_js.png" /></p>
+
+<h2 id="log-tutma">Log Tutma</h2>
+
+<p>Javascript ile log mesajları oluşturabilirsiniz. Aslında full stack ya da front-end olun fark etmez mutlaka console’da değer döndürmek zorunda kalmışsınızdır. Çünkü bir alert asla ve asla size direkt bilgileri sunmaz.</p>
+
+<p>Bu açıdan bakarsak console’un bize sunduğu loglar bizim için çok değerlidir. Yeri gelmişken kendi hazırladığım <a href="https://github.com/aligoren/ColorLog.js">ColorLog.js</a> kütüphanesini kullanabilirsiniz. Log mesajlarını renkli olarak alırsınız.</p>
+
+<pre><code class="language-js">console.info("Bilgi Mesajı");
+console.warn("Uyarı Mesajı");
+console.error("Hata Mesajı");
+</code></pre>
+
+<p>Yukarıdaki log fonksiyonları ile işimizi görecek şekilde mesajlar üretebiliriz.</p>
+
+<p><img src="/images/posts/log_js.png" alt="/images/posts/log_js.png" /></p>
+
+<h2 id="timerlar">Timer’lar</h2>
+
+<p>Zaman tutmak bazen önemlidir. Örneğin bir for döngüsünün ne kadar sürede tamamlanacağının bilgisini almak gibi basit bir işlem şöyle gerçekleştirilir.</p>
+
+<pre><code class="language-js">console.time("zamanTut");
+for(i = 0; i &lt; 100; i++) {
+	// işlemler
+}
+console.timeEnd("zamanTut");
+</code></pre>
+
+<p><img src="/images/posts/timer_js.png" alt="/images/posts/timer_js.png" /></p>
+
+<h2 id="monitr-etme">Monitör Etme</h2>
+
+<p>Bazen fonksiyonları izlemek isteyebilirsiniz ya da bazı hareketlerin monitörlenmesini isteyebilirsiniz. O zamanlarda iki tür fonksiyon mevcuttur. İlki;</p>
+
+<p><strong>monitor() Fonksiyonu</strong></p>
+
+<p>Bu fonksiyonla bir başka fonksiyonu izlemeniz mümkündür. Örnek;</p>
+
+<p><img src="/images/posts/monitor_js.png" alt="/images/posts/monitor_js.png" /></p>
+
+<p><strong>monitorEvents() Fonksiyonu</strong></p>
+
+<p>Bu fonksiyonla event’lar monitör edilebilir. Bu event’ları zaten hepimiz biliyoruz. Örneğin bu event’lar arasında click yer alıyor.</p>
+
+<p><img src="/images/posts/monitorEvent_js.png" alt="/images/posts/monitorEvent_js.png" /></p>
+
+<p><b id="f1">Alıntı</b>: Carlos Cuesta <a href="https://carloscuesta.me/blog/debugging-with-the-javascript-console/">↩</a></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/javascript-console-ile-debug-islemleri</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 22 Jan 2017 22:54:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>PHP'de Anonim Fonksiyonlar</title>
                 <link>https://aligoren.com/phpde-anonim-fonksiyonlar-nedir</link>
                 <content:encoded>
