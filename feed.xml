@@ -7,6 +7,32 @@
     <atom:link href="https://aligoren.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>How to Get Current View Name in Ionic Framework</title>
+        <description>&lt;p&gt;Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried &lt;code&gt;document.URL&lt;/code&gt; but it’s not worked.
+Do not use &lt;code&gt;document.URL&lt;/code&gt; or others because you don’t need.&lt;/p&gt;
+
+&lt;p&gt;Ionic’s &lt;code&gt;$state&lt;/code&gt; &lt;strong&gt;(actually angular’s $state)&lt;/strong&gt; has &lt;code&gt;current.name&lt;/code&gt; property.&lt;/p&gt;
+
+&lt;h2 id=&quot;for-example&quot;&gt;For Example:&lt;/h2&gt;
+
+&lt;p&gt;I do not recommend but just example :)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// shopCtrl.js
+
+if($state.current.name == 'intro') {
+	$(&quot;.nav-bar&quot;).css('display', 'none')
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yes! it worked.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Jan 2017 22:54:00 +0300</pubDate>
+        <link>https://aligoren.com/ionic-get-view-name</link>
+        <guid isPermaLink="true">https://aligoren.com/ionic-get-view-name</guid>
+      </item>
+    
+      <item>
         <title>JavaScript Console ile Debug İşlemleri</title>
         <description>&lt;p&gt;Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.&lt;/p&gt;
 
@@ -927,68 +953,6 @@ Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.&
         <pubDate>Sun, 23 Oct 2016 00:41:00 +0300</pubDate>
         <link>https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</link>
         <guid isPermaLink="true">https://aligoren.com/python-ile-ag-uzerinde-izleme-yapma</guid>
-      </item>
-    
-      <item>
-        <title>Asp.Net MVC'De Çoklu Checkbox Kullanımı</title>
-        <description>&lt;p&gt;Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. 
-Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.&lt;/p&gt;
-
-&lt;p&gt;Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID değerleri var. Örnekte şöyle olsun:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;1&quot; /&amp;gt;
-&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;2&quot; /&amp;gt;
-&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;3&quot; /&amp;gt;
-&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;4&quot; /&amp;gt;
-&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;5&quot; /&amp;gt;
-&amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;6&quot; /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bunların bazıları seçili olabilir bazıları olmayabilir. Şimdi ben gelen değerleri veritabanına ekletmek istiyorum.
-Belki başka yöntemleri de vardır bilemem ancak bunun MVC’de basit bir yolu var. Şimdi bu formun basit olarak şöyle post edildiğini düşünelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;form action=&quot;/Home/DegerAl&quot; method=&quot;post&quot;&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;1&quot; /&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;2&quot; /&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;3&quot; /&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;4&quot; /&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;5&quot; /&amp;gt;
-    &amp;lt;input type=&quot;checkbox&quot; name=&quot;degerler&quot; value=&quot;6&quot; /&amp;gt;
-    &amp;lt;input type=&quot;submit&quot; value=&quot;Ekle&quot; /&amp;gt;
-&amp;lt;/form&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki yapıda name karşılığı &lt;mark&gt;degerler&lt;/mark&gt; olan bir input grup görüyoruz. Bu name karşılıklarının aslında bir name array oluşturduğunu söyleyebiliriz.
-Bu array’in adı da &lt;mark&gt;degerler&lt;/mark&gt; array’i olsun. O zaman C# tarafında bu değerleri hangi türden alacağımızı biliyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;[HttpPost]&lt;/code&gt; attribute’unu çağıran method’a gelen argüman tipi array olacak. Basit olarak array tipli değer alan methodların nasıl oluştuğunu hatırlayalım:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;public void DegerAlacak(string[] degerler)
-{
-    //...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Şimdi bu bilgilere göre basit anlamda bir checkbox list’ten gelen verinin nasıl alınacağını görelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;[HttpPost]
-public ActionResult DegerAl(string[] degerler)
-{
-    for (int i = 0; i &amp;lt; degerler.Length; i++)
-    {
-        ViewData[&quot;Degerler&quot;] += degerler[i];
-    }
-    return View();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ben bunları &lt;code&gt;DegerAl&lt;/code&gt; sayfasında yazdırdığım için ViewData içerisine atadım. Dilerseniz parametre alınan noktaya bir breakpoint koyarak gelen değerleri görüntüleyebilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mvc_check.png&quot; alt=&quot;/images/posts/mvc_check.png&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 22 Oct 2016 12:05:00 +0300</pubDate>
-        <link>https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</link>
-        <guid isPermaLink="true">https://aligoren.com/aspnet-mvcde-coklu-checkbox-kullanimi</guid>
       </item>
     
   </channel>

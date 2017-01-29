@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Oyun Gelistirme E-Kitapları İndir &#8211; Ali GÖREN...</title>
+    <title>How to Get Current View Name in Ionic Framework &#8211; Ali GÖREN...</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//cdn.mathjax.org">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+    <meta name="description" content="How to Get Current View Name in Ionic Framework">
     <meta name="robots" content="all">
     <meta name="author" content="Ali GÖREN">
     
-    <meta name="keywords" content="Programlama, E, Kitap">
-    <link rel="canonical" href="https://aligoren.com/oyun-gelistirme-e-kitaplari-indir">
+    <meta name="keywords" content="JavaScript, Programlama, Ionic">
+    <link rel="canonical" href="https://aligoren.com/ionic-get-view-name">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -43,17 +43,17 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="tr_TR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Oyun Gelistirme E-Kitapları İndir">
-    <meta property="og:description" content=".NET, SQL, Python, Açık Kaynak">
-    <meta property="og:url" content="https://aligoren.com/oyun-gelistirme-e-kitaplari-indir">
+    <meta property="og:title" content="How to Get Current View Name in Ionic Framework">
+    <meta property="og:description" content="How to Get Current View Name in Ionic Framework">
+    <meta property="og:url" content="https://aligoren.com/ionic-get-view-name">
     <meta property="og:site_name" content="Ali GÖREN...">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="Oyun Gelistirme E-Kitapları İndir" />
+    <meta name="twitter:title" content="How to Get Current View Name in Ionic Framework" />
     <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/oyun-gelistirme-e-kitaplari-indir" />
+    <meta name="twitter:url" content="https://aligoren.com/ionic-get-view-name" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -203,8 +203,8 @@
 
 
 <div class="post-header mb2">
-  <h1 style="font-size: 1.7rem !important;">Oyun Gelistirme E-Kitapları İndir</h1>
-  <span class="post-meta">Dec 3, 2013</span><br>
+  <h1 style="font-size: 1.7rem !important;">How to Get Current View Name in Ionic Framework</h1>
+  <span class="post-meta">Jan 29, 2017</span><br>
   
   <span class="post-meta small">
   
@@ -214,15 +214,24 @@
 </div>
 
 <article class="post-content">
-  <p>Selam arkadaşlar. Elimde 374 MB civarında bir kitap arşivi var. Arşiv’den çıkartılınca içerik 577 MB falan ediyor. Kitaplar ingilizcedir. Toplam 37 adet kitap bulunmaktadır. Oyun Geliştirme ve Programlama ile ilgilenenler için eşsiz bir kaynak olacağına inaniyorum. Kitap adlarını burada listelemek sadece kayıp olur başka bir şey değil.</p>
+  <p>Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried <code>document.URL</code> but it’s not worked.
+Do not use <code>document.URL</code> or others because you don’t need.</p>
 
-<p>Ekran görüntüsünü atacağım. İlgilenenler indirebilirler. Ama indirmeden önce ekran görüntüsüne bakmanızı da öneririm. Kitaplar yandex disk’te oldugundan dolayı silinme riski yoktur. Bunu her yazıda belirtiyorum ama kusura bakmazsınız umarım. Yandex silmediği müddetçe ben silmeyeceğim. Kısacası herhangi bir sorun olmayacak. Buradan alınan yazıları eğer kendi sitenizde yayınlayacaksanız da kaynak gösterme şansınız var ise sevinirim. Göstermiyorsanız da canınız sağolsun :) İyi çalışmalar.</p>
+<p>Ionic’s <code>$state</code> <strong>(actually angular’s $state)</strong> has <code>current.name</code> property.</p>
 
-<p>İndirme Linki: <a href="http://yadi.sk/d/xOekAzZdAz32U">http://yadi.sk/d/xOekAzZdAz32U</a></p>
+<h2 id="for-example">For Example:</h2>
 
-<p>Ekran Görüntüsü:</p>
+<p>I do not recommend but just example :)</p>
 
-<p><img src="https://3.bp.blogspot.com/-01tak9ECeSo/Ul1KFa4-jgI/AAAAAAAAA5s/9bkh9cJu4G0/s1600/game_development_577mb.PNG" alt="https://3.bp.blogspot.com/-01tak9ECeSo/Ul1KFa4-jgI/AAAAAAAAA5s/9bkh9cJu4G0/s1600/game_development_577mb.PNG" /></p>
+<pre><code class="language-js">// shopCtrl.js
+
+if($state.current.name == 'intro') {
+	$(".nav-bar").css('display', 'none')
+}
+
+</code></pre>
+
+<p>Yes! it worked.</p>
 
 </article>
 
@@ -241,11 +250,11 @@
 
 Kategori:
 
+<a href="kategoriler#JavaScript">JavaScript</a>,
+
 <a href="kategoriler#Programlama">Programlama</a>,
 
-<a href="kategoriler#E">E</a>,
-
-<a href="kategoriler#Kitap">Kitap</a>,
+<a href="kategoriler#Ionic">Ionic</a>,
 
 
 
@@ -254,8 +263,8 @@ Kategori:
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/oyun-gelistirme-e-kitaplari-indir';
-    var disqus_title      = "Oyun Gelistirme E-Kitapları İndir";
+    var disqus_identifier = '/ionic-get-view-name';
+    var disqus_title      = "How to Get Current View Name in Ionic Framework";
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

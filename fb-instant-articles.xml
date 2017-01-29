@@ -9,6 +9,42 @@
     
         
             <item>
+                <title>How to Get Current View Name in Ionic Framework</title>
+                <link>https://aligoren.com/ionic-get-view-name</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried <code>document.URL</code> but it’s not worked.
+Do not use <code>document.URL</code> or others because you don’t need.</p>
+
+<p>Ionic’s <code>$state</code> <strong>(actually angular’s $state)</strong> has <code>current.name</code> property.</p>
+
+<h2 id="for-example">For Example:</h2>
+
+<p>I do not recommend but just example :)</p>
+
+<pre><code class="language-js">// shopCtrl.js
+
+if($state.current.name == 'intro') {
+	$(".nav-bar").css('display', 'none')
+}
+
+</code></pre>
+
+<p>Yes! it worked.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/ionic-get-view-name</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 29 Jan 2017 22:54:00 +0300</pubDate>
+                <author>Ali GÖREN</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>JavaScript Console ile Debug İşlemleri</title>
                 <link>https://aligoren.com/javascript-console-ile-debug-islemleri</link>
                 <content:encoded>
