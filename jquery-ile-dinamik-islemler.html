@@ -1,220 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>jQuery ile Dinamik İşlemler &#8211; Ali GÖREN...</title>
-    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
-    <link rel="dns-prefetch" href="//cdn.mathjax.org">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="jQuery ile Dinamik İşlemler">
-    <meta name="robots" content="all">
-    <meta name="author" content="Ali GÖREN">
-    
-    <meta name="keywords" content="jQuery, JavaScript, Programlama">
-    <link rel="canonical" href="https://aligoren.com/jquery-ile-dinamik-islemler">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Ali GÖREN..." href="/feed.xml" />
+    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+
+    <title>jQuery ile Dinamik İşlemler - Ali GÖREN...</title>
+
+    <link rel="canonical" href="http://localhost:4000/jquery-ile-dinamik-islemler">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201701292333" type="text/css">
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
     <link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet" href="/css/card.css">
 
-    <!-- Fonts -->
-    
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    
-    
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- MathJax -->
-    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <!-- Verifications -->
-    
-      <meta name="google-site-verification" content="qowTsFcWGn7mW7ufRqvcKcyZenktlVf0-nWpqOjaCtc" />
-    
-    
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ali GÖREN..." />
 
-    <!-- Open Graph -->
-    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
-    <meta property="og:locale" content="tr_TR">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="jQuery ile Dinamik İşlemler">
-    <meta property="og:description" content="jQuery ile Dinamik İşlemler">
-    <meta property="og:url" content="https://aligoren.com/jquery-ile-dinamik-islemler">
-    <meta property="og:site_name" content="Ali GÖREN...">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    
-    <meta name="twitter:title" content="jQuery ile Dinamik İşlemler" />
-    <meta name="twitter:description" content=".NET, SQL, Python, Açık Kaynak" />
-    <meta name="twitter:url" content="https://aligoren.com/jquery-ile-dinamik-islemler" />
-
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-
-    
-    <script type="text/javascript">
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-       ga('create', 'UA-74055833-2', 'auto');
-       ga('send', 'pageview');
-    </script>
-    
 </head>
 
-<body class="site">
-  
-	
 
-  <div class="site-wrap">
-    <header class="site-header px2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
-      <a href="https://aligoren.com" class="site-title">Ali GÖREN...</a>
-      <nav class="site-nav">
-        
-    
-    <a href="/fb-instant-articles.xml"></a>
-    
+<body>
 
-    
-    <a href="/feed.xml"></a>
-    
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Ali GÖREN...</a>
+        </div>
 
-    
-    <a href="/hakkimda">Hakkımda</a>
-    
-
-    
-    <a href="/"></a>
-    
-
-    
-
-    
-    <a href="/css/pixyll.css"></a>
-    
-
-    
-    <a href="/page2/"></a>
-    
-
-    
-    <a href="/page3/"></a>
-    
-
-    
-    <a href="/page4/"></a>
-    
-
-    
-    <a href="/page5/"></a>
-    
-
-    
-    <a href="/page6/"></a>
-    
-
-    
-    <a href="/page7/"></a>
-    
-
-    
-    <a href="/page8/"></a>
-    
-
-    
-    <a href="/page9/"></a>
-    
-
-    
-    <a href="/page10/"></a>
-    
-
-
-      </nav>
-      <div class="clearfix"></div>
-      
-        <div class="social-icons">
-  <div class="social-icons-right">
-    
-      <a class="fa fa-github" href="https://github.com/aligoren"></a>
-    
-    
-      <a class="fa fa-bitbucket" href="https://bitbucket.org/aligoren"></a>
-    
-    
-      <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/3821823/ali"></a>
-    
-    <a class="fa fa-rss" href="/feed.xml"></a>
-    
-    
-    
-    
-      <a class="fa fa-google-plus" href="https://plus.google.com/+aligoren/posts"></a>
-    
-    
-      <a class="fa fa-envelope" href="mailto:goren.ali@yandex.com"></a>
-    
-    
-      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/gorenali"></a>
-    
-    
-    
-  </div>
-  <div class="right">
-    
-    
-    
-  </div>
-</div>
-<div class="clearfix"></div>
-
-      
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Anasayfa</a>
+                </li>
+                
+				
+                
+				
+                <li>
+                    <a href="/hakkimda">Hakkımda</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/kategoriler">Kategoriler</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-  </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1 class="yazibasligi">jQuery ile Dinamik İşlemler</h1>
+                    
+                    <!--<span class="meta">Posted by Ali GÖREN... on December 31, 2016</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
 
-    <div class="post p2 p-responsive wrap" role="main">
-      <div class="measure">
-        
-
-
-<div class="post-header mb2">
-  <h1 style="font-size: 1.7rem !important;">jQuery ile Dinamik İşlemler</h1>
-  <span class="post-meta">Dec 31, 2016</span><br>
-  
-  <span class="post-meta small">
-  
-    2 Dakikada Okunabilir
-  
-  </span>
-</div>
-
-<article class="post-content">
-  <p>Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
+				<p>Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
 <a href="http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme">sorudan</a> çıkarıyorum.</p>
 
 <p>Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor.
@@ -303,72 +194,108 @@ Tabii bu işlemde bu sefer değer inputtan gelecek.</p>
   })
 </code></pre>
 
-<h2 id="jsfiddle-zerinde-rnek">JSFiddle Üzerinde Örnek</h2>
+<h2 id="jsfiddle-Üzerinde-Örnek">JSFiddle Üzerinde Örnek</h2>
 
 <script async="" src="//jsfiddle.net/cc6ded5w/1/embed/"></script>
 
 <p>Evet işlem bu kadar.</p>
 
+
+                <hr>
+                
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript">
+                    var disqus_shortname  = 'aligren';
+                    var disqus_identifier = '/jquery-ile-dinamik-islemler';
+                    var disqus_title      = "jQuery ile Dinamik İşlemler";
+
+                    (function() {
+                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  <hr>
+                
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/php-ile-base-url-almak" data-toggle="tooltip" data-placement="top" title="PHP ile Base URL Almak">&larr; Sonraki Yazı</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/disable-html-element-with-javascript" data-toggle="tooltip" data-placement="top" title="Disable or Enable HTML Element with JavaScript">Önceki Yazı &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
 </article>
 
+<hr>
 
 
-
-  <div class="py2 post-footer">
-  <img src="/images/ali.jpg" alt="John Otander" class="avatar" />
-  <p>
-    Bu da böyle bir anımdır işte...
-  </p>
-</div>
-
-
-
-
-Kategori:
-
-<a href="kategoriler#jQuery">jQuery</a>,
-
-<a href="kategoriler#JavaScript">JavaScript</a>,
-
-<a href="kategoriler#Programlama">Programlama</a>,
-
-
-
-
-
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_shortname  = 'aligren';
-    var disqus_identifier = '/jquery-ile-dinamik-islemler';
-    var disqus_title      = "jQuery ile Dinamik İşlemler";
-
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-      </div>
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/aligoren">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:goren.ali@yandex.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy;  2017</p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <footer class="center">
-  <div class="measure">
-    <small>
-      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
-      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
-    </small>
-  </div>
 </footer>
-<script src="/js/prism.js"></script>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+<script src="/js/prism.js "></script>
+
+
+    
 
 
 </body>
+
 </html>
