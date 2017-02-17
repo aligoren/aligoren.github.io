@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-11T14:48:00+03:00</updated><id>http://localhost:4000/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>How to Get Current View Name in Ionic Framework</title><link href="http://localhost:4000/ionic-get-view-name" rel="alternate" type="text/html" title="How to Get Current View Name in Ionic Framework" /><published>2017-01-29T22:54:00+03:00</published><updated>2017-01-29T22:54:00+03:00</updated><id>http://localhost:4000/ionic-get-view-name</id><content type="html" xml:base="http://localhost:4000/ionic-get-view-name">&lt;p&gt;Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried &lt;code&gt;document.URL&lt;/code&gt; but it’s not worked.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="https://aligoren.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aligoren.com/" rel="alternate" type="text/html" /><updated>2017-02-17T22:08:41+03:00</updated><id>https://aligoren.com/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>JavaScript Currency Formatting</title><link href="https://aligoren.com/javascript-currency-formatting" rel="alternate" type="text/html" title="JavaScript Currency Formatting" /><published>2017-02-17T21:00:00+03:00</published><updated>2017-02-17T21:00:00+03:00</updated><id>https://aligoren.com/javascript-currency-formatting</id><content type="html" xml:base="https://aligoren.com/javascript-currency-formatting">&lt;p&gt;Hi. I needed to Turkish currency formatting. I asked stackoverflow community.&lt;/p&gt;
+
+&lt;p&gt;They advice me the Numeral.js library. I think it’s a useful library. I asked myself. Why do I need a library? I didn’t need jQuery or any other library.&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;a href=&quot;https://developer.mozilla.org/tr/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat&quot;&gt;Intl.NumberFormat&lt;/a&gt;. It’s also simple to use.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-we-use&quot;&gt;How we use?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var price = 1500
+var currency_symbol = &quot;₺&quot;
+
+var formattedOutput = new Intl.NumberFormat('tr-TR', {
+    style: 'currency',
+    currency: 'TRY',
+    minimumFractionDigits: 2,
+  });
+  
+return formattedOutput.format(price).replace(currency_symbol, '')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We replaced currency symbol because we needed only price value.&lt;/p&gt;
+
+&lt;h3 id=&quot;options&quot;&gt;Options:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;- style: Formatting type
+- currency: Which country's currency?
+- minimumFractionDigits: Decimal setting
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See jsFiddle for example: &lt;a href=&quot;https://jsfiddle.net/aligoren/qLgw02f0/&quot;&gt;https://jsfiddle.net/aligoren/qLgw02f0/&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Hi. I needed to Turkish currency formatting. I asked stackoverflow community.</summary></entry><entry><title>How to Get Current View Name in Ionic Framework</title><link href="https://aligoren.com/ionic-get-view-name" rel="alternate" type="text/html" title="How to Get Current View Name in Ionic Framework" /><published>2017-01-29T22:54:00+03:00</published><updated>2017-01-29T22:54:00+03:00</updated><id>https://aligoren.com/ionic-get-view-name</id><content type="html" xml:base="https://aligoren.com/ionic-get-view-name">&lt;p&gt;Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried &lt;code&gt;document.URL&lt;/code&gt; but it’s not worked.
 Do not use &lt;code&gt;document.URL&lt;/code&gt; or others because you don’t need.&lt;/p&gt;
 
 &lt;p&gt;Ionic’s &lt;code&gt;$state&lt;/code&gt; &lt;strong&gt;(actually angular’s $state)&lt;/strong&gt; has &lt;code&gt;current.name&lt;/code&gt; property.&lt;/p&gt;
@@ -16,7 +45,7 @@ if($state.current.name == 'intro') {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Yes! it worked.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried document.URL but it’s not worked.
-Do not use document.URL or others because you don’t need.</summary></entry><entry><title>JavaScript Console ile Debug İşlemleri</title><link href="http://localhost:4000/javascript-console-ile-debug-islemleri" rel="alternate" type="text/html" title="JavaScript Console ile Debug İşlemleri" /><published>2017-01-22T22:54:00+03:00</published><updated>2017-01-22T22:54:00+03:00</updated><id>http://localhost:4000/javascript-console-ile-debug-islemleri</id><content type="html" xml:base="http://localhost:4000/javascript-console-ile-debug-islemleri">&lt;p&gt;Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.&lt;/p&gt;
+Do not use document.URL or others because you don’t need.</summary></entry><entry><title>JavaScript Console ile Debug İşlemleri</title><link href="https://aligoren.com/javascript-console-ile-debug-islemleri" rel="alternate" type="text/html" title="JavaScript Console ile Debug İşlemleri" /><published>2017-01-22T22:54:00+03:00</published><updated>2017-01-22T22:54:00+03:00</updated><id>https://aligoren.com/javascript-console-ile-debug-islemleri</id><content type="html" xml:base="https://aligoren.com/javascript-console-ile-debug-islemleri">&lt;p&gt;Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.&lt;/p&gt;
 
 &lt;p&gt;Aslında debug işlemleri, programlamanın vazgeçilmez bir parçasıdır. Çoğu yazılımcı zamanının bir bölümünü bug ve sorunları düzeltmek amacıyla harcamıştır.&lt;/p&gt;
 
@@ -98,7 +127,7 @@ console.timeEnd(&quot;zamanTut&quot;);
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/monitorEvent_js.png&quot; alt=&quot;/images/posts/monitorEvent_js.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;b id=&quot;f1&quot;&gt;Alıntı&lt;/b&gt;: Carlos Cuesta &lt;a href=&quot;https://carloscuesta.me/blog/debugging-with-the-javascript-console/&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.</summary></entry><entry><title>PHP’de Anonim Fonksiyonlar</title><link href="http://localhost:4000/phpde-anonim-fonksiyonlar-nedir" rel="alternate" type="text/html" title="PHP'de Anonim Fonksiyonlar" /><published>2017-01-15T15:10:00+03:00</published><updated>2017-01-15T15:10:00+03:00</updated><id>http://localhost:4000/phpde-anonim-fonksiyonlar-nedir</id><content type="html" xml:base="http://localhost:4000/phpde-anonim-fonksiyonlar-nedir">&lt;p&gt;Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.&lt;/p&gt;
+&lt;p&gt;&lt;b id=&quot;f1&quot;&gt;Alıntı&lt;/b&gt;: Carlos Cuesta &lt;a href=&quot;https://carloscuesta.me/blog/debugging-with-the-javascript-console/&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.</summary></entry><entry><title>PHP’de Anonim Fonksiyonlar</title><link href="https://aligoren.com/phpde-anonim-fonksiyonlar-nedir" rel="alternate" type="text/html" title="PHP'de Anonim Fonksiyonlar" /><published>2017-01-15T15:10:00+03:00</published><updated>2017-01-15T15:10:00+03:00</updated><id>https://aligoren.com/phpde-anonim-fonksiyonlar-nedir</id><content type="html" xml:base="https://aligoren.com/phpde-anonim-fonksiyonlar-nedir">&lt;p&gt;Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.&lt;/p&gt;
 
 &lt;p&gt;Şimdi elimizde bir nesne var diyelim. Bu nesnenin bir instance’ı yani örneğini oluşturdunuz ve 
 bu oluşturulan instance’lara ait methodları kullanarak yeni bir instance oluşturabileceğinizi düşünün daha önce düşündünüz mü bilmiyorum.&lt;/p&gt;
@@ -145,7 +174,7 @@ benim_fonksiyonum(function() {
 
 &lt;p&gt;Readme dosyasını incelerseniz aslında anlattığım şeyin ne gibi noktalarda kullanılabileceğini de anlamış olursunuz. Yazıyı çok uzatmak istemiyorum ancak bu konuda &lt;a href=&quot;http://php.net/manual/tr/class.reflectionmethod.php&quot;&gt;ReflectionMethod&lt;/a&gt; sınıfını iyi incelemenizi öneririm. Bu sayede direkt olarak closure kullanımını da deneyimlemiş olursunuz.&lt;/p&gt;
 
-&lt;p&gt;Umarım faydalı olmuştur.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.</summary></entry><entry><title>Disable or Enable HTML Element with JavaScript</title><link href="http://localhost:4000/disable-html-element-with-javascript" rel="alternate" type="text/html" title="Disable or Enable HTML Element with JavaScript" /><published>2017-01-08T15:10:00+03:00</published><updated>2017-01-08T15:10:00+03:00</updated><id>http://localhost:4000/disable-html-element-with-javascript</id><content type="html" xml:base="http://localhost:4000/disable-html-element-with-javascript">&lt;p&gt;Hi. I needed to make the HTML elements enabled or disable.&lt;/p&gt;
+&lt;p&gt;Umarım faydalı olmuştur.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.</summary></entry><entry><title>Disable or Enable HTML Element with JavaScript</title><link href="https://aligoren.com/disable-html-element-with-javascript" rel="alternate" type="text/html" title="Disable or Enable HTML Element with JavaScript" /><published>2017-01-08T15:10:00+03:00</published><updated>2017-01-08T15:10:00+03:00</updated><id>https://aligoren.com/disable-html-element-with-javascript</id><content type="html" xml:base="https://aligoren.com/disable-html-element-with-javascript">&lt;p&gt;Hi. I needed to make the HTML elements enabled or disable.&lt;/p&gt;
 
 &lt;p&gt;When I try with VanillaJS I wrote this code:&lt;/p&gt;
 
@@ -200,7 +229,7 @@ benim_fonksiyonum(function() {
 &amp;lt;/body&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;See Example &lt;a href=&quot;https://jsfiddle.net/aligoren/6nby94kj/&quot;&gt;https://jsfiddle.net/aligoren/6nby94kj/&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Hi. I needed to make the HTML elements enabled or disable.</summary></entry><entry><title>jQuery ile Dinamik İşlemler</title><link href="http://localhost:4000/jquery-ile-dinamik-islemler" rel="alternate" type="text/html" title="jQuery ile Dinamik İşlemler" /><published>2016-12-31T15:50:00+03:00</published><updated>2016-12-31T15:50:00+03:00</updated><id>http://localhost:4000/jquery-ile-dinamik-islemler</id><content type="html" xml:base="http://localhost:4000/jquery-ile-dinamik-islemler">&lt;p&gt;Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
+&lt;p&gt;See Example &lt;a href=&quot;https://jsfiddle.net/aligoren/6nby94kj/&quot;&gt;https://jsfiddle.net/aligoren/6nby94kj/&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Hi. I needed to make the HTML elements enabled or disable.</summary></entry><entry><title>jQuery ile Dinamik İşlemler</title><link href="https://aligoren.com/jquery-ile-dinamik-islemler" rel="alternate" type="text/html" title="jQuery ile Dinamik İşlemler" /><published>2016-12-31T15:50:00+03:00</published><updated>2016-12-31T15:50:00+03:00</updated><id>https://aligoren.com/jquery-ile-dinamik-islemler</id><content type="html" xml:base="https://aligoren.com/jquery-ile-dinamik-islemler">&lt;p&gt;Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
 &lt;a href=&quot;http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme&quot;&gt;sorudan&lt;/a&gt; çıkarıyorum.&lt;/p&gt;
 
 &lt;p&gt;Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor.
@@ -294,7 +323,7 @@ Tabii bu işlemde bu sefer değer inputtan gelecek.&lt;/p&gt;
 &lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/cc6ded5w/1/embed/&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;Evet işlem bu kadar.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir 
-sorudan çıkarıyorum.</summary></entry><entry><title>PHP ile Base URL Almak</title><link href="http://localhost:4000/php-ile-base-url-almak" rel="alternate" type="text/html" title="PHP ile Base URL Almak" /><published>2016-12-31T15:50:00+03:00</published><updated>2016-12-31T15:50:00+03:00</updated><id>http://localhost:4000/php-ile-base-url-almak</id><content type="html" xml:base="http://localhost:4000/php-ile-base-url-almak">&lt;p&gt;Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.&lt;/p&gt;
+sorudan çıkarıyorum.</summary></entry><entry><title>PHP ile Base URL Almak</title><link href="https://aligoren.com/php-ile-base-url-almak" rel="alternate" type="text/html" title="PHP ile Base URL Almak" /><published>2016-12-31T15:50:00+03:00</published><updated>2016-12-31T15:50:00+03:00</updated><id>https://aligoren.com/php-ile-base-url-almak</id><content type="html" xml:base="https://aligoren.com/php-ile-base-url-almak">&lt;p&gt;Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.&lt;/p&gt;
 
 &lt;p&gt;Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk &lt;a href=&quot;http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858&quot;&gt;geldikten&lt;/a&gt; sonra oturup kodunu kendim yazmalıyım dedim.&lt;/p&gt;
 
@@ -379,7 +408,7 @@ $h = new Home();
 &amp;lt;a href=&quot;&amp;lt;?=$h-&amp;gt;get['base_url']?&amp;gt;&quot;&amp;gt;Base&amp;lt;/a&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı - 2</title><link href="http://localhost:4000/atistirmalik-mongodb-yazisi-2" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı - 2" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>http://localhost:4000/atistirmalik-mongodb-yazisi-2</id><content type="html" xml:base="http://localhost:4000/atistirmalik-mongodb-yazisi-2">&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;https://aligoren.com/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı.
+&lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı - 2</title><link href="https://aligoren.com/atistirmalik-mongodb-yazisi-2" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı - 2" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>https://aligoren.com/atistirmalik-mongodb-yazisi-2</id><content type="html" xml:base="https://aligoren.com/atistirmalik-mongodb-yazisi-2">&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;https://aligoren.com/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı.
 Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mongo.png&quot; alt=&quot;/images/posts/mongo.png&quot; /&gt;&lt;/p&gt;
@@ -532,7 +561,7 @@ Burada aslında &lt;strong&gt;remove()&lt;/strong&gt; metodundaki toplu silmenin
 &lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/update-documents/#update&quot;&gt;Update İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods&quot;&gt;Delete İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam bu yazı bir önceki Atıştırmalık MongoDB Yazısı‘nın devamı niteliğinde bir yazı.
-Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı</title><link href="http://localhost:4000/atistirmalik-mongodb-yazisi" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>http://localhost:4000/atistirmalik-mongodb-yazisi</id><content type="html" xml:base="http://localhost:4000/atistirmalik-mongodb-yazisi">&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
+Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı</title><link href="https://aligoren.com/atistirmalik-mongodb-yazisi" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>https://aligoren.com/atistirmalik-mongodb-yazisi</id><content type="html" xml:base="https://aligoren.com/atistirmalik-mongodb-yazisi">&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
 Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;[NOT]&lt;/strong&gt;: Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)&lt;/p&gt;
@@ -726,7 +755,7 @@ Klasik bir array access işleminden fazlası değil yani.&lt;/p&gt;
 
 &lt;p&gt;Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız 
 &lt;a href=&quot;https://docs.mongodb.com/manual/crud/&quot;&gt;MongoDB Manual&lt;/a&gt; sizin için iyi bir yol gösterici olacaktır.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
-Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</summary></entry><entry><title>MongoDB Data Directory Not Found Hatası</title><link href="http://localhost:4000/mongodb-data-directory-not-found" rel="alternate" type="text/html" title="MongoDB Data Directory Not Found Hatası" /><published>2016-11-30T23:30:00+03:00</published><updated>2016-11-30T23:30:00+03:00</updated><id>http://localhost:4000/mongodb-data-directory-not-found</id><content type="html" xml:base="http://localhost:4000/mongodb-data-directory-not-found">&lt;p&gt;Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:&lt;/p&gt;
+Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</summary></entry><entry><title>MongoDB Data Directory Not Found Hatası</title><link href="https://aligoren.com/mongodb-data-directory-not-found" rel="alternate" type="text/html" title="MongoDB Data Directory Not Found Hatası" /><published>2016-11-30T23:30:00+03:00</published><updated>2016-11-30T23:30:00+03:00</updated><id>https://aligoren.com/mongodb-data-directory-not-found</id><content type="html" xml:base="https://aligoren.com/mongodb-data-directory-not-found">&lt;p&gt;Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;&quot;Data directory C:\data\db\ not found., terminating&quot;
 &lt;/code&gt;&lt;/pre&gt;
@@ -744,122 +773,4 @@ Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB n
 &lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;mongod --dbpath &quot;C:\Program Files\MongoDB\Server\3.4\data\db&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Artık mongodb başarılı bir şekilde çalışacaktır.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:</summary></entry><entry><title>Python ile Ağ Üzerinde İzleme Yapma</title><link href="http://localhost:4000/python-ile-ag-uzerinde-izleme-yapma" rel="alternate" type="text/html" title="Python ile Ağ Üzerinde İzleme Yapma" /><published>2016-10-23T00:41:00+03:00</published><updated>2016-10-23T00:41:00+03:00</updated><id>http://localhost:4000/python-ile-ag-uzerinde-izleme-yapma</id><content type="html" xml:base="http://localhost:4000/python-ile-ag-uzerinde-izleme-yapma">&lt;p&gt;Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam.
-Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi &lt;code&gt;scapy&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Teknik detaylara giriş yapmadan önce açıklamak gerekirse scapy, network tarafında özelleştirilmiş paketler üretmeye yarayan bir kütüphane.&lt;/p&gt;
-
-&lt;p&gt;Kendisi açık kaynak kodlu bir yazılımdır. Scapy’nin diğerlerine göre farkı genişletilebilir oluşunda.
-Diğerleri demişken bunlardan benim bildikleri nmap ve hping var. İlla ki görmüşsünüzdür.&lt;/p&gt;
-
-&lt;p&gt;Ayrıca scapy interactive olarak ya da development kısmında da çalışabilir.
-Yani dilerseniz interactive shell ile çalışabilir ya da projenizde kütüphaneyi çağırabilirsiniz.&lt;/p&gt;
-
-&lt;h2 id=&quot;scapy-ve-scapy-http-kurulumu&quot;&gt;scapy ve scapy-http Kurulumu&lt;/h2&gt;
-
-&lt;p&gt;Çok uzatmayalım. Ben işlemleri linux dağıtımı üzerinde gerçekleştirdim. Kurulum iki aşamadan oluşuyor.
-Dağıtımınızda pip olduğunu varsayarak şu işlemleri gerçekleştirelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;sudo apt-get install python-scapy
-sudo pip install scapy_http
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kurulum bu kadar Burada &lt;code&gt;scapy_http&lt;/code&gt; adında bir kütüphane kullandık.
-Kütüphane yazarı &lt;a href=&quot;http://www.lucainvernizzi.net&quot;&gt;Luca Invernizzi&lt;/a&gt; isimli abimizdir.&lt;/p&gt;
-
-&lt;h2 id=&quot;scapy-ile-ağ-trafiğinin-İzlenmesi&quot;&gt;scapy ile Ağ Trafiğinin İzlenmesi&lt;/h2&gt;
-
-&lt;p&gt;Yazı iki kısımdan oluşacak. Bu bir adresi kim yani hangi IP ziyaret ediyor ona bakacağız.&lt;/p&gt;
-
-&lt;p&gt;Öncelikle scapy ve scapy_http kütüphanesini dahil edelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from scapy.all import IP, sniff
-from scapy.layers import http
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Şimdi gelen değerleri sniffleyeceğimiz bir metod yazalım.
-Bu methoddan dönen değerlere göre sniffing işlemi yapacağız.&lt;/p&gt;
-
-&lt;p&gt;Bu metodda TCP paketlerini ayıklayacağız.
-Ayıklama işlemi esnasında herhangi bir şekilde HTTP isteğine denk gelirsek ekrana yazdıracağız.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def tcp_ayikla(paket):
-    if not paket.haslayer(http.HTTPRequest):
-        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
-        return
-    
-    #http katmanından geçen istekler
-    http_katmani = paket.getlayer(http.HTTPRequest)
-
-    # IP adresi içeren katman
-    ip_katmani = paket.getlayer(IP)
-    print '\n{0[src]} IP adresinden {1[Method]} {1[Host]}{1[Path]} sitesine ziyaret'.format(ip_katmani.fields, http_katmani.fields)
-
-# Ağ üzerinde dinleme işlemine başlıyoruz:
-sniff(filter='tcp', prn=tcp_ayikla)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Çıktı olarak şöyle görüntüleriz:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/posts/sniff_url.PNG&quot; alt=&quot;images/posts/sniff_url.PNG&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Buraya kadar olan kısım şu &lt;a href=&quot;http://www.lucainvernizzi.net/blog/2015/02/12/extracting-urls-from-network-traffic-in-just-9-python-lines-with-scapy-http/&quot;&gt;bağlantı&lt;/a&gt; üzerinden alıntılandı&lt;/p&gt;
-
-&lt;h2 id=&quot;scapy-ile-post-verilerinin-alınması&quot;&gt;scapy ile POST Verilerinin Alınması&lt;/h2&gt;
-
-&lt;p&gt;Gelelim zurna mıdır nedir onun şey dediği yere.
-Ağ üzerinde herkesin merak ettiği bir diğer konu da internet sitelerine girişte parolaların alınıp alınamayacağıdır.&lt;/p&gt;
-
-&lt;p&gt;Yukarıdaki yapıya aşırı benzer bir şekilde POST değerlerini alabilirsiniz.
-Bu işlem SSL olan sistemlerde işe yaramıyor. Bunu belirtmem gerekir.
-Eğer SSL konusunda merakınız varsa tintinweb &lt;a href=&quot;https://github.com/tintinweb/scapy-ssl_tls&quot;&gt;reposuna&lt;/a&gt; bakmalısınız.&lt;/p&gt;
-
-&lt;p&gt;Post edilen verileri saf haliyla görebilmemizi sağlayan kodun temeli yukarıdaki ile aynı.
-Geri kalan kısım biraz programlama becerisi istiyor olay o kadar yani.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from scapy.all import IP, sniff
-from scapy.layers import http
- 
- 
-def tcp_ayikla(paket):
-    if not paket.haslayer(http.HTTPRequest):
-        # Eğer paket herhangi bir HTTP isteği almıyorsa burayı atlayalım:
-        return
-    http_katmani = paket.getlayer(http.HTTPRequest)
-    try:
-        # Gelen istek POST mu?
-        if str(http_katmani.fields[&quot;Method&quot;]) == &quot;POST&quot;:
-            
-            # Öyle ise dönen değeri böl ve bölünen değerin 13.sünü al
-            # 13. değer form değerlerinin geldiği kısım oluyor
-            data = str(http_katmani).split('\n')[13]
-            # Form değerleri birleşikti bildiğiniz GET query gibi
-            # Önce ampersand kaldırılıp, alt satıra geçme sağlandı
-            #   txtUserName=Falan
-            #   txtPassword=FalanPasswd
-            # Ardından Gelen değerdeki %40, yerini @ ifadesine bıraktı.
-            # Mail için önemli :)
-            data = data.replace('&amp;amp;', '\n').replace('%40', '@')
-            return data
-    except:
-        pass
- 
-# Ağ üzerinde dinleme işlemine başlıyoruz:
-sniff(filter='tcp', prn=tcp_ayikla)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bu ikinci kodun sonrasında çalıştırdığımızda aşağıdaki gibi bir çıktı ile karşılaşacağız.
-Dikkat ettiyseniz formda bulunan inputların name’leri ve value’ları bu ekranda görüntülenebilmekte&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;txt_username=16612261
-txt_password=cH10k1997GuVenL
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki kullanıcı adı ve parola saf haliyle karşımıza sunulmakta.
-Parola her ne kadar ben güvenliyim imajı verse de izlemek pek de zor olmuyor.&lt;/p&gt;
-
-&lt;p&gt;Bu işlemi bir üniversitenin Öğrenci Bilgi Sistemi üzerinde gerçekleştirdim. Umarım problem olmaz :)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/posts/post_sniffing.png&quot; alt=&quot;images/posts/post_sniffing.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sanırım bir anlatımın daha sonuna geldik. Özetle: SSL kullanın&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam.
-Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi scapy</summary></entry></feed>
+&lt;p&gt;Artık mongodb başarılı bir şekilde çalışacaktır.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:</summary></entry></feed>

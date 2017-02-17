@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
 
-    <title>Ali GÖREN...</title>
+    <title>JavaScript Currency Formatting - Ali GÖREN...</title>
 
-    <link rel="canonical" href="https://aligoren.com/page4/">
+    <link rel="canonical" href="https://aligoren.com/javascript-currency-formatting">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -84,96 +84,89 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1 class="yazibasligi">Ali GÖREN...</h1>
-                    <hr class="small">
-                    <span class="subheading">.NET, SQL, Python, Açık Kaynak</span>
+                <div class="post-heading">
+                    <h1 class="yazibasligi">JavaScript Currency Formatting</h1>
+                    
+                    <!--<span class="meta">Posted by Ali GÖREN... on February 17, 2017</span>-->
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/turk-telekom-superonline-rezaleti">
-        <h2 class="post-title anasayfayazibasligi">            Türk Telekom ve Superonline Rezaleti
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on October 8, 2016</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
 
-<div class="post-preview">
-    <a href="/sqlde-inner-join-islemleri">
-        <h2 class="post-title anasayfayazibasligi">            SQL'de Inner Join İşlemleri
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on October 7, 2016</p>
-</div>
-<hr>
+				<p>Hi. I needed to Turkish currency formatting. I asked stackoverflow community.</p>
 
-<div class="post-preview">
-    <a href="/mssqlde-stored-procedure-kullanimi">
-        <h2 class="post-title anasayfayazibasligi">            MSSQL'de Stored Procedure Kullanımı
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on October 3, 2016</p>
-</div>
-<hr>
+<p>They advice me the Numeral.js library. I think it’s a useful library. I asked myself. Why do I need a library? I didn’t need jQuery or any other library.</p>
 
-<div class="post-preview">
-    <a href="/sql-serverda-proceduree-getdate-yollamak">
-        <h2 class="post-title anasayfayazibasligi">            SQL Server'da Procedure'e GETDATE() Yollamak
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on October 3, 2016</p>
-</div>
-<hr>
+<p>We can use <a href="https://developer.mozilla.org/tr/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat">Intl.NumberFormat</a>. It’s also simple to use.</p>
 
-<div class="post-preview">
-    <a href="/sql-serverda-filtreli-arama-gerceklestirme">
-        <h2 class="post-title anasayfayazibasligi">            SQL Server'da Filtreli Arama Gerceklestirme
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on August 3, 2016</p>
-</div>
-<hr>
+<h2 id="how-we-use">How we use?</h2>
+
+<pre><code class="language-js">var price = 1500
+var currency_symbol = "₺"
+
+var formattedOutput = new Intl.NumberFormat('tr-TR', {
+    style: 'currency',
+    currency: 'TRY',
+    minimumFractionDigits: 2,
+  });
+  
+return formattedOutput.format(price).replace(currency_symbol, '')
+</code></pre>
+
+<p>We replaced currency symbol because we needed only price value.</p>
+
+<h3 id="options">Options:</h3>
+
+<pre><code>- style: Formatting type
+- currency: Which country's currency?
+- minimumFractionDigits: Decimal setting
+</code></pre>
+
+<p>See jsFiddle for example: <a href="https://jsfiddle.net/aligoren/qLgw02f0/">https://jsfiddle.net/aligoren/qLgw02f0/</a></p>
 
 
-<!-- Pager -->
+                <hr>
+                
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript">
+                    var disqus_shortname  = 'aligren';
+                    var disqus_identifier = '/javascript-currency-formatting';
+                    var disqus_title      = "JavaScript Currency Formatting";
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page3">&larr; Yeni Yazılar</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page5">Eski Yazılar &rarr;</a>
-    </li>
-    
-</ul>
+                    (function() {
+                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  <hr>
+                
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/ionic-get-view-name" data-toggle="tooltip" data-placement="top" title="How to Get Current View Name in Ionic Framework">&larr; Sonraki Yazı</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
