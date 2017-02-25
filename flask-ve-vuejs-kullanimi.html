@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
 
-    <title>Jekyll ile PrismJS Kullanmak - Ali GÖREN...</title>
+    <title>Flask ve VueJS Kullanımı - Ali GÖREN...</title>
 
-    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/jekyll-ile-prismjs-kullanmak">
+    <link rel="canonical" href="https://aligoren.comhttps://aligoren.com/flask-ve-vuejs-kullanimi">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://aligoren.com/css/bootstrap.min.css">
@@ -90,9 +90,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1 class="yazibasligi">Jekyll ile PrismJS Kullanmak</h1>
+                    <h1 class="yazibasligi">Flask ve VueJS Kullanımı</h1>
                     
-                    <!--<span class="meta">Posted by Ali GÖREN... on October 15, 2016</span>-->
+                    <!--<span class="meta">Posted by Ali GÖREN... on February 26, 2017</span>-->
                 </div>
             </div>
         </div>
@@ -105,59 +105,22 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
 
-				<p>Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.</p>
+				<p>Selamlar. Flask framework ile birlikte basit bi uygulamayı içeren video serisi çekiyorum. Bu video serisini çekerken bi sorunla karşılaştım.</p>
 
-<p>Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak jekyll ile birlikte <a href="http://rouge.jneen.net/">Route</a> varsayılan olarak geldiği için pek de arayışa geçmeyiz. Fakat benim gibi görselliği de seviyorsanız mutlaka farklı alternatifleri de düşünürsünüz ki bunlardan birisi de <a href="http://pygments.org/">Pygments</a> oluyor. Tabi bunu da beğenmiyor olmanız pekala normal karşılanabilir.</p>
+<p>VueJS içinde yer alan template sisteminde, print işlemi bilindiği üzere çift süslü parantez ile yapılıyordu.
+Ancak aynı şekilde sistem Jinja2 template sisteminde de kullanılıyordu.</p>
 
-<p>Ben özellikle son dönemde en popüler kod renklandiricilerden olan PrismJS kullanmayı uygun gördüm. Bu yazıda ve diğer yazılarda etkisini göreceksiniz. Çok uzatmadan nasıl kurulacağını anlatayım. Şimdi bu işlem 3 adımdan oluşmakta.</p>
+<p>Bizim bu canavar Flask ve canavar VueJS’in de haliyle kafası karışıyordu. Aslında kafası karışan Jinja2 idi. Neyse çözümü basit.</p>
 
-<ul>
-  <li>İlk Adım: Rouge’un devre dışı bırakılması</li>
-  <li>İkinci Adım PrismJS’in İndirilmesi</li>
-  <li>Üçüncü Adım İlgili Kütüphanelerin head ve footer’a eklenmesi</li>
-</ul>
+<p>VueJS kodlarınızı, Jinja2 içinde kullanmak isterseniz raw tagleri arasında kullanmanız yetecektir.</p>
 
-<p><strong>1-)</strong> Şimdi öncelikle bize lazım olan şey Rouge’un devre dışı kalması dedik. <code>_config.yml</code> dosyasına geçelim. Burada yapmamız gereken şey öncelikle <code>highlighter: none</code> demeliyiz.</p>
+<script src="https://gist.github.com/aligoren/f31ede41b6fb840b602157c58a4f0bc1.js"></script>
 
-<p>Daha sonra <code>kramdown</code> için alt seçeneklere bazı eklemeler gerçekleştirmeliyiz. Bu işleme göre syntax highlighter disable olmalı. Kısacası ilgili bölümler aşağıdaki gibi olmalı:</p>
+<h2 id="bonus-flask-ve-vuejs-videosu">Bonus Flask ve VueJS Videosu:</h2>
 
-<pre><code class="language-yaml">highlighter: none
-markdown: kramdown
-kramdown:
-    syntax_highlighter_opts:
-        disable: true
-</code></pre>
+<p>Çekmiş olduğum videoya buradan bakabilirsiniz</p>
 
-<p><strong>2-)</strong> İlk adımı atlattık şimdi geldi ikinci adıma. İkinci adımda PrismJS’yi <a href="http://prismjs.com/">http://prismjs.com/</a> adresinden indirelim. Bu indirme ile birlikte iki dosya karşınıza gelecektir.Birisi JS bir diğeri de CSS dosyası.</p>
-
-<p>Ben PrismJS’i özelleştirerek indirmenizi öneriyorum. Syntax highlighter için default tema aslında gayet iyi ama siz dilerseniz farklı temaları da seçebilirsiniz. Blogunuzda hangi dillerde yayın yapıyorsanız (Programlama dilleri) o dilleri seçin öncelikle. Ben hepsini seçmedim ama bazı deneyip bir şeyler aktaracağım dillere dair seçimler gerçekleştirdim.</p>
-
-<p>Dil seçimi tamamlandı. Artık seçmemiz gereken bir diğer şey ise plugin yani eklentiler. Bunlar inanın PrismJS’i daha güzel bir şekilde kullanmanıza da imkan tanıyan eklentiler. Benim önerilerim şunlar:</p>
-
-<p><strong>Line Numbers:</strong> Satır numaralarını gösterir.</p>
-
-<p><strong>Autolinker:</strong> Kodlarda yer alan yorum satırlarında link varsa tıklanabilir hale getirir</p>
-
-<p><strong>Show Language:</strong> Eklenen kodun hangi dilde eklendiğini sağ üst köşede gösterir. Bu yazıdaki <code>YAML</code> örneğinde olduğu gibi</p>
-
-<p><strong>3-)</strong> Son adıma geldik. Bu adımda indirilen dosyaları klasörlere atma zamanı. <code>css</code> zaten hazır olduğu için <code>prism.css</code> dosyasını o klasöre atın. Eğer <code>js</code> klasörü yoksa oluşturun ve <code>prism.js</code> dosyasını da o klasöre atın.</p>
-
-<p>Şimdi gelelim son adımlara. Öncelikle <mark>head.html</mark> dosyasını açalım. Ya da artık header görevini neresi görüyorsa orası. O kısma şu kodu yapıştıralım:</p>
-
-<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/css/prism.css"&gt;
-</code></pre>
-
-<p><em>Not: href içinde süslü parantezler vardır:</em></p>
-
-<pre><code class="language-json">{{ "/css/prism.css" | prepend: site.baseurl }}
-</code></pre>
-
-<p>Bu işlem bittikten sonra da artık son bir işimiz kalıyor. <mark>footer.html</mark> dosyasını açıp şu kodu yapıştıralım:</p>
-
-<pre><code class="language-html">&lt;link rel="stylesheet" href="https://aligoren.com/js/prism.js"&gt;
-</code></pre>
-
-<p>Yine yukarıdaki uyarı aynı bu kısımda da geçerlidir. Dikkate almanızı öneririm. Evet işlemler bu kadar :) Artık PrismJS hazır durumda.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CcvShkRLbMo?ecver=1" frameborder="0" allowfullscreen=""></iframe>
 
 
                 <hr>
@@ -165,8 +128,8 @@ kramdown:
                   <div id="disqus_thread"></div>
                   <script type="text/javascript">
                     var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/jekyll-ile-prismjs-kullanmak';
-                    var disqus_title      = "Jekyll ile PrismJS Kullanmak";
+                    var disqus_identifier = '/flask-ve-vuejs-kullanimi';
+                    var disqus_title      = "Flask ve VueJS Kullanımı";
 
                     (function() {
                       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -180,13 +143,9 @@ kramdown:
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="https:/aligoren.com/bugun-ogrendiklerim" data-toggle="tooltip" data-placement="top" title="Bugün Öğrendiklerim - Git">&larr; Sonraki Yazı</a>
+                        <a href="https:/aligoren.com/javascript-currency-formatting" data-toggle="tooltip" data-placement="top" title="JavaScript Currency Formatting">&larr; Sonraki Yazı</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="https:/aligoren.com/jekyll-github-badge-eklentisi" data-toggle="tooltip" data-placement="top" title="Jekyll Github Badge Eklentisi">Önceki Yazı &rarr;</a>
-                    </li>
                     
                 </ul>
 
