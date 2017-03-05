@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
 
-    <title>Flask ve VueJS Kullanımı - Ali GÖREN...</title>
+    <title>jQuery ile Tabloda Arama Yapmak - Ali GÖREN...</title>
 
-    <link rel="canonical" href="https://aligoren.com/flask-ve-vuejs-kullanimi">
+    <link rel="canonical" href="https://aligoren.com/jquery-ile-tabloda-arama-yapmak">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,9 +90,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1 class="yazibasligi">Flask ve VueJS Kullanımı</h1>
+                    <h1 class="yazibasligi">jQuery ile Tabloda Arama Yapmak</h1>
                     
-                    <!--<span class="meta">Posted by Ali GÖREN... on February 26, 2017</span>-->
+                    <!--<span class="meta">Posted by Ali GÖREN... on March 5, 2017</span>-->
                 </div>
             </div>
         </div>
@@ -105,22 +105,102 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
 
-				<p>Selamlar. Flask framework ile birlikte basit bi uygulamayı içeren video serisi çekiyorum. Bu video serisini çekerken bi sorunla karşılaştım.</p>
+				<p>Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. <a href="https://datatables.net/">jQuery Datatables</a> eklentisi muazzam iş gören bir eklenti.</p>
 
-<p>VueJS içinde yer alan template sisteminde, print işlemi bilindiği üzere çift süslü parantez ile yapılıyordu.
-Ancak aynı şekilde sistem Jinja2 template sisteminde de kullanılıyordu.</p>
+<p><img src="/images/posts/ridvan.jpg" alt="/images/posts/ridvan.jpg" />
+<em>Çizerken baya zorlandım</em></p>
 
-<p>Bizim bu canavar Flask ve canavar VueJS’in de haliyle kafası karışıyordu. Aslında kafası karışan Jinja2 idi. Neyse çözümü basit.</p>
+<p>Ancak bazı durumlarda gerekmeyebilir. Bu gibi durumlarda gereksiz eklenti kullanımı performansa da etki ediyor haliyle. Elimizde basit olarak bir tablo yapısının olduğunu varsayalım. Tabi arama kutumuz da o basit yapının içinde olsun :)</p>
 
-<p>VueJS kodlarınızı, Jinja2 içinde kullanmak isterseniz raw tagleri arasında kullanmanız yetecektir.</p>
+<pre><code class="language-html">&lt;input type="text" class="search" placeholder="Ürün Arama..."&gt;
+    &lt;span class="counter"&gt;&lt;/span&gt;
+    &lt;table class="results" cellspacing="0" width="100%"&gt;
+        &lt;thead&gt;
+            &lt;tr class="active"&gt;
+                &lt;th&gt;Ürün Adı&lt;/th&gt;
+                &lt;th&gt;Miktar&lt;/th&gt;
+                &lt;th&gt;Birim Fiyat&lt;/th&gt;
+                &lt;th&gt;Tutar&lt;/th&gt;
+                &lt;th&gt;Personel&lt;/th&gt;
+                &lt;th&gt;İşlemler&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Patates&lt;/td&gt;
+                &lt;td&gt;10&lt;/td&gt;
+                &lt;td&gt;15&lt;/td&gt;
+                &lt;td&gt;150&lt;/td&gt;
+                &lt;td&gt;Ali&lt;/td&gt;
+                &lt;td&gt;Sat&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;!-- Buralar eskiden TR'likti --&gt;
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr class="warning no-result" style="display:none;"&gt;
+                &lt;td colspan="8"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt; Bulunamadı&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+</code></pre>
 
-<script src="https://gist.github.com/aligoren/f31ede41b6fb840b602157c58a4f0bc1.js"></script>
+<p>Senaryo bize der ki kardeşim, ben inputu her çağırdığımda sen tablodaki satırlar arasında arama gerçekleştir. Spesifik bir cell de belirtebilirdik ancak tüm cell’leri gezmesini düşünüyoruz. DataTables öyle çalışıyor çünkü.</p>
 
-<h2 id="bonus-flask-ve-vuejs-videosu">Bonus Flask ve VueJS Videosu:</h2>
+<p>Yukarıda <code>search</code> class’ına sahip inputu yakalayıp, keyup event’ini kontrol etmemiz gerekiyor. Bu kontrol gerçekleşirken de inputtaki değeri de almalıyız. Tabi bulunanların sayısını tutacağımız bir değişkene de ihtiyacımız var.</p>
 
-<p>Çekmiş olduğum videoya buradan bakabilirsiniz</p>
+<pre><code class="language-js">
+$(".search").keyup(function() {
+    var searchTerm = $(".search").val();
+    var bulunan = 0
+    //...
+})
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CcvShkRLbMo?ecver=1" frameborder="0" allowfullscreen=""></iframe>
+</code></pre>
+
+<p>Buraya kadar her şey basit bir select işlemi. Bundan sonrasında ise tabloda kontrolü sağlamalıyız.</p>
+
+<p>Eğer tablonuz herhangi bir şekilde <code>thead</code> ya da <code>tfoot</code> elementlerine sahip değilse direkt tablodaki tr elementlerini yakalayabilirsiniz.</p>
+
+<p>Ama benim gibi tablonun gerçek kısmı olan tbody kısmıyla çalışıyorsanız mutlaka bunu belirtmelisiniz.</p>
+
+<p>Tabloda kontrolü her tr elemanını tbody altında arayacak şekilde gerçekleştirmeliyiz. Yani tbody altındaki her tr’yi gezeceğiz. Ayrıca tabi tablonun aramasını yaptığımız kısmını da bir değişkene atayalım ki her defasında <code>$(this)</code> yazmaktan kurtulalım :)</p>
+
+<pre><code class="language-js">$('.results tbody tr').each(function(e) {
+    var table = $(this)
+    //...
+})
+</code></pre>
+
+<p>Tamam şimdi kalıyor tek bir kısım. Bu son kısımda gezilen satırın text’ini alıyoruz ve <code>toLowerCase()</code> metodunu kullanarak satırdaki tüm textleri küçültürüyoruz.</p>
+
+<p>Ardından da <strong>ES6</strong> ile gelen <code>includes()</code> metodunu kullanarak searchTerm’deki değeri içerip içermediğini kontrol ediyoruz. Burada searchTerm ise bizim inputtan gelen değer.</p>
+
+<pre><code class="language-js">if (table.text().toLowerCase().includes(searchTerm.toLowerCase())) {
+    bulunan += 1
+    table.show()
+    $(".counter").text(bulunan + " kayıt bulundu")
+    $(".no-result").css('display', 'none')
+} else {
+    table.hide()
+    $(".counter").text(bulunan + " kayıt bulundu")
+    if (bulunan == 0) {
+        $(".no-result").css('display', '')
+    }
+}
+</code></pre>
+
+<p>Yukarıda eğer gezilen satırda, aranan değere dair bir şeyler yer alıyorsa gezilen satırı aktif et diyoruz. Bu cümle bize, diğer satırların kaybolacağı anlamını veriyor ki öyle de olacak.</p>
+
+<p>Tabi <code>bulunan</code> isimli değişkenin değerini 1 arttırıp <code>counter</code> class’ına sahip span etiketinin textine ekliyoruz. Böylece kaç sonuç bulunmuş kullanıcıya sunabiliriz.</p>
+
+<p>Son olarak da eğer <code>no-result</code> class’ı aktif durumdaysa onu kapatalım ki çünkü sonuç bulunmuş durumda.</p>
+
+<p>Diğer şart ise sonuç bulunamazsa yani <code>bulunan</code> değişkenindeki değer 0’a eşitse no-result’ı aktif eder. Onun haricindeki durumlarda tablodaki tüm satırları sayar ki o da kaç satır varsa onu verir.</p>
+
+<h1 id="Çalışan-Örnek">Çalışan Örnek:</h1>
+
+<script async="" src="//jsfiddle.net/aligoren/od3d139L/embed/"></script>
+
 
 
                 <hr>
@@ -128,8 +208,8 @@ Ancak aynı şekilde sistem Jinja2 template sisteminde de kullanılıyordu.</p>
                   <div id="disqus_thread"></div>
                   <script type="text/javascript">
                     var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/flask-ve-vuejs-kullanimi';
-                    var disqus_title      = "Flask ve VueJS Kullanımı";
+                    var disqus_identifier = '/jquery-ile-tabloda-arama-yapmak';
+                    var disqus_title      = "jQuery ile Tabloda Arama Yapmak";
 
                     (function() {
                       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -143,13 +223,9 @@ Ancak aynı şekilde sistem Jinja2 template sisteminde de kullanılıyordu.</p>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/javascript-currency-formatting" data-toggle="tooltip" data-placement="top" title="JavaScript Currency Formatting">&larr; Sonraki Yazı</a>
+                        <a href="/flask-ve-vuejs-kullanimi" data-toggle="tooltip" data-placement="top" title="Flask ve VueJS Kullanımı">&larr; Sonraki Yazı</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/jquery-ile-tabloda-arama-yapmak" data-toggle="tooltip" data-placement="top" title="jQuery ile Tabloda Arama Yapmak">Önceki Yazı &rarr;</a>
-                    </li>
                     
                 </ul>
 

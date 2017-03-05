@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="https://aligoren.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aligoren.com/" rel="alternate" type="text/html" /><updated>2017-02-27T20:37:47+03:00</updated><id>https://aligoren.com/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>Flask ve VueJS Kullanımı</title><link href="https://aligoren.com/flask-ve-vuejs-kullanimi" rel="alternate" type="text/html" title="Flask ve VueJS Kullanımı" /><published>2017-02-26T01:36:00+03:00</published><updated>2017-02-26T01:36:00+03:00</updated><id>https://aligoren.com/flask-ve-vuejs-kullanimi</id><content type="html" xml:base="https://aligoren.com/flask-ve-vuejs-kullanimi">&lt;p&gt;Selamlar. Flask framework ile birlikte basit bi uygulamayı içeren video serisi çekiyorum. Bu video serisini çekerken bi sorunla karşılaştım.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="https://aligoren.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aligoren.com/" rel="alternate" type="text/html" /><updated>2017-03-05T22:03:17+03:00</updated><id>https://aligoren.com/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>jQuery ile Tabloda Arama Yapmak</title><link href="https://aligoren.com/jquery-ile-tabloda-arama-yapmak" rel="alternate" type="text/html" title="jQuery ile Tabloda Arama Yapmak" /><published>2017-03-05T21:00:00+03:00</published><updated>2017-03-05T21:00:00+03:00</updated><id>https://aligoren.com/jquery-ile-tabloda-arama-yapmak</id><content type="html" xml:base="https://aligoren.com/jquery-ile-tabloda-arama-yapmak">&lt;p&gt;Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. &lt;a href=&quot;https://datatables.net/&quot;&gt;jQuery Datatables&lt;/a&gt; eklentisi muazzam iş gören bir eklenti.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/ridvan.jpg&quot; alt=&quot;/images/posts/ridvan.jpg&quot; /&gt;
+&lt;em&gt;Çizerken baya zorlandım&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ancak bazı durumlarda gerekmeyebilir. Bu gibi durumlarda gereksiz eklenti kullanımı performansa da etki ediyor haliyle. Elimizde basit olarak bir tablo yapısının olduğunu varsayalım. Tabi arama kutumuz da o basit yapının içinde olsun :)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;input type=&quot;text&quot; class=&quot;search&quot; placeholder=&quot;Ürün Arama...&quot;&amp;gt;
+    &amp;lt;span class=&quot;counter&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;table class=&quot;results&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&amp;gt;
+        &amp;lt;thead&amp;gt;
+            &amp;lt;tr class=&quot;active&quot;&amp;gt;
+                &amp;lt;th&amp;gt;Ürün Adı&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;Miktar&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;Birim Fiyat&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;Tutar&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;Personel&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;İşlemler&amp;lt;/th&amp;gt;
+            &amp;lt;/tr&amp;gt;
+        &amp;lt;/thead&amp;gt;
+        &amp;lt;tbody&amp;gt;
+            &amp;lt;tr&amp;gt;
+                &amp;lt;td&amp;gt;Patates&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;10&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;15&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;150&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;Ali&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;Sat&amp;lt;/td&amp;gt;
+            &amp;lt;/tr&amp;gt;
+            &amp;lt;!-- Buralar eskiden TR'likti --&amp;gt;
+        &amp;lt;/tbody&amp;gt;
+        &amp;lt;tfoot&amp;gt;
+            &amp;lt;tr class=&quot;warning no-result&quot; style=&quot;display:none;&quot;&amp;gt;
+                &amp;lt;td colspan=&quot;8&quot;&amp;gt;&amp;lt;i class=&quot;fa fa-warning&quot;&amp;gt;&amp;lt;/i&amp;gt; Bulunamadı&amp;lt;/td&amp;gt;
+            &amp;lt;/tr&amp;gt;
+        &amp;lt;/tfoot&amp;gt;
+    &amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Senaryo bize der ki kardeşim, ben inputu her çağırdığımda sen tablodaki satırlar arasında arama gerçekleştir. Spesifik bir cell de belirtebilirdik ancak tüm cell’leri gezmesini düşünüyoruz. DataTables öyle çalışıyor çünkü.&lt;/p&gt;
+
+&lt;p&gt;Yukarıda &lt;code&gt;search&lt;/code&gt; class’ına sahip inputu yakalayıp, keyup event’ini kontrol etmemiz gerekiyor. Bu kontrol gerçekleşirken de inputtaki değeri de almalıyız. Tabi bulunanların sayısını tutacağımız bir değişkene de ihtiyacımız var.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;
+$(&quot;.search&quot;).keyup(function() {
+    var searchTerm = $(&quot;.search&quot;).val();
+    var bulunan = 0
+    //...
+})
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Buraya kadar her şey basit bir select işlemi. Bundan sonrasında ise tabloda kontrolü sağlamalıyız.&lt;/p&gt;
+
+&lt;p&gt;Eğer tablonuz herhangi bir şekilde &lt;code&gt;thead&lt;/code&gt; ya da &lt;code&gt;tfoot&lt;/code&gt; elementlerine sahip değilse direkt tablodaki tr elementlerini yakalayabilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;Ama benim gibi tablonun gerçek kısmı olan tbody kısmıyla çalışıyorsanız mutlaka bunu belirtmelisiniz.&lt;/p&gt;
+
+&lt;p&gt;Tabloda kontrolü her tr elemanını tbody altında arayacak şekilde gerçekleştirmeliyiz. Yani tbody altındaki her tr’yi gezeceğiz. Ayrıca tabi tablonun aramasını yaptığımız kısmını da bir değişkene atayalım ki her defasında &lt;code&gt;$(this)&lt;/code&gt; yazmaktan kurtulalım :)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;$('.results tbody tr').each(function(e) {
+    var table = $(this)
+    //...
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tamam şimdi kalıyor tek bir kısım. Bu son kısımda gezilen satırın text’ini alıyoruz ve &lt;code&gt;toLowerCase()&lt;/code&gt; metodunu kullanarak satırdaki tüm textleri küçültürüyoruz.&lt;/p&gt;
+
+&lt;p&gt;Ardından da &lt;strong&gt;ES6&lt;/strong&gt; ile gelen &lt;code&gt;includes()&lt;/code&gt; metodunu kullanarak searchTerm’deki değeri içerip içermediğini kontrol ediyoruz. Burada searchTerm ise bizim inputtan gelen değer.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;if (table.text().toLowerCase().includes(searchTerm.toLowerCase())) {
+    bulunan += 1
+    table.show()
+    $(&quot;.counter&quot;).text(bulunan + &quot; kayıt bulundu&quot;)
+    $(&quot;.no-result&quot;).css('display', 'none')
+} else {
+    table.hide()
+    $(&quot;.counter&quot;).text(bulunan + &quot; kayıt bulundu&quot;)
+    if (bulunan == 0) {
+        $(&quot;.no-result&quot;).css('display', '')
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yukarıda eğer gezilen satırda, aranan değere dair bir şeyler yer alıyorsa gezilen satırı aktif et diyoruz. Bu cümle bize, diğer satırların kaybolacağı anlamını veriyor ki öyle de olacak.&lt;/p&gt;
+
+&lt;p&gt;Tabi &lt;code&gt;bulunan&lt;/code&gt; isimli değişkenin değerini 1 arttırıp &lt;code&gt;counter&lt;/code&gt; class’ına sahip span etiketinin textine ekliyoruz. Böylece kaç sonuç bulunmuş kullanıcıya sunabiliriz.&lt;/p&gt;
+
+&lt;p&gt;Son olarak da eğer &lt;code&gt;no-result&lt;/code&gt; class’ı aktif durumdaysa onu kapatalım ki çünkü sonuç bulunmuş durumda.&lt;/p&gt;
+
+&lt;p&gt;Diğer şart ise sonuç bulunamazsa yani &lt;code&gt;bulunan&lt;/code&gt; değişkenindeki değer 0’a eşitse no-result’ı aktif eder. Onun haricindeki durumlarda tablodaki tüm satırları sayar ki o da kaç satır varsa onu verir.&lt;/p&gt;
+
+&lt;h1 id=&quot;Çalışan-Örnek&quot;&gt;Çalışan Örnek:&lt;/h1&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/aligoren/od3d139L/embed/&quot;&gt;&lt;/script&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. jQuery Datatables eklentisi muazzam iş gören bir eklenti.</summary></entry><entry><title>Flask ve VueJS Kullanımı</title><link href="https://aligoren.com/flask-ve-vuejs-kullanimi" rel="alternate" type="text/html" title="Flask ve VueJS Kullanımı" /><published>2017-02-26T01:36:00+03:00</published><updated>2017-02-26T01:36:00+03:00</updated><id>https://aligoren.com/flask-ve-vuejs-kullanimi</id><content type="html" xml:base="https://aligoren.com/flask-ve-vuejs-kullanimi">&lt;p&gt;Selamlar. Flask framework ile birlikte basit bi uygulamayı içeren video serisi çekiyorum. Bu video serisini çekerken bi sorunla karşılaştım.&lt;/p&gt;
 
 &lt;p&gt;VueJS içinde yer alan template sisteminde, print işlemi bilindiği üzere çift süslü parantez ile yapılıyordu.
 Ancak aynı şekilde sistem Jinja2 template sisteminde de kullanılıyordu.&lt;/p&gt;
@@ -576,198 +670,4 @@ Burada aslında &lt;strong&gt;remove()&lt;/strong&gt; metodundaki toplu silmenin
 &lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/update-documents/#update&quot;&gt;Update İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods&quot;&gt;Delete İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam bu yazı bir önceki Atıştırmalık MongoDB Yazısı‘nın devamı niteliğinde bir yazı.
-Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı</title><link href="https://aligoren.com/atistirmalik-mongodb-yazisi" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>https://aligoren.com/atistirmalik-mongodb-yazisi</id><content type="html" xml:base="https://aligoren.com/atistirmalik-mongodb-yazisi">&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
-Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;[NOT]&lt;/strong&gt;: Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mongo.png&quot; alt=&quot;/images/posts/mongo.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;online-mongodb-ortamıyla-tanışın&quot;&gt;Online MongoDB Ortamıyla Tanışın&lt;/h2&gt;
-
-&lt;p&gt;Pratiğe giriş yapmadan önce MongoDB bilgisayarınızda kurulu olmalı. MongoShell olmadan bilgisayarınızdan bağlantıyı kurmanız mümkün değil.
-Online shell kullanırsanız ayrı. Kurulum aşamalarını geçtiniz varsayarak size MongoLaB sitesini önereceğim.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mlab.com&quot;&gt;https://mlab.com&lt;/a&gt; Bu adrese girip kaydolarak ücretsiz 500 MB MongoDB hakkı kazanıyorsunuz.
-Tabii ki online çalışmak zorunda değilsiniz bu bir alternatif.&lt;/p&gt;
-
-&lt;p&gt;Kaydolduktan sonra bir veritabanı oluşturmalısınız ve bu veritabanı için bir kullanıcı da oluşturmanız gerekiyor ki buraya kadar olan kısım standart yapıyla aynı.
-Her şeyi doğru yaptıysanız çalışma alanınızın görüntüsü şöyle olmalı:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mongolab.png&quot; alt=&quot;/images/posts/mongolab.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;mongodbyi-local-ortamda-kullanmak&quot;&gt;MongoDB’yi Local Ortamda Kullanmak&lt;/h2&gt;
-
-&lt;p&gt;Eğer MongoDB’yi herhangi bir sınırlama olmaksızın (500 MB gibi) local ortamda kullanmak isterseniz öncelikle komut satırına &lt;code&gt;mongod&lt;/code&gt; komutunu yazmalısınız.
-Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak &lt;strong&gt;27017&lt;/strong&gt; dinlenir. Bunu söyleme sebebim yukarıdaki ilk seçenekte varsayılan port farklı.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mongod_local.png&quot; alt=&quot;/images/posts/mongod_local.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Daha sonra ikinci bir komut satırını açarak mongo komutunu verip local mongodb kullanımına başlayabilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mongo_local.png&quot; alt=&quot;/images/posts/mongo_local.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;veritabanını-seçelim&quot;&gt;Veritabanını Seçelim&lt;/h3&gt;
-
-&lt;p&gt;Veritabanını seçme işlemi, mongoshell üzerinde diğerlerinde olduğu gibi &lt;code&gt;use&lt;/code&gt; ile olacaktır. Localde çalışanlar için test veritanı şöyle seçilir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;use test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;ufaktan-insert-operasyonları&quot;&gt;Ufaktan Insert Operasyonları&lt;/h3&gt;
-
-&lt;p&gt;Veritabanını seçtik. MongoDB kullanırken insert operasyonları, RDBMS’lerden farklı şekilde çalışabilir. Burada yaşayacağınız farklılık syntax anlamında olabilir.
-Ancak NodeJS kullanıcılarının bu işlemlere karşı yabancı olacağı pek söylenemez :)&lt;/p&gt;
-
-&lt;p&gt;MongoDB’de insert operasyonları üç metod altında toplanmıştır. Bunlar sırasıyla;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;insert()&lt;/strong&gt;, &lt;strong&gt;insertOne()&lt;/strong&gt; ve &lt;strong&gt;insertMany()&lt;/strong&gt; metodlarıdır.
-Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisiniz. Yani JSON’a da aşina olmanız gerekmektedir. Neyse ki öğrenmesi çok da zor değil.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Basit Olarak Insert&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Basit olarak bir insert operasyonu şöyle olur.&lt;/p&gt;
-
-&lt;p&gt;DBNESNESİ.TABLO.INSERT bu sahte yöntemin gerçeğe dönüşmüş hali şöyledir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Tablo.insert({
-    'alan': 'Verisi',
-    'alan2': 'Baska Veri'
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;O zaman bir blog sisteminin yapısından yola çıkarak şöyle olacak diyebiliriz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insert({
-    'Baslik': 'Blog Başlığı',
-    'Icerik': 'Lorem Ipsum Dolor Sit Amet...',
-    'Kategori': 'Kişisel'
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Evet klasik bir insert operasyonunu gördük. Bu kodları Mongoshell üzerinde çalıştırınca şu çıktıyı alırsanız her şey doğrudur:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;WriteResult({ &quot;nInserted&quot; : 1 })
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Nedir Bu insertOne() ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bilinen bir yanlıştan dolayı insert ve insertOne karıştırılmakta. insert sadece tek bir ekleme yapmaz.
-Eğer sadece insert metodunu kullanıyorsanız birden fazla ekleme de yapabilirsiniz. Örnek:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insert([
-    {&quot;Baslik&quot;: &quot;Başka&quot;},
-    {&quot;Baslik&quot;: &quot;Oteki&quot;}
-])
-
-/*
-ÇIKTISI:
-
-BulkWriteResult({
-        &quot;writeErrors&quot; : [ ],
-        &quot;writeConcernErrors&quot; : [ ],
-        &quot;nInserted&quot; : 2,
-        &quot;nUpserted&quot; : 0,
-        &quot;nMatched&quot; : 0,
-        &quot;nModified&quot; : 0,
-        &quot;nRemoved&quot; : 0,
-        &quot;upserted&quot; : [ ]
-})
-
-*/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ancak insertOne metodu böyle değil. Sadece ve sadece bir adet ekleme gerçekleştirebilirsiniz.
-Ayrıca insertOne metodu ile insert edilen içeriğin ID’sini de alabilirsiniz. Kullanımı şöyledir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilart.insertOne({
-    &quot;Baslik&quot;: &quot;Tek Başlık&quot;
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yani ikinci bir başlık ekleme işlemi yapamazsınız. Evet bu kadar basit.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gelelim insertMany() Metoduna&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;insert ve insertMany metodları da çoklu ekleme işlemlerini destekler.
-Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir &lt;code&gt;insertedId&lt;/code&gt; dönmezdi. Aynı işlemi &lt;code&gt;insertMany&lt;/code&gt; ile yaparsak bir ID dönüşü alırız:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.insertMany([
-    {&quot;Baslik&quot;: &quot;Başka&quot;},
-    {&quot;Baslik&quot;: &quot;Oteki&quot;}
-])
-
-/*
-ÇIKTISI:
-
-{
-        &quot;acknowledged&quot; : true,
-        &quot;insertedIds&quot; : [
-                ObjectId(&quot;5855b0a5f7e668b0e155210f&quot;),
-                ObjectId(&quot;5855b0a5f7e668b0e1552110&quot;)
-        ]
-}
-*/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;Şimdi-bu-verileri-nasıl-Çekeriz&quot;&gt;Şimdi Bu Verileri Nasıl Çekeriz?&lt;/h3&gt;
-
-&lt;p&gt;Veri çekme işlemi MongoDB üzerindeki en basit işlemlerdendir. Örneğin Yazilar tablosundan verileri çekelim. Bunun için &lt;code&gt;find()&lt;/code&gt; metodunu kullanırız:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find()
-
-/*
-ÇIKTISI:
-
-{ &quot;_id&quot; : ObjectId(&quot;5855aef5f7e668b0e155210c&quot;), &quot;BAŞLIK&quot; : &quot;İçerik&quot; }
-{ &quot;_id&quot; : ObjectId(&quot;5855aef5f7e668b0e155210d&quot;), &quot;BAŞLIK BAŞKA&quot; : &quot;İçerik 2&quot; }
-{ &quot;_id&quot; : ObjectId(&quot;5855afd0f7e668b0e155210e&quot;), &quot;ÖTEKİ&quot; : &quot;İçerik 3&quot; }
-{ &quot;_id&quot; : ObjectId(&quot;5855b0a5f7e668b0e155210f&quot;), &quot;FALAN&quot; : &quot;İçerik 4&quot; }
-{ &quot;_id&quot; : ObjectId(&quot;5855b0a5f7e668b0e1552110&quot;), &quot;NEYSE&quot; : &quot;İçerik 5&quot; }
-*/
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;nerede-bu-where-clause&quot;&gt;Nerede Bu WHERE Clause?&lt;/h3&gt;
-
-&lt;p&gt;Benim en çok merak ettiklerimden birisi de bu konuydu. MongoDB üzerinde where aynı mantığa sahip olsa da kullanımı tabii ki farklı. Yine find() metodunu kullanacağız.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find({ $where: &quot;this.Baslik == 'FALAN'&quot; })
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki kullanımla tek satırlık bir değer dönecektir. Ancak aynı değere sahip 2 içerik varsa onları unique yapan diğer değerleri de sorgulamanız iyi olur.&lt;/p&gt;
-
-&lt;h3 id=&quot;hadi-bu-İçerikleri-sıralayalım&quot;&gt;Hadi Bu İçerikleri Sıralayalım&lt;/h3&gt;
-
-&lt;p&gt;ASC ve DESC olaylarını RDBMS üzerinde kullanırken ORDER BY kullanıyorduk. Ancak bunda maalesef ki böyle değil. Fakat daha basit olduğunu söyleyebilirim.
-Yine find() metodunu olaya dahil ederek şöyle bir işlem yapabiliriz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({_id:1})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki yöntemle birlikte ASCENDING bir sıralama yapabilirsiniz. Bunun tam tersi olarak DESCENDING işlemi ise şöyle yapılır:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({_id:-1})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;limit-falan-nasıl-olacak&quot;&gt;Limit Falan Nasıl Olacak?&lt;/h3&gt;
-
-&lt;p&gt;Şimdi bu işlemde de find() metodunu kullanıyoruz. Tabi bu sefer sort() metodu da bize katılıyor.
-Limit işlemini limit() metodunu kullanarak yaparız. Örneğin kullanımı şöyle:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({ID:-1}).limit(1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki yöntem bize son eklenen verinin içeriğini döndürecektir ve dönen değer tek satırdır.
-Çünkü limit metodu parametre olarak tek &lt;strong&gt;1&lt;/strong&gt; rakamını almıştır. Dilersek dönen değerdeki tek bir alana dair de veri çekebiliriz.
-Ben bu işlemde kendim &lt;strong&gt;ID&lt;/strong&gt; adında bir alan tanımladım. MongoDB tarafından üretilen &lt;strong&gt;_id&lt;/strong&gt; alanından farklı olduğunu belirteyim. Şimdi tanımlı olan bu alanı çekelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.Yazilar.find().sort({ID:-1}).limit(1)[0][&quot;ID&quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Buradan anlaşılacağı üzere eklenmiş olan verilerden en sonuncusu getirilip bu satırdaki ID alanında yer alan veriyi göreceğiz.
-Klasik bir array access işleminden fazlası değil yani.&lt;/p&gt;
-
-&lt;p&gt;Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız 
-&lt;a href=&quot;https://docs.mongodb.com/manual/crud/&quot;&gt;MongoDB Manual&lt;/a&gt; sizin için iyi bir yol gösterici olacaktır.&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
-Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</summary></entry></feed>
+Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</summary></entry></feed>
