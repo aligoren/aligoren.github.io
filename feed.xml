@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="https://aligoren.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aligoren.com/" rel="alternate" type="text/html" /><updated>2017-03-05T22:03:17+03:00</updated><id>https://aligoren.com/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>jQuery ile Tabloda Arama Yapmak</title><link href="https://aligoren.com/jquery-ile-tabloda-arama-yapmak" rel="alternate" type="text/html" title="jQuery ile Tabloda Arama Yapmak" /><published>2017-03-05T21:00:00+03:00</published><updated>2017-03-05T21:00:00+03:00</updated><id>https://aligoren.com/jquery-ile-tabloda-arama-yapmak</id><content type="html" xml:base="https://aligoren.com/jquery-ile-tabloda-arama-yapmak">&lt;p&gt;Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. &lt;a href=&quot;https://datatables.net/&quot;&gt;jQuery Datatables&lt;/a&gt; eklentisi muazzam iş gören bir eklenti.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="https://aligoren.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aligoren.com/" rel="alternate" type="text/html" /><updated>2017-04-02T23:40:48+03:00</updated><id>https://aligoren.com/</id><title>Ali GÖREN...</title><subtitle>.NET, SQL, Python, Açık Kaynak</subtitle><author><name>Ali GÖREN</name></author><entry><title>JavaScript Add and Substract Days</title><link href="https://aligoren.com/javascript-add-and-substract-days" rel="alternate" type="text/html" title="JavaScript Add and Substract Days" /><published>2017-04-02T21:00:00+03:00</published><updated>2017-04-02T21:00:00+03:00</updated><id>https://aligoren.com/javascript-add-and-substract-days</id><content type="html" xml:base="https://aligoren.com/javascript-add-and-substract-days">&lt;p&gt;When I visited StackOverflow, I saw a question.&lt;/p&gt;
+
+&lt;p&gt;Briefly, he wants to add days to dates. Firstly I checked his codes. Also, his mathematics was wrong.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I corrected his codes. I use VanillaJS really. You don’t need any framework or library.&lt;/p&gt;
+
+&lt;p&gt;I wrote a code with Date object. Especially first function look like an extension of the Date object.&lt;/p&gt;
+
+&lt;p&gt;Actually second function unnecessary. You don’t have to use it.&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;Date.prototype.addDays = function(days) {
+  this.setDate(this.getDate() + parseInt(days));
+  return this;
+};
+
+
+function getDate(days) {
+  var date = new Date().addDays(days);
+  return date
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;for-example&quot;&gt;For Example:&lt;/h2&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/aligoren/p12awbfe/embed/&quot;&gt;&lt;/script&gt;</content><author><name>Ali GÖREN</name></author><summary>When I visited StackOverflow, I saw a question.</summary></entry><entry><title>jQuery ile Tabloda Arama Yapmak</title><link href="https://aligoren.com/jquery-ile-tabloda-arama-yapmak" rel="alternate" type="text/html" title="jQuery ile Tabloda Arama Yapmak" /><published>2017-03-05T21:00:00+03:00</published><updated>2017-03-05T21:00:00+03:00</updated><id>https://aligoren.com/jquery-ile-tabloda-arama-yapmak</id><content type="html" xml:base="https://aligoren.com/jquery-ile-tabloda-arama-yapmak">&lt;p&gt;Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. &lt;a href=&quot;https://datatables.net/&quot;&gt;jQuery Datatables&lt;/a&gt; eklentisi muazzam iş gören bir eklenti.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/ridvan.jpg&quot; alt=&quot;/images/posts/ridvan.jpg&quot; /&gt;
 &lt;em&gt;Çizerken baya zorlandım&lt;/em&gt;&lt;/p&gt;
@@ -517,157 +543,4 @@ $h = new Home();
 &amp;lt;a href=&quot;&amp;lt;?=$h-&amp;gt;get['base_url']?&amp;gt;&quot;&amp;gt;Base&amp;lt;/a&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</summary></entry><entry><title>Atıştırmalık MongoDB Yazısı - 2</title><link href="https://aligoren.com/atistirmalik-mongodb-yazisi-2" rel="alternate" type="text/html" title="Atıştırmalık MongoDB Yazısı - 2" /><published>2016-12-17T23:30:00+03:00</published><updated>2016-12-17T23:30:00+03:00</updated><id>https://aligoren.com/atistirmalik-mongodb-yazisi-2</id><content type="html" xml:base="https://aligoren.com/atistirmalik-mongodb-yazisi-2">&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;https://aligoren.com/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı.
-Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mongo.png&quot; alt=&quot;/images/posts/mongo.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;mongodbyi-dosyadan-okuyalım&quot;&gt;MongoDB’yi Dosyadan Okuyalım&lt;/h3&gt;
-
-&lt;p&gt;MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor.
-MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;use deneme;
-
-db.x.insert({
-	&quot;kolon&quot;: &quot;içerik&quot;,
-	&quot;kolon2&quot;: &quot;içerik2&quot;,
-	&quot;kolon3&quot;: &quot;içerik3&quot;,
-	&quot;kolon4&quot;: &quot;içerik4&quot;,
-	&quot;kolon5&quot;: &quot;içerik5&quot;,
-	&quot;kolon6&quot;: &quot;içerik6&quot;,
-	&quot;kolon7&quot;: &quot;içerik7&quot;,
-	&quot;kolon8&quot;: &quot;içerik8&quot;,
-	&quot;kolon9&quot;: &quot;içerik9&quot;,
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin
-&lt;strong&gt;(Farklı uzantıları denemedim)&lt;/strong&gt; ve komut satırından şu komutu verin: &lt;code&gt;mongo &amp;lt; dosyaniz.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Evet bu kadar :)&lt;/p&gt;
-
-&lt;h3 id=&quot;nasıl-yapılıyor-bu-update&quot;&gt;Nasıl Yapılıyor Bu Update?&lt;/h3&gt;
-
-&lt;p&gt;Yukarıdaki X collection’ında yer alan içeriklerden &lt;code&gt;&quot;kolon4&quot;&lt;/code&gt; e ait datayı değiştirelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.update(
-	{
-		&quot;kolon4&quot;: &quot;Yenilendi&quot;
-	}
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;İstersek şöyle bir sorgu ile kolon4’e ait yeni değeri görüntüleyebiliriz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.find()[1][&quot;kolon4&quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor.
-Tabii yaptığınız işlem sonucunda &lt;strong&gt;nInserted&lt;/strong&gt; yerine &lt;strong&gt;nModified&lt;/strong&gt; içinde bir rakam göreceksiniz.&lt;/p&gt;
-
-&lt;p&gt;Yine aynı şekilde &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany&quot;&gt;updateMany&lt;/a&gt; ve &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne&quot;&gt;updateOne&lt;/a&gt; metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.&lt;/p&gt;
-
-&lt;p&gt;Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı &lt;strong&gt;replaceOne()&lt;/strong&gt; evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar.
-Örneği bir SQL cümlesinden verelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;SELECT * FROM Kullanicilar WHERE Adi='Ali'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak &lt;strong&gt;replaceOne()&lt;/strong&gt; metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar.
-Örnek kullanımı şöyledir:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.replaceOne(
-	{
-		kolon: &quot;icerik&quot;
-	},
-	{
-		kolon: &quot;Yeni icerik&quot;
-	}
-)
-
-/*
-ÇIKTISI:
-
-{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 1, &quot;modifiedCount&quot; : 1 }
-*/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;İsterseniz &lt;strong&gt;db.x.find()&lt;/strong&gt; diyerek çıkan sonucu görüntüleyebilirsiniz:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{ &quot;_id&quot; : ObjectId(&quot;5856e7347db38a7560ec56ae&quot;), &quot;kolon&quot; : &quot;Yeni icerik&quot; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Güncelleme işlemleri sadece bu kadarla sınırlığı değil. Bu işlemleri siz verdiğim linklerden daha geniş bir şekilde öğrenebilirsiniz.&lt;/p&gt;
-
-&lt;h3 id=&quot;nasıl-sileceğiz&quot;&gt;Nasıl Sileceğiz?&lt;/h3&gt;
-
-&lt;p&gt;RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil.
-Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;- remove()
-- deleteOne()
-- deleteMany()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;remove Metodu&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bunlardan ilki olan &lt;strong&gt;remove()&lt;/strong&gt; metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz.
-Burada bilmemiz gereken toplu silme yaptığımızdır.&lt;/p&gt;
-
-&lt;p&gt;Örnek herhangi bir koşula bağlı olmaksızın tüm &lt;strong&gt;x&lt;/strong&gt; koleksiyonunu silen sorgu kodunu verelim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.remove( {} )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Eğer bu silme işleminin bütün tablo geneline değil de sadece belirli değerlere yansımasını istiyorsak şöyle yapmalıyız:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.remove({ 
-    &quot;kolon&quot;: &quot;Bir İçerik&quot;
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Artık bu sayede içinde &lt;strong&gt;Bir İçerik&lt;/strong&gt; geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir.
-Tüm dokümana &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.remove/#db.collection.remove&quot;&gt;buradan&lt;/a&gt; bakabilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;deleteOne() Metodu&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım.
-Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.deleteOne( { &quot;_id&quot; : ObjectId(&quot;5856e7347db38a7560ec56ae&quot;) } );
-
-/*
-ÇIKTISI:
-
-{ &quot;acknowledged&quot; : true, &quot;deletedCount&quot; : 1 }
-*/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki işlemin klasik SQL sorgusu şöyle:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;DELETE FROM Kullanicilar WHERE ID=2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;deleteMany() Metodu&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım.
-Burada aslında &lt;strong&gt;remove()&lt;/strong&gt; metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;db.x.deleteMany( { &quot;kolon&quot; : &quot;A Değeri&quot; } );
-
-/*
-ÇIKTISI:
-
-{ &quot;acknowledged&quot; : true, &quot;deletedCount&quot; : 1 }
-*/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Yukarıda &lt;strong&gt;A Değeri&lt;/strong&gt; sadece 1 adet olduğu için silindiğinde de &lt;strong&gt;deletedCount&lt;/strong&gt; 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.&lt;/p&gt;
-
-&lt;h2 id=&quot;kaynaklar&quot;&gt;Kaynaklar&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/update-documents/#update&quot;&gt;Update İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods&quot;&gt;Delete İşlemleri - MongoDB Resmi Dokümanı&lt;/a&gt;&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selam bu yazı bir önceki Atıştırmalık MongoDB Yazısı‘nın devamı niteliğinde bir yazı.
-Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</summary></entry></feed>
+&lt;p&gt;Bu yazıyı Stackoverflow’da verdiğim &lt;a href=&quot;http://stackoverflow.com/a/41407858/3821823&quot;&gt;şu&lt;/a&gt; cevaptan esinlenerek oluşturdum&lt;/p&gt;</content><author><name>Ali GÖREN</name></author><summary>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</summary></entry></feed>

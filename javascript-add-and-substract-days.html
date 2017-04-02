@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
 
-    <title>Ali GÖREN...</title>
+    <title>JavaScript Add and Substract Days - Ali GÖREN...</title>
 
-    <link rel="canonical" href="https://aligoren.com/page11/">
+    <link rel="canonical" href="https://aligoren.com/javascript-add-and-substract-days">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -84,62 +84,87 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1 class="yazibasligi">Ali GÖREN...</h1>
-                    <hr class="small">
-                    <span class="subheading">.NET, SQL, Python, Açık Kaynak</span>
+                <div class="post-heading">
+                    <h1 class="yazibasligi">JavaScript Add and Substract Days</h1>
+                    
+                    <!--<span class="meta">Posted by Ali GÖREN... on April 2, 2017</span>-->
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/tc-kimlik-no-dogrulama-programi">
-        <h2 class="post-title anasayfayazibasligi">            TC Kimlik No Doğrulama Programı
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on November 24, 2012</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
 
-<div class="post-preview">
-    <a href="/java-icin-java-ideleri">
-        <h2 class="post-title anasayfayazibasligi">            Java İçin Java IDE'leri
-        </h2>
-        
-    </a>
-    <p class="post-meta">Ekleyen Ali GÖREN... on March 24, 2012</p>
-</div>
-<hr>
+				<p>When I visited StackOverflow, I saw a question.</p>
+
+<p>Briefly, he wants to add days to dates. Firstly I checked his codes. Also, his mathematics was wrong.</p>
+
+<p>Anyway, I corrected his codes. I use VanillaJS really. You don’t need any framework or library.</p>
+
+<p>I wrote a code with Date object. Especially first function look like an extension of the Date object.</p>
+
+<p>Actually second function unnecessary. You don’t have to use it.</p>
+
+<h2 id="code">Code:</h2>
+
+<pre><code class="language-js">Date.prototype.addDays = function(days) {
+  this.setDate(this.getDate() + parseInt(days));
+  return this;
+};
 
 
-<!-- Pager -->
+function getDate(days) {
+  var date = new Date().addDays(days);
+  return date
+}
+</code></pre>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page10">&larr; Yeni Yazılar</a>
-    </li>
-    
-    
-</ul>
+<h2 id="for-example">For Example:</h2>
+
+<script async="" src="//jsfiddle.net/aligoren/p12awbfe/embed/"></script>
 
 
-		</div>
-	</div>
-</div>
+
+                <hr>
+                
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript">
+                    var disqus_shortname  = 'aligren';
+                    var disqus_identifier = '/javascript-add-and-substract-days';
+                    var disqus_title      = "JavaScript Add and Substract Days";
+
+                    (function() {
+                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  <hr>
+                
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/jquery-ile-tabloda-arama-yapmak" data-toggle="tooltip" data-placement="top" title="jQuery ile Tabloda Arama Yapmak">&larr; Sonraki Yazı</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
