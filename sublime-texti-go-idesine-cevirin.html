@@ -1,117 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Sublime Text'i Go IDE'sine Çevirin - Ali GÖREN...</title>
+  <title>
+    
+      Sublime Text'i Go IDE'sine Çevirin &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/sublime-texti-go-idesine-cevirin">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Sublime Text'i Go IDE'sine Çevirin</h1>
+  <span class="post-date">27 Nov 2015</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="golang etiketine sahip yazılar" title="golang etiketine sahip yazılar">golang</span>
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="sublime-text etiketine sahip yazılar" title="sublime-text etiketine sahip yazılar">sublime-text</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
 
+<p>Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.
+<!--more-->
+Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bulmanız şans işi. Diğer firmaları da sıralayacak olursak JetBrains, Xamarin gibi firmalar da mevcut. Bu firmaların da kaliteli ürünleri olsa dahi aradığınız dil için özellikle sağladıkları bir destek yok. Yani buradan da arayış yapmanız pek bir kar sağlamıyor.</p>
 
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">Sublime Text'i Go IDE'sine Çevirin</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on November 27, 2015</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.</p>
-
-<p>Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.</p>
-
-<p>Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bulmanız şans işi. Diğer firmaları da sıralayacak olursak JetBrains, Xamarin gibi firmalar da mevcut. Bu firmaların da kaliteli ürünleri olsa dahi aradığınız dil için özellikle sağladıkları bir destek yok. Yani buradan da arayış yapmanız pek bir kar sağlamıyor.</p>
-
-<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor. <!--TEASER_END--> D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
+<p>Gelelim yeni nesil diller konusuna. Bu dillerde aslında yeni nesil olmayanlar var ama popülerliğin son yıllardaki artışına bakarak söylemek gerekiyor. D dili, Haskell, Erlang, CoffeeScript, Dart, Lua, R, Scala ve Go</p>
 
 <p>Bu dillerden en az birisini duymuşsunuzdur. Örneğin CoffeeScript eğer CoffeeScript için WebStorm olmamış olsaydı gerçekten ciddi destek sağlayan bir IDE yok. Fakat WebStorm da ücretli bir IDE olduğu için yine işiniz kullanıcıya kalıyor.</p>
 
@@ -125,26 +164,27 @@
 
 <p><a href="http://limetext.org/">Lime Text</a></p>
 
-<p><strong>Lite IDE</strong> sağlam bir IDE. Gerçekten IDE kavramını hak ediyor. Auto-complete işleminden tutun debug etme, markdown destekleme gibi çoğu aranan ihtiyacı karşılamakta. Ve eklenti desteği de bulunmakta.</p>
+<p>Lite IDE sağlam bir IDE. Gerçekten IDE kavramını hak ediyor. Auto-complete işleminden tutun debug etme, markdown destekleme gibi çoğu aranan ihtiyacı karşılamakta. Ve eklenti desteği de bulunmakta.</p>
 
-<p><strong>Lime Text Editor</strong> sublime temelleri üzerine inşaa edilmiş güzel bir editör. TextMate’in göze hoş gelen ColorScheme’i ile uyumlu. Sublime Text’in Python Plug-in API’ı ile uyumlu. Gelişim süreci hala devam etmekte.</p>
+<p>Lime Text Editor sublime temelleri üzerine inşaa edilmiş güzel bir editör. TextMate’in göze hoş gelen ColorScheme’i ile uyumlu. Sublime Text’in Python Plug-in API’ı ile uyumlu. Gelişim süreci hala devam etmekte.</p>
 
 <p>Yukarıdaki iki önerimin de gelişimleri devam etmekte. Lime Text’in Sublime’yi temel aldığını söylemiştim ancak yok ben Sublime Text kullanmaktan vazgeçemem diyenler için GoSublime ve GoImports eklentileri ile Sublime Text’inizi adeta bir Go IDE’sine çevirebilirsiniz. Kurulum</p>
 
 <p>Öncelikle Sublime Package Control kurulu olmalı. Eğer kurulu değilse CTRL+` kısayolunu kullanarak aşağıda açılmış olan konsola şu alttaki kodları yapıştırın:</p>
 
-<pre><code class="language-python">import urllib.request,os,hashlib; h =
-'7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0';
-pf = 'Package Control.sublime-package';
-ipp = sublime.installed_packages_path();
-urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );
-by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read();
-dh = hashlib.sha256(by).hexdigest();
-print('Error validating download (got %s instead of %s), please try manual install' % (dh, h))
-if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span>
+<span class="s">'7183a2d3e96f11eeadd761d777e62404'</span> <span class="o">+</span> <span class="s">'e330c659d4bb41d3bdf022e94cab3cd0'</span><span class="p">;</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="s">'Package Control.sublime-package'</span><span class="p">;</span>
+<span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">())</span> <span class="p">);</span>
+<span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">'http://sublime.wbond.net/'</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">'</span><span class="si">%20</span><span class="s">'</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
+<span class="n">dh</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">by</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">();</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Error validating download (got </span><span class="si">%</span><span class="s">s instead of </span><span class="si">%</span><span class="s">s), please try manual install'</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">'wb'</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
 </code></pre>
+</div>
 
-<p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir <a href="https://gist.github.com/aligoren/3ceecc6f37c39dfae9b5">şuradaki</a> kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
+<p>Eğer kodlar çalışmazsa bu bir syntax hatası olabilir şuradaki kodları direkt kopyalayıp o açılan konsola yapıştırın.</p>
 
 <p><img src="/images/posts/14.png" alt="/images/posts/14.png" /></p>
 
@@ -160,8 +200,7 @@ if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 
 <p><img src="/images/posts/16.png" alt="/images/posts/16.png" /></p>
 
-<p>Bu işlemden sonra son olarak yine aynı yöntemle GoImports eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor.
-Bazı Ayarlamalar</p>
+<p>Bu işlemden sonra son olarak yine aynı yöntemle GoImports eklentisini kuralım. Bu eklenti otomatik import işlemini yapıyor. Bazı Ayarlamalar</p>
 
 <p>Eklentilerin kurulumları tamamlanmış durumda olsa dahi bazı ayarlamalar yapılmadığı için eklenti tam anlamıyla çalışmayacaktır. Bunun için indirilen eklentinin User Settings dosyasına bazı eklemeler yapmalıyız. Bu ayar dosyasının yolu şöyle</p>
 
@@ -171,125 +210,112 @@ Bazı Ayarlamalar</p>
 
 <p>Buraya tıklayınca karşımıza bir pencere açılacak. Bu pencere büyük ihtimalle boş. Boş kısma şu kodları yapıştırıp kaydedin.</p>
 
-<pre><code class="language-json">{
-    "fmt_cmd": ["goimports"],
-    //C:\Go\ for windows
-    "env": {"GOPATH": "$HOME/go"}
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"fmt_cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"goimports"</span><span class="p">],</span><span class="w">
+    </span><span class="err">//C</span><span class="p">:</span><span class="err">\Go\</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">windows</span><span class="w">
+    </span><span class="s2">"env"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"GOPATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$HOME/go"</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak <em>C:</em> dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
+<p>Burada bulunan <strong>GOPATH</strong> değerinin karşısındaki kısım Go dizini oluyor. Eğer mevcut hali ile Windows üzerinde çalışmazsa Go nereye kurulu ise oranın linkini verin. Windows işletim sistemlerinde Go varsayılan olarak C: dizinine kurulmakta. O yüzden yukarıdaki windows kısmını öyle belirttim.</p>
 
 <p>Hızlı kodlama yapmak isteyenler olabilir. Otomatik build işlemi, Test ve diğer işlemler. Bunun için yine yukarıda belirttiğim ayar dosyasını açıp şu kodları goimports ayarının hemen altına yapıştırın:</p>
 
-<pre><code class="language-json">"on_save": [{
-    "cmd": "gs9o_open", "args": {
-    "run": ["sh",
-        "go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."],
-    "focus_view": false
-}}],
-"autocomplete_closures": true,
-"complete_builtins": true,
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"on_save"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gs9o_open"</span><span class="p">,</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"run"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"go build . errors &amp;&amp; go test -i &amp;&amp; go test &amp;&amp; go vet &amp;&amp; golint ."</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"focus_view"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}}]</span><span class="err">,</span><span class="w">
+</span><span class="s2">"autocomplete_closures"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+</span><span class="s2">"complete_builtins"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>Evet kurulum ve ayarlamalar bitti. Iyi kodlamalar.</p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/sublime-texti-go-idesine-cevirin';
-                    var disqus_title      = "Sublime Text'i Go IDE'sine Çevirin";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/nodejsde-json-server-ile-rest-api-gelistirme" data-toggle="tooltip" data-placement="top" title="NodeJS'de json-server ile REST API Geliştirme">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/opensuse-guncellemesini-zypper-ile-yapma" data-toggle="tooltip" data-placement="top" title="OpenSUSE Güncellemesini Zypper ile Yapma">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

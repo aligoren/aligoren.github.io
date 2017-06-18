@@ -1,175 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Hamming Sayıları - Ali GÖREN...</title>
+  <title>
+    
+      Hamming Sayıları &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/hamming-sayilari">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Hamming Sayıları</h1>
+  <span class="post-date">15 Nov 2015</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+          <span class="tags" alt="math etiketine sahip yazılar" title="math etiketine sahip yazılar">math</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
-
-
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">Hamming Sayıları</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on November 15, 2015</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Hamming sayıları, 2,3 ve 5’ten başka diğer asal bölene sahip olmayan dizilerdir. Örnek verecek olursak hamming dizisi şöyledir.</p>
+  
+  <p>Hamming sayıları, 2,3 ve 5’ten başka diğer asal bölene sahip olmayan dizilerdir. Örnek verecek olursak hamming dizisi şöyledir.</p>
 
 <p>İlk 60 Hamming Sayısı: 2 3 4 5 6 8 9 10 12 15 16 18 20 24 25 27 30 32 36 40 45 48 50 54 60… şeklinde gider.</p>
 
-<p>Sıradaki sayının bulunması üç farklı durumdan oluşmakta. Sayı 2’ye bölünebiliyorsa bir sonraki aşamada 2,3 ve 5 dışında böleni olmayacak.</p>
-
-<p>Örneğin şöyle izah edilebilir. <!--TEASER_END--></p>
+<p>Sıradaki sayının bulunması üç farklı durumdan oluşmakta. Sayı 2’ye bölünebiliyorsa bir sonraki aşamada 2,3 ve 5 dışında böleni olmayacak.
+<!--more-->
+Örneğin şöyle izah edilebilir.</p>
 
 <p>hamming_numbers.py</p>
 
-<pre><code class="language-python">if x % 2 == 0:
-        return is_hamming_numbers(x/2)
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 </code></pre>
+</div>
 
 <p>Bu sayede artık var olan sayı elimizdeki dizideki sayılardan birisi durumunda. Örneğin 60/2 sonuç olarak 30 veriyor. Diziye baktığımızda 30’dan büyük ilk sayımız 32. Buna göre 2x32=64 olmakta. Yani 60’tan sonra sayı 2’ye bölünebiliyorsa bu da 2x32=64 olacaktır. Bu durum 3 ve 5 için de yine aynı şekilde anlaşılmaktadır.</p>
 
 <p>Ben 9830’a kadar olan sayıları bulmak istedim. Tabii 9830 kafama göre değildi. İlk stackoverflow hatasını alacağım noktayı aramam uzun sürmedi.</p>
 
-<p>O durumda aldığım hata <code>Python: Maximum recursion depth exceeded</code> hatası di. Yani yineleme derinliğinin aşıldığına dair bir hata mesajı.</p>
+<p>O durumda aldığım hata <code class="highlighter-rouge">Python: Maximum recursion depth exceeded</code> hatası di. Yani yineleme derinliğinin aşıldığına dair bir hata mesajı.</p>
 
 <p>Bunun için sys modülünü kullanarak izin verilen recursion aralığını değiştirebiliriz.</p>
 
-<pre><code class="language-python">import sys
-sys.getrecursionlimit() # ayarlanmadan önceki gerçek limit
-sys.setrecursionlimit(10000) # limiti 10.000'e ayarla
-sys.getrecursionlimit() # limiti göster
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span> <span class="c"># ayarlanmadan önceki gerçek limit</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="c"># limiti 10.000'e ayarla</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span> <span class="c"># limiti göster</span>
 </code></pre>
+</div>
 
 <p>setrecursionlimit yineleme limitini belirlemekte kullanılır. Biz bu denememizde özyinelemeli işlev kullandık. Bu özelliği threading modülünün stack_size işlevini kullanarak yükseltebilirsiniz. Var olan limiti yukarıdaki kodda görebiliriniz. getrecursionlimit özelliği size bu değeri verecektir.</p>
 
 <p>hamming_numbers.py</p>
 
-<pre><code class="language-python">import sys
-sys.setrecursionlimit(10000)
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 
-def is_hamming_numbers(x):
-    if x == 1:
-        return 1
-    if x % 2 == 0:
-        return is_hamming_numbers(x/2)
-    if x % 3 == 0:
-        return is_hamming_numbers(x/3)
-    if x % 5 == 0:
-        return is_hamming_numbers(x/5)
-    return 0
+<span class="k">def</span> <span class="nf">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span>
 
-def hamming_numbers(x):
-    if x == 1:
-        return 1
-    hamming_numbers(x-1)
-    if is_hamming_numbers(x) == True:
-        print("%s" % x, end=' ')
+<span class="k">def</span> <span class="nf">hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_hamming_numbers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
 
-def hamming_numbers_main():
-    sys.stdout.write("Hamming Numbers: ")
-    hamming_numbers(9830)
+<span class="k">def</span> <span class="nf">hamming_numbers_main</span><span class="p">():</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Hamming Numbers: "</span><span class="p">)</span>
+    <span class="n">hamming_numbers</span><span class="p">(</span><span class="mi">9830</span><span class="p">)</span>
 
-hamming_numbers_main()
+<span class="n">hamming_numbers_main</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p>Bu da 9830. sayıya kadar olanları yazdırmayı denediğim profile sonucu:</p>
 
-<pre><code>python -m profile hamming_numbers.py
+<p>python -m profile hamming_numbers.py</p>
 
-         37722 function calls (10704 primitive calls) in 0.156 seconds
+<div class="highlighter-rouge"><pre class="highlight"><code>         37722 function calls (10704 primitive calls) in 0.156 seconds
 
    Ordered by: standard name
 
@@ -192,8 +232,9 @@ umbers)
  0x0178C390, file "hamming_numbers.py", line 1&gt;)
         0    0.000             0.000          profile:0(profiler)
 </code></pre>
+</div>
 
-<h1 id="kaynaklar">Kaynaklar:</h1>
+<h3 id="kaynaklar">Kaynaklar:</h3>
 
 <p><a href="http://stackoverflow.com/questions/8177073/python-maximum-recursion-depth-exceeded">http://stackoverflow.com/questions/8177073/python-maximum-recursion-depth-exceeded</a></p>
 
@@ -203,102 +244,87 @@ umbers)
 
 <p><a href="http://en.wikipedia.org/wiki/Regular_number">http://en.wikipedia.org/wiki/Regular_number</a></p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/hamming-sayilari';
-                    var disqus_title      = "Hamming Sayıları";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/python-sys-argv-yerine-click-kullanin" data-toggle="tooltip" data-placement="top" title="sys.argv Yerine Click Kullanın">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/hanoi-kuleleri-algoritmasi" data-toggle="tooltip" data-placement="top" title="Hanoi Kuleleri Algoritmasi">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

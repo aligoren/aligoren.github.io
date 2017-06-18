@@ -1,263 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>OpenSUSE 42.1 LAMP Kurulumu - Ali GÖREN...</title>
+  <title>
+    
+      OpenSUSE 42.1 LAMP Kurulumu &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/opensuse-421-lamp-kurulumu">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">OpenSUSE 42.1 LAMP Kurulumu</h1>
+  <span class="post-date">29 Nov 2015</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="opensuse etiketine sahip yazılar" title="opensuse etiketine sahip yazılar">opensuse</span>
+        
+          <span class="tags" alt="linux etiketine sahip yazılar" title="linux etiketine sahip yazılar">linux</span>
+        
+          <span class="tags" alt="lamp etiketine sahip yazılar" title="lamp etiketine sahip yazılar">lamp</span>
+        
+          <span class="tags" alt="php etiketine sahip yazılar" title="php etiketine sahip yazılar">php</span>
+        
+          <span class="tags" alt="apache etiketine sahip yazılar" title="apache etiketine sahip yazılar">apache</span>
+        
+          <span class="tags" alt="mysql etiketine sahip yazılar" title="mysql etiketine sahip yazılar">mysql</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Bilmiyorsanız söyleyeyim LAMP, Linux, Apache, MySQL ve PHP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım. Sırasıyla Adımlar:
+<!--more--></p>
 
-
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">OpenSUSE 42.1 LAMP Kurulumu</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on November 29, 2015</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Bilmiyorsanız söyleyeyim LAMP, Linux, Apache, MySQL ve PHP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım. Sırasıyla Adımlar:</p>
-
-<pre><code>1- Apache Kurulumu
-
-2- MariaDB Kurulumu
-
-3- PHP Kurulumu
-</code></pre>
+<ul>
+  <li>
+    <p>Apache Kurulumu</p>
+  </li>
+  <li>
+    <p>MariaDB Kurulumu</p>
+  </li>
+  <li>
+    <p>PHP Kurulumu</p>
+  </li>
+</ul>
 
 <p>İlk sıraya Linux koymaya gerek yok biliyorsunuz :). Başlayalım o zaman.</p>
 
-<h1 id="apache-kurulumu">Apache Kurulumu</h1>
+<h3 id="apache-kurulumu">Apache Kurulumu</h3>
 
-<p>Apache, çoklu platformda çalışabilen web server’dır. İçerisinde CGI, SSL ve sanal alan adlarının da desteklendiği çoğu özellik bulunmaktadır. <!--TEASER_END--> Öncelikle Apache kurmak için Uçbirim’i açarak şu komutları girin:</p>
+<p>Apache, çoklu platformda çalışabilen web server’dır. İçerisinde CGI, SSL ve sanal alan adlarının da desteklendiği çoğu özellik bulunmaktadır. Öncelikle Apache kurmak için Uçbirim’i açarak şu komutları girin:</p>
 
-<p><code>sudo zypper in apache2</code></p>
+<p><code class="highlighter-rouge">sudo zypper in apache2</code></p>
 
 <p>Bu komut apache2 kurulumunu yapacaktır. Daha sonra apache2’nin her başlangıçta otomatik olarak başlaması için şu iki komutu gireceğiz:</p>
 
-<pre><code>sudo systemctl start apache2
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo systemctl start apache2
 
-sudo systemctl enable apache2
+sudo systemctl <span class="nb">enable </span>apache2
 </code></pre>
+</div>
 
 <p>Artık apache2 başlamış durumda ve aktif durumda. Varsayılan sunucu erişimi localhost tarafından sağlanmakta. Eğer uzak bir makineden erişime açık olmasını istiyorsanız güvenlik duvarınız ya da yönlendiricinize varsayılan port 80 olarak belirtebilirsiniz. Bunu OpenSUSE ile şöyle yaparız:</p>
 
-<p><code>sudo nano /etc/sysconfig/SuSEfirewall2</code></p>
+<p><code class="highlighter-rouge">sudo nano /etc/sysconfig/SuSEfirewall2</code></p>
 
 <p>Eğer nano yoksa komut satırına cnf nano yazarak nasıl kurulacağını görebilirsiniz.</p>
 
-<p>Açılan kısımda CTRL+W yaparak arama yapacaksınız. Arama kısmında FW_CONFIGURATIONS_EXT yazarak arayın. İlk çıkan sonuç yorum satırı içerisindedir. Tekrar CTRL+W yapın ve enter’a basın. Karşınıza şöyle bir sonuç çıkacaktır:</p>
+<p>Açılan kısımda CTRL+W yaparak arama yapacaksınız. Arama kısmında <code class="highlighter-rouge">FW_CONFIGURATIONS_EXT</code> yazarak arayın. İlk çıkan sonuç yorum satırı içerisindedir. Tekrar CTRL+W yapın ve enter’a basın. Karşınıza şöyle bir sonuç çıkacaktır:</p>
 
-<p><code>FW_CONFIGURATIONS_EXT = ""</code></p>
+<p><code class="highlighter-rouge">FW_CONFIGURATIONS_EXT = ""</code></p>
 
 <p>Bu kısımdaki tırnaklar arasına apache2 yazın yani:</p>
 
-<p><code>FW_CONFIGURATIONS_EXT = "apache2"</code></p>
+<p><code class="highlighter-rouge">FW_CONFIGURATIONS_EXT = "apache2"</code></p>
 
 <p>olarak ayarlamanız gerekmekte. Daha sonra CTRL+X yaparak kaydedin. Karşınıza öncelikle dosya adı geliyordu sanıyorum burada direkt enter diyin. Sonraki adımda kaydetmek isteyip istemediğinizi soruyor. Türkçe ise E olarak isteyebilir. İngilizce ise Y olarak cevaplayın. Daha sonra firewall yeniden başlatılmalı:</p>
 
-<p><code>sudo systemctl restart SuSEfirewall2</code></p>
+<p><code class="highlighter-rouge">sudo systemctl restart SuSEfirewall2</code></p>
 
-<h1 id="apache-test-İşlemi">Apache Test İşlemi:</h1>
+<p><strong>Apache Test İşlemi:</strong></p>
 
 <p>Apache’yi test etmek için bir dosya oluşturalım. Bu dosyayı oluşturacağınız yol /srv/www/htdocs/ şeklinde olacaktır. Biz henüz PHP kurmadık basit olarak bir HTML dosyası oluşturalım:</p>
 
-<p><code>sudo nano /srv/www/htdocs/index.html</code></p>
+<p><code class="highlighter-rouge">sudo nano /srv/www/htdocs/index.html</code></p>
 
-<p>İçerisine herhangi bir şey yazabilirsiniz ve kaydedip çıkın. Daha sonra tarayıcıdan http://localhost adresini açın. Eğer her şeyi doğru yaptıysanız oluşturduğunuz HTML dosyasının içeriğini göreceksiniz.</p>
-
-<h1 id="mariadb-kurulumu">MariaDB Kurulumu</h1>
+<p>İçerisine herhangi bir şey yazabilirsiniz ve kaydedip çıkın. Daha sonra tarayıcıdan <code class="highlighter-rouge">http://localhost</code> adresini açın. Eğer her şeyi doğru yaptıysanız oluşturduğunuz HTML dosyasının içeriğini göreceksiniz.
+MariaDB Kurulumu</p>
 
 <p>MariaDB, MySQL’in forklanmış bir sürümüdür. Dinamik kolon gibi özelliklere sahiptir. O zaman kurulum için uçbirim’e şu komutu girelim:</p>
 
-<p><code>sudo zypper in mariadb</code></p>
+<p><code class="highlighter-rouge">sudo zypper in mariadb</code></p>
 
 <p>Artık kurulum yapıldı. Şimdi MariaDB yani MySQL her başlangıçta başlasın istiyoruz. Aynı apache2 için yaptığımız gibi MySQL için de systemctl kullanacağız.</p>
 
-<pre><code>sudo systemctl start mysql
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl start mysql
 
 sudo systemctl enable mysql
 </code></pre>
+</div>
 
-<h1 id="mysql-root-parolasını-ayarlama">MySQL root Parolasını Ayarlama</h1>
+<p><strong>MySQL root Parolasını Ayarlama</strong></p>
 
 <p>MySQL root parolası varsayılan olarak boş gelir. Ancak bazı durumlarda yetkisiz erişimi engellemek isteyebilirsiniz. Bu durumda MySQL’i root parolası ile korursunuz. Bunun için konsol’a</p>
 
-<p><code>mysql_secure_installation</code></p>
+<p><code class="highlighter-rouge">mysql_secure_installation</code></p>
 
 <p>komutunu verelim. Karşımıza dolusuna yazı gelecek. Burada size bir soru soracak.</p>
 
-<pre><code>“Set root password? [Y/n]”
-</code></pre>
+<p><strong>“Set root password? [Y/n]”</strong></p>
 
 <p>Bu kısım root parolası ayarlamak ister misiniz diyor. Y tuşuna basın. Parolanızı iki defa gireceksiniz. Her iki defasında da girmiyor gibi görünebilirsiniz. Parola gizli olarak giriliyor.</p>
 
-<pre><code>“Remove anonymous users? [Y/n]”
-</code></pre>
+<p><strong>“Remove anonymous users? [Y/n]”</strong></p>
 
 <p>Anonim kullanıcıları silmek ister misiniz diyor. Eğer silmek isterseniz Y tuşuna basın.</p>
 
-<pre><code>“Disallow root login remotely [Y/n]”
-</code></pre>
+<p><strong>“Disallow root login remotely [Y/n]”</strong></p>
 
 <p>Bu kısımda uzak root erişimini kısıtlayın diyor. Buna Y diyoruz.</p>
 
-<pre><code>“Reload privilege tables now [Y/n]”
-</code></pre>
+<p><strong>“Reload privilege tables now [Y/n]”</strong></p>
 
-<p>Tabloları baştan oluşturmak isteyip istemediğinizi soruyor. Bu kısımda da Y diyoruz. MySQL ayarlarımızı tamamladık.
-PHP Kurulumu</p>
+<p>Tabloları baştan oluşturmak isteyip istemediğinizi soruyor. Bu kısımda da Y diyoruz. MySQL ayarlarımızı tamamladık. PHP Kurulumu</p>
 
 <p>Her şeyi kurduk. Artık PHP kurulumunu yapmamız gerekiyor. Komut satırına şu komutları girelim:</p>
 
-<p><code>sudo zypper in php5 php5-mysql apache2-mod_php5</code></p>
+<p><code class="highlighter-rouge">sudo zypper in php5 php5-mysql apache2-mod_php5</code></p>
 
 <p>Çok fazla uzun sürmeyecek bir kurulumla bir sonraki adıma geçelim. Yani mod-php aktif olmalı. Bunun için şu komutları çalıştırıyoruz:</p>
 
-<p><code>sudo a2enmod php5</code></p>
+<p><code class="highlighter-rouge">sudo a2enmod php5</code></p>
 
-<h1 id="phpyi-test-edelim">PHP’yi Test Edelim:</h1>
+<p><strong>PHP’yi Test Edelim:</strong></p>
 
 <p>Basit olarak php bilgilerini veren bir PHP dosyası oluşturalım:</p>
 
-<p><code>sudo nano /srv/www/htdocs/info.php</code></p>
+<p><code class="highlighter-rouge">sudo nano /srv/www/htdocs/info.php</code></p>
 
 <p>Bu dosyanın içine</p>
 
-<pre><code class="language-php">&lt;?php
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 
-phpinfo();
+<span class="nb">phpinfo</span><span class="p">();</span>
 
-?&gt;
+<span class="cp">?&gt;</span>
 </code></pre>
+</div>
+
 <p>kodlarını ekleyelim, kaydedip çıkalım. Daha sonra apache2’yi yeniden başlatalım:</p>
 
-<p><code>sudo systemctl restart apache2</code></p>
+<p><code class="highlighter-rouge">sudo systemctl restart apache2</code></p>
 
 <p>Daha sonra PHP bilgilerinin olduğu dosyayı çalıştıralım:</p>
 
-<p><a href="http://localhost/info.php">http://localhost/info.php</a></p>
+<p>http://localhost/info.php</p>
 
 <p>adresinde düzgünce görüntüleme işlemini yaptıysanız sıkıntı yok. Eğer tüm php modüllerini kurmak istiyorsanız konsoldan şu komutu giriniz:</p>
 
-<p><code>sudo zypper in php*</code></p>
+<p><code class="highlighter-rouge">sudo zypper in php*</code></p>
 
 <p>Daha sonra eğer geliştirme amaçlı çalışıyorsanız, çalışırken hataları görmek amacıyla bunları aktif etmelisiniz. Bu hataların yönetimini display_errors’da saklı. Varsayılan değer Off olarak geliyor. Aktif etmek için konsoldan şu komutu çalıştıralım:</p>
 
-<p><code>sudo nano /etc/php5/apache2/php.ini</code></p>
+<p><code class="highlighter-rouge">sudo nano /etc/php5/apache2/php.ini</code></p>
 
-<p>Daha sonra <code>display_errors = Off</code> şeklinde aratıp bu kısmı <code>display_errors = On</code> olarak değiştiriyoruz. Kaydedip çıkalım.</p>
+<p>Daha sonra <code class="highlighter-rouge">display_errors = Off</code> şeklinde aratıp bu kısmı <code class="highlighter-rouge">display_errors = On</code> olarak değiştiriyoruz. Kaydedip çıkalım.</p>
 
 <p>Tüm bunlardan sonra “permission denied” hatası almamak için chmod 777 yapmalıyız. Bu sayede “/srv/www/htdocs” ve altındaki dizinlere 777 iznini vermiş olacağız. Komut satırından şu komutu çalıştıralım:</p>
 
-<p><code>chmod 777 /srv/www/htdocs</code></p>
+<p><code class="highlighter-rouge">chmod 777 /srv/www/htdocs</code></p>
 
-<h1 id="phpmyadmin-kurulumu">phpMyAdmin Kurulumu</h1>
+<p><strong>phpMyAdmin Kurulumu</strong></p>
 
 <p>MySQL’i komut satırından kontrol etmek istemiyorsanız phpMyAdmin sizin için harika bir araç. Web arayüzü ile MySQL veritabanlarınızı yönetebilirsiniz. Kurulum için komut satırına şu komutu girelim:</p>
 
-<p><code>sudo zypper in phpmyadmin</code></p>
+<p><code class="highlighter-rouge">sudo zypper in phpmyadmin</code></p>
 
 <p>Eğer parola oluşturmanızı falan isterse MySQL için oluşturduğunuz parolayı tekrarlayın. Daha sonra “php.ini” düzenlemek için komut satırına şu komutu yazın:</p>
 
-<p><code>sudo nano /etc/php5/apache2/php.ini</code></p>
+<p><code class="highlighter-rouge">sudo nano /etc/php5/apache2/php.ini</code></p>
 
 <p>php.ini dosyası açıldıktan sonra şunu aratın:</p>
 
-<p><code>extension=php_mbstring.dll</code></p>
+<p><code class="highlighter-rouge">extension=php_mbstring.dll</code></p>
 
 <p>Burası yorum satırı olarak görünüyor. Bu kısmı yorum satırı olmaktan kurtarın. Daha sonra apache2’yi yeniden başlatın:</p>
 
-<p><code>sudo systemctl restart apache2</code></p>
+<p><code class="highlighter-rouge">sudo systemctl restart apache2</code></p>
 
 <p>Artık phpMyAdmin’e erişim sağlayabilirsiniz:</p>
 
@@ -265,102 +314,87 @@ phpinfo();
 
 <p>Evet kurulum bu kadar ve basit. İyi çalışmalar</p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/opensuse-421-lamp-kurulumu';
-                    var disqus_title      = "OpenSUSE 42.1 LAMP Kurulumu";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/opensuse-guncellemesini-zypper-ile-yapma" data-toggle="tooltip" data-placement="top" title="OpenSUSE Güncellemesini Zypper ile Yapma">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/opensuse-php7-xdebug-kurulumu" data-toggle="tooltip" data-placement="top" title="OpenSUSE PHP7 XDebug Kurulumu">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

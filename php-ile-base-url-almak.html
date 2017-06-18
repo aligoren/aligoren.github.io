@@ -1,293 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>PHP ile Base URL Almak - Ali GÖREN...</title>
+  <title>
+    
+      PHP ile Base URL Almak &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/php-ile-base-url-almak">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">PHP ile Base URL Almak</h1>
+  <span class="post-date">31 Dec 2016</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="PHP etiketine sahip yazılar" title="PHP etiketine sahip yazılar">PHP</span>
+        
+          <span class="tags" alt="Tips etiketine sahip yazılar" title="Tips etiketine sahip yazılar">Tips</span>
+        
+          <span class="tags" alt="Programming etiketine sahip yazılar" title="Programming etiketine sahip yazılar">Programming</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</p>
 
+<p>Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk <a href="https://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858">geldikten</a> sonra oturup kodunu kendim yazmalıyım dedim.
+<!--more-->
+Sorun şu normalde <code class="highlighter-rouge">http://localhost</code> adresi bizim <code class="highlighter-rouge">base_url</code> adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor.</p>
 
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">PHP ile Base URL Almak</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on December 31, 2016</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<p>Çünkü <code class="highlighter-rouge">http://localhost/proje</code> böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:</p>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.</p>
-
-<p>Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk <a href="http://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858">geldikten</a> sonra oturup kodunu kendim yazmalıyım dedim.</p>
-
-<p>Sorun şu normalde <code>http://localhost</code> adresi bizim base_url adresimiz fakat proje bir alt klasörde yer alıyorsa o zaman sıkıntılar çıkabiliyor. Çünkü <code>http://localhost/proje</code> böyle bir adrese sahip olabilirsiniz ve dahası bu proje yolunda çalışırken htaccess kullanarak diğer sayfaları sanki bir klasörmüş gibi gösterebilirsiniz. Bu nedenden dolayı da mutlak url’yi yakalamakta sorun yaşayabiliyorsunuz. Bunun birden fazla çözüm yöntemi var. Öncelikle en basit olanını yapalım:</p>
-
-<h2 id="Çözüm-1">Çözüm 1:</h2>
+<h3 id="Çözüm-1">Çözüm 1:</h3>
 
 <p>Bu yöntemde, base_url methodu tanımlanır ve o yönteme statik url verilir:</p>
 
-<pre><code class="language-php">function base_url() {
-	return 'http://localhost/proje';
-}
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+	<span class="k">function</span> <span class="nf">base_url</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s1">'http://localhost/proje'</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="cp">?&gt;</span>
 </code></pre>
+</div>
 
-<h2 id="Çözüm-2">Çözüm 2:</h2>
+<h3 id="Çözüm-2">Çözüm 2:</h3>
 
 <p>Bu yöntemde biraz programlama beceriniz önemli aslında. Ben trait kullandım, çünkü bu kod şu anki projemin bi parçası. Multiple olarak extends işlemi yapamadığım için 5.4 ile gelen traitleri kullanmaya karar verdim.</p>
 
-<h3 id="gereksinimler">Gereksinimler:</h3>
+<p><strong>Gereksinimler:</strong></p>
 
-<pre><code>- Gezindiğimiz alan adı: $_SERVER['SERVER_NAME'];
-- Şu anda bulunduğumuz sayaf: $_SERVER['REQUEST_URI'];
-</code></pre>
+<ul>
+  <li>Gezindiğimiz alan adı: <code class="highlighter-rouge">$_SERVER['SERVER_NAME'];</code></li>
+  <li>Şu anda bulunduğumuz sayfa: <code class="highlighter-rouge">$_SERVER['REQUEST_URI'];</code></li>
+</ul>
 
-<p>Bu işlemde mevcut bulunduğumuz sayfayı PHP’nin <code>str_replace()</code> fonksiyonunu kullanarak temizleyeceğiz. Zaten düz root ise hiçbir şey görünmeyecek. Yok farklı URL’lerde isek o zaman kalan kısım görülecektir. Örneğin şöyle:</p>
+<p>Bu işlemde mevcut bulunduğumuz sayfayı PHP’nin <code class="highlighter-rouge">str_replace()</code> fonksiyonunu kullanarak temizleyeceğiz. Zaten düz root ise hiçbir şey görünmeyecek. Yok farklı URL’lerde isek o zaman kalan kısım görülecektir. Örneğin şöyle:</p>
 
-<pre><code class="language-php">/*
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>/*
 http://localhost =&gt; return ""
 http://localhost/proje =&gt; return "/proje"
 */
 </code></pre>
+</div>
 
-<p>Yukarıdaki gibi bir temizleme işlemi sonrası yapılması gereken PHP’nin <code>explode()</code> fonksiyonunu slash ile kullanarak slashtan sonra gelen ilk değeri almak. Yani şöyle düşünelim:</p>
+<p>Yukarıdaki gibi bir temizleme işlemi sonrası yapılması gereken PHP’nin <code class="highlighter-rouge">explode()</code> fonksiyonunu slash ile kullanarak slashtan sonra gelen ilk değeri almak. Yani şöyle düşünelim:</p>
 
-<pre><code class="language-php">/*
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>/*
 /proje
 /proje/abc/
 /proje/a/b/c/d/e/f/g
 */
 </code></pre>
+</div>
 
 <p>İlk satırdaki proje değerini almak zaten sıkıntılı değil ama bulunduğunuz sayfa 3. satırdaki gibi ise bir problemimiz var demektir. Bu yüzden explode ile böldüklerimizin ilkini alıyoruz. Bu genelde projenin root dizinidir.</p>
 
 <p>Dizinin altındaki dizinlere maalesef bir çözümüm yok, o durumlarda artık manuel olarak ilk yöntemi denemelisiniz. Neyse bu işlem sonrasında ise dönen array türü değerin 1. indexini çağırıyoruz.</p>
 
-<p>Bu projemizin root olarak görünen klasörüdür. Yani <code>/proje/a/b/c/d/e/f/g</code> gibi bir adresten sadece <strong>proje</strong> değerini alıyoruz. Ve ilk değerin başına tekrar bir slash ekliyoruz Son olarak dönen değer <em>”/”</em> ya da <em>“/proje_kok_dizini”</em> şeklinde oluyor. Aslında senaryo olarak size bu işlemin nasıl yapacağını söylediğime göre kodlaması da basit anlamda kafanızda canlandı. Yine de kodlarını paylaşayım:</p>
+<p>Bu projemizin root olarak görünen klasörüdür. Yani <code class="highlighter-rouge">/proje/a/b/c/d/e/f/g</code> gibi bir adresten sadece proje değerini alıyoruz. Ve ilk değerin başına tekrar bir slash ekliyoruz Son olarak dönen değer ”/” ya da “/proje_kok_dizini” şeklinde oluyor. Aslında senaryo olarak size bu işlemin nasıl yapacağını söylediğime göre kodlaması da basit anlamda kafanızda canlandı. Yine de kodlarını paylaşayım:</p>
 
 <p><strong>url.php</strong></p>
 
-<pre><code class="language-php">trait URL {
-    private $url = '';
-    private $current_url = '';
-    public $get = '';
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nx">trait</span> <span class="nx">URL</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$url</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$current_url</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$get</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 
-    function __construct()
-    {
-        $this-&gt;url = $_SERVER['SERVER_NAME'];
-        $this-&gt;current_url = $_SERVER['REQUEST_URI'];
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'SERVER_NAME'</span><span class="p">];</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">current_url</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">];</span>
 
-        $clean_server = str_replace('', $this-&gt;url, $this-&gt;current_url);
-        $clean_server = explode('/', $clean_server);
+        <span class="nv">$clean_server</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">current_url</span><span class="p">);</span>
+        <span class="nv">$clean_server</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nv">$clean_server</span><span class="p">);</span>
 
-        $this-&gt;get = array('base_url' =&gt; "/".$clean_server[1]);
-    }
-}
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'base_url'</span> <span class="o">=&gt;</span> <span class="s2">"/"</span><span class="o">.</span><span class="nv">$clean_server</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
 </code></pre>
+</div>
 
 <p><strong>index.php</strong></p>
 
-<pre><code class="language-php">require_once 'url.php'
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require_once</span> <span class="s1">'url.php'</span>
 
-class Home
-{
-    use URL;
-}
+<span class="k">class</span> <span class="nc">Home</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">URL</span><span class="p">;</span>
+<span class="p">}</span>
 
-$h = new Home();
+<span class="nv">$h</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Home</span><span class="p">();</span>
 
-// Bu satır HTML kodları içermektedir.
+<span class="c1">// Bu satır HTML kodları içermektedir.
 // O yüzden üst kısımda PHP taglerini kapatmalısınız.
-
-&lt;a href="&lt;?=$h-&gt;get['base_url']?&gt;"&gt;Base&lt;/a&gt;
+</span><span class="cp">?&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;?=</span><span class="nv">$h</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">[</span><span class="s1">'base_url'</span><span class="p">]</span><span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span>Base<span class="nt">&lt;/a&gt;</span>
 </code></pre>
+</div>
 
-<p>Bu yazıyı Stackoverflow’da verdiğim <a href="http://stackoverflow.com/a/41407858/3821823">şu</a> cevaptan esinlenerek oluşturdum</p>
+<p>Bu yazıyı Stackoverflow’da verdiğim <a href="https://stackoverflow.com/a/41407858/3821823">şu</a> cevaptan esinlenerek oluşturdum</p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/php-ile-base-url-almak';
-                    var disqus_title      = "PHP ile Base URL Almak";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/atistirmalik-mongodb-yazisi-2" data-toggle="tooltip" data-placement="top" title="Atıştırmalık MongoDB Yazısı - 2">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/jquery-ile-dinamik-islemler" data-toggle="tooltip" data-placement="top" title="jQuery ile Dinamik İşlemler">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

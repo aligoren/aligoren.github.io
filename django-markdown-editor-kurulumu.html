@@ -1,129 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Django Markdown Editör Kurulumu - Ali GÖREN...</title>
+  <title>
+    
+      Django Markdown Editör Kurulumu &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/django-markdown-editor-kurulumu">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Django Markdown Editör Kurulumu</h1>
+  <span class="post-date">24 Feb 2016</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+          <span class="tags" alt="django etiketine sahip yazılar" title="django etiketine sahip yazılar">django</span>
+        
+          <span class="tags" alt="markdown etiketine sahip yazılar" title="markdown etiketine sahip yazılar">markdown</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Okuldaki işler harici evde de kişisel olarak python ve arkadaşlarının icatları ile ilgileniyorum. Bu süreçte django ile kendi blog sistemimi yazmaya karar verdim. Ancak editör öyle kötüydü ki (hiç yok klasik textarea :D) markdown editör aramaya koyuldum. Daha önce Laravel ile yazdığım blog sisteminde de kullandığım editör geldi aklıma.
+<!--more-->
+Taufan Aditya tarafından yazılan bootstrap-markdown kullanmıştım. Neyse bu işin görsel yüzü. Ancak arkada hala çözümlenmeyi bekleyen markdown kuralları vardı. Bunun için bulabildiğim en uygun markdown eklentisi Kirill Klenov tarafından yazılan django_markdown eklentisiydi. Neyse bulduk ettik bir şekilde. Sıra kuruluma geliyor.Öncelikle editör entegrasyonunu yapalım. Şu linkten editör dosyalarını indirelim. İlgili klasöre çıkaralım. Statik dosyaların static altında olduğunu varsayarak yaptığınızı düşünelim. Ben şöyle yaptım:</p>
 
-
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">Django Markdown Editör Kurulumu</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on February 24, 2016</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Okuldaki işler harici evde de kişisel olarak python ve arkadaşlarının icatları ile ilgileniyorum. Bu süreçte django ile kendi blog sistemimi yazmaya karar verdim. Ancak editör öyle kötüydü ki (hiç yok klasik textarea :D) markdown editör aramaya koyuldum. Daha önce Laravel ile <a href="https://github.com/aligoren/larablog">yazdığım</a> blog sisteminde de kullandığım editör geldi aklıma.</p>
-
-<p>Taufan Aditya tarafından yazılan <a href="https://github.com/toopay/bootstrap-markdown">bootstrap-markdown</a> kullanmıştım. Neyse bu işin görsel yüzü. Ancak arkada hala çözümlenmeyi bekleyen markdown kuralları vardı. Bunun için bulabildiğim en uygun markdown eklentisi Kirill Klenov tarafından yazılan <a href="https://github.com/klen/django_markdown">django_markdown</a> eklentisiydi. Neyse bulduk ettik bir şekilde. Sıra kuruluma geliyor.Öncelikle editör entegrasyonunu yapalım. Şu linkten editör dosyalarını indirelim. İlgili klasöre çıkaralım. Statik dosyaların static altında olduğunu varsayarak yaptığınızı düşünelim. Ben şöyle yaptım: <!--TEASER_END--></p>
-
-<p><code>{ % static "markdown/bootstrap_markdown.css" % }</code></p>
+<p><code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="nt">"markdown/bootstrap_markdown.css"</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">}</span></code></p>
 
 <p>Bu şu anlama geliyor: static klasörü altındaki markdown klasörünün içinde ilgili css dosyasını çek. Bu kodu şöyle kullanıyoruz:</p>
 
-<link rel="stylesheet" href="{ % static &quot;markdown/bootstrap_markdown.css&quot; % }" media="screen" title="no title" charset="utf-8" />
-
 <p>Şimdi artık JavaScript dosyalarını ekleyebiliriz. Bu sefer yine markdown klasörü altında JS klasörü olduğunu düşünerek şöyle çağıralım:</p>
 
-<pre><code class="language-html">&lt;script src="//code.jquery.com/jquery-1.12.0.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src='{ % static "markdown/js/bootstrap-markdown.js" % }'&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src='{ % static "markdown/js/bootstrap-markdown.tr.js" % }'&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src='{ % static "markdown/js/bootstrap.min.js" % }'&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src='{ % static "markdown/js/markdown.js" % }'&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src='{ % static "markdown/js/to-markdown.js" % }'&gt;&lt;/script&gt;
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//code.jquery.com/jquery-1.12.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">'{ % static "markdown/js/bootstrap-markdown.js" % }'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">'{ % static "markdown/js/bootstrap-markdown.tr.js" % }'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">'{ % static "markdown/js/bootstrap.min.js" % }'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">'{ % static "markdown/js/markdown.js" % }'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">'{ % static "markdown/js/to-markdown.js" % }'</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
+</div>
 
 <p>İlk kısımda jquery çağırımını yaptık. Sonra bootstrap-markdown ve türkçe dil eklentisini çağırdık. Kısacası gerekli dosyaları çağırdık. TextArea’mıza bakarsak şöyle bir MD editör göreceğiz:</p>
 
@@ -131,156 +169,144 @@
 
 <p>Okey artık gerekli stil vs. dosyalarını ekledik. Şimdi django’da bir adet textareamız var. Bunu uygulamanın forms.py dosyasında oluşturdunuz zaten. Eğer yok ise örnek şöyle olacak:</p>
 
-<pre><code class="language-python">from django import forms
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
 
-from .models import Post
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
 
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = [
+<span class="k">class</span> <span class="nc">PostForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
 
-            "content",
-        ]
+            <span class="s">"content"</span><span class="p">,</span>
+        <span class="p">]</span>
 </code></pre>
-<p>Burada gördüğümüz model olayını vs. anlatmıyorum ancak fields content adında bir değer almış. Bu benim formum için bir değer. Bunu template dosyasına şöyle ekliyoruz:</p>
+</div>
 
-<p>``</p>
+<p>Burada gördüğümüz model olayını vs. anlatmıyorum ancak fields content adında bir değer almış. Bu benim formum için bir değer. Bunu template dosyasına şöyle ekliyoruz:</p>
 
 <p>Bu bilgileri zaten biliyorsunuz diye varsayıyorum üzerinde fazla durmuyorum. Şimdi bu content için widgets ile markdown attribute eklememiz lazım.Şöyle yapalım onu da:</p>
 
-<pre><code class="language-python">widgets = {
-    'content': forms.Textarea(attrs={'rows': 20, 'cols': 120, 'data-provide': 'markdown'}),
-}
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'content'</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">'rows'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'cols'</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s">'data-provide'</span><span class="p">:</span> <span class="s">'markdown'</span><span class="p">}),</span>
+<span class="p">}</span>
 </code></pre>
+</div>
 
 <p>Bu aslında klasik olarak şöyle oluyor. Herhangi bir html elementinin özellikleri gibi düşünün. Burada kolayca sözlük olarak ekliyoruz. row ve cols bize html’den yabancı gelmiyor. Burası textarea boyutu ile alakalı. Sonra gelen kısım data-provide ve markdown kısmı önemli. Bu kısımda data-provide özelliğine markdown ataması yapıyor. Yani yukarıdaki kısımlar şöyle bir şey oluşturuyor:</p>
 
-<pre><code class="language-html">&lt;textarea cols="120" data-provide="markdown" id="id_content" name="content" rows="20"&gt;&lt;/textarea&gt;
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;textarea</span> <span class="na">cols=</span><span class="s">"120"</span> <span class="na">data-provide=</span><span class="s">"markdown"</span> <span class="na">id=</span><span class="s">"id_content"</span> <span class="na">name=</span><span class="s">"content"</span> <span class="na">rows=</span><span class="s">"20"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 </code></pre>
+</div>
 
 <p>Buradaki id_content kısmı django tarafından otomatik oluşturulmuş durumda. Siz yukarıdaki gibi widgets’a ekstra değer ekleyerek özelleştirebilirsiniz. cols ve rows gördüğümüz gibi zaten. Dikkatimizi çeken sanırım data-provide kısmıydı. Onun da nasıl işlendiğini gördük. Son olarak da name kısmı fields’a belirttiğimiz alandan geliyor. Görsel arayüz bu kadar sanırım.</p>
 
 <p>Şimdi gelelim önemli kısma. Öncelikle django_markdown kurulumunu yapalım:</p>
 
-<p><code>pip install django-markdown</code></p>
+<p><code class="highlighter-rouge">pip install django-markdown</code></p>
 
 <p>Artık kurulum yapılı vaziyette. Ancak bunu kurulu uygulamalara eklememiz gerekiyor. Bunun için settings.py dosyamızın içindeki <strong>INSTALLED_APPS</strong> listesinin sonuna bir ekleme yapıyoruz. Kısacası şöyle:</p>
 
-<pre><code class="language-python">INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'posts',
-    'django_markdown',
-]
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
+    <span class="s">'django.contrib.messages'</span><span class="p">,</span>
+    <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
+    <span class="s">'posts'</span><span class="p">,</span>
+    <span class="s">'django_markdown'</span><span class="p">,</span>
+<span class="p">]</span>
 </code></pre>
+</div>
 
 <p>İşlemler bitti. Ancak son olarak kullanıcıya markdown ile yazılan yazının çözümlenmiş halini göstermeliyiz. Senaryomuza göre diyelim ki post_view.html adında bir dosya ile karşınızdaki kişiye içeriği sunuyorsunuz. Bunu yaparken de şöyle sunuyorsunuz: diyelim. O zaman bunun sonuna bir template tag eklememiz gerekiyor.</p>
 
-<p>Öncelikle post_view.html dosyasının en üstüne, extendsin bir altına şunu eklemelisiniz <code>{% load django_markdown %}</code> bu sayede artık django-markdown template tag’ini de çağırdık. Şimdi kullanıcıya sunduğumuz içeriğe django_markdown tagini de ekleyelim. `` evet bu kadar. Yazınızı yayınlayıp sonucu görebilirsiniz.</p>
+<p>Öncelikle post_view.html dosyasının en üstüne, extendsin bir altına şunu eklemelisiniz <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">load</span><span class="w"> </span><span class="err">django_markdown</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="p">}</span></code> bu sayede artık django-markdown template tag’ini de çağırdık. Şimdi kullanıcıya sunduğumuz içeriğe django_markdown tagini de ekleyelim. evet bu kadar. Yazınızı yayınlayıp sonucu görebilirsiniz.</p>
 
 <p>Hatalı ve eksik anlatımım var ise özür dilerim şimdiden. Eksik olan noktaları bildirebilirsiniz. İyi çalışmalar.</p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/django-markdown-editor-kurulumu';
-                    var disqus_title      = "Django Markdown Editör Kurulumu";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/opensuse-php7-xdebug-kurulumu" data-toggle="tooltip" data-placement="top" title="OpenSUSE PHP7 XDebug Kurulumu">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/django-rss-feed-ekleme" data-toggle="tooltip" data-placement="top" title="Django RSS Feed Ekleme">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

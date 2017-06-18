@@ -1,134 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Atıştırmalık MongoDB Yazısı - Ali GÖREN...</title>
+  <title>
+    
+      Atıştırmalık MongoDB Yazısı &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/atistirmalik-mongodb-yazisi">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Atıştırmalık MongoDB Yazısı</h1>
+  <span class="post-date">17 Dec 2016</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="MongoDB etiketine sahip yazılar" title="MongoDB etiketine sahip yazılar">MongoDB</span>
+        
+          <span class="tags" alt="NoSQL etiketine sahip yazılar" title="NoSQL etiketine sahip yazılar">NoSQL</span>
+        
+          <span class="tags" alt="Tips etiketine sahip yazılar" title="Tips etiketine sahip yazılar">Tips</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı. Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</p>
 
+<p><strong>[NOT]:</strong> Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)</p>
 
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">Atıştırmalık MongoDB Yazısı</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on December 17, 2016</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı.
-Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.</p>
-
-<p><strong>[NOT]</strong>: Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)</p>
+<!--more-->
 
 <p><img src="/images/posts/mongo.png" alt="/images/posts/mongo.png" /></p>
 
-<h2 id="online-mongodb-ortamıyla-tanışın">Online MongoDB Ortamıyla Tanışın</h2>
+<p><strong>Online MongoDB Ortamıyla Tanışın</strong></p>
 
-<p>Pratiğe giriş yapmadan önce MongoDB bilgisayarınızda kurulu olmalı. MongoShell olmadan bilgisayarınızdan bağlantıyı kurmanız mümkün değil.
-Online shell kullanırsanız ayrı. Kurulum aşamalarını geçtiniz varsayarak size MongoLaB sitesini önereceğim.</p>
+<p>Pratiğe giriş yapmadan önce MongoDB bilgisayarınızda kurulu olmalı. MongoShell olmadan bilgisayarınızdan bağlantıyı kurmanız mümkün değil. Online shell kullanırsanız ayrı. Kurulum aşamalarını geçtiniz varsayarak size MongoLaB sitesini önereceğim.</p>
 
-<p><a href="https://mlab.com">https://mlab.com</a> Bu adrese girip kaydolarak ücretsiz 500 MB MongoDB hakkı kazanıyorsunuz.
-Tabii ki online çalışmak zorunda değilsiniz bu bir alternatif.</p>
+<p><a href="https://mlab.com">https://mlab.com</a> Bu adrese girip kaydolarak ücretsiz 500 MB MongoDB hakkı kazanıyorsunuz. Tabii ki online çalışmak zorunda değilsiniz bu bir alternatif.</p>
 
-<p>Kaydolduktan sonra bir veritabanı oluşturmalısınız ve bu veritabanı için bir kullanıcı da oluşturmanız gerekiyor ki buraya kadar olan kısım standart yapıyla aynı.
-Her şeyi doğru yaptıysanız çalışma alanınızın görüntüsü şöyle olmalı:</p>
+<p>Kaydolduktan sonra bir veritabanı oluşturmalısınız ve bu veritabanı için bir kullanıcı da oluşturmanız gerekiyor ki buraya kadar olan kısım standart yapıyla aynı. Her şeyi doğru yaptıysanız çalışma alanınızın görüntüsü şöyle olmalı:</p>
 
 <p><img src="/images/posts/mongolab.png" alt="/images/posts/mongolab.png" /></p>
 
-<h2 id="mongodbyi-local-ortamda-kullanmak">MongoDB’yi Local Ortamda Kullanmak</h2>
+<p><strong>MongoDB’yi Local Ortamda Kullanmak</strong></p>
 
-<p>Eğer MongoDB’yi herhangi bir sınırlama olmaksızın (500 MB gibi) local ortamda kullanmak isterseniz öncelikle komut satırına <code>mongod</code> komutunu yazmalısınız.
-Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak <strong>27017</strong> dinlenir. Bunu söyleme sebebim yukarıdaki ilk seçenekte varsayılan port farklı.</p>
+<p>Eğer MongoDB’yi herhangi bir sınırlama olmaksızın (500 MB gibi) local ortamda kullanmak isterseniz öncelikle komut satırına mongod komutunu yazmalısınız. Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak 27017 dinlenir. Bunu söyleme sebebim yukarıdaki ilk seçenekte varsayılan port farklı.</p>
 
 <p><img src="/images/posts/mongod_local.png" alt="/images/posts/mongod_local.png" /></p>
 
@@ -136,22 +172,21 @@ Bu sayede MongoDB sunucusu başlatılır. Varsayılan port olarak <strong>27017<
 
 <p><img src="/images/posts/mongo_local.png" alt="/images/posts/mongo_local.png" /></p>
 
-<h3 id="veritabanını-seçelim">Veritabanını Seçelim</h3>
+<p><strong>Veritabanını Seçelim</strong></p>
 
-<p>Veritabanını seçme işlemi, mongoshell üzerinde diğerlerinde olduğu gibi <code>use</code> ile olacaktır. Localde çalışanlar için test veritanı şöyle seçilir:</p>
+<p>Veritabanını seçme işlemi, mongoshell üzerinde diğerlerinde olduğu gibi use ile olacaktır. Localde çalışanlar için test veritanı şöyle seçilir:</p>
 
-<pre><code class="language-sql">use test
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">use</span> <span class="n">test</span>
 </code></pre>
+</div>
 
-<h3 id="ufaktan-insert-operasyonları">Ufaktan Insert Operasyonları</h3>
+<p><strong>Ufaktan Insert Operasyonları</strong></p>
 
-<p>Veritabanını seçtik. MongoDB kullanırken insert operasyonları, RDBMS’lerden farklı şekilde çalışabilir. Burada yaşayacağınız farklılık syntax anlamında olabilir.
-Ancak NodeJS kullanıcılarının bu işlemlere karşı yabancı olacağı pek söylenemez :)</p>
+<p>Veritabanını seçtik. MongoDB kullanırken insert operasyonları, RDBMS’lerden farklı şekilde çalışabilir. Burada yaşayacağınız farklılık syntax anlamında olabilir. Ancak NodeJS kullanıcılarının bu işlemlere karşı yabancı olacağı pek söylenemez :)</p>
 
 <p>MongoDB’de insert operasyonları üç metod altında toplanmıştır. Bunlar sırasıyla;</p>
 
-<p><strong>insert()</strong>, <strong>insertOne()</strong> ve <strong>insertMany()</strong> metodlarıdır.
-Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisiniz. Yani JSON’a da aşina olmanız gerekmektedir. Neyse ki öğrenmesi çok da zor değil.</p>
+<p><code class="highlighter-rouge">insert()</code>, <code class="highlighter-rouge">insertOne()</code> ve <code class="highlighter-rouge">insertMany()</code> metodlarıdır. Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisiniz. Yani JSON’a da aşina olmanız gerekmektedir. Neyse ki öğrenmesi çok da zor değil.</p>
 
 <p><strong>Basit Olarak Insert</strong></p>
 
@@ -159,37 +194,39 @@ Bu metodları kullanırken verilerin JSON türünden olduğuna dikkat etmelisini
 
 <p>DBNESNESİ.TABLO.INSERT bu sahte yöntemin gerçeğe dönüşmüş hali şöyledir:</p>
 
-<pre><code class="language-js">db.Tablo.insert({
-    'alan': 'Verisi',
-    'alan2': 'Baska Veri'
-})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Tablo</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span>
+    <span class="s1">'alan'</span><span class="p">:</span> <span class="s1">'Verisi'</span><span class="p">,</span>
+    <span class="s1">'alan2'</span><span class="p">:</span> <span class="s1">'Baska Veri'</span>
+<span class="p">})</span>
 </code></pre>
+</div>
 
 <p>O zaman bir blog sisteminin yapısından yola çıkarak şöyle olacak diyebiliriz:</p>
 
-<pre><code class="language-js">db.Yazilar.insert({
-    'Baslik': 'Blog Başlığı',
-    'Icerik': 'Lorem Ipsum Dolor Sit Amet...',
-    'Kategori': 'Kişisel'
-})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span>
+    <span class="s1">'Baslik'</span><span class="p">:</span> <span class="s1">'Blog Başlığı'</span><span class="p">,</span>
+    <span class="s1">'Icerik'</span><span class="p">:</span> <span class="s1">'Lorem Ipsum Dolor Sit Amet...'</span><span class="p">,</span>
+    <span class="s1">'Kategori'</span><span class="p">:</span> <span class="s1">'Kişisel'</span>
+<span class="p">})</span>
 </code></pre>
+</div>
 
 <p>Evet klasik bir insert operasyonunu gördük. Bu kodları Mongoshell üzerinde çalıştırınca şu çıktıyı alırsanız her şey doğrudur:</p>
 
-<pre><code class="language-json">WriteResult({ "nInserted" : 1 })
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">WriteResult(</span><span class="p">{</span><span class="w"> </span><span class="nt">"nInserted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="err">)</span><span class="w">
+</span></code></pre>
+</div>
 
 <p><strong>Nedir Bu insertOne() ?</strong></p>
 
-<p>Bilinen bir yanlıştan dolayı insert ve insertOne karıştırılmakta. insert sadece tek bir ekleme yapmaz.
-Eğer sadece insert metodunu kullanıyorsanız birden fazla ekleme de yapabilirsiniz. Örnek:</p>
+<p>Bilinen bir yanlıştan dolayı insert ve insertOne karıştırılmakta. insert sadece tek bir ekleme yapmaz. Eğer sadece insert metodunu kullanıyorsanız birden fazla ekleme de yapabilirsiniz. Örnek:</p>
 
-<pre><code class="language-js">db.Yazilar.insert([
-    {"Baslik": "Başka"},
-    {"Baslik": "Oteki"}
-])
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">insert</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">"Baslik"</span><span class="p">:</span> <span class="s2">"Başka"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"Baslik"</span><span class="p">:</span> <span class="s2">"Oteki"</span><span class="p">}</span>
+<span class="p">])</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 BulkWriteResult({
@@ -203,30 +240,30 @@ BulkWriteResult({
         "upserted" : [ ]
 })
 
-*/
+*/</span>
 </code></pre>
+</div>
 
-<p>Ancak insertOne metodu böyle değil. Sadece ve sadece bir adet ekleme gerçekleştirebilirsiniz.
-Ayrıca insertOne metodu ile insert edilen içeriğin ID’sini de alabilirsiniz. Kullanımı şöyledir:</p>
+<p>Ancak insertOne metodu böyle değil. Sadece ve sadece bir adet ekleme gerçekleştirebilirsiniz. Ayrıca insertOne metodu ile insert edilen içeriğin ID’sini de alabilirsiniz. Kullanımı şöyledir:</p>
 
-<pre><code class="language-js">db.Yazilart.insertOne({
-    "Baslik": "Tek Başlık"
-})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilart</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">({</span>
+    <span class="s2">"Baslik"</span><span class="p">:</span> <span class="s2">"Tek Başlık"</span>
+<span class="p">})</span>
 </code></pre>
+</div>
 
 <p>Yani ikinci bir başlık ekleme işlemi yapamazsınız. Evet bu kadar basit.</p>
 
 <p><strong>Gelelim insertMany() Metoduna</strong></p>
 
-<p>insert ve insertMany metodları da çoklu ekleme işlemlerini destekler.
-Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir <code>insertedId</code> dönmezdi. Aynı işlemi <code>insertMany</code> ile yaparsak bir ID dönüşü alırız:</p>
+<p>insert ve insertMany metodları da çoklu ekleme işlemlerini destekler. Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir insertedId dönmezdi. Aynı işlemi insertMany ile yaparsak bir ID dönüşü alırız:</p>
 
-<pre><code class="language-js">db.Yazilar.insertMany([
-    {"Baslik": "Başka"},
-    {"Baslik": "Oteki"}
-])
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">"Baslik"</span><span class="p">:</span> <span class="s2">"Başka"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"Baslik"</span><span class="p">:</span> <span class="s2">"Oteki"</span><span class="p">}</span>
+<span class="p">])</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 {
@@ -236,16 +273,17 @@ Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir <code>inserted
                 ObjectId("5855b0a5f7e668b0e1552110")
         ]
 }
-*/
+*/</span>
 </code></pre>
+</div>
 
-<h3 id="Şimdi-bu-verileri-nasıl-Çekeriz">Şimdi Bu Verileri Nasıl Çekeriz?</h3>
+<p><strong>Şimdi Bu Verileri Nasıl Çekeriz?</strong></p>
 
-<p>Veri çekme işlemi MongoDB üzerindeki en basit işlemlerdendir. Örneğin Yazilar tablosundan verileri çekelim. Bunun için <code>find()</code> metodunu kullanırız:</p>
+<p>Veri çekme işlemi MongoDB üzerindeki en basit işlemlerdendir. Örneğin Yazilar tablosundan verileri çekelim. Bunun için find() metodunu kullanırız:</p>
 
-<pre><code class="language-js">db.Yazilar.find()
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 { "_id" : ObjectId("5855aef5f7e668b0e155210c"), "BAŞLIK" : "İçerik" }
@@ -253,149 +291,133 @@ Ancak insert metodu ile yapılan ekleme işlemlerinde, geriye bir <code>inserted
 { "_id" : ObjectId("5855afd0f7e668b0e155210e"), "ÖTEKİ" : "İçerik 3" }
 { "_id" : ObjectId("5855b0a5f7e668b0e155210f"), "FALAN" : "İçerik 4" }
 { "_id" : ObjectId("5855b0a5f7e668b0e1552110"), "NEYSE" : "İçerik 5" }
-*/
-
+*/</span>
 </code></pre>
+</div>
 
-<h3 id="nerede-bu-where-clause">Nerede Bu WHERE Clause?</h3>
+<p><strong>Nerede Bu WHERE Clause?</strong></p>
 
 <p>Benim en çok merak ettiklerimden birisi de bu konuydu. MongoDB üzerinde where aynı mantığa sahip olsa da kullanımı tabii ki farklı. Yine find() metodunu kullanacağız.</p>
 
-<pre><code class="language-js">db.Yazilar.find({ $where: "this.Baslik == 'FALAN'" })
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="na">$where</span><span class="p">:</span> <span class="s2">"this.Baslik == 'FALAN'"</span> <span class="p">})</span>
 </code></pre>
+</div>
 
 <p>Yukarıdaki kullanımla tek satırlık bir değer dönecektir. Ancak aynı değere sahip 2 içerik varsa onları unique yapan diğer değerleri de sorgulamanız iyi olur.</p>
 
-<h3 id="hadi-bu-İçerikleri-sıralayalım">Hadi Bu İçerikleri Sıralayalım</h3>
+<p><strong>Hadi Bu İçerikleri Sıralayalım</strong></p>
 
-<p>ASC ve DESC olaylarını RDBMS üzerinde kullanırken ORDER BY kullanıyorduk. Ancak bunda maalesef ki böyle değil. Fakat daha basit olduğunu söyleyebilirim.
-Yine find() metodunu olaya dahil ederek şöyle bir işlem yapabiliriz:</p>
+<p>ASC ve DESC olaylarını RDBMS üzerinde kullanırken ORDER BY kullanıyorduk. Ancak bunda maalesef ki böyle değil. Fakat daha basit olduğunu söyleyebilirim. Yine find() metodunu olaya dahil ederek şöyle bir işlem yapabiliriz:</p>
 
-<pre><code class="language-js">db.Yazilar.find().sort({_id:1})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="na">_id</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
 </code></pre>
+</div>
 
 <p>Yukarıdaki yöntemle birlikte ASCENDING bir sıralama yapabilirsiniz. Bunun tam tersi olarak DESCENDING işlemi ise şöyle yapılır:</p>
 
-<pre><code class="language-js">db.Yazilar.find().sort({_id:-1})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="na">_id</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">})</span>
 </code></pre>
+</div>
 
-<h3 id="limit-falan-nasıl-olacak">Limit Falan Nasıl Olacak?</h3>
+<p><strong>Limit Falan Nasıl Olacak?</strong></p>
 
-<p>Şimdi bu işlemde de find() metodunu kullanıyoruz. Tabi bu sefer sort() metodu da bize katılıyor.
-Limit işlemini limit() metodunu kullanarak yaparız. Örneğin kullanımı şöyle:</p>
+<p>Şimdi bu işlemde de find() metodunu kullanıyoruz. Tabi bu sefer sort() metodu da bize katılıyor. Limit işlemini limit() metodunu kullanarak yaparız. Örneğin kullanımı şöyle:</p>
 
-<pre><code class="language-js">db.Yazilar.find().sort({ID:-1}).limit(1)
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="na">ID</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}).</span><span class="nx">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre>
+</div>
 
-<p>Yukarıdaki yöntem bize son eklenen verinin içeriğini döndürecektir ve dönen değer tek satırdır.
-Çünkü limit metodu parametre olarak tek <strong>1</strong> rakamını almıştır. Dilersek dönen değerdeki tek bir alana dair de veri çekebiliriz.
-Ben bu işlemde kendim <strong>ID</strong> adında bir alan tanımladım. MongoDB tarafından üretilen <strong>_id</strong> alanından farklı olduğunu belirteyim. Şimdi tanımlı olan bu alanı çekelim:</p>
+<p>Yukarıdaki yöntem bize son eklenen verinin içeriğini döndürecektir ve dönen değer tek satırdır. Çünkü limit metodu parametre olarak tek 1 rakamını almıştır. Dilersek dönen değerdeki tek bir alana dair de veri çekebiliriz. Ben bu işlemde kendim ID adında bir alan tanımladım. MongoDB tarafından üretilen _id alanından farklı olduğunu belirteyim. Şimdi tanımlı olan bu alanı çekelim:</p>
 
-<pre><code class="language-js">db.Yazilar.find().sort({ID:-1}).limit(1)[0]["ID"]
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">Yazilar</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="na">ID</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}).</span><span class="nx">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"ID"</span><span class="p">]</span>
 </code></pre>
+</div>
 
-<p>Buradan anlaşılacağı üzere eklenmiş olan verilerden en sonuncusu getirilip bu satırdaki ID alanında yer alan veriyi göreceğiz.
-Klasik bir array access işleminden fazlası değil yani.</p>
+<p>Buradan anlaşılacağı üzere eklenmiş olan verilerden en sonuncusu getirilip bu satırdaki ID alanında yer alan veriyi göreceğiz. Klasik bir array access işleminden fazlası değil yani.</p>
 
-<p>Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız 
-<a href="https://docs.mongodb.com/manual/crud/">MongoDB Manual</a> sizin için iyi bir yol gösterici olacaktır.</p>
+<p>Evet anlatım bu kadar. Uzun bir yazı dizisi oldu. Eğer CRUD işlemleri hakkında daha fazla bilgi istiyorsanız <a href="https://docs.mongodb.com/manual/crud/">MongoDB Manual</a> sizin için iyi bir yol gösterici olacaktır.</p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/atistirmalik-mongodb-yazisi';
-                    var disqus_title      = "Atıştırmalık MongoDB Yazısı";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/mongodb-data-directory-not-found" data-toggle="tooltip" data-placement="top" title="MongoDB Data Directory Not Found Hatası">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/atistirmalik-mongodb-yazisi-2" data-toggle="tooltip" data-placement="top" title="Atıştırmalık MongoDB Yazısı - 2">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

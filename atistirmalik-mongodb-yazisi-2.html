@@ -1,257 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
-<head>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=".NET, SQL, Python, Açık Kaynak">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Atıştırmalık MongoDB Yazısı - 2 - Ali GÖREN...</title>
+  <title>
+    
+      Atıştırmalık MongoDB Yazısı - 2 &middot; Ali GÖREN
+    
+  </title>
 
-    <link rel="canonical" href="https://aligoren.com/atistirmalik-mongodb-yazisi-2">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <!-- <link rel="stylesheet" href="/css/syntax.css"> -->
-    <link rel="stylesheet" href="/css/prism.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link type="application/atom+xml" rel="alternate" href="https://aligoren.com/feed.xml" title="Ali GÖREN..." />
-
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-<body>
+  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ali GÖREN...</a>
-        </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/">Anasayfa</a>
-                </li>
-                
-				
-                
-				
-                <li>
-                    <a href="/hakkimda">Hakkımda</a>
-                </li>
-				
-                
-				
-                <li>
-                    <a href="/kategoriler">Kategoriler</a>
-                </li>
-				
-                
-            </ul>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
         </div>
-        <!-- /.navbar-collapse -->
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Atıştırmalık MongoDB Yazısı - 2</h1>
+  <span class="post-date">18 Dec 2016</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="MongoDB etiketine sahip yazılar" title="MongoDB etiketine sahip yazılar">MongoDB</span>
+        
+          <span class="tags" alt="NoSQL etiketine sahip yazılar" title="NoSQL etiketine sahip yazılar">NoSQL</span>
+        
+          <span class="tags" alt="Tips etiketine sahip yazılar" title="Tips etiketine sahip yazılar">Tips</span>
+        
     </div>
-    <!-- /.container -->
-</nav>
+  
+  <p>Selam bu yazı bir önceki <a href="/atistirmalik-mongodb-yazisi">Atıştırmalık MongoDB Yazısı</a>‘nın devamı niteliğinde bir yazı. Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</p>
 
-
-    <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1 class="yazibasligi">Atıştırmalık MongoDB Yazısı - 2</h1>
-                    
-                    <!--<span class="meta">Posted by Ali GÖREN... on December 17, 2016</span>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yaziici">
-
-				<p>Selam bu yazı bir önceki <a href="https://aligoren.com/atistirmalik-mongodb-yazisi">Atıştırmalık MongoDB Yazısı</a>‘nın devamı niteliğinde bir yazı.
-Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.</p>
+<!--more-->
 
 <p><img src="/images/posts/mongo.png" alt="/images/posts/mongo.png" /></p>
 
-<h3 id="mongodbyi-dosyadan-okuyalım">MongoDB’yi Dosyadan Okuyalım</h3>
+<p><strong>MongoDB’yi Dosyadan Okuyalım</strong></p>
 
-<p>MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor.
-MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:</p>
+<p>MongoDB için shell güzel bir araç. Ancak uzun Mongo sorgularında shell üzerinde girintiler ve diğer işlemler programlama anlamında pek de kolaylık sağlamıyor. MongoDB’yi geliştiren ekip böyle durumları tahmin ederek bir kolaylık sağlamış. Örneğin şöyle bir sorguyu shell ile yazdığınızı düşünün:</p>
 
-<pre><code class="language-js">use deneme;
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">use</span> <span class="nx">deneme</span><span class="p">;</span>
 
-db.x.insert({
-	"kolon": "içerik",
-	"kolon2": "içerik2",
-	"kolon3": "içerik3",
-	"kolon4": "içerik4",
-	"kolon5": "içerik5",
-	"kolon6": "içerik6",
-	"kolon7": "içerik7",
-	"kolon8": "içerik8",
-	"kolon9": "içerik9",
-})
+<span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span>
+	<span class="s2">"kolon"</span><span class="p">:</span> <span class="s2">"içerik"</span><span class="p">,</span>
+	<span class="s2">"kolon2"</span><span class="p">:</span> <span class="s2">"içerik2"</span><span class="p">,</span>
+	<span class="s2">"kolon3"</span><span class="p">:</span> <span class="s2">"içerik3"</span><span class="p">,</span>
+	<span class="s2">"kolon4"</span><span class="p">:</span> <span class="s2">"içerik4"</span><span class="p">,</span>
+	<span class="s2">"kolon5"</span><span class="p">:</span> <span class="s2">"içerik5"</span><span class="p">,</span>
+	<span class="s2">"kolon6"</span><span class="p">:</span> <span class="s2">"içerik6"</span><span class="p">,</span>
+	<span class="s2">"kolon7"</span><span class="p">:</span> <span class="s2">"içerik7"</span><span class="p">,</span>
+	<span class="s2">"kolon8"</span><span class="p">:</span> <span class="s2">"içerik8"</span><span class="p">,</span>
+	<span class="s2">"kolon9"</span><span class="p">:</span> <span class="s2">"içerik9"</span><span class="p">,</span>
+<span class="p">});</span>
 </code></pre>
+</div>
 
-<p>Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin
-<strong>(Farklı uzantıları denemedim)</strong> ve komut satırından şu komutu verin: <code>mongo &lt; dosyaniz.js</code></p>
+<p>Yukarıdaki sorgulama işlemlerini shell’de yapmak inanın gerçekten zahmetli bir işlem. Bunun için yukarıdaki kodları js uzantılı bir dosyaya kaydedin (Farklı uzantıları denemedim) ve komut satırından şu komutu verin: mongo &lt; dosyaniz.js</p>
 
 <p>Evet bu kadar :)</p>
 
-<h3 id="nasıl-yapılıyor-bu-update">Nasıl Yapılıyor Bu Update?</h3>
+<p><strong>Nasıl Yapılıyor Bu Update?</strong></p>
 
-<p>Yukarıdaki X collection’ında yer alan içeriklerden <code>"kolon4"</code> e ait datayı değiştirelim:</p>
+<p>Yukarıdaki X collection’ında yer alan içeriklerden “kolon4” e ait datayı değiştirelim:</p>
 
-<pre><code class="language-js">db.x.update(
-	{
-		"kolon4": "Yenilendi"
-	}
-)
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span>
+	<span class="p">{</span>
+		<span class="s2">"kolon4"</span><span class="p">:</span> <span class="s2">"Yenilendi"</span>
+	<span class="p">}</span>
+<span class="p">)</span>
 </code></pre>
+</div>
 
 <p>İstersek şöyle bir sorgu ile kolon4’e ait yeni değeri görüntüleyebiliriz:</p>
 
-<pre><code class="language-js">db.x.find()[1]["kolon4"]
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">find</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"kolon4"</span><span class="p">]</span>
 </code></pre>
+</div>
 
-<p>Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor.
-Tabii yaptığınız işlem sonucunda <strong>nInserted</strong> yerine <strong>nModified</strong> içinde bir rakam göreceksiniz.</p>
+<p>Tabii bu kesin bir yöntem olmayabiliyor. Bunu anlamanın en kolay olu koleksiyonu yazdırmanızdan geçiyor. Hem eski değer hem de yeni değer görülebiliyor. Tabii yaptığınız işlem sonucunda nInserted yerine nModified içinde bir rakam göreceksiniz.</p>
 
-<p>Yine aynı şekilde <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany">updateMany</a> ve <a href="https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne">updateOne</a> metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.</p>
+<p>Yine aynı şekilde updateMany ve updateOne metodlarını kullanarak çoklu ya da tekil güncelleme işlemlerini de yapabilirsiniz. Bu iki metoda değinmiyorum çünkü Many ve One ne işe yarıyor bunları önceki yazıda anlatmıştım. Kullanımdan kaynaklı farklılılar var sadece.</p>
 
-<p>Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı <strong>replaceOne()</strong> evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar.
-Örneği bir SQL cümlesinden verelim:</p>
+<p>Bunlar haricinde yeni bir metodla karşılaşıyoruz. Bu metodun adı replaceOne() evet bu yeni metod, koşulda eşleşme gerçekleşirse gerçekleşen ilk eşleşmeye işlem yapar. Örneği bir SQL cümlesinden verelim:</p>
 
-<pre><code class="language-sql">SELECT * FROM Kullanicilar WHERE Adi='Ali'
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Kullanicilar</span> <span class="k">WHERE</span> <span class="n">Adi</span><span class="o">=</span><span class="s1">'Ali'</span>
 </code></pre>
+</div>
 
-<p>Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak <strong>replaceOne()</strong> metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar.
-Örnek kullanımı şöyledir:</p>
+<p>Yukarıdaki satır birden fazla Ali kullanıcısını döndürebilir. Ancak replaceOne() metodu dönen bu değerlerden ilk olanını bulur ve güncelleme işlemini yapar. Örnek kullanımı şöyledir:</p>
 
-<pre><code class="language-js">db.x.replaceOne(
-	{
-		kolon: "icerik"
-	},
-	{
-		kolon: "Yeni icerik"
-	}
-)
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">replaceOne</span><span class="p">(</span>
+	<span class="p">{</span>
+		<span class="na">kolon</span><span class="p">:</span> <span class="s2">"icerik"</span>
+	<span class="p">},</span>
+	<span class="p">{</span>
+		<span class="na">kolon</span><span class="p">:</span> <span class="s2">"Yeni icerik"</span>
+	<span class="p">}</span>
+<span class="p">)</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
-*/
+*/</span>
 </code></pre>
+</div>
 
-<p>İsterseniz <strong>db.x.find()</strong> diyerek çıkan sonucu görüntüleyebilirsiniz:</p>
+<p>İsterseniz db.x.find() diyerek çıkan sonucu görüntüleyebilirsiniz:</p>
 
-<pre><code class="language-json">{ "_id" : ObjectId("5856e7347db38a7560ec56ae"), "kolon" : "Yeni icerik" }
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">ObjectId(</span><span class="s2">"5856e7347db38a7560ec56ae"</span><span class="err">)</span><span class="p">,</span><span class="w"> </span><span class="nt">"kolon"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Yeni icerik"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>Güncelleme işlemleri sadece bu kadarla sınırlığı değil. Bu işlemleri siz verdiğim linklerden daha geniş bir şekilde öğrenebilirsiniz.</p>
 
-<h3 id="nasıl-sileceğiz">Nasıl Sileceğiz?</h3>
+<p><strong>Nasıl Sileceğiz?</strong></p>
 
-<p>RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil.
-Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:</p>
+<p>RDBMS kullananlar olarak önceki alışkanlıklarımızdan kopamıyoruz. MongoDB’de bu alışkanlıklardan kopabilmiş değil. Evet tahmin edildiği üzere silme işlemi destekliyor MongoDB. Ancak biraz farklı. Bunun için şu metodları bize sunuyor:</p>
 
-<pre><code>- remove()
-- deleteOne()
-- deleteMany()
-</code></pre>
+<ul>
+  <li>remove()</li>
+  <li>deleteOne()</li>
+  <li>deleteMany()</li>
+</ul>
 
 <p><strong>remove Metodu</strong></p>
 
-<p>Bunlardan ilki olan <strong>remove()</strong> metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz.
-Burada bilmemiz gereken toplu silme yaptığımızdır.</p>
+<p>Bunlardan ilki olan remove() metoduyla tek seferde tüm koleksiyonu silebildiğimiz gibi koşul kullanarak koleksiyonda toplu silme de yapabiliriz. Burada bilmemiz gereken toplu silme yaptığımızdır.</p>
 
-<p>Örnek herhangi bir koşula bağlı olmaksızın tüm <strong>x</strong> koleksiyonunu silen sorgu kodunu verelim:</p>
+<p>Örnek herhangi bir koşula bağlı olmaksızın tüm x koleksiyonunu silen sorgu kodunu verelim:</p>
 
-<pre><code class="language-js">db.x.remove( {} )
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span> <span class="p">{}</span> <span class="p">)</span>
 </code></pre>
+</div>
 
 <p>Eğer bu silme işleminin bütün tablo geneline değil de sadece belirli değerlere yansımasını istiyorsak şöyle yapmalıyız:</p>
 
-<pre><code class="language-js">db.x.remove({ 
-    "kolon": "Bir İçerik"
-})
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span> 
+    <span class="s2">"kolon"</span><span class="p">:</span> <span class="s2">"Bir İçerik"</span>
+<span class="p">})</span>
 </code></pre>
+</div>
 
-<p>Artık bu sayede içinde <strong>Bir İçerik</strong> geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir.
-Tüm dokümana <a href="https://docs.mongodb.com/manual/reference/method/db.collection.remove/#db.collection.remove">buradan</a> bakabilirsiniz.</p>
+<p>Artık bu sayede içinde Bir İçerik geçen yani tam eşleşme sağlayan tüm değerler x tablosundan silinecektir. Tüm dokümana buradan bakabilirsiniz.</p>
 
 <p><strong>deleteOne() Metodu</strong></p>
 
-<p>Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım.
-Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)</p>
+<p>Yine geldik One’lı Many’li metodlara. Mantığı artık söylememe gerek yok. Sadece nasıl çalıştıklarını belirtip bu yazıyı noktalayacağım. Tamamını anlatmıyorum çünkü artık siz de ben de ufak bilgilere sahibiz ve MongoDB dokümanlarına erişebilir durumdayız :)</p>
 
-<pre><code class="language-js">db.x.deleteOne( { "_id" : ObjectId("5856e7347db38a7560ec56ae") } );
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">deleteOne</span><span class="p">(</span> <span class="p">{</span> <span class="s2">"_id"</span> <span class="p">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"5856e7347db38a7560ec56ae"</span><span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 { "acknowledged" : true, "deletedCount" : 1 }
-*/
+*/</span>
 </code></pre>
+</div>
 
 <p>Yukarıdaki işlemin klasik SQL sorgusu şöyle:</p>
 
-<pre><code class="language-sql">DELETE FROM Kullanicilar WHERE ID=2
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">Kullanicilar</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">=</span><span class="mi">2</span>
 </code></pre>
+</div>
 
 <p><strong>deleteMany() Metodu</strong></p>
 
-<p>İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım.
-Burada aslında <strong>remove()</strong> metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:</p>
+<p>İstersek çoklu silme işlemlerini de yapabiliriz. Fakat buradan şunu anlamayalım. Örneğin ID’si 1,2,3,4,5,6 olanları tek tek yazacağız gibi bir şey anlamayalım. Burada aslında remove() metodundaki toplu silmenin bir benzerini yapabiliriz. Örnek:</p>
 
-<pre><code class="language-js">db.x.deleteMany( { "kolon" : "A Değeri" } );
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">deleteMany</span><span class="p">(</span> <span class="p">{</span> <span class="s2">"kolon"</span> <span class="p">:</span> <span class="s2">"A Değeri"</span> <span class="p">}</span> <span class="p">);</span>
 
-/*
+<span class="cm">/*
 ÇIKTISI:
 
 { "acknowledged" : true, "deletedCount" : 1 }
-*/
+*/</span>
 </code></pre>
+</div>
 
-<p>Yukarıda <strong>A Değeri</strong> sadece 1 adet olduğu için silindiğinde de <strong>deletedCount</strong> 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.</p>
+<p>Yukarıda A Değeri sadece 1 adet olduğu için silindiğinde de deletedCount 1 değerini döndürmüştür. Eğer 10 adet aynı değere sahip kayıt olsaydı o değer 10 olacaktı.</p>
 
 <h2 id="kaynaklar">Kaynaklar</h2>
 
@@ -259,102 +301,87 @@ Burada aslında <strong>remove()</strong> metodundaki toplu silmenin bir benzeri
 
 <p><a href="https://docs.mongodb.com/manual/tutorial/remove-documents/#delete-methods">Delete İşlemleri - MongoDB Resmi Dokümanı</a></p>
 
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
 
-                <hr>
-                
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                    var disqus_shortname  = 'aligren';
-                    var disqus_identifier = '/atistirmalik-mongodb-yazisi-2';
-                    var disqus_title      = "Atıştırmalık MongoDB Yazısı - 2";
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
 
-                    (function() {
-                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <hr>
-                
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/atistirmalik-mongodb-yazisi" data-toggle="tooltip" data-placement="top" title="Atıştırmalık MongoDB Yazısı">&larr; Sonraki Yazı</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/php-ile-base-url-almak" data-toggle="tooltip" data-placement="top" title="PHP ile Base URL Almak">Önceki Yazı &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="/feed.xml">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://github.com/aligoren">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="mailto:goren.ali@yandex.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                <p class="copyright text-muted">Copyright &copy;  2017</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-<script src="/js/prism.js "></script>
-
-
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
     
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-</body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>
