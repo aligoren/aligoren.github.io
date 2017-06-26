@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      JavaScript Notlarım &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">JavaScript Notlarım</h1>
+  <span class="post-date">26 Jun 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="JavaScript etiketine sahip yazılar" title="JavaScript etiketine sahip yazılar">JavaScript</span>
+        
+          <span class="tags" alt="Vue.JS etiketine sahip yazılar" title="Vue.JS etiketine sahip yazılar">Vue.JS</span>
+        
+          <span class="tags" alt="Flask etiketine sahip yazılar" title="Flask etiketine sahip yazılar">Flask</span>
+        
+          <span class="tags" alt="Tips etiketine sahip yazılar" title="Tips etiketine sahip yazılar">Tips</span>
+        
+    </div>
+  
+  <p>Bir süredir Vue.JS ile uygulamalar geliştiriyordum. Baktım ki uygulamalar artacak, kendi profilim altında toplamaktansa bir organizasyon altında toplamak daha mantıklı olur dedim.
+<!--more--></p>
+
+<p>Şimdilik Vue kullanarak ortaya çıkan projeleri şuraya alıyorum: <a href="https://github.com/vue-project">https://github.com/vue-project</a>. Tabi bu süreç bana birçok şeyi de öğretmiş oldu.</p>
+
+<h2 id="1--fetch-api">1-) fetch API</h2>
+
+<p>Aslında videosunu çekmiştim ancak burada basit olarak bahsetmek gerekiyor.</p>
+
+<p>fetch api, es6 ile artık hayatımızda ve browserlar tarafından da destekleniyor. xmlHTTPrequest yerine bunu kullanmak daha kolay geliyor ve tabii promise dönmesi de işimize gelir. XHR olayını anlatmayacağım ancak basit bir fetch api kullanımı şöyle oluyor:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span> <span class="c1">// bazen json fonksiyonunu kullanmamıza gerek olmuyor.</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// return edilen json değeri burada gönlümüzce kullanırız.</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<h3 id="metod-seçimi">Metod Seçimi</h3>
+
+<p>Tabi burada metodlar ve post edilen değerler de bir o kadar önemli. İsteklerin sadece <code class="highlighter-rouge">GET</code> metodundan ibaret olmadığını biliyoruz. Eğer istersek metodu şöyle belirtebiliriz:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<h3 id="data-gönderimi">Data Gönderimi</h3>
+
+<p>Fakat bu aşamada bile eksik bir şeyler var. Karşı tarafa değer göndermek ve bu değerleri formdata ya da json türünden yollamak. Bunun da yöntemi şöyle. Elimizde bir form olsun <code class="highlighter-rouge">#frmData</code> olarak select edelim.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">frmData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#frmData"</span><span class="p">));</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">frmData</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<p>Bu direkt olarak FormData yollamanın bir opsiyonuydu. Dilersek JSON türünden ya da payload olarak data yollayabiliriz. Öncelikle JSON nasılmış ona bakalım:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">frmData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#frmData"</span><span class="p">));</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'Mahmut'</span>
+  <span class="p">})</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<p>Yine bunun payload türünden (jQuery Ajax metodunda bunu kullanıyordu) gönderimi de mevcut.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">frmData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#frmData"</span><span class="p">));</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="s1">'username=Mahmut&amp;password=1'</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<h3 id="header-İşlemleri">Header İşlemleri</h3>
+
+<p>Kimi durumlarda headerlar lazım oluyor dediler. fetch api kullanırken Header sınıfı ile headerları da belirtebiliyoruz. Sınıf şart değil, dilersek obje gönderebiliriz.:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="kr">const</span> <span class="nx">frmData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#frmData"</span><span class="p">));</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">({</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+<span class="p">})</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="s1">'username=Mahmut&amp;password=1'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<h2 id="2--cors-hataları-ile-savaşın">2-) CORS Hataları ile Savaşın</h2>
+
+<p>Ben şu sıralar Vue.JS ile çalışıyorum. NPM üzerinden dev sürümünü ayağa kaldırınca sorun yok. Ancak endpoint IP ya da PORT’u farklı olunca bir sıkıntı oluşuyor. Ben bu hatayı alırken, fetch api ile çalışıyordum. Önerim de ona göre olacak. Neyse bununla ilgili hataları arasanız CORS’u görürsünüz. Muhtemeldir ki aldığınız hata şu cümleyi içeriyor:</p>
+
+<blockquote>
+  <p>If an opaque response serves your needs, set the request’s mode to ‘no-cors’ to fetch the resource with CORS disabled.</p>
+</blockquote>
+
+<p>Merak etmeyin çözümü basit fetch api’nıza bir adet mode eklemeniz yeterli olacak. Yukarıdaki örnekten gidersek:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://site.com'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">mode</span><span class="p">:</span> <span class="s1">'no-cors'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// blah blahlar...</span>
+</code></pre>
+</div>
+
+<p>Şimdi sorunsuzca çalışabilirsiniz :)</p>
+
+<h2 id="3--promise-Üzerinde-json-convert-daima-Şart-değil">3-) Promise Üzerinde Json Convert Daima Şart Değil</h2>
+
+<p>Garip oldu ama açıklamak isterim. Bir endpoint’e istekte bulundunuz. Endpoint size datayı return etti. Gelen datayı direkt olarak <code class="highlighter-rouge">return resp.json()</code> şeklinde döndürürseniz, JSON syntaxinden kaynaklı hatalar alabilirsiniz. Bu durumda bazen <code class="highlighter-rouge">.json()</code> gerekmeyebiliyor.</p>
+
+<h2 id="4--vuejs-hakkında">4-) Vue.JS Hakkında</h2>
+
+<p>Yazının en başında da belirttim. Öğrendiğim bazı şeyler var yok değil.</p>
+
+<h3 id="prop-ve-data-İsimlerine-dikkat">Prop ve Data İsimlerine Dikkat</h3>
+
+<p>Bir componente prop atayacaksanız, o prop ve data’dan dönen objenin adı aynı olamaz. Olur da console’da kocaman bir warn görürsünüz. Örnek:</p>
+
+<p><em>Olmamalı!</em></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'mycomponent'</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s1">'sample'</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">sample</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="created-ve-mounted-aynı-değil">Created ve Mounted Aynı Değil</h3>
+
+<p>Vue.JS’de çalışırken benim gibi yenilerin yapacağı bir hatadan bahsetmek isterim. Datayı aldığınız created anında her şeyin olacağını sanmak büyük bir yanılgıdır.</p>
+
+<p>Bizim dataya dair işlemleri DOM üzerinde gerçekleştirmemiz için created değil mounted’da çalışmamız gerekiyor ki bunu <a href="http://ademilter.com/">Adem İlter</a>‘in Bricklayer kütüphanesinde deneyimledim. Örneklersek şöyle:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">fetchTrends</span><span class="p">({</span>
+    <span class="na">limit</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">limit</span><span class="p">,</span>
+    <span class="na">offset</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">offset</span>
+  <span class="p">});</span>
+<span class="p">},</span>
+<span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brickLayerInit</span><span class="p">();</span>
+<span class="p">},</span>
+</code></pre>
+</div>
+
+<h3 id="datada-değişimleri-İzlemek">Datada Değişimleri İzlemek</h3>
+
+<p>En zevkli kısım burası bence. A ve B isimli componentlere sahipsiniz.</p>
+
+<p>A componentinde bir işlem sonucunda X isimli data vs. her neyse, B isimli componente property olarak geçiyor. Çok karıştırmamak adına devamını kodla getireyim.</p>
+
+<p><strong>A Componenti</strong></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;b-componenti</span> <span class="na">:sayi=</span><span class="s">"anindatasi"</span><span class="nt">&gt;&lt;/b-componenti&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"tiklaDataGitsin"</span><span class="nt">&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+<p><strong>Javascript Kodu:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//A componenti</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'acomp'</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">anindatasi</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">tiklaDataGitsin</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">anindatasi</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Yukarıdaki javascript kodu ve template kısacası şöyle çalışmakta:</p>
+
+<p>Butona tıkla, tıklandığı anda <code class="highlighter-rouge">tiklaDataGitsin</code> isimli metodu çalıştır. Bu metod <code class="highlighter-rouge">anindatasi</code> isimli değeri 1 arttırsın. Ardından bu değer <code class="highlighter-rouge">&lt;b-componenti&gt;&lt;/b-componenti&gt;</code> içerisine paslansın.</p>
+
+<p><strong>B Componenti</strong></p>
+
+<p>O sıralarda B componenti ise şu vaziyetteydi.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+ <span class="nt">&lt;div&gt;</span>
+  {{bdatasi}}
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+
+<p><strong>Javascript Kodu:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'bcomponenti'</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s1">'sayi'</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">bdatasi</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">sayi</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="Çözüm-watch-olabilir">Çözüm watch Olabilir</h3>
+
+<p>Okey buraya kadar hata almadan çalışabiliriz. Fakat A componentindeki olayın, B componentindeki datayı tetiklemesi gerekiyor. Çünkü bu componentler aynı sayfa üzerindeler. Bunun için <code class="highlighter-rouge">watch</code> kullanabiliriz.</p>
+
+<p>Bu vue.js’in sağladığı büyük bir avantaj. Kısacası bir proptaki değişimi izleyebilirsiniz. Başka noktalarda henüz deneyimlemedim. Ancak <code class="highlighter-rouge">sayi</code> isimli prop’un değişim yaşadığını görebiliriz. Bir örnekle bakalım:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">watch</span><span class="err">:</span> <span class="p">{</span>
+  <span class="nx">sayi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">bdatasi</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Template içerisine yazdırdığımız <code class="highlighter-rouge"><span class="p">{</span><span class="err">{bdatasi</span><span class="p">}</span><span class="err">}</span></code> sonucunda değişiklikler yaşandığını da görebileceğiz demektir bu.</p>
+
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-currency-formatting">
+            JavaScript Currency Formatting
+            <small>17 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

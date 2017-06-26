@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Ali GÖREN</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2017-06-18T11:27:33+03:00</updated>
- <id>http://localhost:4000</id>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2017-06-27T00:53:18+03:00</updated>
+ <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
@@ -13,10 +13,256 @@
 
  
  <entry>
+   <title>JavaScript Notlarım</title>
+   <link href="/javascript-notlarim"/>
+   <updated>2017-06-26T00:00:00+03:00</updated>
+   <id>/javascript-notlarim</id>
+   <content type="html">&lt;p&gt;Bir süredir Vue.JS ile uygulamalar geliştiriyordum. Baktım ki uygulamalar artacak, kendi profilim altında toplamaktansa bir organizasyon altında toplamak daha mantıklı olur dedim.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Şimdilik Vue kullanarak ortaya çıkan projeleri şuraya alıyorum: &lt;a href=&quot;https://github.com/vue-project&quot;&gt;https://github.com/vue-project&lt;/a&gt;. Tabi bu süreç bana birçok şeyi de öğretmiş oldu.&lt;/p&gt;
+
+&lt;h2 id=&quot;1--fetch-api&quot;&gt;1-) fetch API&lt;/h2&gt;
+
+&lt;p&gt;Aslında videosunu çekmiştim ancak burada basit olarak bahsetmek gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;fetch api, es6 ile artık hayatımızda ve browserlar tarafından da destekleniyor. xmlHTTPrequest yerine bunu kullanmak daha kolay geliyor ve tabii promise dönmesi de işimize gelir. XHR olayını anlatmayacağım ancak basit bir fetch api kullanımı şöyle oluyor:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// bazen json fonksiyonunu kullanmamıza gerek olmuyor.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// return edilen json değeri burada gönlümüzce kullanırız.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;metod-seçimi&quot;&gt;Metod Seçimi&lt;/h3&gt;
+
+&lt;p&gt;Tabi burada metodlar ve post edilen değerler de bir o kadar önemli. İsteklerin sadece &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; metodundan ibaret olmadığını biliyoruz. Eğer istersek metodu şöyle belirtebiliriz:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;data-gönderimi&quot;&gt;Data Gönderimi&lt;/h3&gt;
+
+&lt;p&gt;Fakat bu aşamada bile eksik bir şeyler var. Karşı tarafa değer göndermek ve bu değerleri formdata ya da json türünden yollamak. Bunun da yöntemi şöyle. Elimizde bir form olsun &lt;code class=&quot;highlighter-rouge&quot;&gt;#frmData&lt;/code&gt; olarak select edelim.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;frmData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#frmData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;frmData&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Bu direkt olarak FormData yollamanın bir opsiyonuydu. Dilersek JSON türünden ya da payload olarak data yollayabiliriz. Öncelikle JSON nasılmış ona bakalım:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;frmData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#frmData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Mahmut'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Yine bunun payload türünden (jQuery Ajax metodunda bunu kullanıyordu) gönderimi de mevcut.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;frmData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#frmData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'username=Mahmut&amp;amp;password=1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;header-İşlemleri&quot;&gt;Header İşlemleri&lt;/h3&gt;
+
+&lt;p&gt;Kimi durumlarda headerlar lazım oluyor dediler. fetch api kullanırken Header sınıfı ile headerları da belirtebiliyoruz. Sınıf şart değil, dilersek obje gönderebiliriz.:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;frmData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#frmData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'Content-Type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'application/json'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'username=Mahmut&amp;amp;password=1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2--cors-hataları-ile-savaşın&quot;&gt;2-) CORS Hataları ile Savaşın&lt;/h2&gt;
+
+&lt;p&gt;Ben şu sıralar Vue.JS ile çalışıyorum. NPM üzerinden dev sürümünü ayağa kaldırınca sorun yok. Ancak endpoint IP ya da PORT’u farklı olunca bir sıkıntı oluşuyor. Ben bu hatayı alırken, fetch api ile çalışıyordum. Önerim de ona göre olacak. Neyse bununla ilgili hataları arasanız CORS’u görürsünüz. Muhtemeldir ki aldığınız hata şu cümleyi içeriyor:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If an opaque response serves your needs, set the request’s mode to ‘no-cors’ to fetch the resource with CORS disabled.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Merak etmeyin çözümü basit fetch api’nıza bir adet mode eklemeniz yeterli olacak. Yukarıdaki örnekten gidersek:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://site.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'no-cors'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// blah blahlar...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Şimdi sorunsuzca çalışabilirsiniz :)&lt;/p&gt;
+
+&lt;h2 id=&quot;3--promise-Üzerinde-json-convert-daima-Şart-değil&quot;&gt;3-) Promise Üzerinde Json Convert Daima Şart Değil&lt;/h2&gt;
+
+&lt;p&gt;Garip oldu ama açıklamak isterim. Bir endpoint’e istekte bulundunuz. Endpoint size datayı return etti. Gelen datayı direkt olarak &lt;code class=&quot;highlighter-rouge&quot;&gt;return resp.json()&lt;/code&gt; şeklinde döndürürseniz, JSON syntaxinden kaynaklı hatalar alabilirsiniz. Bu durumda bazen &lt;code class=&quot;highlighter-rouge&quot;&gt;.json()&lt;/code&gt; gerekmeyebiliyor.&lt;/p&gt;
+
+&lt;h2 id=&quot;4--vuejs-hakkında&quot;&gt;4-) Vue.JS Hakkında&lt;/h2&gt;
+
+&lt;p&gt;Yazının en başında da belirttim. Öğrendiğim bazı şeyler var yok değil.&lt;/p&gt;
+
+&lt;h3 id=&quot;prop-ve-data-İsimlerine-dikkat&quot;&gt;Prop ve Data İsimlerine Dikkat&lt;/h3&gt;
+
+&lt;p&gt;Bir componente prop atayacaksanız, o prop ve data’dan dönen objenin adı aynı olamaz. Olur da console’da kocaman bir warn görürsünüz. Örnek:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Olmamalı!&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'mycomponent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'sample'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;sample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;created-ve-mounted-aynı-değil&quot;&gt;Created ve Mounted Aynı Değil&lt;/h3&gt;
+
+&lt;p&gt;Vue.JS’de çalışırken benim gibi yenilerin yapacağı bir hatadan bahsetmek isterim. Datayı aldığınız created anında her şeyin olacağını sanmak büyük bir yanılgıdır.&lt;/p&gt;
+
+&lt;p&gt;Bizim dataya dair işlemleri DOM üzerinde gerçekleştirmemiz için created değil mounted’da çalışmamız gerekiyor ki bunu &lt;a href=&quot;http://ademilter.com/&quot;&gt;Adem İlter&lt;/a&gt;‘in Bricklayer kütüphanesinde deneyimledim. Örneklersek şöyle:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;created&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fetchTrends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;offset&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mounted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;brickLayerInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;datada-değişimleri-İzlemek&quot;&gt;Datada Değişimleri İzlemek&lt;/h3&gt;
+
+&lt;p&gt;En zevkli kısım burası bence. A ve B isimli componentlere sahipsiniz.&lt;/p&gt;
+
+&lt;p&gt;A componentinde bir işlem sonucunda X isimli data vs. her neyse, B isimli componente property olarak geçiyor. Çok karıştırmamak adına devamını kodla getireyim.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A Componenti&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;template&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;b-componenti&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:sayi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anindatasi&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/b-componenti&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-on:click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tiklaDataGitsin&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Javascript Kodu:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//A componenti&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'acomp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;anindatasi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tiklaDataGitsin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anindatasi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Yukarıdaki javascript kodu ve template kısacası şöyle çalışmakta:&lt;/p&gt;
+
+&lt;p&gt;Butona tıkla, tıklandığı anda &lt;code class=&quot;highlighter-rouge&quot;&gt;tiklaDataGitsin&lt;/code&gt; isimli metodu çalıştır. Bu metod &lt;code class=&quot;highlighter-rouge&quot;&gt;anindatasi&lt;/code&gt; isimli değeri 1 arttırsın. Ardından bu değer &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;b-componenti&amp;gt;&amp;lt;/b-componenti&amp;gt;&lt;/code&gt; içerisine paslansın.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;B Componenti&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O sıralarda B componenti ise şu vaziyetteydi.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;template&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  {{bdatasi}}
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Javascript Kodu:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bcomponenti'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'sayi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;bdatasi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;Çözüm-watch-olabilir&quot;&gt;Çözüm watch Olabilir&lt;/h3&gt;
+
+&lt;p&gt;Okey buraya kadar hata almadan çalışabiliriz. Fakat A componentindeki olayın, B componentindeki datayı tetiklemesi gerekiyor. Çünkü bu componentler aynı sayfa üzerindeler. Bunun için &lt;code class=&quot;highlighter-rouge&quot;&gt;watch&lt;/code&gt; kullanabiliriz.&lt;/p&gt;
+
+&lt;p&gt;Bu vue.js’in sağladığı büyük bir avantaj. Kısacası bir proptaki değişimi izleyebilirsiniz. Başka noktalarda henüz deneyimlemedim. Ancak &lt;code class=&quot;highlighter-rouge&quot;&gt;sayi&lt;/code&gt; isimli prop’un değişim yaşadığını görebiliriz. Bir örnekle bakalım:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;sayi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bdatasi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Template içerisine yazdırdığımız &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{bdatasi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt; sonucunda değişiklikler yaşandığını da görebileceğiz demektir bu.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>JavaScript Add and Substract Days</title>
-   <link href="http://localhost:4000/javascript-add-and-substract-days"/>
+   <link href="/javascript-add-and-substract-days"/>
    <updated>2017-04-02T00:00:00+03:00</updated>
-   <id>http://localhost:4000/javascript-add-and-substract-days</id>
+   <id>/javascript-add-and-substract-days</id>
    <content type="html">&lt;p&gt;When I visited StackOverflow, I saw a question.&lt;/p&gt;
 
 &lt;p&gt;Briefly, he wants to add days to dates. Firstly I checked his codes. Also, his mathematics was wrong.&lt;/p&gt;
@@ -51,9 +297,9 @@ I wrote a code with Date object. Especially first function look like an extensio
  
  <entry>
    <title>jQuery ile Tabloda Arama Yapmak</title>
-   <link href="http://localhost:4000/jquery-ile-tabloda-arama-yapmak"/>
+   <link href="/jquery-ile-tabloda-arama-yapmak"/>
    <updated>2017-03-05T00:00:00+03:00</updated>
-   <id>http://localhost:4000/jquery-ile-tabloda-arama-yapmak</id>
+   <id>/jquery-ile-tabloda-arama-yapmak</id>
    <content type="html">&lt;p&gt;Selamlar. Bu yazıda sizlere çoğunuzun kullanmış olabileceği bir eklentinin daha basit halini anlatacağım. &lt;a href=&quot;https://datatables.net/&quot;&gt;jQuery Datatables&lt;/a&gt; eklentisi muazzam iş gören bir eklenti.
 &lt;!--more--&gt;
 &lt;img src=&quot;/images/posts/ridvan.jpg&quot; alt=&quot;/images/posts/ridvan.jpg&quot; /&gt;
@@ -157,9 +403,9 @@ I wrote a code with Date object. Especially first function look like an extensio
  
  <entry>
    <title>JavaScript Currency Formatting</title>
-   <link href="http://localhost:4000/javascript-currency-formatting"/>
+   <link href="/javascript-currency-formatting"/>
    <updated>2017-02-17T00:00:00+03:00</updated>
-   <id>http://localhost:4000/javascript-currency-formatting</id>
+   <id>/javascript-currency-formatting</id>
    <content type="html">&lt;p&gt;Hi. I needed to Turkish currency formatting. I asked stackoverflow community.&lt;/p&gt;
 
 &lt;p&gt;They advice me the Numeral.js library. I think it’s a useful library. I asked myself. Why do I need a library? I didn’t need jQuery or any other library.
@@ -197,9 +443,9 @@ We can use &lt;a href=&quot;https://developer.mozilla.org/tr/docs/Web/JavaScript
  
  <entry>
    <title>How to Get Current View Name in Ionic Framework</title>
-   <link href="http://localhost:4000/ionic-get-view-name"/>
+   <link href="/ionic-get-view-name"/>
    <updated>2017-01-29T00:00:00+03:00</updated>
-   <id>http://localhost:4000/ionic-get-view-name</id>
+   <id>/ionic-get-view-name</id>
    <content type="html">&lt;p&gt;Hi. I needed current view name to dynamic css changing in ionic framework. I’ve tried document.URL but it’s not worked. Do not use document.URL or others because you don’t need.&lt;/p&gt;
 
 &lt;p&gt;Ionic’s &lt;code class=&quot;highlighter-rouge&quot;&gt;$state&lt;/code&gt; (actually angular’s $state) has &lt;code class=&quot;highlighter-rouge&quot;&gt;current.name property&lt;/code&gt;.&lt;/p&gt;
@@ -224,9 +470,9 @@ We can use &lt;a href=&quot;https://developer.mozilla.org/tr/docs/Web/JavaScript
  
  <entry>
    <title>JavaScript Console ile Debug İşlemleri</title>
-   <link href="http://localhost:4000/javascript-console-ile-debug-islemleri"/>
+   <link href="/javascript-console-ile-debug-islemleri"/>
    <updated>2017-01-22T00:00:00+03:00</updated>
-   <id>http://localhost:4000/javascript-console-ile-debug-islemleri</id>
+   <id>/javascript-console-ile-debug-islemleri</id>
    <content type="html">&lt;p&gt;Selamlar. Front-end geliştiricilerin çok iyi bildiği bir konu console’dur. Bütün dillerde yapılabildiği gibi Javascript üzerinde de debug işlemleri yapılabilir.&lt;/p&gt;
 
 &lt;p&gt;Aslında debug işlemleri, programlamanın vazgeçilmez bir parçasıdır. Çoğu yazılımcı zamanının bir bölümünü bug ve sorunları düzeltmek amacıyla harcamıştır.
@@ -317,9 +563,9 @@ Bu yazıda JavaScript console nesnesi ile debug işlemlerine dair ufak tefek ipu
  
  <entry>
    <title>PHP'de Anonim Fonksiyonlar</title>
-   <link href="http://localhost:4000/phpde-anonim-fonksiyonlar-nedir"/>
+   <link href="/phpde-anonim-fonksiyonlar-nedir"/>
    <updated>2017-01-15T00:00:00+03:00</updated>
-   <id>http://localhost:4000/phpde-anonim-fonksiyonlar-nedir</id>
+   <id>/phpde-anonim-fonksiyonlar-nedir</id>
    <content type="html">&lt;p&gt;Selamlar. Bu yazıda size closure yani anonim fonksiyonları göstereceğim. Öğrenme aşamasından önce yani sadece ilk bakışta kafamı karıştırmıştı. Ama zor değilmiş.&lt;/p&gt;
 
 &lt;p&gt;Şimdi elimizde bir nesne var diyelim. Bu nesnenin bir instance’ı yani örneğini oluşturdunuz ve bu oluşturulan instance’lara ait methodları kullanarak yeni bir instance oluşturabileceğinizi düşünün daha önce düşündünüz mü bilmiyorum.&lt;/p&gt;
@@ -380,9 +626,9 @@ Bu yazıda JavaScript console nesnesi ile debug işlemlerine dair ufak tefek ipu
  
  <entry>
    <title>Disable or Enable HTML Element with JavaScript</title>
-   <link href="http://localhost:4000/disable-html-element-with-javascript"/>
+   <link href="/disable-html-element-with-javascript"/>
    <updated>2017-01-07T00:00:00+03:00</updated>
-   <id>http://localhost:4000/disable-html-element-with-javascript</id>
+   <id>/disable-html-element-with-javascript</id>
    <content type="html">&lt;p&gt;Hi. I needed to make the HTML elements enabled or disable.&lt;/p&gt;
 
 &lt;p&gt;When I try with VanillaJS I wrote this code:
@@ -450,9 +696,9 @@ Bu yazıda JavaScript console nesnesi ile debug işlemlerine dair ufak tefek ipu
  
  <entry>
    <title>PHP ile Base URL Almak</title>
-   <link href="http://localhost:4000/php-ile-base-url-almak"/>
+   <link href="/php-ile-base-url-almak"/>
    <updated>2016-12-31T00:00:00+03:00</updated>
-   <id>http://localhost:4000/php-ile-base-url-almak</id>
+   <id>/php-ile-base-url-almak</id>
    <content type="html">&lt;p&gt;Selamlar. Ufak tefek PHP projeleri ile mevcut bilgimi daha yukarı taşımayı hedefliyorum. Tabi her projede yaşanabilmesi muhtemel bazı sorunları ben de yaşadım. Bu sorunlardan birisi de base url sorunu.&lt;/p&gt;
 
 &lt;p&gt;Soruna dair cevabı Stackoverflow üzerinde arıyordum. Bir başlığa denk &lt;a href=&quot;https://stackoverflow.com/questions/2820723/how-to-get-base-url-with-php/41407858&quot;&gt;geldikten&lt;/a&gt; sonra oturup kodunu kendim yazmalıyım dedim.
@@ -557,9 +803,9 @@ http://localhost/proje =&amp;gt; return &quot;/proje&quot;
  
  <entry>
    <title>jQuery ile Dinamik İşlemler</title>
-   <link href="http://localhost:4000/jquery-ile-dinamik-islemler"/>
+   <link href="/jquery-ile-dinamik-islemler"/>
    <updated>2016-12-31T00:00:00+03:00</updated>
-   <id>http://localhost:4000/jquery-ile-dinamik-islemler</id>
+   <id>/jquery-ile-dinamik-islemler</id>
    <content type="html">&lt;p&gt;Selam. Bu yazının içeriğini Tayfun Erbilen’in soru-cevap platformu olarak açtığı UzmanCevap üzerinde yer alan bir &lt;a href=&quot;http://uzmancevap.org/soru/7644/jquery-kosulu-renklendirme&quot;&gt;sorudan&lt;/a&gt; çıkarıyorum.
 &lt;!--more--&gt;
 Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel bir sistem var. Bu sistemde kapasitelerin ölçümünü yapıyor. Kapasitesi belli bir alanın üzerinde olana da renk vermek istiyor. Ama burada işlemin jQuery ile nasıl yapılacağı ile ilgileniyor. Normalde bunu back-end kısımda sorguyu çekerken de halledebileceğinizi söylemem gerekiyor.&lt;/p&gt;
@@ -652,9 +898,9 @@ Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel b
  
  <entry>
    <title>Atıştırmalık MongoDB Yazısı - 2</title>
-   <link href="http://localhost:4000/atistirmalik-mongodb-yazisi-2"/>
+   <link href="/atistirmalik-mongodb-yazisi-2"/>
    <updated>2016-12-18T00:00:00+03:00</updated>
-   <id>http://localhost:4000/atistirmalik-mongodb-yazisi-2</id>
+   <id>/atistirmalik-mongodb-yazisi-2</id>
    <content type="html">&lt;p&gt;Selam bu yazı bir önceki &lt;a href=&quot;/atistirmalik-mongodb-yazisi&quot;&gt;Atıştırmalık MongoDB Yazısı&lt;/a&gt;‘nın devamı niteliğinde bir yazı. Bu yazıda MongoDB ile Update ve Delete işlemlerini anlatacağım. Klasik SQL yöntemlerine göre farklılıklar içerdiğini önceki yazımda da belirtmiştim.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -816,9 +1062,9 @@ Sorun şu. Bir arkadaşımız HTML tablo oluşturmuş. Muhtemelen endüstriyel b
  
  <entry>
    <title>Atıştırmalık MongoDB Yazısı</title>
-   <link href="http://localhost:4000/atistirmalik-mongodb-yazisi"/>
+   <link href="/atistirmalik-mongodb-yazisi"/>
    <updated>2016-12-17T00:00:00+03:00</updated>
-   <id>http://localhost:4000/atistirmalik-mongodb-yazisi</id>
+   <id>/atistirmalik-mongodb-yazisi</id>
    <content type="html">&lt;p&gt;Selam bu yazı MongoDB’ye yeni giriş yapmış olan ben ve benim gibiler için atıştırmalık bir yazı. Bu yazıda basit olarak insert ve select işlemlerinden bahsedeceğim. MongoDB nedir gibi artık klişe hale gelmiş bilgileri paylaşmak yerine direkt olarak nasıl yapılır’ı anlatacağım.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;[NOT]:&lt;/strong&gt; Yazı uzun bir yazı olmuş. Şimdiden özür dilerim :)&lt;/p&gt;
@@ -1016,9 +1262,9 @@ BulkWriteResult({
  
  <entry>
    <title>MongoDB Data Directory Not Found Hatası</title>
-   <link href="http://localhost:4000/mongodb-data-directory-not-found"/>
+   <link href="/mongodb-data-directory-not-found"/>
    <updated>2016-11-30T00:00:00+03:00</updated>
-   <id>http://localhost:4000/mongodb-data-directory-not-found</id>
+   <id>/mongodb-data-directory-not-found</id>
    <content type="html">&lt;p&gt;Selam. MongoDB öğrenmeye başladım. Ufak bi kaç adımla başlayacaktım. Hedefte o vardı. Ancak daha henüz ilk kurulumda şöyle bir hata ile karşılaştım:
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Data directory C:\data\db\ not found., terminating&quot;
@@ -1045,9 +1291,9 @@ BulkWriteResult({
  
  <entry>
    <title>Python ile Ağ Üzerinde İzleme Yapma</title>
-   <link href="http://localhost:4000/python-ile-ag-uzerinde-izleme-yapma"/>
+   <link href="/python-ile-ag-uzerinde-izleme-yapma"/>
    <updated>2016-10-23T00:00:00+03:00</updated>
-   <id>http://localhost:4000/python-ile-ag-uzerinde-izleme-yapma</id>
+   <id>/python-ile-ag-uzerinde-izleme-yapma</id>
    <content type="html">&lt;p&gt;Merhaba. Bu yazıda Python ile basit bir şekilde ağ üzerinde nasıl izleme yapılırı anlatmaya çalışıcam. Yazıya giriş yapmadan önce bazı gereksinimler mevcut. Bunlardan birisi &lt;code class=&quot;highlighter-rouge&quot;&gt;scapy&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Teknik detaylara giriş yapmadan önce açıklamak gerekirse scapy, network tarafında özelleştirilmiş paketler üretmeye yarayan bir kütüphane.
@@ -1165,9 +1411,9 @@ txt_password=cH10k1997GuVenL
  
  <entry>
    <title>Asp.Net MVC'De Çoklu Checkbox Kullanımı</title>
-   <link href="http://localhost:4000/aspnet-mvcde-coklu-checkbox-kullanimi"/>
+   <link href="/aspnet-mvcde-coklu-checkbox-kullanimi"/>
    <updated>2016-10-22T00:00:00+03:00</updated>
-   <id>http://localhost:4000/aspnet-mvcde-coklu-checkbox-kullanimi</id>
+   <id>/aspnet-mvcde-coklu-checkbox-kullanimi</id>
    <content type="html">&lt;p&gt;Merhaba. Asp.NET ve özellikle MVC konusunda henüz yeniyim. Aslında MVC’den önce Asp.NET hiç kullanmadım. Ancak iş olunca konu direkt MVC’ye daldım. Zorluk çektiğim pek söylenemez. Model kavramına aşina olduktan sonra pek sıkıntı yok.
 &lt;!--more--&gt;
 Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID değerleri var. Örnekte şöyle olsun:&lt;/p&gt;
@@ -1228,9 +1474,9 @@ Sıkıntı şu. Veritabanından gelen bazı değerler var. Bu değerlerin de ID 
  
  <entry>
    <title>Jekyll Github Badge Eklentisi</title>
-   <link href="http://localhost:4000/jekyll-github-badge-eklentisi"/>
+   <link href="/jekyll-github-badge-eklentisi"/>
    <updated>2016-10-16T00:00:00+03:00</updated>
-   <id>http://localhost:4000/jekyll-github-badge-eklentisi</id>
+   <id>/jekyll-github-badge-eklentisi</id>
    <content type="html">&lt;p&gt;Selam bu aslında tam bir eklenti. Değil. Buna daha çok Liquid Tag desek yanlış söylemiş olmayız. Bu eklentinin yaptığı şey kısacası belirli bir repo için &lt;mark&gt;BADGE&lt;/mark&gt; oluşturuyor. Tam badge değilse de yapıyor işte. Bunu oluştururken bootstrap 4’ün card özelliğinden faydalandım.
 &lt;!--more--&gt;
 Eklenti şu anda sadece çağırıldığı anda olan değerleri üretiyor. Yani bugün 10 olan bir beğeni, yarın 15 olsa bile değişmeyecektir. Vakit olursa bir sonraki sürümde onu da değiştirmeyi düşünüyorum.&lt;/p&gt;
@@ -1263,9 +1509,9 @@ Download (Projenin master branchteki dosyalarının zip URL’si)
  
  <entry>
    <title>Jekyll ile PrismJS Kullanmak</title>
-   <link href="http://localhost:4000/jekyll-ile-prismjs-kullanmak"/>
+   <link href="/jekyll-ile-prismjs-kullanmak"/>
    <updated>2016-10-15T00:00:00+03:00</updated>
-   <id>http://localhost:4000/jekyll-ile-prismjs-kullanmak</id>
+   <id>/jekyll-ile-prismjs-kullanmak</id>
    <content type="html">&lt;p&gt;Blogu Jekyll’a taşıdıktan sonra uygun bir tema arayışına girmiştim. Bu uygun tema arayışında işimi en çok gören ise Pixyll teması oldu. Yapımcısı footer’da yer almakta. Neyse malumunuz kod içeren makaleler yazınca o makalelerdeki kodların da renklendirilmesi önemli.
 &lt;!--more--&gt;
 Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak jekyll ile birlikte &lt;a href=&quot;http://rouge.jneen.net/&quot;&gt;Route&lt;/a&gt; varsayılan olarak geldiği için pek de arayışa geçmeyiz. Fakat benim gibi görselliği de seviyorsanız mutlaka farklı alternatifleri de düşünürsünüz ki bunlardan birisi de &lt;a href=&quot;http://pygments.org/&quot;&gt;Pygments&lt;/a&gt; oluyor. Tabi bunu da beğenmiyor olmanız pekala normal karşılanabilir.&lt;/p&gt;
@@ -1328,9 +1574,9 @@ Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak
  
  <entry>
    <title>Bugün Öğrendiklerim - Git</title>
-   <link href="http://localhost:4000/bugun-ogrendiklerim"/>
+   <link href="/bugun-ogrendiklerim"/>
    <updated>2016-10-10T00:00:00+03:00</updated>
-   <id>http://localhost:4000/bugun-ogrendiklerim</id>
+   <id>/bugun-ogrendiklerim</id>
    <content type="html">&lt;p&gt;Bugün enteresan bir şekilde güzel şeyler öğrendim. Aslında dün de öğrendim. Github’ı sadece ve sadece master’a dosya push etmek adına kullanan birisi olarak şimdilerde branch ne kadar da gerekli der oldum. Bu yazıda özellikle branchleri anlatmak isterim. Çünkü master ve branchler gerçekten çok önemli şeyler.
 &lt;!--more--&gt;&lt;/p&gt;
 
@@ -1414,9 +1660,9 @@ Kullandığımız temalara göre renklendirme özellikleri mevcut elbette. Ancak
  
  <entry>
    <title>Türk Telekom ve Superonline Rezaleti</title>
-   <link href="http://localhost:4000/turk-telekom-superonline-rezaleti"/>
+   <link href="/turk-telekom-superonline-rezaleti"/>
    <updated>2016-10-08T00:00:00+03:00</updated>
-   <id>http://localhost:4000/turk-telekom-superonline-rezaleti</id>
+   <id>/turk-telekom-superonline-rezaleti</id>
    <content type="html">&lt;p&gt;Bu yazıyı yayınlarken artık Türksat kullanıcısı olduğumu öncelikle belirtmek istiyorum. Kendilerine teşekkür etmek gerekebilir. Gerçekten de işlerini layıkıyla yapıyorlar.&lt;/p&gt;
 
 &lt;p&gt;Size çok uzun bir hikaye anlatmak istemiyorum. Ancak nasıl başladığını ve nasıl sonlandığını anlatarak doğru şirketi seçmenizi belki sağlayabileceğimi düşünüyorum. Öncelikle Türk Telekom’u anlatmam gerekiyor.
@@ -1505,9 +1751,9 @@ Türksat ile: 3
  
  <entry>
    <title>SQL'de Inner Join İşlemleri</title>
-   <link href="http://localhost:4000/sqlde-inner-join-islemleri"/>
+   <link href="/sqlde-inner-join-islemleri"/>
    <updated>2016-10-07T00:00:00+03:00</updated>
-   <id>http://localhost:4000/sqlde-inner-join-islemleri</id>
+   <id>/sqlde-inner-join-islemleri</id>
    <content type="html">&lt;p&gt;SQL’de normalizasyon işlemlerini gerçekleştirdiğimiz zaman tabloları da bölme işlemini gerçekleştirmiş oluruz. Bu sayede hem normal formlarda bir database tasarımı gerçekleştirmiş oluruz hem de performans kazanabiliriz.
 &lt;!--more--&gt;
 Bu yazıda bölünmüş tabloların birleştirilmesinde faydalanabileceğimiz INNER JOIN kullanımına değineceğim. Yukarıda değinmiş olduğum performans konusu sadece yukarısı için geçerlidir. Her INNER JOIN performanslı olacak diye bir şey yoktur.&lt;/p&gt;
@@ -1657,9 +1903,9 @@ Bu yazıda bölünmüş tabloların birleştirilmesinde faydalanabileceğimiz IN
  
  <entry>
    <title>MSSQL'de Stored Procedure Kullanımı</title>
-   <link href="http://localhost:4000/mssqlde-stored-procedure-kullanimi"/>
+   <link href="/mssqlde-stored-procedure-kullanimi"/>
    <updated>2016-10-04T00:00:00+03:00</updated>
-   <id>http://localhost:4000/mssqlde-stored-procedure-kullanimi</id>
+   <id>/mssqlde-stored-procedure-kullanimi</id>
    <content type="html">&lt;p&gt;Daha önceleri çok fazla veritabanı kullanan işlemler yapmadım. O yüzden şu sıralar pek yeniyim. Öğrenme aşamaları hızlıca gelişiyor.&lt;/p&gt;
 
 &lt;p&gt;Stored Procedure dediğimiz şey ise veritabanında tutulan ve ilk çalışma derlenen daha sonraları tekrar derlenmeye ihtiyaç duyulmayan SQL ifadeleridir. Yani bir Stored Procedure oluşturursanız tekrar aynı isimde Stored Procedure’ü aynı veritabanı için oluşturamıyorsunuz.
@@ -1737,9 +1983,9 @@ Bu gibi durumlarda oluşturduğunuz Stored Procedure’ü Modify etmeniz gerekiy
  
  <entry>
    <title>SQL Server'da Procedure'e GETDATE() Yollamak</title>
-   <link href="http://localhost:4000/sql-serverda-proceduree-getdate-yollamak"/>
+   <link href="/sql-serverda-proceduree-getdate-yollamak"/>
    <updated>2016-10-03T00:00:00+03:00</updated>
-   <id>http://localhost:4000/sql-serverda-proceduree-getdate-yollamak</id>
+   <id>/sql-serverda-proceduree-getdate-yollamak</id>
    <content type="html">&lt;p&gt;SQL Server tarafında çalışma yaparken bazen oluşturmuş olduğunuz Stored Procedure’lere parametre olarak GETDATE() yollamak isteyebiliriz.
 &lt;!--more--&gt;
 Kısaca bir örnek verecek olursak kullanıcıların kaydedildiği bir tablo var normalde bu işlemleri bir programlama dili yardımıyla zaten hallediyordunuz ama işiniz SQL Server’a düştü.&lt;/p&gt;
@@ -1794,9 +2040,9 @@ Kısaca bir örnek verecek olursak kullanıcıların kaydedildiği bir tablo var
  
  <entry>
    <title>SQL Server'da Filtreli Arama Gerceklestirme</title>
-   <link href="http://localhost:4000/sql-serverda-filtreli-arama-gerceklestirme"/>
+   <link href="/sql-serverda-filtreli-arama-gerceklestirme"/>
    <updated>2016-08-03T00:00:00+03:00</updated>
-   <id>http://localhost:4000/sql-serverda-filtreli-arama-gerceklestirme</id>
+   <id>/sql-serverda-filtreli-arama-gerceklestirme</id>
    <content type="html">&lt;p&gt;Merhaba. Karmaşık bir arama işleminiz olabilir. Örneğin basit bir uygulama ile olaya bakalım:&lt;/p&gt;
 
 &lt;p&gt;Varsayalım ki InsanKaynaklari adında bir tablonuz bulunmakta. Bu tablo üzerinde bazı aramalar gerçekleştirmek istiyorsunuz. Örneğin bu aramalar
@@ -1888,9 +2134,9 @@ Doğum Tarihi, Doğum Yeri, Cinsiyet, Medeni Durum, Maaş, Eğitim Düzeyi, Mesl
  
  <entry>
    <title>Python ve NGram Algoritması</title>
-   <link href="http://localhost:4000/python-ve-ngram-algoritmasi"/>
+   <link href="/python-ve-ngram-algoritmasi"/>
    <updated>2016-04-13T00:00:00+03:00</updated>
-   <id>http://localhost:4000/python-ve-ngram-algoritmasi</id>
+   <id>/python-ve-ngram-algoritmasi</id>
    <content type="html">&lt;p&gt;Bu yazıyı yazmadan önce google’da sayısızca arama yapıyordum. Beni çıldırtan bir olay oldu. Şimdi aradığım şey örneğin ahmet tamam iyi hoş arıyorsun da. Gelip bana neden “Bunu mu denemek istediniz?” şeklinde soru soruyorsun. Neyse önerdiği şeye tıklıyorum. Hobaa. Eski yazdığımı öneriyor bu sefer.
 &lt;!--more--&gt;
 Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki google? Pek de bildiği söylenemez :P. Bu yazıda anlatmaya çalışacağım NGram tarzı bir algoritma kullandıkları kesin. Bakarsınız onlar tam da bunu kullanıyorlardır.&lt;/p&gt;
@@ -1959,9 +2205,9 @@ Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki g
  
  <entry>
    <title>Flask ile JSON Çıktı Almak</title>
-   <link href="http://localhost:4000/flask-ile-json-cikti-almak"/>
+   <link href="/flask-ile-json-cikti-almak"/>
    <updated>2016-04-03T00:00:00+03:00</updated>
-   <id>http://localhost:4000/flask-ile-json-cikti-almak</id>
+   <id>/flask-ile-json-cikti-almak</id>
    <content type="html">&lt;p&gt;Flask framework’ü bilmeyen yoktur. Bu yazı hiç kullanmamış arkadaşlar için değil baştan belirteyim. Bu yazıda Flask framework ile nasıl json çıktı alırız onu anlatmaya çalışacağım.
 &lt;!--more--&gt;
 Öncelikle flask kurulu olmalı onu biliyoruz. json çıktı alma işlemi için ben flask ile gelen jsonify metodunu tercih ediyorum. Siz isterseniz klasik json da kullanabilirsiniz. İki türlü de aynı çalışıyor. Sadece jsonify çıktıları biraz daha güzel gösteriyor. Ben bu yazı için hazırladığım uygulamada işi biraz farklı bir noktaya taşıdım ve sanki bir api varmış gibi çalışsın istedim.&lt;/p&gt;
@@ -2233,9 +2479,9 @@ Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki g
  
  <entry>
    <title>Python'da Zincirleme Metodlar</title>
-   <link href="http://localhost:4000/pythonda-zincirleme-metodlar"/>
+   <link href="/pythonda-zincirleme-metodlar"/>
    <updated>2016-03-31T00:00:00+03:00</updated>
-   <id>http://localhost:4000/pythonda-zincirleme-metodlar</id>
+   <id>/pythonda-zincirleme-metodlar</id>
    <content type="html">&lt;p&gt;Zincirleme metodlar, bir sınıfa ait metodları tek seferde çağırma şeklinde çalışırlar. Burada amaç kod okunabilirliğini artırmaktır. Çalışma mantığı olarak metod kendisini döndürür ve bu sayede peşine başka bir metod eklenebilir. Çalışma şeklinden dolayı bunlara zincirleme metod yani &lt;code class=&quot;highlighter-rouge&quot;&gt;Chaining Methods&lt;/code&gt; deniliyor. Çalışma mantığını anladık ama biraz daha açıklamak gerekiyor. Örneğin bir &lt;code class=&quot;highlighter-rouge&quot;&gt;Cars&lt;/code&gt; sınıfında o sınıfa ait belirli metodlar bulunmakta. Bu metodların şöyle olduğunu düşünelim sahtece:
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-pseudo&quot;&gt;A Sınıfı =&amp;gt;
@@ -2379,9 +2625,9 @@ Meselenin aslı şu. Ne yazmaya çalıştığımı nasıl olur da bilebilir ki g
  
  <entry>
    <title>Python'da Struct Kullanımı</title>
-   <link href="http://localhost:4000/pythonda-struct-kullanimi"/>
+   <link href="/pythonda-struct-kullanimi"/>
    <updated>2016-03-30T00:00:00+03:00</updated>
-   <id>http://localhost:4000/pythonda-struct-kullanimi</id>
+   <id>/pythonda-struct-kullanimi</id>
    <content type="html">&lt;p&gt;Evet var olmaz demeyin lütfen. Kısacası struct bir şablon olarak gelir önümüze. Bildiğimiz manada struct, farklı verileri bir araya getiriyoruz yani aslında grupluyor. Peki kullanımı nasıldı ki “Python’da” ile başlayan bir başlık attım ki?&lt;/p&gt;
 
 &lt;p&gt;Örneğin D dilinden örnek verecek olursak Ali Çehreli hocam çok güzel &lt;a href=&quot;http://ddili.org/ders/d/yapilar.html&quot;&gt;açıklamış&lt;/a&gt;:
@@ -2546,9 +2792,9 @@ AttributeError: can't set attribute
  
  <entry>
    <title>The Flash</title>
-   <link href="http://localhost:4000/the-flash"/>
+   <link href="/the-flash"/>
    <updated>2016-03-28T00:00:00+03:00</updated>
-   <id>http://localhost:4000/the-flash</id>
+   <id>/the-flash</id>
    <content type="html">&lt;p&gt;Diziyi İlk Defa İzleyecekler İçin En Fenasından Spoiler İçeren Kısımlar Var&lt;/p&gt;
 
 &lt;p&gt;Son zamanlarda kendime aşırı vakit ayırıyorum öyle ki yazdığım kod sayısını satırla anlatacak olsaydım sanırım izlediğim dizi bölümünden daha az olurdu.
@@ -2637,9 +2883,9 @@ Bir süredir daha önceleri izlemediğim Fringe dizisi ile uğraştaydım. Tabi 
  
  <entry>
    <title>Nginx 413 Request Entity Too Large Hatası ve Çözümü</title>
-   <link href="http://localhost:4000/nginx-413-request-entity-too-large-hatasi-ve-cozumu"/>
+   <link href="/nginx-413-request-entity-too-large-hatasi-ve-cozumu"/>
    <updated>2016-03-27T00:00:00+02:00</updated>
-   <id>http://localhost:4000/nginx-413-request-entity-too-large-hatasi-ve-cozumu</id>
+   <id>/nginx-413-request-entity-too-large-hatasi-ve-cozumu</id>
    <content type="html">&lt;p&gt;Muhtemelen bu hatayı nginx’de siz de aldınız. Bugün localde çalışırken başıma gelen bir uyarı. Bu hatanın sebebi ya &lt;code class=&quot;highlighter-rouge&quot;&gt;client_max_body_size&lt;/code&gt; tanımlı değildir ya da tanımlı ama boyut değeri çok düşüktür.
 &lt;!--more--&gt;
 Bende bu alan tanımlı değildi onun için bu alanı tanımlatmam gerekiyordu. Ubuntu için konuşacak olursak (Diğerlerinde de aynıdır yol. Denemedim):&lt;/p&gt;
@@ -2683,9 +2929,9 @@ Bende bu alan tanımlı değildi onun için bu alanı tanımlatmam gerekiyordu. 
  
  <entry>
    <title>Django RSS Feed Ekleme</title>
-   <link href="http://localhost:4000/django-rss-feed-ekleme"/>
+   <link href="/django-rss-feed-ekleme"/>
    <updated>2016-02-28T00:00:00+02:00</updated>
-   <id>http://localhost:4000/django-rss-feed-ekleme</id>
+   <id>/django-rss-feed-ekleme</id>
    <content type="html">&lt;p&gt;Django’da RSS Feed ekleme işlemi çok basittir. Uzun uzun anlatabilir miyim diye düşündüm ancak yine de başaramam herhalde. Öncelikle yapılması gerekenleri söylemek gerekiyor sanırım.
 &lt;!--more--&gt;
 Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahmut.py deyin ) Oluşturma işlemini başarıyla yaptıysanız şimdi bu dosyanın içine sınıf oluşturmalıyız. Bunun için Django’nun &lt;a href=&quot;https://docs.djangoproject.com/en/1.9/ref/contrib/syndication/&quot;&gt;Feed Framework&lt;/a&gt;‘ünü çağırmak gerekiyor. Bir de slug yani url için de core kütüphanesinde bulunan reverse() işlevini çağıralım.&lt;/p&gt;
@@ -2816,9 +3062,9 @@ Uygulamamız içerisine feeds.py dosyasını oluşturalım ( siz isterseniz mahm
  
  <entry>
    <title>Django Markdown Editör Kurulumu</title>
-   <link href="http://localhost:4000/django-markdown-editor-kurulumu"/>
+   <link href="/django-markdown-editor-kurulumu"/>
    <updated>2016-02-24T00:00:00+02:00</updated>
-   <id>http://localhost:4000/django-markdown-editor-kurulumu</id>
+   <id>/django-markdown-editor-kurulumu</id>
    <content type="html">&lt;p&gt;Okuldaki işler harici evde de kişisel olarak python ve arkadaşlarının icatları ile ilgileniyorum. Bu süreçte django ile kendi blog sistemimi yazmaya karar verdim. Ancak editör öyle kötüydü ki (hiç yok klasik textarea :D) markdown editör aramaya koyuldum. Daha önce Laravel ile yazdığım blog sisteminde de kullandığım editör geldi aklıma.
 &lt;!--more--&gt;
 Taufan Aditya tarafından yazılan bootstrap-markdown kullanmıştım. Neyse bu işin görsel yüzü. Ancak arkada hala çözümlenmeyi bekleyen markdown kuralları vardı. Bunun için bulabildiğim en uygun markdown eklentisi Kirill Klenov tarafından yazılan django_markdown eklentisiydi. Neyse bulduk ettik bir şekilde. Sıra kuruluma geliyor.Öncelikle editör entegrasyonunu yapalım. Şu linkten editör dosyalarını indirelim. İlgili klasöre çıkaralım. Statik dosyaların static altında olduğunu varsayarak yaptığınızı düşünelim. Ben şöyle yaptım:&lt;/p&gt;
@@ -2905,9 +3151,9 @@ Taufan Aditya tarafından yazılan bootstrap-markdown kullanmıştım. Neyse bu 
  
  <entry>
    <title>OpenSUSE PHP7 XDebug Kurulumu</title>
-   <link href="http://localhost:4000/opensuse-php7-xdebug-kurulumu"/>
+   <link href="/opensuse-php7-xdebug-kurulumu"/>
    <updated>2016-02-18T00:00:00+02:00</updated>
-   <id>http://localhost:4000/opensuse-php7-xdebug-kurulumu</id>
+   <id>/opensuse-php7-xdebug-kurulumu</id>
    <content type="html">&lt;p&gt;PHP7 çıkalı baya oluyor. XDebug geliştiriciler için hata ayıklama aracı. Gerçekten çok faydalı bir araç. Bu aracı PHP7 için OpenSuSe’a kurmaya çalışırsanız depolarında bulamıyorsunuz. Depolarda php5-xdebug bulunmakta. Fazla uzatmadan konuya gireyim can sıkıcı bir makale olmasın.
 &lt;!--more--&gt;
 XDebug kurmak için öncelikle PHP7 Devel gerekiyor. PHP7 Devel kurulumunu uçbirimden zypper yardımı ile kuralım.&lt;/p&gt;
@@ -2964,9 +3210,9 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
  
  <entry>
    <title>OpenSUSE 42.1 LAMP Kurulumu</title>
-   <link href="http://localhost:4000/opensuse-421-lamp-kurulumu"/>
+   <link href="/opensuse-421-lamp-kurulumu"/>
    <updated>2015-11-29T00:00:00+02:00</updated>
-   <id>http://localhost:4000/opensuse-421-lamp-kurulumu</id>
+   <id>/opensuse-421-lamp-kurulumu</id>
    <content type="html">&lt;p&gt;Bilmiyorsanız söyleyeyim LAMP, Linux, Apache, MySQL ve PHP’nin kısaltılmasıdır. Bu yazıda “biz dört kişiyiz gardaş” diye bağıran bu grubun nasıl kurulacağını anlatacağım. Sırasıyla Adımlar:
 &lt;!--more--&gt;&lt;/p&gt;
 
@@ -3135,9 +3381,9 @@ sudo systemctl enable mysql
  
  <entry>
    <title>OpenSUSE Güncellemesini Zypper ile Yapma</title>
-   <link href="http://localhost:4000/opensuse-guncellemesini-zypper-ile-yapma"/>
+   <link href="/opensuse-guncellemesini-zypper-ile-yapma"/>
    <updated>2015-11-28T00:00:00+02:00</updated>
-   <id>http://localhost:4000/opensuse-guncellemesini-zypper-ile-yapma</id>
+   <id>/opensuse-guncellemesini-zypper-ile-yapma</id>
    <content type="html">&lt;p&gt;Öncelikle güncelleme depolarını tanımlayalım ve aktif edelim:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo zypper repos --uri&lt;/code&gt;&lt;/p&gt;
@@ -3162,9 +3408,9 @@ sudo zypper update
  
  <entry>
    <title>Sublime Text'i Go IDE'sine Çevirin</title>
-   <link href="http://localhost:4000/sublime-texti-go-idesine-cevirin"/>
+   <link href="/sublime-texti-go-idesine-cevirin"/>
    <updated>2015-11-27T00:00:00+02:00</updated>
-   <id>http://localhost:4000/sublime-texti-go-idesine-cevirin</id>
+   <id>/sublime-texti-go-idesine-cevirin</id>
    <content type="html">&lt;p&gt;Go dili programcıları arttıkça kaliteli editör, ide arayışları da aynı orantıda artmakta.&lt;/p&gt;
 
 &lt;p&gt;Python, C, C++, Ruby, Java, PHP, Javascript gibi aklınıza gelebilecek diller için IDE bulmak kolay. Bu diller hem kendisini kanıtlamış hem de uzun geçmişe sahip olan diller.
@@ -3260,9 +3506,9 @@ Eğer arkanızda Microsoft gibi dev yoksa o zaman Visual Studio gibi bir IDE bul
  
  <entry>
    <title>NodeJS'de json-server ile REST API Geliştirme</title>
-   <link href="http://localhost:4000/nodejsde-json-server-ile-rest-api-gelistirme"/>
+   <link href="/nodejsde-json-server-ile-rest-api-gelistirme"/>
    <updated>2015-11-17T00:00:00+02:00</updated>
-   <id>http://localhost:4000/nodejsde-json-server-ile-rest-api-gelistirme</id>
+   <id>/nodejsde-json-server-ile-rest-api-gelistirme</id>
    <content type="html">&lt;p&gt;Rest API artık yazılım dünyasının vazgeçilmezleri arasında. Öyle ki iş ilanlarında sadece REST API yazacak kişiler aranıyor yazmakta.&lt;/p&gt;
 
 &lt;p&gt;Bu kadar popüler olan bir konunun da elbet ki işleri kolaylaştıran araçları olmalıdır. Siz bir kolaylık arıyorsanız elbette bu kolaylığı sizin için sağlayacak kişiler de oluyor.
@@ -3525,9 +3771,9 @@ Bu kolaylıklardan birisi de NodeJS çatısı altında çalışan json-server. j
  
  <entry>
    <title>Hanoi Kuleleri Algoritması</title>
-   <link href="http://localhost:4000/hanoi-kuleleri-algoritmasi"/>
+   <link href="/hanoi-kuleleri-algoritmasi"/>
    <updated>2015-11-16T00:00:00+02:00</updated>
-   <id>http://localhost:4000/hanoi-kuleleri-algoritmasi</id>
+   <id>/hanoi-kuleleri-algoritmasi</id>
    <content type="html">&lt;p&gt;Hanoi kuleleri, Fransız matematikçi, Edouard Lucas tarafından önerilen bir çözüm yöntemidir. A,B ve C gibi dik konumda yerleştirilmiş üç çubuk ve N kadar disk içermektedir. İşleyiş şöyledir:&lt;/p&gt;
 
 &lt;p&gt;Başlangıçta diskler, üstteki her diskin çapı daha büyük olmak şartıyla A çubuğuna yerleştirilir. Her seferinde sadece bir diskin hareketine izin verildiğinde, büyük disk, küçük diskin üzerine yerleştirilmeden, disklerin C çubuğuna taşınması gerekmektedir.
@@ -3631,9 +3877,9 @@ tower_algorithm_main)
  
  <entry>
    <title>Hamming Sayıları</title>
-   <link href="http://localhost:4000/hamming-sayilari"/>
+   <link href="/hamming-sayilari"/>
    <updated>2015-11-15T00:00:00+02:00</updated>
-   <id>http://localhost:4000/hamming-sayilari</id>
+   <id>/hamming-sayilari</id>
    <content type="html">&lt;p&gt;Hamming sayıları, 2,3 ve 5’ten başka diğer asal bölene sahip olmayan dizilerdir. Örnek verecek olursak hamming dizisi şöyledir.&lt;/p&gt;
 
 &lt;p&gt;İlk 60 Hamming Sayısı: 2 3 4 5 6 8 9 10 12 15 16 18 20 24 25 27 30 32 36 40 45 48 50 54 60… şeklinde gider.&lt;/p&gt;
@@ -3740,9 +3986,9 @@ umbers)
  
  <entry>
    <title>sys.argv Yerine Click Kullanın</title>
-   <link href="http://localhost:4000/python-sys-argv-yerine-click-kullanin"/>
+   <link href="/python-sys-argv-yerine-click-kullanin"/>
    <updated>2015-11-12T00:00:00+02:00</updated>
-   <id>http://localhost:4000/python-sys-argv-yerine-click-kullanin</id>
+   <id>/python-sys-argv-yerine-click-kullanin</id>
    <content type="html">&lt;p&gt;Python ile konsol uygulamaları geliştirirken, konsolda bazen programı direkt olarak çağırmadan parametre kontrolü yapmamız gerekebiliyor. Örneğin şöyle bir çağrı:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;program.py --falan=filan&lt;/code&gt;&lt;/p&gt;
@@ -3867,9 +4113,9 @@ Merhaba Arkadaş?
  
  <entry>
    <title>E Sayısının Hesaplanması</title>
-   <link href="http://localhost:4000/e-sayisinin-hesaplanmasi"/>
+   <link href="/e-sayisinin-hesaplanmasi"/>
    <updated>2015-10-01T00:00:00+03:00</updated>
-   <id>http://localhost:4000/e-sayisinin-hesaplanmasi</id>
+   <id>/e-sayisinin-hesaplanmasi</id>
    <content type="html">&lt;p&gt;E sayısı ünlü bir irrasyonel sayıdır ve matematiğin en önemli sayılarındandır. E sayısı, ilk olarak İskoç Matematikçi John Napier tarafından ortaya atılmıştır. Napier, E sayısını 1618 yılında yayınladığı logaritmalar kitabının ekinde yayınlamıştır. Esasen dolaylı olarak bir değinme olmuş. E sayısının keşfi ise kitabın yayınlandığı tarihten çok daha sonraları gerçekleşmiş. Jakob Bernoulli 1683 yılında birleşik faiz problemini incelerken e sayıını keşfetmiş. Bu öyle bir sayı ki bir sürü kişi uğraşmış ama bu sayıya adını Leonhard Euler vermiştir. E sayısı adını 1731 yılında almıştır. Euler sayısı, “Oiler” olarak telafuz ediliyormuş.
 &lt;!--more--&gt;
 E sayısı aynı zamanda Doğal Logaritmanın da tabanını oluşturur. E sayısı ilginç noktalarda karşınıza çıkabileceği için öğrenmeye değer diye düşünüyorum.&lt;/p&gt;
@@ -3906,9 +4152,9 @@ E sayısı aynı zamanda Doğal Logaritmanın da tabanını oluşturur. E sayıs
  
  <entry>
    <title>C Dangling Pointer Sorunu</title>
-   <link href="http://localhost:4000/c-dangling-pointer-sorunu"/>
+   <link href="/c-dangling-pointer-sorunu"/>
    <updated>2014-07-21T00:00:00+03:00</updated>
-   <id>http://localhost:4000/c-dangling-pointer-sorunu</id>
+   <id>/c-dangling-pointer-sorunu</id>
    <content type="html">&lt;p&gt;Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum &lt;a href=&quot;https://en.wikipedia.org/wiki/Segmentationfault&quot;&gt;segmentation fault&lt;/a&gt; hatasina sebep olmaktadir ve &lt;a href=&quot;https://en.wikipedia.org/wiki/Bufferoverflow&quot;&gt;Buffer Overflow&lt;/a&gt; yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.&lt;/p&gt;
 
 &lt;p&gt;İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.
@@ -3975,9 +4221,9 @@ E sayısı aynı zamanda Doğal Logaritmanın da tabanını oluşturur. E sayıs
  
  <entry>
    <title>İsimTescil.Net'in Domain Rezaleti</title>
-   <link href="http://localhost:4000/isimtescilnetin-domain-rezaleti"/>
+   <link href="/isimtescilnetin-domain-rezaleti"/>
    <updated>2013-10-06T00:00:00+03:00</updated>
-   <id>http://localhost:4000/isimtescilnetin-domain-rezaleti</id>
+   <id>/isimtescilnetin-domain-rezaleti</id>
    <content type="html">&lt;p&gt;Çoğu kullanıcının google’a hosting domain gibi keywordleri yolladığını biliyoruz. Burada benim karşıma ilk çıkan isimtescil.net olmuştu. Zira bu kadar sonuçta bana ilk başta jenerik alan adı gibi göründü. Ancak anlaşılan o ki bir firmanın jenerik isme sahip olması yetmiyor.&lt;/p&gt;
 
 &lt;p&gt;Müşteri temsilcilerinin yani çalışanlarının da özverili olması gerekli. Yaptıkları işin hakkını vermeli, kazandıkları paranın hakkını vermeliler. Ancak ne yaptıkların işin hakkını veriyorlar ne de kazandıkları paranın hakkını.
@@ -4019,9 +4265,9 @@ Aslında burada sorun sadece onlar değil. Firmanın kendisi rezalet uygulamalar
  
  <entry>
    <title>HTML5 E-Kitap İndir</title>
-   <link href="http://localhost:4000/html5-e-kitap-indir"/>
+   <link href="/html5-e-kitap-indir"/>
    <updated>2013-10-05T00:00:00+03:00</updated>
-   <id>http://localhost:4000/html5-e-kitap-indir</id>
+   <id>/html5-e-kitap-indir</id>
    <content type="html">&lt;p&gt;Selam arkadaşlar. Elimde 7z arşiv biçiminde 404 MB boyutunda HTML5 Kitapları var. Arşiv’den çıkınca 525 MB boyuta oluşuyor. Toplam 38 adet kitap vardır. Diğer kitaplarda da olduğu gibi bu kitap da PDF biçimindedir. 38 adet kitap olduğu için kitapların adlarını burada tek tek listeletmek akıllıca olmaz. Sayfa felaket şekilde uzayabilir.Kitapların Dili İngilizce’dir.
 &lt;!--more--&gt;
 Bu konuda (dil sorunu) maalesef yapabileceğim bir şey yok. Hatta bunun üzerine güzel bir mesaj da Donanım Haber forumundaki Muco53‘den gelmişti. Yine Yandex üzerinde paylaşacağım. Ben silmediğim sürece ya da Yandex silmediği sürece kitaplar silinmeyecek. Kitapları indirmeden önce eğer kontrol etmek isterseniz diye Ekran Görüntüsü‘de paylaşacağım yani klasör içeriğini. Bu sayede beğenmezseniz indirmeyebilirsiniz. Sanırım bu kadar uzattığım yeter. Linki hemen aşağıda paylaşayım&lt;/p&gt;
@@ -4036,9 +4282,9 @@ Bu konuda (dil sorunu) maalesef yapabileceğim bir şey yok. Hatta bunun üzerin
  
  <entry>
    <title>Swift Programlama Dili E Kitabı İndir</title>
-   <link href="http://localhost:4000/swift-programlama-dili-e-kitabi-indir"/>
+   <link href="/swift-programlama-dili-e-kitabi-indir"/>
    <updated>2013-10-04T00:00:00+03:00</updated>
-   <id>http://localhost:4000/swift-programlama-dili-e-kitabi-indir</id>
+   <id>/swift-programlama-dili-e-kitabi-indir</id>
    <content type="html">&lt;p&gt;Selam. Swift programlama dili Apple’ın yeni çıkardığı bir dil. Yani bu şu demek oluyor XCode olmadan bu dilde geliştirmeler yapamazsınız. Windows ve Linux kullanıcıları maalesef bu dilde geliştirme yapamayacaklar. Mac üzerinde geliştirme imkanı var sadece. iOS ve OS X projelerinizde bu dili kullanabilirsiniz.
 &lt;!--more--&gt;
 Dilin Apple taraflı sitesine buradan ulaşabilirsiniz: &lt;a href=&quot;https://developer.apple.com/swift/&quot;&gt;https://developer.apple.com/swift/&lt;/a&gt;&lt;/p&gt;
@@ -4055,9 +4301,9 @@ Dilin Apple taraflı sitesine buradan ulaşabilirsiniz: &lt;a href=&quot;https:/
  
  <entry>
    <title>Oyun Gelistirme E-Kitapları İndir</title>
-   <link href="http://localhost:4000/oyun-gelistirme-e-kitaplari-indir"/>
+   <link href="/oyun-gelistirme-e-kitaplari-indir"/>
    <updated>2013-10-03T00:00:00+03:00</updated>
-   <id>http://localhost:4000/oyun-gelistirme-e-kitaplari-indir</id>
+   <id>/oyun-gelistirme-e-kitaplari-indir</id>
    <content type="html">&lt;p&gt;Selam arkadaşlar. Elimde 374 MB civarında bir kitap arşivi var. Arşiv’den çıkartılınca içerik 577 MB falan ediyor. Kitaplar ingilizcedir. Toplam 37 adet kitap bulunmaktadır. Oyun Geliştirme ve Programlama ile ilgilenenler için eşsiz bir kaynak olacağına inaniyorum. Kitap adlarını burada listelemek sadece kayıp olur başka bir şey değil.
 &lt;!--more--&gt;
 Ekran görüntüsünü atacağım. İlgilenenler indirebilirler. Ama indirmeden önce ekran görüntüsüne bakmanızı da öneririm. Kitaplar yandex disk’te oldugundan dolayı silinme riski yoktur. Bunu her yazıda belirtiyorum ama kusura bakmazsınız umarım. Yandex silmediği müddetçe ben silmeyeceğim. Kısacası herhangi bir sorun olmayacak. Buradan alınan yazıları eğer kendi sitenizde yayınlayacaksanız da kaynak gösterme şansınız var ise sevinirim. Göstermiyorsanız da canınız sağolsun :) İyi çalışmalar.&lt;/p&gt;
@@ -4072,9 +4318,9 @@ Ekran görüntüsünü atacağım. İlgilenenler indirebilirler. Ama indirmeden 
  
  <entry>
    <title>Java Programlama Dili - E-Kitap İndir</title>
-   <link href="http://localhost:4000/java-programlama-dili-e-kitap-indir"/>
+   <link href="/java-programlama-dili-e-kitap-indir"/>
    <updated>2013-10-02T00:00:00+03:00</updated>
-   <id>http://localhost:4000/java-programlama-dili-e-kitap-indir</id>
+   <id>/java-programlama-dili-e-kitap-indir</id>
    <content type="html">&lt;p&gt;Selam. Arkadaşlar elimdeki Java kitaplarını paylaşıyorum. Daha önce şu başlıkta da belirttiğim üzere elimdeki Java E-Kitap ya da Java E-Book ne derseniz o olsun onları paylaşıyorum. Java PDF var kitaplar. İçerik hakkında görsel yazı sonunda vereceğim.
 &lt;!--more--&gt;
 7z olarak arşivledim kitapları. Boyutu 277 MB(aslinda 276,9) civarında. Açıldığında ise yaklaşık 452 MB ediyor. Kitaplarin yazildigi dil Ingilizce’dir. Yine kitaplari Yandex Disk’e yukledim. Boylece silinme riski yok. (Umarim Yandex silmez :[ ). Sifremi unuttum diyelim bu dosyalar yine silinmez ben dahi silemem iciniz rahat olsun guvenle indirin :) Isterseniz kendi Yandex diskinize de kaydedebilirsiniz. Herhangi bir sifre istememektedir.&lt;/p&gt;
@@ -4089,9 +4335,9 @@ Ekran görüntüsünü atacağım. İlgilenenler indirebilirler. Ama indirmeden 
  
  <entry>
    <title>Android Oyun Geliştirme - E Kitap İndir</title>
-   <link href="http://localhost:4000/android-oyun-gelistirme-e-kitap-indir"/>
+   <link href="/android-oyun-gelistirme-e-kitap-indir"/>
    <updated>2013-10-01T00:00:00+03:00</updated>
-   <id>http://localhost:4000/android-oyun-gelistirme-e-kitap-indir</id>
+   <id>/android-oyun-gelistirme-e-kitap-indir</id>
    <content type="html">&lt;p&gt;Selam arkadaşlar. Android için oyun geliştirme e-kitapları var elimde. Onları sizlerle paylaşayım. Yandex Disk‘e yükledim. Yani ben silmedikçe ya da Yandex beni silmedikçe asla silinmeyecekler içiniz rahat olsun.&lt;/p&gt;
 
 &lt;p&gt;7z formatında boyutu 100 mb gibi. Arşivden çıkartınca 187 mb boyutuna ulaşıyor.
@@ -4114,9 +4360,9 @@ Kitapların dili ingilizce. Maalesef kaliteli Türkçe kitaplar zaten yok. Olmad
  
  <entry>
    <title>C ve C++ İçin E-Kitap İndir</title>
-   <link href="http://localhost:4000/c-ve-c++-icin-e-kitap-indir"/>
+   <link href="/c-ve-c++-icin-e-kitap-indir"/>
    <updated>2013-09-26T00:00:00+03:00</updated>
-   <id>http://localhost:4000/c-ve-c++-icin-e-kitap-indir</id>
+   <id>/c-ve-c++-icin-e-kitap-indir</id>
    <content type="html">&lt;p&gt;Selam. C ve C++ icin e-kitap arayan arkadaslar icin bu kitaplari paylasiyorum. Toplam 12 adet C ve C++ e-kitap icermektedir. Bir kitap sifre istemektedir onu belirttim. Kitaplar’dan bahsedecek olursak eğer:&lt;/p&gt;
 
 &lt;p&gt;A’dan Z’ye C klavuzu =&amp;gt; PDF&lt;/p&gt;
@@ -4161,9 +4407,9 @@ C kitabi Fedon (kadifeli) =&amp;gt; PDF&lt;/p&gt;
  
  <entry>
    <title>C# Eğitim Videoları</title>
-   <link href="http://localhost:4000/csharp-egitim-videolari"/>
+   <link href="/csharp-egitim-videolari"/>
    <updated>2013-09-25T00:00:00+03:00</updated>
-   <id>http://localhost:4000/csharp-egitim-videolari</id>
+   <id>/csharp-egitim-videolari</id>
    <content type="html">&lt;p&gt;C# icin egitim videolari linklerini paylasiyorum. Teker teker indirebilirsiniz.&lt;/p&gt;
 
 &lt;p&gt;C# ile Ornek Proje Gelistirme =&amp;gt; &lt;a href=&quot;http://yadi.sk/d/V7K4IvUU8UN7T&quot;&gt;http://yadi.sk/d/V7K4IvUU8UN7T&lt;/a&gt;&lt;/p&gt;
@@ -4194,9 +4440,9 @@ C# ile Veritabani Baglantilari(MSSQL, MySQL, Oracle, Access) =&amp;gt; &lt;a hre
  
  <entry>
    <title>Sublime Text 2'de Python 3 ile Çalışmak</title>
-   <link href="http://localhost:4000/sublime-text-2de-python-3-ile-calismak"/>
+   <link href="/sublime-text-2de-python-3-ile-calismak"/>
    <updated>2013-09-24T00:00:00+03:00</updated>
-   <id>http://localhost:4000/sublime-text-2de-python-3-ile-calismak</id>
+   <id>/sublime-text-2de-python-3-ile-calismak</id>
    <content type="html">&lt;p&gt;Selam. Sublime Text 2 kullanan arkadaşlar default olarak “python” tanımlı olarak geliyor. Ancak Python3 gerektiren yerlerde maalesef kullanamıyoruz.&lt;/p&gt;
 
 &lt;p&gt;Bunu şöyle çözmek mümkün öncelikle konsola şu görseldeki komutu veriyoruz
@@ -4248,9 +4494,9 @@ C# ile Veritabani Baglantilari(MSSQL, MySQL, Oracle, Access) =&amp;gt; &lt;a hre
  
  <entry>
    <title>TC Kimlik No Doğrulama Programı</title>
-   <link href="http://localhost:4000/tc-kimlik-no-dogrulama-programi"/>
+   <link href="/tc-kimlik-no-dogrulama-programi"/>
    <updated>2012-11-24T00:00:00+02:00</updated>
-   <id>http://localhost:4000/tc-kimlik-no-dogrulama-programi</id>
+   <id>/tc-kimlik-no-dogrulama-programi</id>
    <content type="html">&lt;p&gt;Selamlar&lt;/p&gt;
 
 &lt;p&gt;C# ve Web Servisi kullanarak TC Kimlik No Doğrulama Programı yazmış bulunmaktayım&lt;/p&gt;
@@ -4295,9 +4541,9 @@ Yani bu sekilde oluyor. Ust kisimdaki gizledigim yere kendi asil bilgilerimi ekl
  
  <entry>
    <title>Java İçin Java IDE'leri</title>
-   <link href="http://localhost:4000/java-icin-java-ideleri"/>
+   <link href="/java-icin-java-ideleri"/>
    <updated>2012-03-24T00:00:00+02:00</updated>
-   <id>http://localhost:4000/java-icin-java-ideleri</id>
+   <id>/java-icin-java-ideleri</id>
    <content type="html">&lt;h2 id=&quot;java-ide-nedir&quot;&gt;JAVA IDE nedir?&lt;/h2&gt;
 
 &lt;p&gt;JAVA IDE aslinda şöyle açıklanabilir, bir yükü bir yerden başka bir yere götürmek için daha rahat yöntemler mi yoksa daha zor yöntemler mi kullanılır? İşte IDE kavramı burada ortaya çıkıyor. IDE’ler gömülü fonksiyonlar, fonksiyon tamamlamalar vs. gibi özellikler ve örneğin tasarımsal yapılardaki ekleriyle hız, zaman kazanımı sağlar.&lt;/p&gt;
