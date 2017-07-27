@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Önbelleklenebilen HTTP Durum Kodları &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Önbelleklenebilen HTTP Durum Kodları</h1>
+  <span class="post-date">27 Jul 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="Web etiketine sahip yazılar" title="Web etiketine sahip yazılar">Web</span>
+        
+          <span class="tags" alt="HTTP etiketine sahip yazılar" title="HTTP etiketine sahip yazılar">HTTP</span>
+        
+          <span class="tags" alt="İnternet etiketine sahip yazılar" title="İnternet etiketine sahip yazılar">İnternet</span>
+        
+    </div>
+  
+  <p>1 aydır yazmıyorum. Bu yazıda HTTP durum kodlarına değineceğim. Bu durum kodları önbelleklenebilir durum kodlarıdır. Çoğu HTTP durum kodunu zaten biliyoruz.
+Kimileri buna HTTP hata kodları demeyi tercih ediyor.<!--more--></p>
+
+<p><img src="/images/posts/http200.jpg" alt="/images/posts/http200.jpg" /></p>
+
+<p>Bu konuyu aslında <a href="https://forum.ubuntu-tr.net/index.php?action=profile;u=3">@heartsmagic</a> ile başlattığımız bir thread üzerine yazma kararı aldım. Gerçekten faydalı birçok bilgiyi de öğrendim. Konuya girmeden önce konu <a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a> altında yayınlı tanımlamalara dayanan bilgiler içeriyor.</p>
+
+<h2 id="açıklamalar">Açıklamalar</h2>
+
+<p>Bazı HTTP durum kodları aksi belirtilmediği sürece varsayılan olarak önbelleklenmiş yanıtlar döndürürler. Ayrıca bir diğer açıklama ise kaynak sunucu daima önbellek süresinin ne zaman sona ereceğini size söylemez. Açık bir şekilde önbellek sonlanma zamanı belirtilmemişse heuristic(sezgisel) bir şekilde önbelleğe sonlanma zamanı atanıyor.</p>
+
+<p>Önbelleğin ne zaman sona ereceği, <a href="https://tools.ietf.org/html/rfc7232#section-2.2">Last Modified</a> gibi başlık üst bilgileri kullanılarak tahmin edilebiliyor. Yani eğer bilinçli olarak bir sona eriş tarihi yoksa, sezgisel olarak bi zaman atanıyor. Burada en önemli bilinmesi gereken <strong>ZORUNLULUK</strong> eğer HTTP önbelleklemesi açık bir şekilde tanımlanmamışsa, heuristic sonlanma zamanı atanabilir olmalı. Eğer HTTP önbelleklemesi belirtilmişse heuristic tanımlama olamaz.</p>
+
+<h2 id="durum-kodları">Durum Kodları</h2>
+
+<p><img src="/images/posts/http404.jpg" alt="/images/posts/http404.jpg" /></p>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.1">Bölüm 6.1</a> der ki;</p>
+
+<blockquote>
+  <p>200, 203, 204, 206, 300, 301, 404, 405, 410, 414 ve 501</p>
+</blockquote>
+
+<p>nolu durum kodları aksi belirtilmediği sürece varsayılan olarak önbelleklidir. Diğer tüm durum kodları varsayılan olarak önbelleklenebilir değildir.</p>
+
+<h3 id="durum-kodları-1">Durum Kodları</h3>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">200 OK</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.3.4">203 Non-Authoritative Information</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">204 No Content</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7233#section-4.1">206 Partial Content</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.4.1">300 Multiple Choices</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.4.2">301 Moved Permanently</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">404 Not Found</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.5.5">405 Method Not Allowed</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.5.9">410 Gone</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.5.12">414 URI Too Long</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.6.2">501 Not Implemented</a></p>
+
+<blockquote>
+  <p>Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir <a href="https://tools.ietf.org/html/rfc7234#section-4.2.2">7234 - 4.2.2</a></p>
+</blockquote>
+
+<h3 id="post-İsteğinin-Önbelleklenmesi">Post İsteğinin Önbelleklenmesi</h3>
+
+<p><a href="https://tools.ietf.org/html/rfc7231#section-4.3.3">POST</a> isteği açık bir şekilde belirtildiği taktirde önbelleklenebilir. Aslında istek değil, verilen yanıtlar. Bu karmaşayı en sonda ortadan kaldırmak iyi olur diye düşündüm.</p>
+
+<p>Normalde POST isteğinden dönen yanıtın önbelleklenebilirliğinden çok fazla faydalanılmıyor. Bir post isteğine dönen yanıtın, bu istekten sonra gelecek get tarafından tekrar kullanılabileceği durumlarda nadiren de olsa bu tip önbelleklemeler kullanılabiliyor.</p>
+
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/javascript-notlarim">
+            JavaScript Notlarım
+            <small>26 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-add-and-substract-days">
+            JavaScript Add and Substract Days
+            <small>02 Apr 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jquery-ile-tabloda-arama-yapmak">
+            jQuery ile Tabloda Arama Yapmak
+            <small>05 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

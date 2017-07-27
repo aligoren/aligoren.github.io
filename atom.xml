@@ -4,13 +4,119 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-06-27T00:53:18+03:00</updated>
+ <updated>2017-07-27T21:17:50+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Önbelleklenebilen HTTP Durum Kodları</title>
+   <link href="/onbelleklenebilen-http-durum-kodlari"/>
+   <updated>2017-07-27T00:00:00+03:00</updated>
+   <id>/onbelleklenebilen-http-durum-kodlari</id>
+   <content type="html">&lt;p&gt;1 aydır yazmıyorum. Bu yazıda HTTP durum kodlarına değineceğim. Bu durum kodları önbelleklenebilir durum kodlarıdır. Çoğu HTTP durum kodunu zaten biliyoruz.
+Kimileri buna HTTP hata kodları demeyi tercih ediyor.&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/http200.jpg&quot; alt=&quot;/images/posts/http200.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu konuyu aslında &lt;a href=&quot;https://forum.ubuntu-tr.net/index.php?action=profile;u=3&quot;&gt;@heartsmagic&lt;/a&gt; ile başlattığımız bir thread üzerine yazma kararı aldım. Gerçekten faydalı birçok bilgiyi de öğrendim. Konuya girmeden önce konu &lt;a href=&quot;https://tools.ietf.org/html/rfc7231&quot;&gt;RFC 7231&lt;/a&gt; altında yayınlı tanımlamalara dayanan bilgiler içeriyor.&lt;/p&gt;
+
+&lt;h2 id=&quot;açıklamalar&quot;&gt;Açıklamalar&lt;/h2&gt;
+
+&lt;p&gt;Bazı HTTP durum kodları aksi belirtilmediği sürece varsayılan olarak önbelleklenmiş yanıtlar döndürürler. Ayrıca bir diğer açıklama ise kaynak sunucu daima önbellek süresinin ne zaman sona ereceğini size söylemez. Açık bir şekilde önbellek sonlanma zamanı belirtilmemişse heuristic(sezgisel) bir şekilde önbelleğe sonlanma zamanı atanıyor.&lt;/p&gt;
+
+&lt;p&gt;Önbelleğin ne zaman sona ereceği, &lt;a href=&quot;https://tools.ietf.org/html/rfc7232#section-2.2&quot;&gt;Last Modified&lt;/a&gt; gibi başlık üst bilgileri kullanılarak tahmin edilebiliyor. Yani eğer bilinçli olarak bir sona eriş tarihi yoksa, sezgisel olarak bi zaman atanıyor. Burada en önemli bilinmesi gereken &lt;strong&gt;ZORUNLULUK&lt;/strong&gt; eğer HTTP önbelleklemesi açık bir şekilde tanımlanmamışsa, heuristic sonlanma zamanı atanabilir olmalı. Eğer HTTP önbelleklemesi belirtilmişse heuristic tanımlama olamaz.&lt;/p&gt;
+
+&lt;h2 id=&quot;durum-kodları&quot;&gt;Durum Kodları&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/http404.jpg&quot; alt=&quot;/images/posts/http404.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.1&quot;&gt;Bölüm 6.1&lt;/a&gt; der ki;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;200, 203, 204, 206, 300, 301, 404, 405, 410, 414 ve 501&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;nolu durum kodları aksi belirtilmediği sürece varsayılan olarak önbelleklidir. Diğer tüm durum kodları varsayılan olarak önbelleklenebilir değildir.&lt;/p&gt;
+
+&lt;h3 id=&quot;durum-kodları-1&quot;&gt;Durum Kodları&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.3.1&quot;&gt;200 OK&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.3.4&quot;&gt;203 Non-Authoritative Information&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.3.5&quot;&gt;204 No Content&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7233#section-4.1&quot;&gt;206 Partial Content&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.4.1&quot;&gt;300 Multiple Choices&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.4.2&quot;&gt;301 Moved Permanently&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.5.4&quot;&gt;404 Not Found&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.5.5&quot;&gt;405 Method Not Allowed&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.5.9&quot;&gt;410 Gone&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.5.12&quot;&gt;414 URI Too Long&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-6.6.2&quot;&gt;501 Not Implemented&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aksi belirtilmediği taktirde varsayılan olarak önbelleklidir &lt;a href=&quot;https://tools.ietf.org/html/rfc7234#section-4.2.2&quot;&gt;7234 - 4.2.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;post-İsteğinin-Önbelleklenmesi&quot;&gt;Post İsteğinin Önbelleklenmesi&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc7231#section-4.3.3&quot;&gt;POST&lt;/a&gt; isteği açık bir şekilde belirtildiği taktirde önbelleklenebilir. Aslında istek değil, verilen yanıtlar. Bu karmaşayı en sonda ortadan kaldırmak iyi olur diye düşündüm.&lt;/p&gt;
+
+&lt;p&gt;Normalde POST isteğinden dönen yanıtın önbelleklenebilirliğinden çok fazla faydalanılmıyor. Bir post isteğine dönen yanıtın, bu istekten sonra gelecek get tarafından tekrar kullanılabileceği durumlarda nadiren de olsa bu tip önbelleklemeler kullanılabiliyor.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>JavaScript Notlarım</title>
