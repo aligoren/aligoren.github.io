@@ -67,6 +67,16 @@
       
     
       
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
         
       
     
@@ -124,6 +134,7 @@
           <h3 class="masthead-title">
             <a href="/" title="Anasayfa">Ali GÖREN</a>
             <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
           </h3>
         </div>
       </div>
@@ -132,6 +143,22 @@
         <div class="post post-detail">
   <h1 class="post-title">C Dangling Pointer Sorunu</h1>
   <span class="post-date">21 Jul 2014</span>
+  
+  
+  
+  
+  
+
+  
+   <div class="notification-area">
+     <strong class="notification-title">Uyarı</strong>
+     <p>
+       Bu yazı yayınlanalı 1105 gün olmuş. Bu 36 aydan fazla bir zaman yapıyor. 
+       Bu kadar eski bir yazının güncelliğini korumasını beklememelisin.
+     </p>
+   </div>
+  
+
   
   <p>Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum <a href="https://en.wikipedia.org/wiki/Segmentationfault">segmentation fault</a> hatasina sebep olmaktadir ve <a href="https://en.wikipedia.org/wiki/Bufferoverflow">Buffer Overflow</a> yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.</p>
 

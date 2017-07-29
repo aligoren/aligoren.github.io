@@ -577,8 +577,6 @@ a.pagination-item:hover {
 }
 
 img[alt=my-photo] {
-  width: 178px;
-  height: 178px;
   border-radius: 100%;
 }
 
@@ -620,4 +618,26 @@ blockquote {
 .tag-container {
   margin-bottom: 15px;
   padding-bottom: 3px;
+}
+
+.notification-title {
+  font-size: 24px;
+  margin-top:0px;
+  color: #3c763d;
+}
+
+.notification-area {
+  color: #3c763d;
+  background-color: #dff0d8;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: auto;
+  padding: 10px 0px 0px 10px;
+  margin-bottom: 10px;
+  border: 3px solid #92aa7f;
+  border-radius: 5px;
+}
+
+.rss-text {
+  float:right;
 }
