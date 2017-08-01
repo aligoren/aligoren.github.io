@@ -4,13 +4,28 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-07-30T00:12:36+03:00</updated>
+ <updated>2017-08-01T22:13:24+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Nasıl Electron Uygulaması Yazarım</title>
+   <link href="/nasil-electron-uygulamasi-yazarim"/>
+   <updated>2017-08-01T00:00:00+03:00</updated>
+   <id>/nasil-electron-uygulamasi-yazarim</id>
+   <content type="html">
+    &lt;p&gt;Merhaba. Daha önceden github üzerinde bir repo &lt;a href=&quot;https://github.com/aligoren/electron-todo&quot;&gt;oluşturdum&lt;/a&gt;. Bu repo, electron uygulaması ile yapılan (yapılacak olan) bir todo list uygulaması.&lt;/p&gt;
+
+
+    
+      &lt;a href= /nasil-electron-uygulamasi-yazarim /&gt;Devamını OKu&lt;/a&gt;
+    
+  </content>
+ </entry>
  
  <entry>
    <title>Önbelleklenebilen HTTP Durum Kodları</title>
