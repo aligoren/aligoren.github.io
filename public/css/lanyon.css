@@ -641,3 +641,62 @@ blockquote {
 .rss-text {
   float:right;
 }
+
+.whoami {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  padding: 0px 20px 0px 30px;
+  margin-bottom: 15px;
+  background-color: #f5f5f5;
+}
+
+.whoami-title {
+  margin-top: 15px;
+}
+
+.whoami-text {
+  margin-bottom: 5vh;
+}
+
+.link-group {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.link-group > a:not(:last-child) {
+  border-right: 1px solid #eee;
+  padding-right: 5px;
+  margin-right: 5px;
+}
+
+.about-img {
+  float: left;
+  width: 128px;
+  height: 128px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 100%;
+}
+
+#i-follow {
+    color: #fff;
+    margin-left: 1.7ch;
+    margin-top: 1.2ch;
+    margin-bottom: 1.2ch;
+    font-weight: 600 !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #made-width {
+    position: fixed;
+    bottom: 10px;
+  }
+}

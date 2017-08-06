@@ -4,13 +4,28 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-08-01T22:13:24+03:00</updated>
+ <updated>2017-08-06T13:06:06+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Aurelia Framework</title>
+   <link href="/aurelia-framework"/>
+   <updated>2017-08-06T00:00:00+03:00</updated>
+   <id>/aurelia-framework</id>
+   <content type="html">
+    &lt;p&gt;Bu yazıda size &lt;a href=&quot;http://aurelia.io/&quot;&gt;Aurelia&lt;/a&gt; frameworkten biraz bahsedeceğim. Aurelia, diğer web frameworkler gibi single page application geliştirmenize izin veren, mobil, web ve masaüstü client framework olarak tanımlıyor kendisini.&lt;/p&gt;
+
+
+    
+      &lt;a href= /aurelia-framework /&gt;Devamını OKu&lt;/a&gt;
+    
+  </content>
+ </entry>
  
  <entry>
    <title>Nasıl Electron Uygulaması Yazarım</title>

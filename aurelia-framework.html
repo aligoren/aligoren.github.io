@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Aurelia Framework &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Aurelia Framework</h1>
+  <span class="post-date">06 Aug 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="javascript etiketine sahip yazılar" title="javascript etiketine sahip yazılar">javascript</span>
+        
+          <span class="tags" alt="aurelia etiketine sahip yazılar" title="aurelia etiketine sahip yazılar">aurelia</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p>Bu yazıda size <a href="http://aurelia.io/">Aurelia</a> frameworkten biraz bahsedeceğim. Aurelia, diğer web frameworkler gibi single page application geliştirmenize izin veren, mobil, web ve masaüstü client framework olarak tanımlıyor kendisini.
+<!--more--></p>
+
+<p><img src="/images/posts/aurelia.svg" style="width:100%;" /></p>
+
+<p>Başlamadan önce framework’e ait linkleri vereyim:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Key</strong></td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td><strong>Web Sitesi</strong></td>
+      <td>http://aurelia.io/</td>
+    </tr>
+    <tr>
+      <td><strong>Doküman Sayfası</strong></td>
+      <td>http://aurelia.io/hub.html</td>
+    </tr>
+    <tr>
+      <td><strong>Github Sayfası</strong></td>
+      <td>https://github.com/aurelia/framework</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Yazıda bahsedeceğim Github projesine <a href="https://github.com/aurelia-project/au-github">https://github.com/aurelia-project/au-github</a> adresinden ulaşabilirsiniz.</p>
+
+<h2 id="Özellikleri">Özellikleri</h2>
+
+<p>Framework’ün anasayfasında aslında özellikler belirtilmiş ama tekrar belirtmemiz gerekebilir diye yazmak istiyorum.</p>
+
+<p><strong>İleri Görüşlülük</strong></p>
+
+<p>Aurelia, kendisini ileri görüşlü olarak tanımlıyor. ES’in yeni sürümleriyle yazıldığını belirtiyor. Bu kısımda size</p>
+
+<blockquote>
+  <p>Geleceğin teknolojisini kullanın ama bugünün masaüstü, web ve mobil platformlarını da hedefleyin -</p>
+</blockquote>
+
+<p>diyor kısacası.</p>
+
+<p><strong>Modern Mimari</strong></p>
+
+<p>Aurelia, monolitik frameworkleri takip etmek yerine modüler bir yapıya odaklanmış durumda. Bu da Aurelia’yı tam teşekküllü( :D ) bir framework olarak kullanmanıza imkan tanıdığı gibi ihtiyacınız kadar componenti kullanmanıza da imkan tanır bir hale getiriyor.</p>
+
+<p><strong>Çift Yönlü Data Bind</strong></p>
+
+<p>Aslında sitede two-way data binding olarak geçiyor da dilimize nasıl aktaracağımı bilemedim. Angular kullananlar da biliyorlardır muhtemelen. Sayfada ya da model tarafında yapılan bir değişiklik, diğerinde de görünür hale geliyor. Yani bunun için gidip ekstra kod da yazmıyorsunuz. Bu yöntem modelin bir önceki değerinin saklanmasına, herhangi bir değişiklik durumunda nesnenin değişikliğinin kontrolüne dayanıyor. Bu konu için <strong>observer pattern</strong> ve <strong>dirty checking</strong> kavramlarına bakmanız gerekiyor.</p>
+
+<p>Custom HTML element, routing, testable olmasının haricinde  ES5, ES 2015, ES 2016 ve TypeScript kullanabiliyorsunuz. Özellikleri çok fazla uzatmak istemediğim için biraz kısaltmak durumunda kaldım diğerlerini yazmadım.</p>
+
+<h2 id="başlangıç">Başlangıç</h2>
+
+<p>Başlarken <a href="http://aurelia.io/hub.html#/doc/persona/developer">DOC Hub</a>‘a göz atmanız gerekiyor. Açıladan sayfada sol menüde <strong>I am a developer</strong> kısmına tıklayarak açılan menüden Aurelia hakkında nasıl öğreneceğinize dair farklı yöntemler seçebilirsiniz. Bu seviyenize bağlı olarak yönlendirme aslında. Aynı şeyi sağ tarafta yer alan kısımda da yapabilirsiniz. Burada gözüme ilk çarpan şey <strong>CLI</strong> oldu. Evet artık vazgeçilmez bir şey var ise oda CLI. Aurelia official olarak CLI sahibi.</p>
+
+<h2 id="aurelia-cli">Aurelia CLI</h2>
+
+<p>Aurelia CLI’ı kurmak için <a href="http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli/">bu</a> adresi ziyaret edebilirsiniz. Ama basitçe ben de anlatayım.</p>
+
+<p><strong>Kurulum</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install aurelia-cli -g
+</code></pre>
+</div>
+
+<p>Duruma bağlı olarak <strong>sudo</strong> komutuyla birlikte çalıştırmanız gerekebilir.</p>
+
+<p><strong>Yeni Proje Oluşturma</strong></p>
+
+<p>Yeni proje oluşturmak için <code class="highlighter-rouge">au new</code> komutunu konsoldan veriyoruz. Bu komutu kullandığımızda, öncelikle oluşturacağımız uygulamanın adını soruyor bize. Ben github’dan basit bi içerik çekeceğim için adını da <strong>au-github</strong> olarak tanımladım. Bu arada au öneki zorunlu değil. Bakmayın ben öyle yaptım diye.</p>
+
+<p>Sonraki adımda size hangi loader’ı seçeceğinizi soruyor. Şu an için <strong>SystemJS</strong> ve <strong>RequireJS</strong> ön tanımlı olarak CLI’da tanımlı geliyor. Default olarak <strong>RequireJS</strong> seçili.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Which module loader would you like to use?
+
+1. RequireJS <span class="o">(</span>Default<span class="o">)</span>
+   A file and module loader <span class="k">for </span>JavaScript.
+2. SystemJS
+   Dynamic ES module loader
+
+<span class="gp">[RequireJS]&gt; </span>
+</code></pre>
+</div>
+
+<p>Bir sonraki adım ise geliştirme ortamınızla alakalı. Default seçim <strong>ESNext</strong> olarak belirtilmiş. Aam bunun haricinde TypeScript kullanabileceğiniz gibi custom transpiler da seçebilirsiniz. <strong>ESNext</strong> seçimini yapıyorum.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Would you like to use the default setup or customize your choices?
+
+1. Default ESNext <span class="o">(</span>Default<span class="o">)</span>
+   A basic web-oriented setup with Babel <span class="k">for </span>modern JavaScript
+   development.
+2. Default TypeScript
+   A basic web-oriented setup with TypeScript <span class="k">for </span>modern JavaScript
+   development.
+3. Custom
+   Select transpilers, CSS pre-processors and more.
+
+<span class="o">[</span>Default ESNext]&gt;
+</code></pre>
+</div>
+
+<p>Çünkü babel kullanabilirim. Bu aşamadan sonra şöyle bir output beliriyor:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Project Configuration
+
+    Name: au-github
+    Platform: Web
+    Loader: RequireJS
+    Transpiler: Babel
+    Markup Processor: Minimal Minification
+    CSS Processor: None
+    Unit Test Runner: Karma
+    Editor: Visual Studio Code
+</code></pre>
+</div>
+
+<p>Son aşamada size projeyi yaratmak isteyip istemediğinizi soruyor. Yes default olarak geliyor ama tüm bu aşamaları tekrar yapmak için 2. seçeneği seçip Restart diyebilirsiniz ya da 3. seçenek ile proje yaratma işlemini iptal edebilirsiniz. Neyse ki biz <strong>Yes</strong> diyeceğiz :P</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Would you like to create this project?
+
+1. Yes <span class="o">(</span>Default<span class="o">)</span>
+   Creates the project structure based on your selections.
+2. Restart
+   Restarts the wizard, allowing you to make different selections.
+3. Abort
+   Aborts the new project wizard.
+
+<span class="o">[</span>Yes]&gt;
+</code></pre>
+</div>
+
+<p>Ardından projenin tüm bağımlılıklarının yükleneceğine dair bir sorusu var. Eğer yes derseniz server, client ve projeyi build etmek için bağımlı olan ne varsa yükler. Hayır demeniz durumunda projeyi oluşturur ancak herhangi bir bağımlılık yüklenmez. Bu durumda elle yüklemeler yapmanız gerekebilir. Bunun avantajı, gereksiz birçok şeyi yüklememiş olacaksınız. Ama <strong>Yes</strong> diyelim. Bu aşamada NPM yardımıyla projenin bağımlılıkları yüklenecektir.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Would you like to install the project dependencies?
+
+1. Yes <span class="o">(</span>Default<span class="o">)</span>
+   Installs all server, client and tooling dependencies needed to build
+   the project.
+2. No
+   Completes the new project wizard without installing dependencies.
+
+<span class="o">[</span>Yes]&gt;
+</code></pre>
+</div>
+
+<p>Eğer tüm aşamalar başarılı ise şunu göreceğiz:</p>
+
+<blockquote>
+  <p>Congratulations! Your Project “au-github” Has Been Created! <br /><br />Now it’s time for you to get started. It’s easy. First, change directory into
+your new project’s folder. You can use cd au-github to get
+there. Once in your project folder, simply run your new app with au
+run. Your app will run fully bundled. If you would like to have it
+auto-refresh whenever you make changes to your HTML, JavaScript or CSS, simply
+use the –watch flag. If you want to build your app for production,
+run au build –env prod. That’s just about all there is to
+it. If you need help, simply run au help.</p>
+</blockquote>
+
+<p>Diyor ki proje dizinine gittikten sonra <code class="highlighter-rouge">au run --watch</code> komutunu kullanarak projeyi ayağa kaldırabilir ve ne değişiklik yaparsan anında auto-refresh edebilirsin. Eğer ki projeyi production için build edeceksen de <code class="highlighter-rouge">au build --env prod</code> komutunu kullanman yetecektir. Biz önce bi başlatalım :)</p>
+
+<p>Uygulama iki adet port açar. Birisi browsersync için. Bu port senkronize işlemleri gerçekleştirirken, uygulama portu bundan farklıdır. Sizde şöyle olması muhtemel.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Application Available At: http://localhost:9000
+BrowserSync Available At: http://localhost:3001
+</code></pre>
+</div>
+
+<p>Uygulama dizininde yer alan <strong>src</strong> klasörüne girerek basit bir uygulama yapabiliriz diye düşünüyorum :) Her basit örnekte olduğu gibi bir textbox’ta yazılanı bir başka HTML elementine atayacağız. Böyle başlayalım.</p>
+
+<h2 id="uygulama-yapısı">Uygulama Yapısı</h2>
+
+<p>Uygulamanın <strong>src</strong> dizini şu şekilde görünmekte:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>resources
+         <span class="se">\</span>
+          attributes <span class="o">(</span>klasör<span class="o">)</span>
+          binding-behaviors <span class="o">(</span>klasör<span class="o">)</span>
+          elements <span class="o">(</span>klasör<span class="o">)</span>
+          value-converters <span class="o">(</span>klasör<span class="o">)</span>
+          index.js
+app.html
+app.js
+environment.js
+main.js
+</code></pre>
+</div>
+
+<p>Dizin ve dosya yapısını gördük. Kısaca app.html dosyası ilk açılışta VueJS’ten görüp bildiğimiz template etiketleri arasında geliyor.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>${message}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+
+<p>Uygulamanın yazıldığı <strong>app.js</strong> dosyasında ise hazırda şöyle bir kod bizi karşılamakta:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">App</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'Hello World!'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Bu şekilde anasayfa basit olarak Hello World yazısı görürüz. Fakat hala daha bu içeriği dinamik hale getirebilmiş değiliz. Öncelikle <strong>app.js</strong> dosyamızda düzenlemeyi şöyle yapalım boş bir içerik bizi karşılasın:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">App</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Ardından da app.html dosyamızı value bind edilebilir hale getirelim. Bunu yaparken de modeli constructorda tanımlı olan mesaj property’sine değer gönderelim.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value</span><span class="err">.</span><span class="na">bind=</span><span class="s">"message"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h1&gt;</span>${message}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+
+<p>Yazmaya başladığınız anda otomatik olarak <strong>h1</strong> etiketinin içeriğinin de değiştiğini fark etmişsinizdir sanırım. Şimdi biraz daha işi ilerletip referans elementten değeri alalım, bu değeri metod yardımıyla h1’e atayalım.</p>
+
+<p><strong>app.html</strong></p>
+
+<p>Aşağıdaki kodda input elementine ref isimli bir attribute verdik. Bu attribute, kullanıldığı yerlerde ayırıcı görevi de görmekte. Buton elementinin click.trigger özelliği ile de aşağıda yer alan getMsg fonksiyonunu çalıştırabildik. <a href="http://aurelia.io/hub.html#/doc/article/aurelia/binding/latest/binding-delegate-vs-trigger">http://aurelia.io/hub.html#/doc/article/aurelia/binding/latest/binding-delegate-vs-trigger</a> adresinde daha kıymetli bildiler yer almakta :)</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ref=</span><span class="s">"messages"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">click</span><span class="err">.</span><span class="na">trigger=</span><span class="s">"getMsg(messages.value)"</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
+	<span class="nt">&lt;h1&gt;</span>${message}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+
+<p><strong>app.js</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">App</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getMsg</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="githubdan-veri-Çekelim">Github’dan Veri Çekelim</h2>
+
+<p>Şimdi işi uzatmadan kullanıcı adına göre github’dan veri çekelim ne dersiniz? Öncelikle HTTP tarafında aurelia hazır bir componente sahip. Onu kullanabiliriz ya da bildiğimiz gibi fetch metodunu kullanabiliriz. Ben fetch metodunu kullanacağım.</p>
+
+<p>Şimdi getMsg adındaki fonksiyonumuzu getUserInfo olarak değiştirelim. Kodlarımızı içeride yazacağız. Bu fonksiyon inputtan gelen kullanıcı adı değerini alıp github’a istek yapacak.</p>
+
+<p>Uzatmadan github’dan veri çekecek metodumuz şöyle olsun:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">getUserInfo</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="s1">'https://api.github.com/users/'</span><span class="p">;</span>
+
+    <span class="nx">fetch</span><span class="p">(</span><span class="nx">endpoint</span> <span class="o">+</span> <span class="nx">username</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">resp</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">obj</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Bu arada <strong>app.html</strong> dosyamıza da şöyle basit değişiklikler ekleyelim:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ref=</span><span class="s">"username"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">click</span><span class="err">.</span><span class="na">trigger=</span><span class="s">"getUserInfo(username.value)"</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
+	<span class="nt">&lt;p&gt;</span>Username: ${user.login}<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;p&gt;</span>Name: ${user.name}<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;p&gt;</span>Company: ${user.company}<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;p&gt;</span>Blog: ${user.blog}<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;p&gt;</span>Location: ${user.location}<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+</div>
+
+<p>Bazı basit bilgileri alabilmemiz açısından :) Çok uzatmış olmanın verdiği rahatsızlıkla kısa kesmek durumunda kalıyorum. Ama routing gibi mevzuları da bulunmakta. Bunlar ayrı bir yazının konusu olabilir.</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/nasil-electron-uygulamasi-yazarim">
+            Nasıl Electron Uygulaması Yazarım
+            <small>01 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/onbelleklenebilen-http-durum-kodlari">
+            Önbelleklenebilen HTTP Durum Kodları
+            <small>27 Jul 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-notlarim">
+            JavaScript Notlarım
+            <small>26 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
