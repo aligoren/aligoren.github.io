@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Hug ile API Oluşturma &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Hug ile API Oluşturma</h1>
+  <span class="post-date">12 Aug 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+          <span class="tags" alt="api etiketine sahip yazılar" title="api etiketine sahip yazılar">api</span>
+        
+          <span class="tags" alt="hug etiketine sahip yazılar" title="hug etiketine sahip yazılar">hug</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p>Selam. Bu yazıda size API oluşturmada yardımcı olacak Python kütüphanelerinden birisini tanıtacağım.</p>
+
+<p>Adı <a href="http://www.hug.rest/">Hug</a>. Aslında kendisine framework demek isterdim ama sanırım henüz o potansiyelde değil. Sadece rest isteklerini yapabiliyorsunuz o yanı güzel.
+<!--more--></p>
+
+<p><img src="/images/posts/hug.png" alt="/images/posts/hug.png" /></p>
+
+<p>Öncelikle Hug asla bir web framework değildir. Bunu bilmek gerekiyor. Yani bu şu anlama geliyor, Hug ile bloglar, forumlar, e ticaret siteleri yazamazsınız. Ancak o sitelere backend desteği sağlayacak API endpointleri oluşturabilirsiniz.</p>
+
+<h2 id="diğerleri-varken-neden-hug">Diğerleri Varken Neden Hug?</h2>
+
+<p>Haklı bir soru olabilir. Zira Flask en başta geliyorken bir de üzerine Django rest framework eklenince çok haklı bir şekilde bu soru sorulabilir oluyor.</p>
+
+<p>Diğer yandan Pyramid tabanlı Cornice ve standalone çalışan Falcon ve Pynic framewokleri de örnek verilebilir.</p>
+
+<p>Hug basittir. Basit olması geliştirme aşamasında avantaj sağlıyor olsa bile community kendisi gibi minimalist oluyor. Yani gelişimine katkıda bulunarak kendinizi ayrıca geliştirebilirsiniz.</p>
+
+<p>Öğrenme süresi, diğerlerine göre çok fazla detay gerektirmeyen bu mini tool’u denemediyseniz denemenizi öneririm. Bu yazıda basit bir kaç örneği göreceğiz.</p>
+
+<h2 id="kurulum">Kurulum</h2>
+
+<p>Hug, Python2 desteğine sahip değil sanırım. Python3 desteğine sahip. Kurulumu şöyle yapabiliriz:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 install hug -U
+
+<span class="c"># Eğer python için varsayılan pip, pip3 olarak ayarlanmışsa</span>
+pip install hug -U
+</code></pre>
+</div>
+
+<h2 id="nasıl-kullanırım">Nasıl Kullanırım?</h2>
+
+<p>Kurulumu başarıyla tamamladıktan sonra bi dosya oluşturalım. Adının çok önemi yok. Bu dosyanın içine <code class="highlighter-rouge">import hug</code> şeklinde hug import edilmeli.</p>
+
+<p>Şimdi bu aşamadan sonra iki adet decoratörümüzü çağırmalıyız. Bunlardan ilki local. Ve bir diğeri de istek türünü belirten decoratör. İlk örnekte get metodunu tanımlayan decoratörü çağıracağım:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@hug.get</span><span class="p">()</span>
+<span class="nd">@hug.local</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p>Bu arada dilerseniz get decoratörüne parametre geçebilirsiniz. Örneğin bu uygulama eğer gerçek bir uygulama gibi çalışıyor olsaydı son kullanıcıya verilere nasıl ulaşacağını gösteren endpointler verebilirdiniz. Gelin örnekleri de şu iki yöntemle verelim:</p>
+
+<p><strong>Tekil kullanım</strong></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@hug.get</span><span class="p">(</span><span class="n">examples</span><span class="o">=</span><span class="s">'ad=Ali'</span><span class="p">)</span>
+<span class="nd">@hug.local</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p><strong>Çoğul Kullanım</strong></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@hug.get</span><span class="p">(</span><span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali'</span><span class="p">,</span> <span class="s">'soyad=Goren'</span><span class="p">])</span>
+<span class="nd">@hug.local</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p><strong>Endpointler Metodlardır</strong></p>
+
+<p>Eğer method decoratöre açıkca bir endpoint belirtmediyseniz, varsayılan olarak metod isimleri otomatik olarak endpoint’e dönüşürler. Yukarıdaki metod isminden yola çıkacak olursak <code class="highlighter-rouge">http://localhost/merhaba</code> şeklinde bir endpoint görebiliriz.</p>
+
+<p>Ancak dediğim gibi dilersek bu adresleri değiştirebiliriz. Bunun için get decoratörü ilk parametre olarak string türünden endpoint alır.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali'</span><span class="p">,</span> <span class="s">'soyad=Goren'</span><span class="p">])</span>
+<span class="nd">@hug.local</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p>Kısacası metod adı merhaba olsa da endpoint adresimiz <code class="highlighter-rouge">.../naber</code> şeklinde değişecektir. Ayrıca parametreler yani queryler beklenen dışında ise error de otomatik olarak veriliyor. Basit olarak endpointler böyle işliyor.</p>
+
+<p>Bir önemli mevzu ise endpointlerin sürümlerinin oluşu. Aynı isme sahip fakat farklı sürümlere sahiplerde çalışan farklı endpointlere şahit olduk çoğu zaman. v1, v2 türünden.</p>
+
+<p>Yine hug bu desteği dahili olarak sunmakta. Bu arada local decoratörüne gerek yok kaldırabilirsiniz. Kendi örneklerinden gittiğim içindi o :).</p>
+
+<p>Versiyon sistemine şöyle örnekler verebiliriz :)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#localhost/v1/naber?ad=Ali</span>
+<span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span><span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali'</span><span class="p">],</span> <span class="n">versions</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+
+<span class="c"># localhost/v2/naber?ad=Ali&amp;soyad=Goren</span>
+<span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali&amp;soyad=Goren'</span><span class="p">],</span> <span class="n">versions</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">soyad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad soyad'</span> <span class="p">:</span> <span class="s">'{0} {1}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">,</span> <span class="n">soyad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p>En sevdiğim özellik ise versionlara range tanımlanabilmesi. Örneğin sürüm 2 ~ 5 arası tüm api istekleri aynı sonucu döndürsün dersem 2,3,4 endpointleri aynı metoda gidecekler.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali&amp;soyad=Goren'</span><span class="p">],</span> <span class="n">versions</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">soyad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad soyad'</span> <span class="p">:</span> <span class="s">'{0} {1}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">,</span> <span class="n">soyad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p>Unutmadan dosyanın başına koyacağınız yorum satırı overview yani açıklama için kullanılıyor. Aynı şekilde metod açıklamalarında da usage veriyor. Örnek:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">"""Basit bir API endpoint oluşturduk"""</span>
+<span class="kn">import</span> <span class="nn">hug</span>
+
+<span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span><span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali'</span><span class="p">],</span> <span class="n">versions</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad'</span> <span class="p">:</span> <span class="s">'{0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">)}</span>
+
+<span class="nd">@hug.get</span><span class="p">(</span><span class="s">'/naber'</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s">'ad=Ali&amp;soyad=Goren'</span><span class="p">],</span> <span class="n">versions</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">merhaba</span><span class="p">(</span><span class="n">ad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">soyad</span><span class="p">:</span> <span class="n">hug</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">hug_timer</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+	<span class="s">"""Bu metod şunları bunları yapar"""</span>
+	<span class="k">return</span> <span class="p">{</span><span class="s">'ad soyad'</span> <span class="p">:</span> <span class="s">'{0} {1}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ad</span><span class="p">,</span> <span class="n">soyad</span><span class="p">)}</span>
+</code></pre>
+</div>
+
+<p>Yeri gelmişken metodun aldığı parametrelere dikkat edersek eğer. Python 3.5 ile geldi sanırım tip tanımlama özelliği vardı.</p>
+
+<p>Parametrenin türünün önceden belli olduğu. Aynı işlemi burada da yapabilmektesiniz. Hug içerisinde dahili olarak gelen tiplere <a href="http://www.hug.rest/website/learn/type_annotation">sahiptir</a>.</p>
+
+<p>En sonda gelen hug_timer ise tamamen <a href="http://www.hug.rest/website/learn/directives">directive</a> özelliği ile alakalıdır.</p>
+
+<h2 id="deploy">Deploy</h2>
+
+<p>Deploy işlemi bir hayli basit gunicorn ya da uwsgi kullanarak deploy edebilirsiniz:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>uwsgi --http 0.0.0.0:8000 --wsgi-file main.py --callable __hug_wsgi__
+
+<span class="c"># ya da gunicorn ile</span>
+gunicorn main:__hug_wsgi__
+</code></pre>
+</div>
+
+<p>Bu yazıda yaptıklarımu şurada çalıştırmayı denedim. Umarım siz bunu okurken durmamış olur:</p>
+
+<p><a href="https://hugpy-agoren.c9users.io/">https://hugpy-agoren.c9users.io/</a></p>
+
+<p>Endpointler: [v1, v2, v3, v4]</p>
+
+<h2 id="sonuç">Sonuç</h2>
+
+<p>Bu kısım web tarafında çalışabilecek endpointler ile alakalıydı. Ayrıca <code class="highlighter-rouge">@hug.cli()</code> decoratörünü çağırarak komut satırında çalışan uygulamalar da yapabilirsiniz. Bu yazı onu da anlatmaya müsade edecek konumda değil çünkü çok uzadı.</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/aurelia-framework">
+            Aurelia Framework
+            <small>06 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/nasil-electron-uygulamasi-yazarim">
+            Nasıl Electron Uygulaması Yazarım
+            <small>01 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/onbelleklenebilen-http-durum-kodlari">
+            Önbelleklenebilen HTTP Durum Kodları
+            <small>27 Jul 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
