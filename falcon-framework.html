@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Falcon Framework" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Python Falcon Framework ile RESTful API'lar oluşturmak." property="og:description">
+  <meta content="/falcon-framework" property="og:url">
+  <meta content="2017-08-13T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/images/posts/python.png" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="python" property="article:tag">
+  <meta content="api" property="article:tag">
+  <meta content="falcon" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Falcon Framework">
+  <meta name="twitter:url" content="/falcon-framework">
+  <meta name="twitter:description" content="Python Falcon Framework ile RESTful API'lar oluşturmak.">
+  <meta name="twitter:image:src" content="/images/posts/images/posts/python.png">
+
+  <title>
+    
+      Falcon Framework &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Falcon Framework</h1>
+  <span class="post-date">13 Aug 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+          <span class="tags" alt="api etiketine sahip yazılar" title="api etiketine sahip yazılar">api</span>
+        
+          <span class="tags" alt="falcon etiketine sahip yazılar" title="falcon etiketine sahip yazılar">falcon</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p>Selam. Bu yazıda size Python frameworklerinden bir diğerini, falcon framework’ü tanıtacağım. Kendi sitesindeki hız testlerinde bir hayli iyi olduğu belirtilmekte. Özellikle PyPy3.5 için 126 kat hızlı olduğunu söylemiş :)
+<!--more-->
+<img src="/images/posts/python.png" alt="/images/posts/python.png" /></p>
+
+<p>Öncelikle Falcon için bilgilere ulaşabileceğiniz iki adresi vereyim.</p>
+
+<p><strong>Resmi Site:</strong> <a href="https://falconframework.org/">https://falconframework.org/</a></p>
+
+<p><strong>Doküman Sitesi:</strong> <a href="https://falcon.readthedocs.io/en/stable/">https://falcon.readthedocs.io/en/stable/</a></p>
+
+<h2 id="kısa-bilgi">Kısa Bilgi</h2>
+
+<p>Falcon, minimalist takılan, yüksek performanslı bi web framework. Özellikle RESTful servisler ve uygulama backendlerinı Python ile oluşturmak isteyenler için düşünülmüş.</p>
+
+<p>Ayrıca falcon, herhangi bir WSGI containerı ile çalışabilecek kadar uysalmış. <a href="https://www.python.org/dev/peps/pep-3333/">PEP-3333</a> ile geliştirilmiş. Söylemek gerekiyor PEP-3333, WSGI için bir standart.</p>
+
+<p>Falcon kendi söylemiyle yalındır. Öyle herkesin kullanacağı bir şey değil. Genellikle HTTP APIlarına kendisini odaklamış durumda. Bu da şu anlama gelebilir. Kardeş sen burada built-in template engine, form helper ya da ORM bulamazsın.</p>
+
+<p>Falcon olabildiğince yalın demiştim. Yani bağımlılık konusunda da öyle six ve mimeparse adında iki kütüphane haricinde bağımlılığı yok.</p>
+
+<h2 id="kurulum">Kurulum</h2>
+
+<p>Kurulum basit şekilde gerçekleşiyor:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install falcon
+
+<span class="c"># Eğer yoksa gunicorn</span>
+
+<span class="gp">$ </span>pip install gunicorn
+</code></pre>
+</div>
+
+<h2 id="İlk-uygulamamız">İlk Uygulamamız</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">falcon</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">class</span> <span class="nc">OzluSozler</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">resp</span><span class="p">):</span>
+      <span class="s">"""Bu metod özlü sözler döndürecek"""</span>
+      <span class="n">sozler</span> <span class="o">=</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s">'soz'</span><span class="p">:</span> <span class="s">'Hayatta en hakiki mürşit ilimdir'</span><span class="p">,</span>
+            <span class="s">'soyleyen'</span><span class="p">:</span> <span class="s">'Mustafa Kemal Atatürk'</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s">'soz'</span><span class="p">:</span> <span class="s">'Biz, oldukça ortalama bir yıldızın '</span>
+            <span class="s">'ufak bir gezegenindeki gelişmiş maymun türleriyiz. '</span>
+            <span class="s">'Fakat evreni anlayabiliyoruz.'</span>
+            <span class="s">'İşte bu bizi çok özel kılıyor'</span><span class="p">,</span>
+            <span class="s">'soyleyen'</span><span class="p">:</span> <span class="s">'Stephen Hawking'</span>
+          <span class="p">}</span>
+      <span class="p">]</span>
+
+      <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">sozler</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">falcon</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s">'/sozler'</span><span class="p">,</span> <span class="n">OzluSozler</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<p>Ardından <code class="highlighter-rouge">gunicorn main:app --reload</code> komutunu vererek çalıştırabiliriz. Burada main dosya adı, app ise uygulama içinde falcon’u kim çağırıyor ne çağırıyor ise o. Başlangıç için bu basit örnek yeterli gibi geliyor bana.</p>
+
+<h2 id="biraz-daha-detay">Biraz Daha Detay</h2>
+
+<p>Biraz daha detay verecek olursak istersek queryleri yakalayabiliriz. Yine aynı örnek üzerinden gideceğiz bu arada.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">OzluSozler</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">resp</span><span class="p">):</span>
+      <span class="s">"""Bu metod özlü sözler döndürecek"""</span>
+      <span class="n">sozler</span> <span class="o">=</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s">'soz'</span><span class="p">:</span> <span class="s">'Hayatta en hakiki mürşit ilimdir'</span><span class="p">,</span>
+            <span class="s">'soyleyen'</span><span class="p">:</span> <span class="s">'Mustafa Kemal Atatürk'</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s">'soz'</span><span class="p">:</span> <span class="s">'Biz, oldukça ortalama bir yıldızın '</span>
+            <span class="s">'ufak bir gezegenindeki gelişmiş maymun türleriyiz. '</span>
+            <span class="s">'Fakat evreni anlayabiliyoruz.'</span>
+            <span class="s">'İşte bu bizi çok özel kılıyor'</span><span class="p">,</span>
+            <span class="s">'soyleyen'</span><span class="p">:</span> <span class="s">'Stephen Hawking'</span>
+          <span class="p">}</span>
+      <span class="p">]</span>
+
+      <span class="n">api_version</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s">'v'</span><span class="p">)</span>
+      
+      <span class="k">if</span> <span class="n">api_version</span><span class="p">:</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">sozler</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">hata</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hata'</span><span class="p">:</span> <span class="s">'Version bilgisi gereklidir'</span><span class="p">}</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"400"</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">hata</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Yukarıdaki kodda eğer url <code class="highlighter-rouge">localhost/sozler</code> şeklinde çağırılırsa hata oluşacaktır. Eğer ki query string türünden <strong>v</strong> verilirse hatasızca çalışacaktır. Hatta işi biraz daha ilerletip, belirli sözleri özellikle seçtirebiliriz. Bunun için <strong>q</strong> adında bir query daha tanımlayalım.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">api_version</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s">'v'</span><span class="p">)</span>
+<span class="n">quote_no</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s">'q'</span><span class="p">)</span>
+<span class="n">soz</span> <span class="o">=</span> <span class="n">sozler</span>
+
+<span class="k">if</span> <span class="n">api_version</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">quote_no</span><span class="p">:</span>
+            <span class="n">soz</span> <span class="o">=</span> <span class="n">sozler</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">quote_no</span><span class="p">)]</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">soz</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">hata</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hata'</span><span class="p">:</span> <span class="s">'Böyle bir söz bulunamadı'</span><span class="p">}</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"400"</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">hata</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">hata</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hata'</span><span class="p">:</span> <span class="s">'Version bilgisi gereklidir'</span><span class="p">}</span>
+    <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"400"</span>
+    <span class="n">resp</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">hata</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Yukarıdaki gibi olacaktır. Böyle içe doğru uzanan if kullanımı hoş değil ancak bu yazıda mükemmel kullanıma da gerek yok. Bu arada on_get metodunu kullanarak bu API endpoindinin sadece GET isteklerinde kullanılabilir olduğunu belirttik.</p>
+
+<p>Şu an için bu kadar. Falcon sadece bu kadar değil. Diğer konuları en başta verdiğim konudan alabilirsiniz :)</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/hug-ile-api-olusturma">
+            Hug ile API Oluşturma
+            <small>12 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/aurelia-framework">
+            Aurelia Framework
+            <small>06 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/nasil-electron-uygulamasi-yazarim">
+            Nasıl Electron Uygulaması Yazarım
+            <small>01 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
