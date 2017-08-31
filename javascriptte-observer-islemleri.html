@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="JavaScriptte Observer İşlemleri" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Bu yazıda JavaScriptte değişkenin ya da bir objenin değişik değişmediğini nasıl anlarız bunu anlattım." property="og:description">
+  <meta content="/javascriptte-observer-islemleri" property="og:url">
+  <meta content="2017-08-31T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/september.jpg" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="javascript" property="article:tag">
+  <meta content="observer" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="JavaScriptte Observer İşlemleri">
+  <meta name="twitter:url" content="/javascriptte-observer-islemleri">
+  <meta name="twitter:description" content="Bu yazıda JavaScriptte değişkenin ya da bir objenin değişik değişmediğini nasıl anlarız bunu anlattım.">
+  <meta name="twitter:image:src" content="/images/posts/september.jpg">
+
+  <title>
+    
+      JavaScriptte Observer İşlemleri &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">JavaScriptte Observer İşlemleri</h1>
+  <span class="post-date">31 Aug 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="javascript etiketine sahip yazılar" title="javascript etiketine sahip yazılar">javascript</span>
+        
+          <span class="tags" alt="observer etiketine sahip yazılar" title="observer etiketine sahip yazılar">observer</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p>Fringe izleyenleriniz biliyordur. Observerlar değişimleri gözlüyor, ona göre reyizlerine raporlar sunuyorlardı. Bazı durumlarda kendi aralarında kritik yaparlardı. Bu abiyi de oradan biliyorsunuzdur.</p>
+
+<p><img src="/images/posts/september.jpg" alt="/images/posts/september.jpg" /></p>
+
+<!--more-->
+
+<h2 id="giriş">Giriş</h2>
+
+<p>JavaScript için buna benzer bir durum var. Gözcü diyorum bir bakıma öyle. Aslında bunun için direkt metodlardan birisi observer metoduydu. Bir diğeri de watch metodu ancak bunlar deprecated durumda.</p>
+
+<p>Bunun yerine get ve set çok işe yarar durumda. Bu işlemi kullanma nedeni olarak bir değişkenin değerinin değişik değişmediği örnek gösterilebilir. Ayrıca proxy kullanarak da yaşanan değişimi algılayabilirsiniz. Bunu birçok yöntemle yapabiliriz.</p>
+
+<p>Bu yazıda <code class="highlighter-rouge">Object.defineProperty</code>, <code class="highlighter-rouge">Proxy</code> ve <code class="highlighter-rouge">get &amp; set</code> kullanarak 3 farklı durumda nesnenin değişip değişmediğini nasıl algılayacağımızı göreceğiz.</p>
+
+<h2 id="gelişme">Gelişme</h2>
+
+<p><img src="/images/posts/september2.jpg" alt="/images/posts/september2.jpg" /></p>
+
+<p><strong>Object.defineProperty</strong></p>
+
+<p><a href="https://developer.mozilla.org/tr/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty</a> için ufak bir bilgi verelim.</p>
+
+<p>Kendisi, <strong>descriptor</strong> tanımlamada bize yardımcı olmakta. Bu ES5 ile JS’e gelmiş. Miş ve mış diyorum çünkü o zamanlar ben JS yazmıyordum. Duyduğum kadarıyla yani.</p>
+
+<p>Eğer bunu kullanacaksanız bilmeniz gereken şey bazı niteliklerinin varsayılan olarak false durumunda olması. Ne demek bu dediğinizi duyuyor gibiyim. Bu descriptor, ayrıca <strong><code class="highlighter-rouge">value</code></strong>, <strong><code class="highlighter-rouge">writable</code></strong>, <strong><code class="highlighter-rouge">enumerable</code></strong> ve <strong><code class="highlighter-rouge">configurable</code></strong> gibi bazı nitelikler içeriyor.</p>
+
+<p>Siz bunları açıkca set etmediğiniz sürece false durumundalar. Eğer unwritable propertyler yazmak gayesindeyseniz kullanışlı olabilir. Şimdi gelelim bu işlemi nasıl yaptığımıza. Burada değişkenleri <strong>gözcü</strong> şeklinde adlandıracağım.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">secretGozcu</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'gozcu'</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">get</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"değer dönü"</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">secretGozcu</span><span class="p">;</span>
+	<span class="p">},</span>
+	<span class="na">set</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">secretGozcu</span> <span class="o">=</span> <span class="nx">v</span><span class="p">;</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="nx">secretGozcu</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Gözcü bizi gözlüyor... Durumu: "</span><span class="p">,</span> <span class="nx">secretGozcu</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">});</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Gözcü bizi gözlemiyor gibi.. Durumu: "</span><span class="p">,</span> <span class="nx">gozcu</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">gozcu</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+observer.js:17 Gözcü bizi gözlemiyor gibi.. Durumu:  false
+observer.js:11 Gözcü bizi gözlüyor... Durumu:  true
+*/</span>
+</code></pre>
+</div>
+
+<p>Yukarıdaki kodda <strong>secretGozcu</strong> adında bir değişken, gözcülerin bizi izlemediğini şu anda rahat olduğumuzu anlatıyor. Henüz Walter uzay zamanı bükmemiş, gerçekliği, geleceği değiştirmemiş durumda.</p>
+
+<p>set metodu, belirtili nesneye atanan değerleri karşılar get metodu ise bu değerleri döndürür. Basit bir örnek olması amacıyla for döngüsü hazırladım. Bu döngü herhangi bir şey olabilir. Az önce tanımladığımız <strong>gozcu</strong> adındaki property ise <strong>secretGozcu</strong> isimli nesneyi temsil ediyor. Yani sana gelen bana gelsin diyor.</p>
+
+<p>Bu bir değişkenin değerinin değişip değişmediğini kontrol edebileceğimiz ilk yöntemdi. Bilmiyorum belki genel bir fonksiyon yazarak bunu global hale getirebilirsiniz.</p>
+
+<p><strong>Proxy</strong></p>
+
+<p><a href="https://developer.mozilla.org/tr/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> kullanarak da aynı işlemi yapabileceğinizi biliyor muydunuz? Örneğin elimizde şöyle bir nesnemiz bulunsun.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gozculer</span> <span class="o">=</span> <span class="p">{};</span>
+</code></pre>
+</div>
+
+<p>Bu nesneyi, proxy’de kullanarak değişimini görüntüleyebiliriz. Sanırım bunu bir hayli öneriyorlar. Basit bir örnekle bakalım. Örnek için <strong>September</strong> adında bir gözcümüz olsun. Fotoğraftaki abinin kendisi bu arada. Aşağıdaki örneğe bakalım.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gozculer</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">get</span> <span class="nx">September</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="p">;</span>
+	<span class="p">},</span>
+	<span class="nx">set</span> <span class="nx">September</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"September sanıyorum ki başarılı oldu. Durumu: "</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="nx">v</span><span class="p">;</span>
+	<span class="p">},</span>
+	<span class="nx">get</span> <span class="nx">October</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="p">;</span>
+	<span class="p">},</span>
+	<span class="nx">set</span> <span class="nx">October</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"October başaramadı... Durumu: "</span><span class="p">,</span> <span class="nx">v</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="nx">v</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">gozculer</span><span class="p">,</span> <span class="nb">Object</span><span class="p">);</span>
+
+<span class="nx">p</span><span class="p">.</span><span class="nx">September</span> <span class="o">=</span> <span class="s2">"September başarılı"</span><span class="p">;</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">October</span> <span class="o">=</span> <span class="s2">"October başaramadı.."</span><span class="p">;</span>
+
+<span class="cm">/*
+September sanıyorum ki başarılı oldu. Durumu:  September başarılı
+observer.js:52 October başaramadı... Durumu:  October başaramadı..
+*/</span>
+</code></pre>
+</div>
+
+<p>Bu yöntemde aslında objeyi değiştirmiş olmuyorsunuz daha çok Proxy değişiyor. Bunu basitçe <code class="highlighter-rouge">console.log(gozculer.September);</code> ile görebilirsiniz.</p>
+
+<p><strong>Objenin Get ve Set İşlemleri</strong></p>
+
+<p>Yukarıda yaptığımız işlemlerin aynısı. Bu daha çok Proxy’de kullandığımız yöntem. Ancak Proxy ile bu yöntem arasında fark var. Eğer Proxy kullanırsanız söylediğim gibi nesne değil Proxy değişiyor. Bu yöntemde ise nesnenin kendisi değişime uğruyor ve siz bunu algılıyorsunuz. Basit bir örnekle:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gozcu</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">get</span> <span class="nx">September</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="p">;</span>
+	<span class="p">},</span>
+	<span class="nx">set</span> <span class="nx">September</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"September buralarda mısın? Cevap:"</span><span class="p">,</span> <span class="nx">v</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="nx">v</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"September değerden önce:"</span><span class="p">,</span> <span class="nx">gozcu</span><span class="p">.</span><span class="nx">September</span><span class="p">);</span>
+<span class="nx">gozcu</span><span class="p">.</span><span class="nx">September</span> <span class="o">=</span> <span class="s2">"Burada"</span>
+
+<span class="cm">/*
+September değerden önce: undefined
+observer.js:31 September buralarda mısın? Cevap: Burada
+*/</span>
+</code></pre>
+</div>
+
+<h2 id="sonuç">Sonuç</h2>
+
+<p>Bu yazıda;</p>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">Object.defineProperty</code></strong> ile değişkenlerin değerinin değişimini nasıl yakalarız onu gördük</li>
+  <li><strong><code class="highlighter-rouge">Proxy</code></strong> ile bir nesnede yaşanan değişimi gördük. Bunu yaparken nesnenin aslının değil Proxy’nin değiştiğini gördük</li>
+  <li>Nesnelerin get ve set metodlarını kullanarak, değerlerinin değişip değişmediğini gördük.</li>
+  <li>Fazla Fringe izlemenin zararlarını gördük.</li>
+</ul>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/falcon-framework">
+            Falcon Framework
+            <small>13 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/hug-ile-api-olusturma">
+            Hug ile API Oluşturma
+            <small>12 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/aurelia-framework">
+            Aurelia Framework
+            <small>06 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
