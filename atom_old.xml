@@ -4,7 +4,7 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-08-31T20:43:42+03:00</updated>
+ <updated>2017-08-31T20:45:30+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>JavaScriptte Observer İşlemleri</title>
-   <link href="/javascriptte-observer-islemleri"/>
+   <title>JavaScript ve Observer İşlemleri</title>
+   <link href="/javascript-ve-observer-islemleri"/>
    <updated>2017-08-31T00:00:00+03:00</updated>
-   <id>/javascriptte-observer-islemleri</id>
+   <id>/javascript-ve-observer-islemleri</id>
    <content type="html">&lt;p&gt;Fringe izleyenleriniz biliyordur. Observerlar değişimleri gözlüyor, ona göre reyizlerine raporlar sunuyorlardı. Bazı durumlarda kendi aralarında kritik yaparlardı. Bu abiyi de oradan biliyorsunuzdur.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/september.jpg&quot; alt=&quot;/images/posts/september.jpg&quot; /&gt;&lt;/p&gt;
