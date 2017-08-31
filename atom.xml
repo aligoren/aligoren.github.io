@@ -4,13 +4,30 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-08-13T22:14:45+03:00</updated>
+ <updated>2017-08-31T20:39:31+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>JavaScriptte Observation İşlemi</title>
+   <link href="/javascriptte-observation-islemi"/>
+   <updated>2017-08-31T00:00:00+03:00</updated>
+   <id>/javascriptte-observation-islemi</id>
+   <content type="html">
+    &lt;p&gt;Fringe izleyenleriniz biliyordur. Observerlar değişimleri gözlüyor, ona göre reyizlerine raporlar sunuyorlardı. Bazı durumlarda kendi aralarında kritik yaparlardı. Bu abiyi de oradan biliyorsunuzdur.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/september.jpg&quot; alt=&quot;/images/posts/september.jpg&quot; /&gt;&lt;/p&gt;
+
+
+    
+      &lt;a href= /javascriptte-observation-islemi /&gt;Devamını OKu&lt;/a&gt;
+    
+  </content>
+ </entry>
  
  <entry>
    <title>Falcon Framework</title>
