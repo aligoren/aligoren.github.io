@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Golang ve JSON Verilerle Çalışmak - Part 1" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Golang ve JSON'larla Çalışmak Serisinin İlk Yazısı" property="og:description">
+  <meta content="/golang-ve-json-verilerle-calismak" property="og:url">
+  <meta content="2017-09-03T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/gojson.png" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="golang" property="article:tag">
+  <meta content="json" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Golang ve JSON Verilerle Çalışmak - Part 1">
+  <meta name="twitter:url" content="/golang-ve-json-verilerle-calismak">
+  <meta name="twitter:description" content="Golang ve JSON'larla Çalışmak Serisinin İlk Yazısı">
+  <meta name="twitter:image:src" content="/images/posts/gojson.png">
+  
+  <meta name="description" content="Golang ve JSON'larla Çalışmak Serisinin İlk Yazısı">
+  
+  <title>
+    
+      Golang ve JSON Verilerle Çalışmak - Part 1 &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Golang ve JSON Verilerle Çalışmak - Part 1</h1>
+  <span class="post-date">03 Sep 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="golang etiketine sahip yazılar" title="golang etiketine sahip yazılar">golang</span>
+        
+          <span class="tags" alt="json etiketine sahip yazılar" title="json etiketine sahip yazılar">json</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p><img src="/images/posts/gojson.png" alt="/images/posts/gojson.png" /></p>
+
+<h2 id="giriş">Giriş</h2>
+
+<p>Bu yazıda Golang ve JSON’lar ile nasıl çalışılır onu göstereceğim. Golang diğer dillere göre biraz daha farklı, kısmen dogmatik bir dil. Kullanımda şart koştuğu bazı standartları nedeniyle kısmen dogmatik dememde bir sakınca yok sanıyorum.
+<!--more--></p>
+
+<p>Çoğu yazılım geliştirici JSON verilerle çalışmıştır. Günümüzde SPA’lerin artışı ve RESTful API’ların da aynı şekilde yükselişiyle birlikte JSON veri kullanımı kaçınılmaz hale gelmiştir.</p>
+
+<p>Twitter, Facebook, Reddit, YouTube, GitHub, Spotify ve daha birçok büyük kuruluş, geliştiricilere verilerini sunarken birçok seçeneği de beraberinde getirmekte. Bu seçeneklerden en popüleri kuşkusuz ki JSON. Go programlama dilinin JSON için desteği de kuşkusuz ki bulunmaktadır.</p>
+
+<p>Her ne kadar en hızlı JSON parser D dilinde <a href="https://www.reddit.com/r/programming/comments/3pojrz/the_fastest_json_parser_in_the_world/">yazılmış</a> olsa da bu çok fazla da bir şeyi etkilemeyecektir.</p>
+
+<h2 id="gelişme">Gelişme</h2>
+
+<p>Go programlama dilinde JSON oluşturmak için <code class="highlighter-rouge">encoding/json</code> paketine ihtiyaç duyarız. Bu JSON veri oluşturmanın en kolay yolu oluyor Golang için. Golang’de JSON oluştururken göz önünde bulundurmamız gereken bazı noktalar var. Bunlardan en önemlisi veri türünün doğru bir şekilde seçilmesi.</p>
+
+<h3 id="strucları-kullanmak">Strucları Kullanmak</h3>
+
+<p>Go dilinde structlar bir hayli kullanışlıdır. Eğer map ya da daha karmaşık yapılarla karşılaştıracak olsaydık maliyetinin daha iyi olduğunu söyleyebilirdik.</p>
+
+<p>Herhangi bir struct’ın örneğini <code class="highlighter-rouge">json.Marshal</code> isimli metoda aktarabilir ve JSON’u baytın dilimleri halinde geri alabilirsiniz.</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">type</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">Adi</span><span class="x"> </span><span class="kt">string</span><span class="x">
+	</span><span class="n">Soyadi</span><span class="x"> </span><span class="kt">string</span><span class="x">
+	</span><span class="n">Yasi</span><span class="x"> </span><span class="kt">int</span><span class="x">
+	</span><span class="n">Telefon</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Elimizde yukarıdaki bir yapımızın olduğunu varsayalım. Bu yapı müşterinin bilgilerini tutmakta. Sadece telefon alanı birden fazla olabilir durumda.</p>
+
+<p>Bu yapıya veri ekleyelim ve yazdıralım.</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">musteri</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">Adi</span><span class="o">:</span><span class="x"> </span><span class="s">"Ali"</span><span class="p">,</span><span class="x">
+		</span><span class="n">Soyadi</span><span class="o">:</span><span class="x"> </span><span class="s">"GOREN"</span><span class="p">,</span><span class="x">
+		</span><span class="n">Yasi</span><span class="o">:</span><span class="x"> </span><span class="m">24</span><span class="p">,</span><span class="x">
+		</span><span class="n">Telefon</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"000 111"</span><span class="p">,</span><span class="x"> </span><span class="s">"123456"</span><span class="p">},</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+
+	</span><span class="n">json_bytelar</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">musteri</span><span class="p">)</span><span class="x">
+
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="x"> </span><span class="n">json_bytelar</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">/*
+{"Adi":"Ali","Soyadi":"GOREN","Yasi":24,"Telefon":["000 111","123456"]}
+*/</span><span class="x">
+</span></code></pre>
+</div>
+<p>Yazdırdığımızda ayrıca yukarıdaki çıktıyı alırız.</p>
+
+<p>Bu kısım için uyarılar şunlar;</p>
+
+<ul>
+  <li>Alan isimleri büyük harfle başlamalı.</li>
+  <li>Farklı yapıları iç içe olacak şekilde kullanabilirsiniz. Örneğin e postalar</li>
+  <li><code class="highlighter-rouge">json.Marshal</code> metodu hem JSON veriyi hem de hatayı döndürür. Yani hatayı mutlaka gelecekmiş gibi handle etmelisiniz. Normalde Marshal metodu hata döndürmemekte. Ancak hata dönen durumlardan birisi, bazı türlerin JSON’a dönüştürülememesi ki bu durumda hata dönebilir.</li>
+  <li>Geri dönen JSON byte listesi biçiminde döneceği için eğer string olarak kullanmak istiyorsanız dönüştürmeniz gerekecektir.</li>
+  <li>Structlara veri girildikten sonra en son elemandan hemen sonra virgül koymayı unutmayın. Aksi durumda hata alırsınız.</li>
+</ul>
+
+<h3 id="İsim-alanlarını-kullanın">İsim Alanlarını Kullanın</h3>
+
+<p>Bu önemli bir konu. Yukarıdaki örneğimizde çıktıda tüm keyler büyük harfle başlıyordu. Böyle bir şey olmasını istemiyorsanız aliaslar kullanabiliriniz. Bu bir bakıma SQL’de yer alan <code class="highlighter-rouge">SELECT Adi as adi FROM Musteriler</code> kullanımına eş değerdir.</p>
+
+<p><em><a href="https://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go">https://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go</a></em></p>
+
+<p>O halde yukarıdaki örneğimizde yer alan struct’a bazı eklemeler yapalım.</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">type</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">Adi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"adi"`</span><span class="x">
+	</span><span class="n">Soyadi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"soyadi"`</span><span class="x">
+	</span><span class="n">Yasi</span><span class="x"> </span><span class="kt">int</span><span class="x"> </span><span class="s">`json:"yasi"`</span><span class="x">
+	</span><span class="n">Telefon</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"telefonlar"`</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Bu işlem sadece api endpoint durumlarında son kullanıcıya baş harfleri ufaltılmış keyler sunacaktır. Keyleri de küçük yazmayın.</p>
+
+<h3 id="boş-alanları-yok-etmek">Boş Alanları Yok Etmek</h3>
+
+<p>Normalde bu alanların tamamının veri alacağını düşünürüz. Ancak her zaman hepsinin içeriğinin dolu olup olmayacağına dair bir garanti veremeyebiliriz.</p>
+
+<p>Bu gibi durumlar için <code class="highlighter-rouge">omitempty</code> isimli bir flag imdadımıza yetişiyor. Örneğin şöyle bir örnek yaparsak:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">musteri</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="p">{}</span><span class="x">
+
+	</span><span class="n">json_bytelar</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">musteri</span><span class="p">)</span><span class="x">
+
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s "</span><span class="p">,</span><span class="x"> </span><span class="n">json_bytelar</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span><span class="c">/*
+{"adi":"","soyadi":"","yasi":0,"telefonlar":null}
+*/</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Çıktısı örnekteki gibi görünür. Aynı işlemi structımıza <code class="highlighter-rouge">omitempty</code> flagini ekleyerek yapalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">type</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">Adi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"adi,omitempty"`</span><span class="x">
+	</span><span class="n">Soyadi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"soyadi,omitempty"`</span><span class="x">
+	</span><span class="n">Yasi</span><span class="x"> </span><span class="kt">int</span><span class="x"> </span><span class="s">`json:"yasi,omitempty"`</span><span class="x">
+	</span><span class="n">Telefon</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"telefonlar,omitempty"`</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">musteri</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">Adi</span><span class="o">:</span><span class="x"> </span><span class="s">"Ali"</span><span class="p">,</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+
+	</span><span class="n">json_bytelar</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">musteri</span><span class="p">)</span><span class="x">
+
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s "</span><span class="p">,</span><span class="x"> </span><span class="n">json_bytelar</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span><span class="c">/*
+{"adi":"Ali"}
+*/</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Sadece veri tanımlanmış olan struct elemanının çıktısını verildiğini görmekteyiz. Bu bazı durumlarda dinamik generate edilen json keylerinin çalışmasına örnek olabilir.</p>
+
+<h3 id="alanları-atlamak">Alanları Atlamak</h3>
+
+<p>Yukarıdaki durumun bir başka versiyonu ise alanlar dolu olsa dahi hepsinin yansıtılmaması üzerine kurulu senaryodan ibaret.</p>
+
+<p>Bu durumda <code class="highlighter-rouge">-</code> flagini kullanarak dolu dahi olsa bu alanı gösterme sadece sakla diyebiliriz. Yine bu flagi structimizda gösterelim ve yaş alanını değiştirelim:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">type</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">Adi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"adi,omitempty"`</span><span class="x">
+	</span><span class="n">Soyadi</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"soyadi,omitempty"`</span><span class="x">
+	</span><span class="n">Yasi</span><span class="x"> </span><span class="kt">int</span><span class="x"> </span><span class="s">`json:"-"`</span><span class="x">
+	</span><span class="n">Telefon</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"telefonlar,omitempty"`</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">musteri</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Musteriler</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">Adi</span><span class="o">:</span><span class="x"> </span><span class="s">"Ali"</span><span class="p">,</span><span class="x">
+		</span><span class="n">Yasi</span><span class="o">:</span><span class="x"> </span><span class="m">24</span><span class="p">,</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+
+	</span><span class="n">json_bytelar</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">musteri</span><span class="p">)</span><span class="x">
+
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s "</span><span class="p">,</span><span class="x"> </span><span class="n">json_bytelar</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span><span class="c">/*
+{"adi":"Ali"}
+*/</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Görüldüğü üzere yaş alanı geri döndürülen JSON verisinde yer almamakta.</p>
+
+<h2 id="sonuç">Sonuç</h2>
+
+<p>Bu yazıda JSON verilerle nasıl çalışılacağını gördük. Bu yazı şu anda sadece structlar üzerinden JSON datasının <code class="highlighter-rouge">json.Marshal</code> metodunu kullanarak nasıl üretileceği göstermekte.</p>
+
+<p>Ayrıca bir parça da Golang’in dogmatik yapısını anlamamıza da yardımcı oldu.</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/javascript-ve-observer-islemleri">
+            JavaScript ve Observer İşlemleri
+            <small>31 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/falcon-framework">
+            Falcon Framework
+            <small>13 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/hug-ile-api-olusturma">
+            Hug ile API Oluşturma
+            <small>12 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
