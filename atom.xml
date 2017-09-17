@@ -4,13 +4,30 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-09-17T00:14:20+03:00</updated>
+ <updated>2017-09-17T20:06:30+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Golang ve ve Unit Test Yazma</title>
+   <link href="/golang-ve-unittest-yazma"/>
+   <updated>2017-09-17T00:00:00+03:00</updated>
+   <id>/golang-ve-unittest-yazma</id>
+   <content type="html">
+    &lt;p&gt;&lt;img src=&quot;/images/posts/mycodecantfail.jpg&quot; alt=&quot;/images/posts/mycodecantfail.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Merhaba bu yazıda Golang ile unit testing işlemlerinin nasıl yapılacağını size aktarmaya çalışacağım. Çoğu programcı buna ben de dahil fail senaryolarını test etmeyiz. Kimimiz bunun bilincindeyiz kimimiz ise test işlemlerinin çalışan sistemde gerçekleştirilenden ibaret olduğunu düşünmekte.&lt;/p&gt;
+
+
+    
+      &lt;a href= /golang-ve-unittest-yazma /&gt;Devamını OKu&lt;/a&gt;
+    
+  </content>
+ </entry>
  
  <entry>
    <title>Golang ve JSON Verilerle Çalışmak - Part 2</title>

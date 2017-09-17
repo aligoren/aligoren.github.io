@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Golang ve ve Unit Test Yazma" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Golang ile Unit Test Nasıl Yazılır" property="og:description">
+  <meta content="/golang-ve-unittest-yazma" property="og:url">
+  <meta content="2017-09-17T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/unittest.jpg" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="golang" property="article:tag">
+  <meta content="unittest" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Golang ve ve Unit Test Yazma">
+  <meta name="twitter:url" content="/golang-ve-unittest-yazma">
+  <meta name="twitter:description" content="Golang ile Unit Test Nasıl Yazılır">
+  <meta name="twitter:image:src" content="/images/posts/unittest.jpg">
+  
+  <meta name="description" content="Golang ile Unit Test Nasıl Yazılır">
+  
+  <title>
+    
+      Golang ve ve Unit Test Yazma &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Golang ve ve Unit Test Yazma</h1>
+  <span class="post-date">17 Sep 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="golang etiketine sahip yazılar" title="golang etiketine sahip yazılar">golang</span>
+        
+          <span class="tags" alt="unittest etiketine sahip yazılar" title="unittest etiketine sahip yazılar">unittest</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p><img src="/images/posts/mycodecantfail.jpg" alt="/images/posts/mycodecantfail.jpg" /></p>
+
+<p>Merhaba bu yazıda Golang ile unit testing işlemlerinin nasıl yapılacağını size aktarmaya çalışacağım. Çoğu programcı buna ben de dahil fail senaryolarını test etmeyiz. Kimimiz bunun bilincindeyiz kimimiz ise test işlemlerinin çalışan sistemde gerçekleştirilenden ibaret olduğunu düşünmekte.
+<!--more--></p>
+
+<p>Ancak fail senaryoları bazen çalışan sistemde yaşanacak yanlışlıkları henüz o türlü bir test aşamasına gelmeden önce engellememize yardımcı olabilir.</p>
+
+<p>Profesyonel bir yazılımcısınız yani 10 yıllık geçmişiniz var ancak buna rağmen hatalarınız çıkabiliyor. Örneğin müşterilere belirli zaman aralıklarında SMS atan bir fonksiyonumuz var. Bu fonksiyona girilen telefon numarası minimum 7 karakter olmalı. Fakat bir müşterimiz 6 karakter girmiş. Haliyle SMS gönderilmiş olsa bile yanlış bir numaraya gitmiş olacak.</p>
+
+<p>Bunun nedeni ise gerekli doğrulamayı gerçekleştirilen metodu belki de tam anlamıyla beklendiği gibi yazmayışımız.</p>
+
+<h2 id="ne-yapmalıyım">Ne Yapmalıyım</h2>
+
+<p><img src="/images/posts/unittest.jpg" alt="/images/posts/unittest.jpg" /></p>
+
+<p>Kedi arkadaşın dediği gibi unit testler ile mantıksal hataların önüne geçebileceğimiz bazı testler yazabiliriz.</p>
+
+<h3 id="go-dilinin-varsayılan-olanağı">Go Dilinin Varsayılan Olanağı</h3>
+
+<p>Bu yazının devamı olur mu bilmiyorum ama şu an için bu yazıda <strong>testing</strong> isimli modülü kullanacağız. Dosya isimlendirmesi ise şöyle olmalı. <strong>MUST</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dosya.go
+dosya_test.go
+</code></pre>
+</div>
+
+<p>Ardından sms işlemlerini gerçekleştireceğimiz şöyle 2 dosya oluşturalım:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sms.go
+sms_test.go
+</code></pre>
+</div>
+
+<p>Buradan anlayacağımız şey test dosyaları mutlaka suffix olarak <strong>_test</strong> almalı. Hemen sms.go dosyası için basit bir doğrulayıcı metod yazalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">CheckPhone</span><span class="p">(</span><span class="n">phone</span><span class="x"> </span><span class="kt">string</span><span class="p">)</span><span class="x"> </span><span class="kt">bool</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">if</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span><span class="x"> </span><span class="o">&gt;=</span><span class="x"> </span><span class="m">7</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">return</span><span class="x"> </span><span class="no">true</span><span class="x">
+	</span><span class="p">}</span><span class="x"> </span><span class="k">else</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">return</span><span class="x"> </span><span class="no">false</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Yukarıda söylediğimiz senaryoya göre ilerliyoruz. Bu kodumuzun sms.go içerisinde olduğunu unutmayan hemen sms_test.go dosyası için de testimizi yazalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">sms</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"testing"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">TestCheckPhone</span><span class="p">(</span><span class="n">t</span><span class="x"> </span><span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">kontrol</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">CheckPhone</span><span class="p">(</span><span class="s">"1234567"</span><span class="p">)</span><span class="x">
+
+	</span><span class="k">if</span><span class="x"> </span><span class="n">kontrol</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">t</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Test başarılı"</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x"> </span><span class="k">else</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">t</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Telefon karakter sayısı geçemedi"</span><span class="p">,</span><span class="x"> </span><span class="n">kontrol</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Burada vereceğiniz mesajlar testing modülünden <a href="https://golang.org/pkg/testing/#T">geliyor</a> ya da paket diyelim biz buna. Yukarıdaki kodda dikkat etmemiz gereken ilk şey öncelikle <code class="highlighter-rouge">import "testing"</code> ifadesidir. Kısacası testing modülünü çağırdık.</p>
+
+<p>Ancak buna rağmen eğer doğru isimlendirmeyiz yapmazsanız testleriniz go dili yorumlayıcısı tarafından bulunamayacaktır. Go programlama dilinde yazılan tüm testler <strong>Test</strong> prefix’i ile başlamalıdır. Yukarıda yazılı testi çalıştıralım. Test dosyalarını <code class="highlighter-rouge">go run</code> parametreleri ile çalıştıramazsınız. Bunun yerine bulunduğunuz dizinde <code class="highlighter-rouge">go test</code> ya da <code class="highlighter-rouge">go test -v</code> parametrelerini verebilirsiniz. Her iki parametrenin de verdiği çıktıya göz atalım:</p>
+
+<p><strong>go test</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>--- FAIL: TestCheckPhone <span class="o">(</span>0.00s<span class="o">)</span>
+	sms_test.go:11: Telefon karakter sayısı geçemedi%!<span class="o">(</span>EXTRA <span class="nv">bool</span><span class="o">=</span><span class="nb">false</span><span class="o">)</span>
+FAIL
+<span class="nb">exit </span>status 1
+FAIL	_/home/ali/Projects/go/go_unit_test	0.001s
+</code></pre>
+</div>
+
+<p><strong>go test -v</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">===</span> RUN   TestCheckPhone
+--- FAIL: TestCheckPhone <span class="o">(</span>0.00s<span class="o">)</span>
+	sms_test.go:11: Telefon karakter sayısı geçemedi%!<span class="o">(</span>EXTRA <span class="nv">bool</span><span class="o">=</span><span class="nb">false</span><span class="o">)</span>
+FAIL
+<span class="nb">exit </span>status 1
+FAIL	_/home/ali/Projects/go/go_unit_test	0.001s
+</code></pre>
+</div>
+
+<p>Farklı olan tek şey hangi test metodunun çalıştırıldığını da görebiliyor oluşumuz. Peki birden fazla test yazar mıyız? Elbette yazarız. Çoğu go projesi birden fazla dosyayı içerisinde barındırmaktadır. Örneğin email doğrulayan bir paketimiz daha olsun. Bu durumda yapımız şöyle değişiyor:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sms
+    --- sms.go
+    --- sms_test.go
+email
+    --- email.go
+    --- email_test.go
+</code></pre>
+</div>
+
+<p>Örneğin şöyle bir email doğrulama fonksiyonuna sahip olalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">email</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"regexp"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">CheckEmail</span><span class="p">(</span><span class="n">mail</span><span class="x"> </span><span class="kt">string</span><span class="p">)</span><span class="x"> </span><span class="kt">bool</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">match</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">regexp</span><span class="o">.</span><span class="n">MatchString</span><span class="p">(</span><span class="s">"[^@]+@[^@]+</span><span class="se">\\</span><span class="s">.[^@]+"</span><span class="p">,</span><span class="x"> </span><span class="n">mail</span><span class="p">)</span><span class="x">
+
+	</span><span class="k">return</span><span class="x"> </span><span class="n">match</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Bu fonksiyon girilen email adresinin doğruluğunu kontrol eder ve true ya da false sonuç döndürür. Mükemmel bir doğrulayıcı da değil bu arada bunu referans almayın. Şimdi bunun testini yazalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">email</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"testing"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">TestEmail</span><span class="p">(</span><span class="n">t</span><span class="x"> </span><span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">check</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">CheckEmail</span><span class="p">(</span><span class="s">"ahmetin_maili~et~yokmail.com"</span><span class="p">)</span><span class="x">
+
+	</span><span class="k">if</span><span class="x"> </span><span class="n">check</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">t</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Test başarılı"</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x"> </span><span class="k">else</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">t</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Girilen mail adresi testi geçemedi"</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Test için verdiğimiz komut satırı parametreleri biraz evrimleşecek ve şöyle olacak:</p>
+
+<p><code class="highlighter-rouge">go test ./... -v</code></p>
+
+<p>Bu tüm dizinleri dolaşıp orada yer alan test dosyalarını test edecektir. Bu parametreden sonra çıkan sonucumuz şöyle oluyor:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">===</span> RUN   TestEmail
+--- FAIL: TestEmail <span class="o">(</span>0.00s<span class="o">)</span>
+	email_test.go:11: Girilen mail adresi testi geçemedi
+FAIL
+FAIL	_/home/ali/Projects/go/go_unit_test/email	0.001s
+<span class="o">===</span> RUN   TestCheckPhone
+--- PASS: TestCheckPhone <span class="o">(</span>0.00s<span class="o">)</span>
+	sms_test.go:9: Test başarılı
+PASS
+ok  	_/home/ali/Projects/go/go_unit_test/sms	0.001s
+</code></pre>
+</div>
+
+<p>Evet bu yazıda kısaca go programlama dili ile bir unit test nasıl gerçekleştirilir onu görmüş olduk. Umarım faydalı olur.</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-json-verilerle-calismak-2">
+            Golang ve JSON Verilerle Çalışmak - Part 2
+            <small>16 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-json-verilerle-calismak">
+            Golang ve JSON Verilerle Çalışmak - Part 1
+            <small>03 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript-ve-observer-islemleri">
+            JavaScript ve Observer İşlemleri
+            <small>31 Aug 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
