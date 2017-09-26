@@ -176,6 +176,26 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/c-dangling-pointer-sorunu">
+        C Dangling Pointer Sorunu
+      </a>
+    </h1>
+
+    <span class="post-date">21 Jul 2014</span>
+    <p>Bir pointer düşünelim bu pointer’ı bir değişkene atayalım. Sonra ikinci bir pointer olduğunu varsayalım bu ikinci pointer’ı da ilk pointer’a atayalım. Bu durumda iki pointer da aynı adrese bakmış oluyor. Bu durum <a href="https://en.wikipedia.org/wiki/Segmentationfault">segmentation fault</a> hatasina sebep olmaktadir ve <a href="https://en.wikipedia.org/wiki/Bufferoverflow">Buffer Overflow</a> yapılmasına davet çıkardığı için güvenlik açığı oluşturabilir.</p>
+
+<p>İlk pointer fflush ve stding parametresiyle temizleniyor yani deallocate ediliyor varsayalım. Bu durumda bu bölgenin değeri nil olmakta. Ve bu durumda ikinci pointer dangling pointer yani sarkıtılmış gösterge(o kadar çevirisini aradım en mantıklısı bu oldu) olmakta.</p>
+
+
+    
+    <a href="/c-dangling-pointer-sorunu">
+        Devamını Oku
+      </a>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/isimtescilnetin-domain-rezaleti">
         İsimTescil.Net'in Domain Rezaleti
       </a>
@@ -243,24 +263,6 @@
 
     
     <a href="/oyun-gelistirme-e-kitaplari-indir">
-        Devamını Oku
-      </a>
-    
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/java-programlama-dili-e-kitap-indir">
-        Java Programlama Dili - E-Kitap İndir
-      </a>
-    </h1>
-
-    <span class="post-date">02 Oct 2013</span>
-    <p>Selam. Arkadaşlar elimdeki Java kitaplarını paylaşıyorum. Daha önce şu başlıkta da belirttiğim üzere elimdeki Java E-Kitap ya da Java E-Book ne derseniz o olsun onları paylaşıyorum. Java PDF var kitaplar. İçerik hakkında görsel yazı sonunda vereceğim.</p>
-
-
-    
-    <a href="/java-programlama-dili-e-kitap-indir">
         Devamını Oku
       </a>
     

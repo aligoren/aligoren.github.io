@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Golang Get Struct Tag Values" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="How to I Get Struct Tag Values in Golang" property="og:description">
+  <meta content="/golang-get-structtag-values" property="og:url">
+  <meta content="2017-09-27T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/gopher.png" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="golang" property="article:tag">
+  <meta content="struct" property="article:tag">
+  <meta content="structtag" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Golang Get Struct Tag Values">
+  <meta name="twitter:url" content="/golang-get-structtag-values">
+  <meta name="twitter:description" content="How to I Get Struct Tag Values in Golang">
+  <meta name="twitter:image:src" content="/images/posts/gopher.png">
+  
+  <meta name="description" content="How to I Get Struct Tag Values in Golang">
+  
+  <title>
+    
+      Golang Get Struct Tag Values &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Golang Get Struct Tag Values</h1>
+  <span class="post-date">27 Sep 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="golang etiketine sahip yazılar" title="golang etiketine sahip yazılar">golang</span>
+        
+          <span class="tags" alt="struct etiketine sahip yazılar" title="struct etiketine sahip yazılar">struct</span>
+        
+          <span class="tags" alt="structtag etiketine sahip yazılar" title="structtag etiketine sahip yazılar">structtag</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p><img src="/images/posts/gopher.png" alt="/images/posts/gopher.png" /></p>
+
+<p>Hi. In this post I’ll show how can get struct tag values in Golang. Firstly, <strong>very simple</strong> don’t be afraid.
+<!--more--></p>
+
+<p>Let’s start. Before starting, this post will show you reflection package’s a little part.</p>
+
+<h2 id="import-reflection-package">Import Reflection Package</h2>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+	</span><span class="s">"fmt"</span><span class="x">
+	</span><span class="s">"reflect"</span><span class="x">
+	</span><span class="s">"strconv"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Let’s suppose we have struct like this to create database columns. Our scenario is about ORM’s table generator:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="c">// This table will generate automatically by our ORM. Just imagine it.</span><span class="x">
+</span><span class="k">type</span><span class="x"> </span><span class="n">Employee</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">ID</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`auto_increment:"true" increment:"1"`</span><span class="x">
+	</span><span class="n">Name</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`varchar: "255"`</span><span class="x">
+    </span><span class="n">Surname</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`"varchar: "255"`</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Our model is ready. But we still can’t create database table. Because there are no code blocks :).</p>
+
+<p>Okay, we understood what will we do now. We need to struct tags and their values. As you know we imported reflected package.</p>
+
+<h2 id="lets-initialize-employee-struct">Let’s initialize Employee struct.</h2>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="n">e</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Employee</span><span class="p">{}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>After that we’ll need reflection package. For example:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="n">e</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Employee</span><span class="p">{}</span><span class="x">
+</span><span class="c">// c variable represents table columns</span><span class="x">
+</span><span class="n">c</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">reflect</span><span class="o">.</span><span class="n">TypeOf</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="o">.</span><span class="n">Tag</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>As I said, c variable represents the database columns we will create. If we try to print c variable we’ll see this output:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span><span class="x"> </span><span class="n">c</span><span class="p">)</span><span class="x">
+
+</span><span class="c">//Output: auto_increment:"true" increment:"1"</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Yes you know what’s the <strong>Field(0)</strong>. Every struct field has index number in reflection package. We’ll call them by their numbers. That’s like arrays. Okay, we know our column has two properties. But we still don’t know how to parse struct tags? Don’t worry.</p>
+
+<h2 id="parse-struct-tags">Parse Struct Tags</h2>
+
+<p>There are two ways to parse struct tags.</p>
+
+<h3 id="the-get-method">The Get() Method</h3>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="n">e</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Employee</span><span class="p">{}</span><span class="x">
+</span><span class="c">// c variable represents table columns</span><span class="x">
+</span><span class="n">c</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">reflect</span><span class="o">.</span><span class="n">TypeOf</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="o">.</span><span class="n">Tag</span><span class="x">
+
+</span><span class="c">//g variable represents get</span><span class="x">
+</span><span class="n">g</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">c</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="s">"increment"</span><span class="p">)</span><span class="x">
+</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Get method: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="x"> </span><span class="n">g</span><span class="p">)</span><span class="x">
+</span></code></pre>
+</div>
+<p>Above code will output this result: <strong>Get method: 1</strong>. That’s what we want. In some cases you will want to know tag is declared. For example tag isn’t declared you won’t get any error message or boolean result. If variable isn’t declared output will be empty. So, you can check like this:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="x"> </span><span class="n">g</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="s">""</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="c">// blah blah</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Okay. We know how to parse with Get method now. What about the other way?</p>
+
+<h3 id="lookup-method">Lookup Method</h3>
+
+<p>Firstly you should need to know Lookup and Get are different methods. As I said the <strong>Get</strong> method does not give any error message or boolean result.</p>
+
+<p>Lookup method is different. Because if variable isn’t declared in the struct you can get boolean result. How?</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="n">e</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">Employee</span><span class="p">{}</span><span class="x">
+</span><span class="c">// c variable represents table columns</span><span class="x">
+</span><span class="n">c</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">reflect</span><span class="o">.</span><span class="n">TypeOf</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="o">.</span><span class="n">Tag</span><span class="x">
+
+</span><span class="c">//g variable represents get</span><span class="x">
+</span><span class="n">g</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">c</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="s">"increment"</span><span class="p">)</span><span class="x">
+</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Get method: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="x"> </span><span class="n">g</span><span class="p">)</span><span class="x">
+
+</span><span class="c">// val variable represents tag value, ok variable represents true / false</span><span class="x">
+</span><span class="n">val</span><span class="p">,</span><span class="x"> </span><span class="n">ok</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">c</span><span class="o">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">"auto_increments"</span><span class="p">)</span><span class="x"> </span><span class="c">// ---&gt; auto_increments isn't declared</span><span class="x">
+</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Lookup method: %s - %s"</span><span class="p">,</span><span class="x"> </span><span class="n">val</span><span class="p">,</span><span class="x"> </span><span class="n">strconv</span><span class="o">.</span><span class="n">FormatBool</span><span class="p">(</span><span class="n">ok</span><span class="p">))</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Above code will show this output: <strong>Lookup method:  - false</strong> That’s what we want. Again I’ll say, in some cases you will want to know tag is declared. This is the best way to control more efficiently. For example:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="x"> </span><span class="o">!</span><span class="n">ok</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="nb">panic</span><span class="p">(</span><span class="s">"Hey dude, the tag isn't there"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span><span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Lookup method: %s - %s"</span><span class="p">,</span><span class="x"> </span><span class="n">val</span><span class="p">,</span><span class="x"> </span><span class="n">strconv</span><span class="o">.</span><span class="n">FormatBool</span><span class="p">(</span><span class="n">ok</span><span class="p">))</span><span class="x">
+</span><span class="c">/*
+auto_increment:"true" increment:"1"
+
+Get method: 
+panic: Hey dude, the variable isn't there
+
+goroutine 1 [running]:
+main.main()
+	/tmp/sandbox622013167/main.go:25 +0x4a0
+*/</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>You’re program won’t work because of the tag isn’t there. You don’t have to use panic. If your data is important you should use panic method to avoid errors.</p>
+
+<p>That’s all I can tell.</p>
+
+<p><a href="https://play.golang.org/p/qawEASATq7">Golang Playground</a></p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-unittest-yazma">
+            Golang ve Unit Test Yazma
+            <small>17 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-json-verilerle-calismak-2">
+            Golang ve JSON Verilerle Çalışmak - Part 2
+            <small>16 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-json-verilerle-calismak">
+            Golang ve JSON Verilerle Çalışmak - Part 1
+            <small>03 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
