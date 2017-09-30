@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Golang Fonksiyonlarını Python'da Kullanmak" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Golang Fonksiyonlarını Python'da Kullanmak" property="og:description">
+  <meta content="/golang-fonksiyonlarini-pythonda-kullanmak" property="og:url">
+  <meta content="2017-09-30T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/go_py.png" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="golang" property="article:tag">
+  <meta content="python" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Golang Fonksiyonlarını Python'da Kullanmak">
+  <meta name="twitter:url" content="/golang-fonksiyonlarini-pythonda-kullanmak">
+  <meta name="twitter:description" content="Golang Fonksiyonlarını Python'da Kullanmak">
+  <meta name="twitter:image:src" content="/images/posts/go_py.png">
+  
+  <meta name="description" content="Golang Fonksiyonlarını Python'da Kullanmak">
+  
+  <title>
+    
+      Golang Fonksiyonlarını Python'da Kullanmak &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Golang Fonksiyonlarını Python'da Kullanmak</h1>
+  <span class="post-date">30 Sep 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="golang etiketine sahip yazılar" title="golang etiketine sahip yazılar">golang</span>
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p><img src="/images/posts/go_py.png" alt="/images/posts/go_py.png" /></p>
+
+<p>Selamlar. Bu yazıda go programlama dilinde oluşturduğumuz fonksiyonların nasıl shared object olarak export edileceğini ve Python ile kullanılacağını anlatacağım. (<em>Görselleri hazırlarken Açık kaynak kodlu, özgür <a href="https://www.gimp.org/">GIMP</a> yazılımını kullanıyorum.</em>)
+<!--more--></p>
+
+<p>Aslında bu yazı meraktan ibaret. Yani ne gibi bir paket geliştiriyorsunuz ki bunun Python’da bulunma zorunluluğu var ve dahası bu Python ile yapılamıyor. Neyse atomu parçalayan bir fonksiyon yazdığımızı varsayarak yola koyulalım. Adım adım gidelim ve öncelikle Go tarafında fonksiyonlarımızı oluşturalım.</p>
+
+<h2 id="golang-fonksiyonların-oluşturulması">Golang Fonksiyonların Oluşturulması</h2>
+
+<p>Yazıda geçecek örnek geometrik şekillerin hacmini hesaplayan bazı fonksiyonları içerecek. (Hepsini Python tarafına aktaracağımız için tek tek yazalım)</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">import</span><span class="x"> </span><span class="s">"math"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">KupunHacmi</span><span class="p">()</span><span class="x"> </span><span class="kt">float64</span><span class="x">
+</span><span class="k">func</span><span class="x"> </span><span class="n">DikdortgenlerPrizmasi</span><span class="p">()</span><span class="x"> </span><span class="kt">float64</span><span class="x">
+</span><span class="k">func</span><span class="x"> </span><span class="n">Kure</span><span class="p">()</span><span class="x"> </span><span class="kt">float64</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Şimdi isterseniz modellemesi gerçekleşen bu metodları dolduralım. Öncelikle küpün hacmini veren metodla başlayalım. Bildiğiniz gibi küpün hacmi V=k^3 ile hesaplanır. Gerçeklemesini yapalım:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">Kup</span><span class="p">(</span><span class="n">k</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">return</span><span class="x"> </span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="x"> </span><span class="m">3</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Ardından dikdörtgenler prizmasının hacmini hesaplatalım. Bildiğinizi varsayarak a.b.c olduğunu belirtiyorum.</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">DikdortgenlerPrizmasi</span><span class="p">(</span><span class="n">a</span><span class="x"> </span><span class="kt">float64</span><span class="p">,</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="kt">float64</span><span class="p">,</span><span class="x"> </span><span class="n">c</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">v</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="x">
+
+	</span><span class="k">return</span><span class="x"> </span><span class="n">v</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Sıra geldi kürenin hacminin hesaplanmasına. Okul günlerine geri dönerek 4/3πr^3 olduğunu hatırlıyoruz. Bütün geometrik şekilleri yazmayacağım bu arada gereksiz. Şimdi bu son metodumuzu da yazalım.</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">func</span><span class="x"> </span><span class="n">Kure</span><span class="p">(</span><span class="n">r</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="m">4.0</span><span class="o">/</span><span class="m">3.0</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">PI</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="m">3.14</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">rKup</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="x"> </span><span class="m">3</span><span class="p">)</span><span class="x">
+
+	</span><span class="k">var</span><span class="x"> </span><span class="n">v</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">PI</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">rKup</span><span class="x">
+
+	</span><span class="k">return</span><span class="x"> </span><span class="n">v</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Artık metodlarımız hazır. Şimdi bu metodları C shared object olarak göstermemiz için <strong>C</strong> paketini import edip, metodların başına yorum satırlarıyla dışarı aktarılabilir olduklarını belirtmemiz gerekmekte. Örnek:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+	</span><span class="s">"math"</span><span class="x">
+	</span><span class="s">"C"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="c">//export Kup</span><span class="x">
+</span><span class="k">func</span><span class="x"> </span><span class="n">Kup</span><span class="p">(</span><span class="n">k</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">return</span><span class="x"> </span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="x"> </span><span class="m">3</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">//export DikdortgenlerPrizmasi</span><span class="x">
+</span><span class="k">func</span><span class="x"> </span><span class="n">DikdortgenlerPrizmasi</span><span class="p">(</span><span class="n">a</span><span class="x"> </span><span class="kt">float64</span><span class="p">,</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="kt">float64</span><span class="p">,</span><span class="x"> </span><span class="n">c</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">v</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="x">
+
+	</span><span class="k">return</span><span class="x"> </span><span class="n">v</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">//export Kure</span><span class="x">
+</span><span class="k">func</span><span class="x"> </span><span class="n">Kure</span><span class="p">(</span><span class="n">r</span><span class="x"> </span><span class="kt">float64</span><span class="p">)</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="m">4.0</span><span class="o">/</span><span class="m">3.0</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">PI</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="m">3.14</span><span class="x">
+	</span><span class="k">var</span><span class="x"> </span><span class="n">rKup</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">math</span><span class="o">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="x"> </span><span class="m">3</span><span class="p">)</span><span class="x">
+
+	</span><span class="k">var</span><span class="x"> </span><span class="n">v</span><span class="x"> </span><span class="kt">float64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">b</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">PI</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">rKup</span><span class="x">
+
+	</span><span class="k">return</span><span class="x"> </span><span class="n">v</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Shared object yaratacak olsak bile main metodunun entry point olarak tanımlanması gerekiyor. Bir metodun export edilip edilemeyeceğine, metodun başında yer alan yorum satırları ile karar veriyoruz. Bu yorum satırında yer alan metod adı ayrıca Python tarafında çağırılacaktır.</p>
+
+<p>İşlemlerimizi tamamladığımıza göre şu komutu konsoldan çalıştıralım:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>go build -o geometri.so -buildmode<span class="o">=</span>c-shared main.go
+</code></pre>
+</div>
+
+<p>Bu komut kodları yazdığımız dosyadan (bende main.go) shared object dosyası oluşturmamıza yardımcı olacak. Bu işlemin ardından <strong>geometri.h</strong> ve <strong>geometri.so</strong> adında iki dosyanın oluşacak. İlgileniyorsanız C header file’a göz atabilirsiniz.</p>
+
+<h2 id="pythona-shared-object-dosyasını-Çağıralım">Python’a Shared Object Dosyasını Çağıralım</h2>
+
+<p>İşin golang tarafı bittiğine göre Python’a bu fonksiyonların nasıl aktarılacağı kalıyor. Öncelikle bilmiyorsanız söyleyeyim <strong>ctypes</strong> modülünü kullanacağız.</p>
+
+<p><a href="https://docs.python.org/3.6/library/ctypes.html">https://docs.python.org/3.6/library/ctypes.html</a> adresinden modül hakkında bilgi alabilirsiniz.</p>
+
+<p>Henüz Python kodlarını yazmaya başlamadan önce dilerseniz <strong>nm</strong> komutu yardımıyla object dosyasında oluşturduğumuz fonksiyonlar var mı kontrol edebiliriz. Bu arada bir fonksiyon bir metod diyorum özür dilerim bunun için. Ne diyorduk <strong>nm</strong> komutu şöyle bir komut ve çıktısı bizi beklemekte:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>nm geometri.so | grep -e <span class="s2">"T Kup"</span> -e <span class="s2">"T DikdortgenlerPrizmasi"</span> -e <span class="s2">"T Kure"</span>
+
+0000000000087260 T DikdortgenlerPrizmasi
+00000000000871e0 T Kup
+0000000000087300 T Kure
+</code></pre>
+</div>
+
+<p>Demek ki bu object file, oluşturduğumuz fonksiyonları içeriyor. O halde artık kodlamaya geçelim:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">lib</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s">"/home/ali/Projects/go/gopy/geometri.so"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Görüldüğü gibi ctypes import edildi. Ardından LoadLibrary ile shared object dosyamızı referans olarak belirtiyoruz. Oluşturduğumuz lib dosyası artık geometri kütüphanesinin tüm olanaklarını yüklenmiş durumda.</p>
+
+<p><strong>argtypes:</strong> Go tarafında oluşturulan fonksiyonun, alacağı parametreler, tür karşılıklarıyla birlikte dizi türünden burada tanımlanır.</p>
+
+<p><strong>restype:</strong> Oluşturulan fonksiyon eğer tür dönüyorsa ctypes modülünde yer alan tür karşılığı belirtilir.</p>
+
+<p>Her metod <strong>argstype</strong> ve <strong>restype</strong> özelliklerine sahip oluyor diyebiliriz.</p>
+
+<p><strong>Küp Metodu</strong></p>
+
+<p>Metod adı go dilinde oluşturduğumuz haliyle burada yer alacak ancak bazı önemli noktalar var. Örneğin bu metodun alacağı argüman türlerini belirtmemiz gerekiyor. Örneğin bu metod 5 parametre alsaydık tek tek burada da belirtmeliydik.</p>
+
+<p>Python’da, Go dilinde bulunan float64 türü yok. Bu nedenden dolayı ctypes modülünde yer alan c_double tür dönüşümünü kullanıyoruz. Ayrıca go tarafında oluşturulan fonksiyonun dönüş türünü de belirtebiliyoruz.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">lib</span><span class="o">.</span><span class="n">Kup</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_double</span><span class="p">]</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">Kup</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_double</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">Kup</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p><strong>Dikdörtgenler Prizması</strong></p>
+
+<p>Yukarıda yer alan argstype ve restype olayının en iyi kavranacağı nokta burası aslında.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">lib</span><span class="o">.</span><span class="n">DikdortgenlerPrizmasi</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_double</span><span class="p">,</span> <span class="n">c_double</span><span class="p">,</span> <span class="n">c_double</span><span class="p">]</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">DikdortgenlerPrizmasi</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_double</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">DikdortgenlerPrizmasi</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p><strong>Küre</strong></p>
+
+<p>Artık bu kısmı anlatmaya gerek duymuyorum. Sonuç olarak nasıl kullanılacağını görmüş olduk.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">lib</span><span class="o">.</span><span class="n">Kure</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_double</span><span class="p">]</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">Kure</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_double</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">Kure</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p>Bu yazı bu kadar. Bu yazıda Go programlama dili ile oluşturulan shared object yani <strong>*.so</strong> dosyalarının Python’da nasıl kullanılacağını gördük.</p>
+
+<p>Okuduğunuz için teşekkür ederim. İyi çalışmalar dilerim.</p>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/golang-get-structtag-values">
+            Golang Get Struct Tag Values
+            <small>27 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-unittest-yazma">
+            Golang ve Unit Test Yazma
+            <small>17 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-json-verilerle-calismak-2">
+            Golang ve JSON Verilerle Çalışmak - Part 2
+            <small>16 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
