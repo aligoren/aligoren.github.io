@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="Ali GÖREN" property="og:site_name">
+  <meta content="Python Modüllerini PyPi Üzerinde Paylaşmak" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="Python Modüllerini PyPi Üzerinde Paylaşmak" property="og:description">
+  <meta content="/python-ile-pypi-paketleri-olusturmak" property="og:url">
+  <meta content="2017-10-19T00:00:00+03:00" property="article:published_time">
+  <meta content="/about/" property="article:author">
+  <meta content="/images/posts/python.png" property="og:image">
+  <meta content="programming" property="article:tag">
+  <meta content="python" property="article:tag">
+  <meta content="pypi" property="article:tag">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yazilimci_adam">
+  <meta name="twitter:creator" content="@yazilimci_adam">
+  <meta name="twitter:title" content="Python Modüllerini PyPi Üzerinde Paylaşmak">
+  <meta name="twitter:url" content="/python-ile-pypi-paketleri-olusturmak">
+  <meta name="twitter:description" content="Python Modüllerini PyPi Üzerinde Paylaşmak">
+  <meta name="twitter:image:src" content="/images/posts/python.png">
+  
+  <meta name="description" content="Python Modüllerini PyPi Üzerinde Paylaşmak">
+  
+  <title>
+    
+      Python Modüllerini PyPi Üzerinde Paylaşmak &middot; Ali GÖREN
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+    <img src="/images/ali.jpg" alt="my-photo">
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Anasayfa</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact">İletişim</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <h3 id="i-follow">Takip Edin!</h3>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://mertcangokgoz.com/" target="_blank" rel="nofollow">Mertcan GÖKGÖZ</a>
+    <a class="sidebar-nav-item" href="https://adiloztaser.github.io/" target="_blank" rel="nofollow">Adil ÖZTAŞER</a>
+    <a class="sidebar-nav-item" href="http://www.buraksenyurt.com/" target="_blank" rel="nofollow">Burak Selim ŞENYURT</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p id="made-width">
+      &copy; 2017. Made with <span class="hearts">&hearts;</span> Jekyll
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Anasayfa">Ali GÖREN</a>
+            <small>Açık Kaynak, JavaScript, Python, .NET</small>
+            <span class="rss-text"><a href="/atom.xml">RSS</a></span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post post-detail">
+  <h1 class="post-title">Python Modüllerini PyPi Üzerinde Paylaşmak</h1>
+  <span class="post-date">19 Oct 2017</span>
+  
+    <div class="tag-container">
+        Etiketler:
+        
+          <span class="tags" alt="programming etiketine sahip yazılar" title="programming etiketine sahip yazılar">programming</span>
+        
+          <span class="tags" alt="python etiketine sahip yazılar" title="python etiketine sahip yazılar">python</span>
+        
+          <span class="tags" alt="pypi etiketine sahip yazılar" title="pypi etiketine sahip yazılar">pypi</span>
+        
+    </div>
+  
+
+    
+  
+  
+  
+  
+
+  
+  <p><img src="/images/posts/python.png" alt="/images/posts/python.png" /></p>
+
+<p>Merhaba bu yazıda Python ile yazdığımız paketlerin PyPi üzerinde nasıl paylaşılacağını anlatacağım. Aslında rivayet odur ki ben bu yazıyı yazmışım. Yaklaşık 4 yıl önce. Ama tekrar yazmanın zararı yok.
+<!--more--></p>
+
+<p>Kevser Sırça şöyle bir tweet atmıştı</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="tr" dir="ltr">Biri PyPi paketi oluşturmayı bloglasa ne kadar da güzel olur</p>&mdash; Kevser Sırça (@kevsersrca) <a href="https://twitter.com/kevsersrca/status/920716435852230656?ref_src=twsrc%5Etfw">October 18, 2017</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="pypi-nedir">PyPi Nedir?</h2>
+
+<p>İşin fransızlarına gem, npm, nuget, composer dersem anlaşılır olabilir sanırım. Kendi projeleri için python modülleri yazan abiler, bu modülleri başkaları da kullanmalı diyerek <a href="https://pypi.python.org/pypi">PyPi</a> üzerine yüklemeler gerçekleştirirler. Bizler de sonraları bu modülleri kullanırız.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip install <span class="nv">django</span><span class="o">==</span>1.11
+</code></pre>
+</div>
+
+<p>Bash komutu django kurulumunu gerçekleştirecektir. Siz de benim atomu parçalayan modülümün herkesçe kullanılmasını isteyenlerdenim diyorsanız bu yazı tam size göre.</p>
+
+<h2 id="başlamadan-Önce">Başlamadan Önce</h2>
+
+<p><a href="https://pypi.python.org/pypi?%3Aaction=register_form">https://pypi.python.org/pypi</a> adresinden (<em>yeni sekmede açın</em>) bir hesap oluşturalım. Burada kullanacağınız parola büyüklü küçüklü harf ve rakam içeren türden olmalı. PGP alanı için bir zorunluluk bulunmamakta.</p>
+
+<p>Aynı kayıt işlemini Test sitesi için de gerçekleştirelim. Bu Python modülleri için test adresidir. <a href="https://testpypi.python.org/pypi?%3Aaction=register_form">https://testpypi.python.org/pypi</a>. Aslında bu çok önemli değil ama buraya kayıt olun siz.</p>
+
+<p>Kayıt olurken aynı kullanıcı adı ve parola ile kayıt olmanız <strong>neydi lan benim hesap bilgileri</strong> gibi sorular sormanıza da engel olacaktır.</p>
+
+<p>Bu test üyeliğini biraz sonra göreceğimiz ayar dosyasında belirtebiliriz.</p>
+
+<h2 id="pypirc">.pypirc</h2>
+
+<p>Python modüllerini yukarıya atarken yetkilendirme işlemlerini sağlayacağımız pypirc dosyasını nano yardımıyla oluşturalım.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>nano ~/.pypirc
+</code></pre>
+</div>
+
+<p>Örnek bir .pypirc dosyası şöyle olmalı</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="nn">[distutils]</span>
+<span class="py">index-servers</span> <span class="p">=</span>
+  <span class="err">pypi</span>
+  <span class="err">testpypi</span>
+
+<span class="nn">[pypi]</span>
+<span class="py">repository</span><span class="p">=</span><span class="s">repository=https://upload.pypi.org/legacy/</span>
+<span class="py">username</span><span class="p">=</span><span class="s">KULLANICI_ADINIZ</span>
+<span class="py">password</span><span class="p">=</span><span class="s">ÇOKTA_GİZLİ_OLMAYAN_PAROLANIZ</span>
+
+<span class="nn">[testpypi]</span>
+<span class="py">repository</span><span class="p">=</span><span class="s">https://test.pypi.org/legacy/</span>
+<span class="py">username</span><span class="p">=</span><span class="s">KULLANICI_ADINIZ</span>
+<span class="py">password</span><span class="p">=</span><span class="s">ÇOKTA_GİZLİ_OLMAYAN_PAROLANIZ</span>
+</code></pre>
+</div>
+
+<p>CTRL + x ve Y yaparak dosyayı kaydedin. Dikkat ettiyseniz eğer test ve gerçek depo adresi için kullanıcı adı ve parola bilgileri ayrı ayrı veriliyor.</p>
+
+<h2 id="proje-yapısı">Proje Yapısı</h2>
+
+<p>Proje adını <strong>say_hello</strong> olarak verdiğimizi varsayalım. Bu projenin yapısı şöyle olmalıdır:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>say_hello/
+        setup.py
+        setup.cfg
+        LICENSE.txt
+        README.md
+        paketimiz/
+            __init__.py
+            hello.py
+            merhaba.py
+</code></pre>
+</div>
+
+<p>Burada yer alan <strong>hello.py</strong> ve <strong>merhaba.py</strong> projenizde yer alan dosyalar olacaktır. Bu adımdan sonra <strong>setup.py</strong> dosyasını oluşturmalıyız. Bu dosya projenin temel bilgilerini saklıyor olacak. Kısacası metadata diyebiliriz.</p>
+
+<h2 id="setuppy-dosyası">setup.py Dosyası</h2>
+
+<p>Bu dosya için <strong>distutils</strong> modülünü import etmeliyiz.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+</code></pre>
+</div>
+
+<p>Genel olarak kodları vereyim ve açıklamasını yapayım:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">setup</span><span class="p">(</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="s">'paketimiz'</span><span class="p">,</span>
+	<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s">'paketimiz'</span><span class="p">],</span>
+	<span class="n">version</span> <span class="o">=</span> <span class="s">'0.1'</span><span class="p">,</span>
+	<span class="n">description</span> <span class="o">=</span> <span class="s">'Sağa sola selam veren garip bir uygulama'</span><span class="p">,</span>
+	<span class="n">author</span> <span class="o">=</span> <span class="s">'Ali GÖREN'</span><span class="p">,</span>
+	<span class="n">author_email</span> <span class="o">=</span> <span class="s">'goren.ali@yandex.com'</span><span class="p">,</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s">'https://github.com/aligoren/paketimiz'</span><span class="p">,</span>
+	<span class="n">download_url</span> <span class="o">=</span> <span class="s">'https://github.com/aligoren/paketimiz/archive/ilk.tar.gz'</span><span class="p">,</span>
+	<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s">'selam'</span><span class="p">,</span> <span class="s">'naber'</span><span class="p">,</span> <span class="s">'bilmemki'</span><span class="p">],</span>
+	<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[],</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Packages kısmında yer alan değer, name değeriyle aynı olmalı. Diğer kısımlar açıkcası çok zorlayıcı değil. Proje url’i için github vermek zorunlu değil. Ancak çoğu kişi bu adresi veriyor. İsterseniz download_url kısmına kendi sitenizin adresini de verebilirsiniz. Ayrıca paket için gerekli keywordleri mantıklı bir şekilde seçmeniz, erişilebilir olmasına imkan tanıyacaktır.</p>
+
+<h2 id="setupcfg">setup.cfg</h2>
+
+<p>Asıl metadata bilgisinin yani proje açıklama bilgisinin girileceği (markdown olabilir, rst olabilir) yer burası. Direkt bir açıklama girmek yerine oluşturduğumuz readme dosyasını kullanabiliriz:</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="nn">[metadata]</span>
+<span class="py">description-file</span><span class="p">=</span><span class="s">README.md</span>
+</code></pre>
+</div>
+
+<p>Her şey tamam ise şu komutu çalıştırıp öncelikle dist klasörümüzü oluşturalım. <strong>python setup.py sdist</strong> Bu komut oluşturduğumuz projeyi arşiv dosyası halinde <strong>dist</strong> klasörü altına oluşturacaktır.</p>
+
+<p>Örneğin paket adımız <strong>mehmet</strong> olsun. Bunun oluşan arşiv dosyası adı <strong>mehmet-VERSIYON.tar.gz</strong> şeklinde olacaktır.</p>
+
+<h2 id="twine-kurulumu">twine Kurulumu</h2>
+
+<p>Her şey hazır, şimdi twine kurulumuna geçelim. Python dokümantasyonlarında da kullanılan twine ile paketlerimizi yukarıya atılabilir hale getiriyoruz. Bu paketleri hem PyPi live hem de PyPi test üzerine yollayabiliriz yani.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pip install twine
+</code></pre>
+</div>
+
+<p>Bu komutla twine kurulumunu yapalım ve sonraki adıma geçelim.</p>
+
+<h2 id="test-sitesi-Üzerinde-kontrol">Test Sitesi Üzerinde Kontrol</h2>
+
+<p>Yazının başından da hatırlayacağınız gibi hem test hem de live için kayıt olduk. Bu paketi öncelikle test üzerinde kontrol edelim.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>twine register dist/ARSIV_DOSYAMIZ.tar.gz  -r testpypi
+</code></pre>
+</div>
+
+<p>Eğer <strong>HTTPError: 410 Client Error: Project pre-registration is no longer required or supported, so continue directly to uploading files.</strong> hatası alırsanız</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>twine upload dist/ARSIV_DOSYAMIZ.tar.gz  -r testpypi
+</code></pre>
+</div>
+
+<p>komutunu kullanarak yukarıya direkt gönderebilirsiniz. TestPyPi sitesinde sağ tarafa bakarsak yayınladığımız paket oralarda boş boş durmakta.</p>
+
+<p>Burada yer alan <strong>-r</strong> flag ise hangi repository üzerinde paketin gönderileceğini belirtiyor. Kısacası şu an hala test modülünde çalışıyoruz. Bunu live PyPi üzerine atalım.</p>
+
+<p>Bunun için direkt olarak upload komutunu kullanalım ve dist altında yer alan tüm dosyaları belirtelim. Zorunlu değil. Eğer isterseniz tek bir dosyayı da seçebilirsiniz.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>twine upload dist/paketimiz-0.1.tar.gz  
+
+Uploading distributions to https://upload.pypi.org/legacy/
+Uploading paketimiz-0.1.tar.gz
+</code></pre>
+</div>
+
+<p>Dosyamız yüklendikten sonra gerçekten live üzerinde yer alıyor mu kontrol etmeliyiz. Basitçe paketimizi kuralum <strong>pip install paketimiz</strong></p>
+
+<p>Ardından ben Python3 ile deniyorum</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">paketimiz</span> <span class="kn">import</span> <span class="n">hello</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="n">msg</span><span class="p">()</span>
+<span class="n">Hello</span> <span class="n">world</span>
+</code></pre>
+</div>
+
+</div>
+<div class="whoami hide-mobile">
+  <img src="/images/ali.jpg" alt="My name is Yoda" class="about-img">
+  <h3 class="whoami-title">Who Am I</h3>
+  <div class="whoami-text">
+    24 Level insanım. Bana aşağıdan ulaşabilirsiniz.
+    <div class="link-group">
+        <a href="https://github.com/aligoren" target="_blank">Github</a>
+        <a href="https://fb.com/aligren" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/gorenali/" target="_blank">Linkedin</a>
+        <a href="mailto:goren.ali@yandex.com">Email</a>
+    </div>
+</div>
+</div>
+<div class="comments">
+  <h3>Yorumlar</h3>
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://aligren.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</div>
+
+<!--<div class="related">
+  <h2>İlişkili Yazılar</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/golang-fonksiyonlarini-pythonda-kullanmak">
+            Golang Fonksiyonlarını Python'da Kullanmak
+            <small>30 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-get-structtag-values">
+            Golang Get Struct Tag Values
+            <small>27 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/golang-ve-unittest-yazma">
+            Golang ve Unit Test Yazma
+            <small>17 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+-->
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

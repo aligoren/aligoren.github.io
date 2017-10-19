@@ -4,13 +4,184 @@
  <title>Ali GÖREN</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2017-10-01T00:48:01+03:00</updated>
+ <updated>2017-10-19T21:40:37+03:00</updated>
  <id></id>
  <author>
    <name>Ali GÖREN</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Python Modüllerini PyPi Üzerinde Paylaşmak</title>
+   <link href="/python-ile-pypi-paketleri-olusturmak"/>
+   <updated>2017-10-19T00:00:00+03:00</updated>
+   <id>/python-ile-pypi-paketleri-olusturmak</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/python.png&quot; alt=&quot;/images/posts/python.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Merhaba bu yazıda Python ile yazdığımız paketlerin PyPi üzerinde nasıl paylaşılacağını anlatacağım. Aslında rivayet odur ki ben bu yazıyı yazmışım. Yaklaşık 4 yıl önce. Ama tekrar yazmanın zararı yok.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Kevser Sırça şöyle bir tweet atmıştı&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;tr&quot; dir=&quot;ltr&quot;&gt;Biri PyPi paketi oluşturmayı bloglasa ne kadar da güzel olur&lt;/p&gt;&amp;mdash; Kevser Sırça (@kevsersrca) &lt;a href=&quot;https://twitter.com/kevsersrca/status/920716435852230656?ref_src=twsrc%5Etfw&quot;&gt;October 18, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;pypi-nedir&quot;&gt;PyPi Nedir?&lt;/h2&gt;
+
+&lt;p&gt;İşin fransızlarına gem, npm, nuget, composer dersem anlaşılır olabilir sanırım. Kendi projeleri için python modülleri yazan abiler, bu modülleri başkaları da kullanmalı diyerek &lt;a href=&quot;https://pypi.python.org/pypi&quot;&gt;PyPi&lt;/a&gt; üzerine yüklemeler gerçekleştirirler. Bizler de sonraları bu modülleri kullanırız.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install &lt;span class=&quot;nv&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Bash komutu django kurulumunu gerçekleştirecektir. Siz de benim atomu parçalayan modülümün herkesçe kullanılmasını isteyenlerdenim diyorsanız bu yazı tam size göre.&lt;/p&gt;
+
+&lt;h2 id=&quot;başlamadan-Önce&quot;&gt;Başlamadan Önce&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi?%3Aaction=register_form&quot;&gt;https://pypi.python.org/pypi&lt;/a&gt; adresinden (&lt;em&gt;yeni sekmede açın&lt;/em&gt;) bir hesap oluşturalım. Burada kullanacağınız parola büyüklü küçüklü harf ve rakam içeren türden olmalı. PGP alanı için bir zorunluluk bulunmamakta.&lt;/p&gt;
+
+&lt;p&gt;Aynı kayıt işlemini Test sitesi için de gerçekleştirelim. Bu Python modülleri için test adresidir. &lt;a href=&quot;https://testpypi.python.org/pypi?%3Aaction=register_form&quot;&gt;https://testpypi.python.org/pypi&lt;/a&gt;. Aslında bu çok önemli değil ama buraya kayıt olun siz.&lt;/p&gt;
+
+&lt;p&gt;Kayıt olurken aynı kullanıcı adı ve parola ile kayıt olmanız &lt;strong&gt;neydi lan benim hesap bilgileri&lt;/strong&gt; gibi sorular sormanıza da engel olacaktır.&lt;/p&gt;
+
+&lt;p&gt;Bu test üyeliğini biraz sonra göreceğimiz ayar dosyasında belirtebiliriz.&lt;/p&gt;
+
+&lt;h2 id=&quot;pypirc&quot;&gt;.pypirc&lt;/h2&gt;
+
+&lt;p&gt;Python modüllerini yukarıya atarken yetkilendirme işlemlerini sağlayacağımız pypirc dosyasını nano yardımıyla oluşturalım.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano ~/.pypirc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Örnek bir .pypirc dosyası şöyle olmalı&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[distutils]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;index-servers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;pypi&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;testpypi&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[pypi]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;repository=https://upload.pypi.org/legacy/&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;KULLANICI_ADINIZ&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ÇOKTA_GİZLİ_OLMAYAN_PAROLANIZ&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[testpypi]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://test.pypi.org/legacy/&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;KULLANICI_ADINIZ&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ÇOKTA_GİZLİ_OLMAYAN_PAROLANIZ&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;CTRL + x ve Y yaparak dosyayı kaydedin. Dikkat ettiyseniz eğer test ve gerçek depo adresi için kullanıcı adı ve parola bilgileri ayrı ayrı veriliyor.&lt;/p&gt;
+
+&lt;h2 id=&quot;proje-yapısı&quot;&gt;Proje Yapısı&lt;/h2&gt;
+
+&lt;p&gt;Proje adını &lt;strong&gt;say_hello&lt;/strong&gt; olarak verdiğimizi varsayalım. Bu projenin yapısı şöyle olmalıdır:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;say_hello/
+        setup.py
+        setup.cfg
+        LICENSE.txt
+        README.md
+        paketimiz/
+            __init__.py
+            hello.py
+            merhaba.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Burada yer alan &lt;strong&gt;hello.py&lt;/strong&gt; ve &lt;strong&gt;merhaba.py&lt;/strong&gt; projenizde yer alan dosyalar olacaktır. Bu adımdan sonra &lt;strong&gt;setup.py&lt;/strong&gt; dosyasını oluşturmalıyız. Bu dosya projenin temel bilgilerini saklıyor olacak. Kısacası metadata diyebiliriz.&lt;/p&gt;
+
+&lt;h2 id=&quot;setuppy-dosyası&quot;&gt;setup.py Dosyası&lt;/h2&gt;
+
+&lt;p&gt;Bu dosya için &lt;strong&gt;distutils&lt;/strong&gt; modülünü import etmeliyiz.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;distutils.core&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Genel olarak kodları vereyim ve açıklamasını yapayım:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'paketimiz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;packages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'paketimiz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'0.1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Sağa sola selam veren garip bir uygulama'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ali GÖREN'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;author_email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'goren.ali@yandex.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://github.com/aligoren/paketimiz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;download_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://github.com/aligoren/paketimiz/archive/ilk.tar.gz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;keywords&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'selam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'naber'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'bilmemki'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;classifiers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Packages kısmında yer alan değer, name değeriyle aynı olmalı. Diğer kısımlar açıkcası çok zorlayıcı değil. Proje url’i için github vermek zorunlu değil. Ancak çoğu kişi bu adresi veriyor. İsterseniz download_url kısmına kendi sitenizin adresini de verebilirsiniz. Ayrıca paket için gerekli keywordleri mantıklı bir şekilde seçmeniz, erişilebilir olmasına imkan tanıyacaktır.&lt;/p&gt;
+
+&lt;h2 id=&quot;setupcfg&quot;&gt;setup.cfg&lt;/h2&gt;
+
+&lt;p&gt;Asıl metadata bilgisinin yani proje açıklama bilgisinin girileceği (markdown olabilir, rst olabilir) yer burası. Direkt bir açıklama girmek yerine oluşturduğumuz readme dosyasını kullanabiliriz:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[metadata]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;description-file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;README.md&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Her şey tamam ise şu komutu çalıştırıp öncelikle dist klasörümüzü oluşturalım. &lt;strong&gt;python setup.py sdist&lt;/strong&gt; Bu komut oluşturduğumuz projeyi arşiv dosyası halinde &lt;strong&gt;dist&lt;/strong&gt; klasörü altına oluşturacaktır.&lt;/p&gt;
+
+&lt;p&gt;Örneğin paket adımız &lt;strong&gt;mehmet&lt;/strong&gt; olsun. Bunun oluşan arşiv dosyası adı &lt;strong&gt;mehmet-VERSIYON.tar.gz&lt;/strong&gt; şeklinde olacaktır.&lt;/p&gt;
+
+&lt;h2 id=&quot;twine-kurulumu&quot;&gt;twine Kurulumu&lt;/h2&gt;
+
+&lt;p&gt;Her şey hazır, şimdi twine kurulumuna geçelim. Python dokümantasyonlarında da kullanılan twine ile paketlerimizi yukarıya atılabilir hale getiriyoruz. Bu paketleri hem PyPi live hem de PyPi test üzerine yollayabiliriz yani.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pip install twine
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Bu komutla twine kurulumunu yapalım ve sonraki adıma geçelim.&lt;/p&gt;
+
+&lt;h2 id=&quot;test-sitesi-Üzerinde-kontrol&quot;&gt;Test Sitesi Üzerinde Kontrol&lt;/h2&gt;
+
+&lt;p&gt;Yazının başından da hatırlayacağınız gibi hem test hem de live için kayıt olduk. Bu paketi öncelikle test üzerinde kontrol edelim.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;twine register dist/ARSIV_DOSYAMIZ.tar.gz  -r testpypi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Eğer &lt;strong&gt;HTTPError: 410 Client Error: Project pre-registration is no longer required or supported, so continue directly to uploading files.&lt;/strong&gt; hatası alırsanız&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;twine upload dist/ARSIV_DOSYAMIZ.tar.gz  -r testpypi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;komutunu kullanarak yukarıya direkt gönderebilirsiniz. TestPyPi sitesinde sağ tarafa bakarsak yayınladığımız paket oralarda boş boş durmakta.&lt;/p&gt;
+
+&lt;p&gt;Burada yer alan &lt;strong&gt;-r&lt;/strong&gt; flag ise hangi repository üzerinde paketin gönderileceğini belirtiyor. Kısacası şu an hala test modülünde çalışıyoruz. Bunu live PyPi üzerine atalım.&lt;/p&gt;
+
+&lt;p&gt;Bunun için direkt olarak upload komutunu kullanalım ve dist altında yer alan tüm dosyaları belirtelim. Zorunlu değil. Eğer isterseniz tek bir dosyayı da seçebilirsiniz.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;twine upload dist/paketimiz-0.1.tar.gz  
+
+Uploading distributions to https://upload.pypi.org/legacy/
+Uploading paketimiz-0.1.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dosyamız yüklendikten sonra gerçekten live üzerinde yer alıyor mu kontrol etmeliyiz. Basitçe paketimizi kuralum &lt;strong&gt;pip install paketimiz&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ardından ben Python3 ile deniyorum&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;paketimiz&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;world&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Golang Fonksiyonlarını Python'da Kullanmak</title>
